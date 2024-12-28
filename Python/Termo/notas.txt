@@ -1,0 +1,20 @@
+# Registro de las constantes en la ley de enfriamento de nweton
+
+cafe en vaso 32
+leche en vaso 40
+vaso con cafe 30
+vaso con leche 30
+
+
+mezcla en vaso cafe 38
+mezcla en vaso leche 38
+vaso cafe con mezcla 30
+vaso leche con mezcla 30
+
+cafe en vaso 32
+leche en vaso 40
+vaso con cafe 30
+vaso con leche 30
+
+_________________________________
+
