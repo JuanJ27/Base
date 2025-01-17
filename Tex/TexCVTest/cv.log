@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.30)  15 JAN 2025 23:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2024.12.30)  16 JAN 2025 18:47
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**/home/juan/Workspace/Base/Tex/TexCVTest/cvtest.tex
-(/home/juan/Workspace/Base/Tex/TexCVTest/cvtest.tex
+**/home/juan/Workspace/Base/Tex/TexCVTest/cv.tex
+(/home/juan/Workspace/Base/Tex/TexCVTest/cv.tex
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
 (/usr/local/texlive/2024/texmf-dist/tex/latex/base/article.cls
@@ -317,8 +317,8 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 8.
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count307
 \l__pdf_internal_box=\box100
-) (./cvtest.aux)
-\openout1 = `cvtest.aux'.
+) (./cv.aux)
+\openout1 = `cv.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
@@ -339,9 +339,9 @@ LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
 LaTeX Font Info:    ... okay on input line 10.
 Package hyperref Info: Link coloring ON on input line 10.
- (./cvtest.out) (./cvtest.out)
+ (./cv.out) (./cv.out)
 \@outlinefile=\write3
-\openout3 = `cvtest.out'.
+\openout3 = `cv.out'.
 
  (/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -404,24 +404,24 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
 {/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-[2] (./cvtest.aux)
+[2] (./cv.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 1
 L3 programming layer <2024-12-09>
  ***********
-Package rerunfilecheck Info: File `cvtest.out' has not changed.
+Package rerunfilecheck Info: File `cv.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
  10397 strings out of 473254
- 156953 string characters out of 5717961
- 571374 words of memory out of 5000000
+ 156877 string characters out of 5717961
+ 571358 words of memory out of 5000000
  33489 multiletter control sequences out of 15000+600000
  565400 words of font info for 63 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,5n,79p,305b,513s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,5n,79p,301b,511s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on cvtest.pdf (2 pages, 129841 bytes).
+Output written on cv.pdf (2 pages, 129675 bytes).
 PDF statistics:
  80 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream
