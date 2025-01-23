@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1737557241.27222 "/home/juan/Workspace/Base/Tex/TexCVTest/cv.tex" "cv.pdf" "cv" 1737557242.07224 0
-  "/home/juan/Workspace/Base/Tex/TexCVTest/cv.tex" 1737557240.2486 11213 be9237471bdc1f5f07797d5302e490dc ""
+["pdflatex"] 1737643508.54385 "/home/juan/Workspace/Base/Tex/TexCVTest/cv.tex" "cv.pdf" "cv" 1737643509.26388 0
+  "/home/juan/Workspace/Base/Tex/TexCVTest/cv.tex" 1737643507.34589 10327 e8146ddfea8ed3e163bb9875cae8058b ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/base/8r.enc" 1165713224 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc" 1254269338 2375 baa924870cfb487815765f9094cf3728 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc" 1202520719 2405 5dcf2c1b967ee25cc46c58cd52244aed ""
@@ -9,6 +9,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/bitstrea/charter/bchb8r.tfm" 1136768653 5184 4fd08a9613e75c1da82714d79cf8b4f1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/bitstrea/charter/bchb8t.tfm" 1136768653 7436 84dcb1fa28471725ae91386499aed8eb ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/tfm/bitstrea/charter/bchr8c.tfm" 1136768653 1364 eddb79584f8d4279685d2abc2a2162ee ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/bitstrea/charter/bchr8r.tfm" 1136768653 4644 551129616ea4f62d8f0094a3db9a3f9d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/bitstrea/charter/bchr8t.tfm" 1136768653 6836 75e8167634b71810c3dd726622b1fd1d ""
   "/usr/local/texlive/2024/texmf-dist/fonts/tfm/bitstrea/charter/bchri8r.tfm" 1136768653 4976 cfc4dd38b8fb809ad0d6138823dff41a ""
@@ -41,6 +42,7 @@
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmsy9.pfb" 1254269338 27835 16c2fa83351d4ef8cf5aebfab8a44bc1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/type1/public/lm/lmtt10.pfb" 1255129361 113227 1010e11451afc2822c95dae77c390042 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/vf/bitstrea/charter/bchb8t.vf" 1136768653 2348 8d5673a28b31b0de9aa581c30f65dd1e ""
+  "/usr/local/texlive/2024/texmf-dist/fonts/vf/bitstrea/charter/bchr8c.vf" 1136768653 3492 1012f7b53b5692e6d6f11a0fab90a971 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/vf/bitstrea/charter/bchr8t.vf" 1136768653 2348 67712062c9694a242fa13da6829cc4f1 ""
   "/usr/local/texlive/2024/texmf-dist/fonts/vf/bitstrea/charter/bchri8t.vf" 1136768653 2312 5e1caa81ceda1b9597784aa61c5b5510 ""
   "/usr/local/texlive/2024/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -113,6 +115,7 @@
   "/usr/local/texlive/2024/texmf-dist/tex/latex/paracol/paracol.sty" 1729891619 106557 32e9de36b24669ee5b6b58861439b10c ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/charter.sty" 1586716065 838 9832f7748dc52a9fad0fb6beea4da041 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/t1bch.fd" 1137110629 774 e9917b6850ae4e6942b543ca308d874c ""
+  "/usr/local/texlive/2024/texmf-dist/tex/latex/psnfss/ts1bch.fd" 1137110629 619 714c95de6bdfe7fd2ff11be7337fbafb ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/refcount/refcount.sty" 1576624809 9878 9e94e8fa600d95f9c7731bb21dfb67a4 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657483315 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "/usr/local/texlive/2024/texmf-dist/tex/latex/titlesec/titlesec.sty" 1698436711 48766 0b93839be28e9744a24c45075c75b2e2 ""
@@ -125,8 +128,8 @@
   "/usr/local/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1735595624 5485709 8129e419010b46b234085a26866cdb87 ""
   "/usr/local/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1735595669 3347788 0a70b66191ab7fee98dcca101ce6fa79 ""
   "/usr/local/texlive/2024/texmf.cnf" 1735595618.08116 455 5b996dcaa0eb4ef14a83b026bc0a008c ""
-  "cv.aux" 1737557242.00061 2267 7eb4573d7bbbc1858b5aa627474c2b82 "pdflatex"
-  "cv.tex" 1737557240.2486 11213 be9237471bdc1f5f07797d5302e490dc ""
+  "cv.aux" 1737643509.16898 2267 0d41204b97bc7f9e8735b4b664f141c0 "pdflatex"
+  "cv.tex" 1737643507.34589 10327 e8146ddfea8ed3e163bb9875cae8058b ""
   (generated)
   "cv.aux"
   "cv.log"
