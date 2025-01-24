@@ -1,8 +1,12 @@
+# Ignorar archivos auxiliares de LaTeX y similares
 *.aux
 *.fdb_latexmk
 *.fls
 *.log
 *.out
 *.synctex.gz
+*.gz
+
+# Ignorar archivos de paquetes o configuraciones adicionales
 *.zip
 *.pth
