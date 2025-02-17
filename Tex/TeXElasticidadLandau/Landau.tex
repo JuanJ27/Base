@@ -1,0 +1,424 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+
+\section*{Sección 7: Deformaciones en Sólidos}
+
+\subsection*{Problema 1: Deformación de una Varilla Vertical}
+
+\textit{Solución.} Consideremos una varilla de longitud $l$ en reposo bajo un campo gravitatorio. Tomamos el eje $z$ en la dirección de la varilla, y el plano $x, y$ coincidente con el plano de su extremo inferior. Las ecuaciones de equilibrio son:
+
+$$
+\frac{\partial \sigma_{xx}}{\partial x} = \frac{\partial \sigma_{yz}}{\partial y} = 0, \quad \frac{\partial \sigma_{zz}}{\partial z} = eg.
+$$
+
+En la superficie lateral de la varilla, todas las componentes de $\sigma_{ik}$ deben anularse, excepto $\sigma_{zz}$. En el extremo superior ($z = l$), $\sigma_{xz} = \sigma_{yz} = \sigma_{zz} = 0$. La solución que satisface estas condiciones es $\sigma_{zz} = -\sigma g(l - z)$, con las demás $\sigma_{ik}$ nulas.
+
+Para $u_{ik}$, obtenemos:
+
+$$
+u_{xx} = u_{yy} = \frac{\sigma}{E} g(l - z), \quad u_{zz} = -\frac{\sigma g(l - z)}{E}, \quad u_{xy} = u_{xz} = u_{yz} = 0.
+$$
+
+Integrando, las componentes del vector de desplazamiento son:
+
+$$
+u_x = \frac{\sigma}{E} g(l - z)x, \quad u_y = \frac{\sigma}{E} g(l - z)y, \quad u_z = -\frac{\sigma g}{2E} \{l^2 - (l - z)^2 - \sigma(x^2 + y^2)\}z.
+$$
+
+La solución para $u_z$ satisface $u_z = 0$ solo en un punto del extremo inferior de la varilla, por lo que no es válida cerca de este extremo.
+
+\subsection*{Problema 2: Deformación de una Esfera Hueca}
+
+\textit{Solución.} Usamos coordenadas esféricas con origen en el centro de la esfera. El desplazamiento $\mathbf{u}$ es radial y función de $r$ solamente. Así, $\nabla \times \mathbf{u} = 0$ y $\nabla \cdot \mathbf{u} = 0$. Resulta:
+
+$$
+\text{div } \mathbf{u} = \frac{1}{r^2} \frac{d(r^2 u)}{dr} = \text{const} \equiv 3a,
+$$
+
+donde $u = ar + \frac{b}{r^2}$. Las componentes del tensor de deformación son $u_{rr} = a - \frac{2b}{r^3}$, $u_{\theta\theta} = u_{\varphi\varphi} = a + \frac{b}{r^3}$. La tensión radial es:
+
+$$
+\sigma_{rr} = \frac{E}{(1+\sigma)(1-2\sigma)} \{(1-\sigma)u_{rr} + 2\sigma u_{\theta\theta}\} = \frac{E}{1-2\sigma} a - \frac{2E}{1+\sigma} \frac{b}{r^3}.
+$$
+
+Las constantes $a$ y $b$ se determinan por las condiciones de contorno: $\sigma_{rr} = -p_1$ para $r = R_1$ y $\sigma_{rr} = -p_2$ para $r = R_2$:
+
+$$
+a = \frac{p_1 R_1^3 - p_2 R_2^3}{R_2^3 - R_1^3} \cdot \frac{1-2\sigma}{E}, \quad b = \frac{R_1^3 R_2^3 (p_1 - p_2)}{R_2^3 - R_1^3} \cdot \frac{1+\sigma}{2E}.
+$$
+
+Para una capa esférica con $p = p_1$ y $p_2 = 0$:
+
+$$
+\sigma_{rr} = -\frac{p R_2^3}{R_2^3 - R_1^3} \left(1 - \frac{R_2^3}{r^3}\right), \quad \sigma_{\theta\theta} = \sigma_{\varphi\varphi} = -\frac{p R_2^3}{R_2^3 - R_1^3} \left(1 + \frac{R_1^3}{r^3}\right).
+$$
+
+Para una cáscara esférica delgada:
+
+$$
+u = \frac{p R^2 (1-\sigma)}{2Eh}, \quad \sigma_{\theta\theta} = \sigma_{\varphi\varphi} = \frac{pR}{2h}, \quad \bar{\sigma}_{rr} = \frac{p}{2}.
+$$
+
+En un medio elástico infinito con cavidad hueca:
+
+$$
+\sigma_{rr} = -p \left(1 - \frac{R^3}{r^3}\right), \quad \sigma_{\theta\theta} = \sigma_{\varphi\varphi} = -p \left(1 + \frac{R^3}{2r^3}\right).
+$$
+
+La tensión tangencial en la superficie es $\sigma_{\theta\theta} = \sigma_{\varphi\varphi} = -3p/2$.
+
+\subsection*{Problema 3: Deformación de una Esfera Maciza}
+
+\textit{Solución.} La fuerza gravitatoria en un cuerpo esférico es $-\frac{gr}{R}$. Sustituyendo en la ecuación (7.3), obtenemos:
+
+$$
+\frac{E(1-\sigma)}{(1+\sigma)(1-2\sigma)} \frac{d}{dr} \left( \frac{1}{r^2} \frac{d(r^2 u)}{dr} \right) = eg \frac{r}{R}.
+$$
+
+La solución para $r = 0$ y $\sigma_{rr} = 0$ en $r = R$ es:
+
+$$
+u = -\frac{g\sigma R(1-2\sigma)(1+\sigma)}{10E(1-\sigma)} r \left(\frac{3-\sigma}{1+\sigma} - \frac{r^2}{R^2}\right).
+$$
+
+La materia está comprimida ($u_{rr} < 0$) dentro de $R$ y dilatada fuera ($u_{rr} > 0$). La presión en el centro es $\frac{3-\sigma}{10(1-\sigma)} g e R$.
+
+\subsection*{Problema 4: Deformación de un Tubo Cilíndrico}
+
+\textit{Solución.} Usamos coordenadas cilíndricas con el eje $z$ a lo largo del tubo. La presión uniforme causa un desplazamiento radial puro $u_r = -u(r)$. Análogamente al problema 2:
+
+$$
+\text{div } \mathbf{u} = \frac{1}{r} \frac{d(ru)}{dr} = \text{const} \equiv 2a.
+$$
+
+Por lo tanto, $u = ar + \frac{b}{r}$. Las componentes no nulas del tensor de deformaciones son $u_{rr} = \frac{du}{dr} = a - \frac{b}{r^2}$, $u_{\varphi\varphi} = \frac{u}{r} = a + \frac{b}{r^2}$. De las condiciones $\sigma_{rr} = 0$ en $r = R_2$ y $\sigma_{rr} = -p$ en $r = R_1$:
+
+$$
+a = \frac{pR_1^2}{R_2^2 - R_1^2} \cdot \frac{(1+\sigma)(1-2\sigma)}{E}, \quad b = \frac{pR_1^2 R_2^2}{R_2^2 - R_1^2} \cdot \frac{1+\sigma}{E}.
+$$
+
+La distribución de tensiones es:
+
+$$
+\sigma_{rr} = \frac{pR_1^2}{R_2^2 - R_1^2} \left(1 - \frac{R_2^2}{r^2}\right), \quad \sigma_{\varphi\varphi} = \frac{pR_1^2}{R_2^2 - R_1^2} \left(1 + \frac{R_2^2}{r^2}\right), \quad \sigma_{zz} = 2\sigma \frac{pR_1^2}{R_2^2 - R_1^2}.
+$$
+
+\subsection*{Problema 5: Deformación de un Cilindro Giratorio}
+
+\textit{Solución.} Reemplazamos la fuerza gravitatoria por la centrífuga $q \Omega^2 r$. La ecuación para $u_r = u(r)$ es:
+
+$$
+\frac{E(1-\sigma)}{(1+\sigma)(1-2\sigma)} \frac{d}{dr} \left( \frac{1}{r} \frac{d(ru_r)}{dr} \right) = -q \Omega^2 r.
+$$
+
+La solución para $r = 0$ y $\sigma_{rr} = 0$ en $r = R$ es:
+
+$$
+u = \frac{q \Omega^2 (1+\sigma)(1-2\sigma)}{8E(1-\sigma)} r [(3-2\sigma)R^2 - r^2].
+$$
+
+\section*{Sección 16: Rigidez a la Torsión}
+
+\subsection*{Problema 1: Barra de Sección Circular}
+
+\textit{Solución.} Las soluciones de los problemas 1-4 coinciden formalmente con las soluciones de los problemas del movimiento de un líquido viscoso en un tubo de sección correspondiente. Para una barra de sección circular, tenemos:
+
+$$
+\chi = \frac{1}{4} (R^2 - x^2 - y^2).
+$$
+
+La rigidez a la torsión es:
+
+$$
+C = \frac{\mu \pi R^4}{2}.
+$$
+
+Para la función $\psi$, se deduce $\psi = \text{const}$. La constante $\psi$ corresponde a un desplazamiento de toda la barra a lo largo del eje $z$, por lo que se puede considerar $\psi = 0$. Así, las secciones transversales permanecen planas.
+
+\subsection*{Problema 2: Barra de Sección Elíptica}
+
+\textit{Solución.} La rigidez a la torsión es:
+
+$$
+C = \pi \mu \frac{a^3 b^3}{a^2 + b^2}.
+$$
+
+La distribución de desplazamientos longitudinales está dada por la función de torsión:
+
+$$
+\psi = \frac{b^2 - a^2}{b^2 + a^2} xy.
+$$
+
+\subsection*{Problema 3: Barra de Sección Triangular}
+
+\textit{Solución.} Rigidez a la torsión:
+
+$$
+C = \frac{\sqrt{3}}{80} \mu a^4.
+$$
+
+Función de torsión:
+
+$$
+\psi = y(x\sqrt{3} + y)(x\sqrt{3} - y)/6a.
+$$
+
+El origen de coordenadas se elige en el centro del triángulo, y el eje $x$ coincide con una de sus alturas.
+
+\subsection*{Problema 4: Barra con Forma de Placa Delgada}
+
+\textit{Solución.} El problema es equivalente al flujo de un líquido viscoso entre paredes planas y paralelas. El resultado es:
+
+$$
+C = \frac{\mu dh^3}{3}.
+$$
+
+\subsection*{Problema 5: Tubo Cilíndrico}
+
+\textit{Solución.} La función:
+
+$$
+\chi = \frac{1}{4}(R^2 - r^2)
+$$
+
+satisface la condición (16.13) en ambos límites de la sección anular del tubo. De la fórmula (16.17) se sigue:
+
+$$
+C = \mu \pi \frac{R_2^4 - R_1^4}{4}.
+$$
+
+\subsection*{Problema 6: Tubo de Paredes Delgadas}
+
+\textit{Solución.} Dado que la pared del tubo es delgada, se puede considerar que en ella la función $\chi$ varía linealmente desde cero hasta $\chi_1$:
+
+$$
+\chi = \chi_1 \frac{y}{h}.
+$$
+
+La condición (16.13) da $\frac{\chi_1 L}{h} = S$, donde $L$ es la longitud del perímetro de la sección del tubo, y $S$ el área que encierra. Obtenemos:
+
+$$
+C = \frac{4hS^2 \mu}{L}.
+$$
+
+Si se corta el tubo a lo largo de una de sus generatrices, la rigidez a la torsión disminuye a:
+
+$$
+C = \frac{\mu Lh^3}{3}.
+$$
+
+\section*{Sección 19: Problemas de Flexión}
+
+\subsection*{Problema 1: Reducción a Cuadraturas}
+
+\textit{Solución.} Consideremos una porción de la barra comprendida entre puntos de aplicación de las fuerzas; en tal región es $F = \text{const}$. Elijamos el plano de la flexión como plano $x, y$, con el eje $y$ paralelo a la fuerza $F$ e introduzcamos el ángulo $\theta$ entre la tangente a la línea de la barra y el eje $y$. Entonces:
+
+$$
+\frac{dx}{dl} = \sin \theta, \quad \frac{dy}{dl} = \cos \theta,
+$$
+
+donde $x, y$ son las coordenadas de los puntos de la barra. Desarrollando los productos vectoriales, obtenemos:
+
+$$
+IE \frac{d^2 \theta}{dl^2} - F \sin \theta = 0.
+$$
+
+La primera integración da:
+
+$$
+\frac{IE}{2} \left( \frac{d\theta}{dl} \right)^2 + F \cos \theta = c_1,
+$$
+
+y de aquí:
+
+$$
+l = \pm \sqrt{\frac{IE}{2}} \int \frac{d\theta}{\sqrt{c_1 - F \cos \theta}} + c_2
+$$
+
+La función $\theta(l)$ puede expresarse mediante funciones elípticas. Para las coordenadas:
+
+$$
+x = \int \sin \theta \, dl, \quad y = \int \cos \theta \, dl,
+$$
+
+obtenemos:
+
+$$
+x = \pm \frac{1}{F} \sqrt{2IE} \sqrt{c_1 - F \cos \theta} + \text{const.}
+$$
+
+$$
+y = \pm \sqrt{\frac{IE}{2}} \int \frac{\cos \theta \, d\theta}{\sqrt{c_1 - F \cos \theta}} + \text{const.}
+$$
+
+El momento $M$ está dirigido según el eje $z$ y su módulo vale $M = IE \frac{d\theta}{dl}$.
+
+\subsection*{Problema 2: Barra Fuertemente Encorvada}
+
+\textit{Solución.} En toda longitud de la barra es $F = \text{const} = f$. En el extremo empotrado ($l = 0$) se tiene $\theta = \frac{\pi}{2}$, y en el libre ($l = L$, donde $L$ es la longitud de la barra), $M = 0$, esto es, $\theta' = 0$. Introduciendo la notación $\theta_0 = \theta(L)$, tenemos:
+
+$$
+l = \sqrt{\frac{IE}{2f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{\cos \theta_0 - \cos \theta}}.
+$$
+
+De aquí se deduce la ecuación que determina $\theta_0$:
+
+$$
+L = \sqrt{\frac{IE}{2f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{\cos \theta_0 - \cos \theta}}.
+$$
+
+La forma de la barra se halla mediante las fórmulas:
+
+$$
+x = \sqrt{\frac{2IE}{f}} \left( \sqrt{\cos \theta_0} - \sqrt{\cos \theta_0 - \cos \theta} \right),
+$$
+
+$$
+y = \sqrt{\frac{IE}{2f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{\cos \theta \, d\theta}{\sqrt{\cos \theta_0 - \cos \theta}}.
+$$
+
+\subsection*{Problema 3: Fuerza Aplicada en el Extremo Libre}
+
+\textit{Solución.} Tenemos $F = -f$. Condiciones de contorno: $\theta = 0$ en $l = 0$, $\theta' = 0$ en $l = L$. Tenemos:
+
+$$
+l = \sqrt{\frac{IE}{2f}} \int_{0}^{\theta_0} \frac{d\theta}{\sqrt{\cos \theta - \cos \theta_0}},
+$$
+
+donde $\theta_0 = \theta(L)$ se determina por:
+
+$$
+L = \sqrt{\frac{IE}{2f}} \int_{0}^{\theta_0} \frac{d\theta}{\sqrt{\cos \theta - \cos \theta_0}}.
+$$
+
+Para $x$ e $y$ obtenemos:
+
+$$
+x = \sqrt{\frac{2IE}{f}} \left( \sqrt{1 - \cos \theta_0} - \sqrt{\cos \theta - \cos \theta_0} \right),
+$$
+
+$$
+y = \sqrt{\frac{IE}{2f}} \int_{0}^{\theta_0} \frac{\cos \theta \, d\theta}{\sqrt{\cos \theta - \cos \theta_0}}.
+$$
+
+En una flexión pequeña, $\theta_0 \ll 1$ y se puede escribir:
+
+$$
+L \approx \sqrt{\frac{IE}{f}} \int_{0}^{\theta_0} \frac{d\theta}{\sqrt{\theta_0^2 - \theta^2}} = \frac{\pi}{2} \sqrt{\frac{IE}{f}}.
+$$
+
+Esto indica que la solución existe solo cuando $f \geq \frac{\pi^2 IE}{4L^2}$.
+
+\subsection*{Problema 4: Barra con Ambos Extremos Apoyados}
+
+\textit{Solución.} La fuerza $F$ es constante en cada una de las porciones $AB$ y $BC$. La diferencia entre los valores de $F$ en $AB$ y $BC$ es igual a $f$, de donde se deduce que en $AB$ es $F \sin \theta_0 = -\frac{f}{2}$, donde $\theta_0$ es el ángulo entre el eje $y$ y la línea $AC$. En el punto $A$ ($l = 0$) tenemos $\theta = \frac{\pi}{2}$ y $M = 0$, es decir, $\theta' = 0$, de modo que en $AB$:
+
+$$
+l = \sqrt{\frac{IE}{f}} \sqrt{\sin \theta_0} \int_{\theta_0}^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{\cos \theta}},
+$$
+
+$$
+x = 2 \sqrt{\frac{IE \sin \theta_0}{f}} \sqrt{\cos \theta},
+$$
+
+$$
+y = \sqrt{\frac{IE \sin \theta_0}{f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{\cos \theta \, d\theta}{\sqrt{\cos \theta}}.
+$$
+
+El ángulo $\theta_0$ se determina mediante la condición:
+
+$$
+\frac{L_0}{2} = \sqrt{\frac{IE \sin \theta_0}{f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{\cos (\theta - \theta_0)}{\sqrt{\sin \theta}} \, d\theta.
+$$
+
+Para determinado valor de $\theta_0$, la derivada $\frac{df}{d\theta_0}$ se anula y pasa a ser positiva, indicando que la solución se hace inestable.
+
+\section*{Sección 20: Formas de Barras}
+
+\subsection*{Problema 1: Barra Combadura por su Propio Peso}
+
+\textit{Solución.} La forma buscada se obtiene como solución de la ecuación $\zeta^{\prime\prime\prime\prime} = \frac{q}{EI}$ con condiciones de contorno en sus extremos. Para distintos apoyos de los extremos de la barra se obtienen las formas de flexión y los desplazamientos máximos:
+
+\begin{enumerate}
+    \item[a)] Ambos extremos empotrados:
+    $$
+    \zeta = -\frac{q}{24EI} z^2(z-l)^2, \quad \zeta\left(\frac{l}{2}\right) = \frac{1}{384} \frac{ql^4}{EI}.
+    $$
+
+    \item[b)] Ambos extremos apoyados:
+    $$
+    \zeta = \frac{q}{24EI} z(z^3 - 2lz^2 + l^3), \quad \zeta\left(\frac{l}{2}\right) = \frac{5}{384} \frac{ql^4}{EI}.
+    $$
+
+    \item[c)] Un extremo ($z = l$) empotrado, y el otro ($z = 0$) apoyado:
+    $$
+    \zeta = -\frac{q}{48EI} z(2z^3 - 3lz^2 + l^3), \quad \zeta(0.42l) = 0.0054 \frac{ql^4}{EI}.
+    $$
+
+    \item[d)] Un extremo ($z = 0$) empotrado, y el otro ($z = l$) libre:
+    $$
+    \zeta = -\frac{q}{24EI} z^2(z^2 - 4lz + 6l^2), \quad \zeta(l) = \frac{1}{8} \frac{ql^4}{EI}.
+    $$
+\end{enumerate}
+
+\subsection*{Problema 2: Barra Encorvada por una Fuerza Concentrada}
+
+\textit{Solución.} En todas partes, menos en el punto $z = l/2$, tenemos la ecuación $\zeta^{\prime\prime\prime\prime} = 0$. Las condiciones de contorno en los extremos de la barra determinan el modo de fijación. En el punto $z = l/2$ deben ser continuas $\zeta$, $\zeta'$, $\zeta''$, pero la diferencia de las fuerzas de corte debe ser igual a la fuerza $f$.
+
+\begin{enumerate}
+    \item[a)] Ambos extremos empotrados:
+    $$
+    \zeta = -\frac{f}{48EI} z^2(3l - 4z), \quad \zeta\left(\frac{l}{2}\right) = \frac{fl^3}{192EI}.
+    $$
+
+    \item[b)] Ambos extremos apoyados:
+    $$
+    \zeta = -\frac{f}{48EI} z(3l^2 - 4z^2), \quad \zeta\left(\frac{l}{2}\right) = \frac{fl^3}{48EI}.
+    $$
+\end{enumerate}
+
+\subsection*{Problema 3: Barra con un Extremo Empotrado y el Otro Libre}
+
+\textit{Solución.} A lo largo de toda la barra es $F = \text{const} = f$, de modo que $\zeta^{\prime\prime\prime} = -\frac{f}{EI}$. Con las condiciones $\zeta = 0$, $\zeta' = 0$ para $z = 0$ y $\zeta'' = 0$ para $z = l$ obtenemos:
+
+$$
+\zeta = -\frac{f}{6EI} z^2(3l - z), \quad \zeta(l) = \frac{fl^3}{3EI}.
+$$
+
+\subsection*{Problema 4: Barra con Extremos Fijos y Par de Fuerzas}
+
+\textit{Solución.} A lo largo de toda la barra es $\zeta^{\prime\prime\prime\prime} = 0$, pero en el punto $z = l/2$ el momento $M = EI\zeta''$ experimenta un salto igual al momento $m$ del par concentrado.
+
+\begin{enumerate}
+    \item[a)] Ambos extremos empotrados:
+    $$
+    \zeta = -\frac{m}{24EIl} z^2(l + 2z) \quad \text{cuando } 0 \leq z \leq l/2,
+    $$
+    $$
+    \zeta = -\frac{m}{24EIl} (l - z)^2[l + 2(l - z)] \quad \text{cuando } l/2 \leq z \leq l.
+    $$
+
+    \item[b)] Ambos extremos articulados:
+    $$
+    \zeta = -\frac{m}{24EIl} z(l^2 - 4z^2) \quad \text{cuando } 0 \leq z \leq l/2,
+    $$
+    $$
+    \zeta = -\frac{m}{24EIl} (l - z)[l^2 - 4(l - z)^2] \quad \text{cuando } l/2 \leq z \leq l.
+    $$
+\end{enumerate}
+
+\subsection*{Problema 5: Par Concentrado en el Extremo Libre}
+
+\textit{Solución.} A lo largo de toda la barra tenemos $M = EI\zeta'' = m$, y en el punto $z = 0$ es $\zeta = 0$, $\zeta' = 0$. La forma de la flexión viene dada por la fórmula:
+
+$$
+\zeta = -\frac{m}{2EI} z^2.
+$$
+
+
+\end{document}
