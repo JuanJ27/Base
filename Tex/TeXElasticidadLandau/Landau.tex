@@ -9,38 +9,45 @@
 \section*{Sección 7: Deformaciones en Sólidos}
 
 \subsection*{Problema 1: Deformación de una Varilla Vertical}
+\textbf{Enunciado.} Determinar la deformación de una larga varilla (longitud \textit{l}) vertical y en reposo en un campo gravitatorio
 
-\textit{Solución.} Consideremos una varilla de longitud $l$ en reposo bajo un campo gravitatorio. Tomamos el eje $z$ en la dirección de la varilla, y el plano $x, y$ coincidente con el plano de su extremo inferior. Las ecuaciones de equilibrio son:
+\textit{Solución.} Tomamos el eje $z$ en la dirección de la varilla, y el plano $x, y$ coincidente con el plano de su extremo inferior. Las ecuaciones de equilibrio son:
 
 $$
-\frac{\partial \sigma_{xx}}{\partial x} = \frac{\partial \sigma_{yz}}{\partial y} = 0, \quad \frac{\partial \sigma_{zz}}{\partial z} = eg.
+\frac{\partial \sigma_{xi}}{\partial x_{i}} = \frac{\partial \sigma_{yi}}{\partial x_{i}} = 0, \quad \frac{\partial \sigma_{zi}}{\partial x_{i}} = \rho g.
 $$
 
-En la superficie lateral de la varilla, todas las componentes de $\sigma_{ik}$ deben anularse, excepto $\sigma_{zz}$. En el extremo superior ($z = l$), $\sigma_{xz} = \sigma_{yz} = \sigma_{zz} = 0$. La solución que satisface estas condiciones es $\sigma_{zz} = -\sigma g(l - z)$, con las demás $\sigma_{ik}$ nulas.
+En la superficie lateral de la varilla, todas las componentes de $\sigma_{ik}$ deben anularse, excepto $\sigma_{zz}$. En el extremo superior ($z = l$), $\sigma_{xz} = \sigma_{yz} = \sigma_{zz} = 0$. La solución que satisface estas condiciones es $\sigma_{zz} = -\rho g(l - z)$, con las demás $\sigma_{ik}$ nulas.
 
 Para $u_{ik}$, obtenemos:
 
 $$
-u_{xx} = u_{yy} = \frac{\sigma}{E} g(l - z), \quad u_{zz} = -\frac{\sigma g(l - z)}{E}, \quad u_{xy} = u_{xz} = u_{yz} = 0.
+u_{xx} = u_{yy} = \frac{\sigma}{E}\rho g(l - z), \quad u_{zz} = -\frac{\rho g(l - z)}{E}, \quad u_{xy} = u_{xz} = u_{yz} = 0.
 $$
 
 Integrando, las componentes del vector de desplazamiento son:
 
 $$
-u_x = \frac{\sigma}{E} g(l - z)x, \quad u_y = \frac{\sigma}{E} g(l - z)y, \quad u_z = -\frac{\sigma g}{2E} \{l^2 - (l - z)^2 - \sigma(x^2 + y^2)\}z.
+u_x = \frac{\sigma}{E}\rho g(l - z)x, \quad u_y = \frac{\sigma}{E}\rho g(l - z)y, \quad u_z = -\frac{\rho g}{2E} \{l^2 - (l - z)^2 - \sigma(x^2 + y^2)\}.
 $$
 
 La solución para $u_z$ satisface $u_z = 0$ solo en un punto del extremo inferior de la varilla, por lo que no es válida cerca de este extremo.
 
 \subsection*{Problema 2: Deformación de una Esfera Hueca}
+\textbf{Enunciado.} Hallar la deformación de una esfera hueca (de radios externo e interno $R_2$ y $R_1$, respectivamente), sometida a una presión interna $p_1$ y a una presión externa $p_2$.
 
-\textit{Solución.} Usamos coordenadas esféricas con origen en el centro de la esfera. El desplazamiento $\mathbf{u}$ es radial y función de $r$ solamente. Así, $\nabla \times \mathbf{u} = 0$ y $\nabla \cdot \mathbf{u} = 0$. Resulta:
+\textit{Nota:} Equación 7.5 $$2(1-\sigma)\nabla(\nabla \cdot \vec{u}) - (1-2\sigma)\nabla \times \nabla \times \vec{u} = 0$$
+Formulas 1.7 $$ u_{rr} = \frac{\partial u_r}{\partial r}, \quad u_{\theta \theta} = \frac{1}{r}\frac{\partial u_\theta}{\partial \theta} + \frac{u_r}{r}, \quad u_{\varphi \varphi} = \frac{1}{r\sin(\theta)}\frac{\partial u_\varphi}{\partial \varphi} + \frac{u_\theta}{r}\cot(\theta) + \frac{u_r}{r} $$
+$$ 2u_{\theta \varphi} = \frac{1}{r}\left(\frac{\partial u_\varphi}{\partial \theta}- u_\varphi \cot(\theta)\right) + \frac{1}{r\sin(\theta)}\frac{\partial u_\varphi}{\partial \varphi}, \quad 2u_{r\theta} = \frac{\partial u_\theta }{\partial r}-\frac{u_\theta}{r} + \frac{1}{r}\frac{\partial u_r }{\partial \theta}$$
+$$ 2u_{\varphi r}=\frac{1}{r\sin(\theta)}\frac{\partial u_r}{\partial \varphi}+\frac{\partial u_\varphi}{\partial r}-\frac{u_\varphi}{r} $$
+
+\textit{Solución.} Usamos coordenadas esféricas con origen en el centro de la esfera. El desplazamiento $\vec{u}$ es radial y función de $r$ solamente. Así, $\nabla \times \vec{u} = 0$ y (eq 7.5)$\nabla \cdot \vec{u} = 0$. Resulta:
 
 $$
-\text{div } \mathbf{u} = \frac{1}{r^2} \frac{d(r^2 u)}{dr} = \text{const} \equiv 3a,
+\text{div } \vec{u} = \frac{1}{r^2} \frac{d(r^2 u)}{dr} = \text{const} \equiv 3a,
 $$
 
-donde $u = ar + \frac{b}{r^2}$. Las componentes del tensor de deformación son $u_{rr} = a - \frac{2b}{r^3}$, $u_{\theta\theta} = u_{\varphi\varphi} = a + \frac{b}{r^3}$. La tensión radial es:
+donde $u = ar + \frac{b}{r^2}$. Las componentes del tensor de deformación son (Véase formulas 1.7) $u_{rr} = a - \frac{2b}{r^3}$, $u_{\theta\theta} = u_{\varphi\varphi} = a + \frac{b}{r^3}$. La tensión radial es:
 
 $$
 \sigma_{rr} = \frac{E}{(1+\sigma)(1-2\sigma)} \{(1-\sigma)u_{rr} + 2\sigma u_{\theta\theta}\} = \frac{E}{1-2\sigma} a - \frac{2E}{1+\sigma} \frac{b}{r^3}.
@@ -55,16 +62,16 @@ $$
 Para una capa esférica con $p = p_1$ y $p_2 = 0$:
 
 $$
-\sigma_{rr} = -\frac{p R_2^3}{R_2^3 - R_1^3} \left(1 - \frac{R_2^3}{r^3}\right), \quad \sigma_{\theta\theta} = \sigma_{\varphi\varphi} = -\frac{p R_2^3}{R_2^3 - R_1^3} \left(1 + \frac{R_1^3}{r^3}\right).
+\sigma_{rr} = \frac{p R_2^3}{R_2^3 - R_1^3} \left(1 - \frac{R_2^3}{r^3}\right), \quad \sigma_{\theta\theta} = \sigma_{\varphi\varphi} = \frac{p R_2^3}{R_2^3 - R_1^3} \left(1 + \frac{R_1^3}{r^3}\right).
 $$
 
-Para una cáscara esférica delgada:
+Para una cáscara esférica delgada, de espesor $h= R_2-R_1 \llless R$ obtenemos aproximadamente:
 
 $$
 u = \frac{p R^2 (1-\sigma)}{2Eh}, \quad \sigma_{\theta\theta} = \sigma_{\varphi\varphi} = \frac{pR}{2h}, \quad \bar{\sigma}_{rr} = \frac{p}{2}.
 $$
 
-En un medio elástico infinito con cavidad hueca:
+Donde $\bar{\sigma_{rr}}$ es el valor medio de la tensión radial promediada en el espesor de la cascara. Obtenemos la distribucion de tensiones en un medio elástico infinito con cavidad hueca (de radio R) sometido a compresión hidrostática, simplemente poniendo en las ecuaciones anteriores $R_1 = R$, $R_2 = \infty$, $p_1 = 0$ y $p_2 = p$:
 
 $$
 \sigma_{rr} = -p \left(1 - \frac{R^3}{r^3}\right), \quad \sigma_{\theta\theta} = \sigma_{\varphi\varphi} = -p \left(1 + \frac{R^3}{2r^3}\right).
@@ -73,27 +80,30 @@ $$
 La tensión tangencial en la superficie es $\sigma_{\theta\theta} = \sigma_{\varphi\varphi} = -3p/2$.
 
 \subsection*{Problema 3: Deformación de una Esfera Maciza}
+\textbf{Enunciado.} Determinar la deformación de una esfera maciza (de radio $R$) bajo la acción de su propio campo gravitatorio.
+\textit{Nota:} Equación 7.3: 
+$$ \nabla (\nabla \cdot \vec{u}) - \frac{1-2\sigma}{2(1-\sigma)}\nabla \times \nabla \times \vec{u} = -\rho \vec{g}\frac{(1+\sigma)(1-2\sigma)}{E(1-\sigma)}$$
 
-\textit{Solución.} La fuerza gravitatoria en un cuerpo esférico es $-\frac{gr}{R}$. Sustituyendo en la ecuación (7.3), obtenemos:
+\textit{Solución.} La fuerza gravitatoria que actua sobre la unidad de masa en un cuerpo esférico es $-\frac{g\vec{r}}{R}$. Sustituyendo esta expresion en lugar de $g$ en la ecuación (7.3), obtenemos:
 
 $$
-\frac{E(1-\sigma)}{(1+\sigma)(1-2\sigma)} \frac{d}{dr} \left( \frac{1}{r^2} \frac{d(r^2 u)}{dr} \right) = eg \frac{r}{R}.
+\frac{E(1-\sigma)}{(1+\sigma)(1-2\sigma)} \frac{d}{dr} \left( \frac{1}{r^2} \frac{d(r^2 u)}{dr} \right) = \rho g \frac{r}{R}.
 $$
 
 La solución para $r = 0$ y $\sigma_{rr} = 0$ en $r = R$ es:
 
 $$
-u = -\frac{g\sigma R(1-2\sigma)(1+\sigma)}{10E(1-\sigma)} r \left(\frac{3-\sigma}{1+\sigma} - \frac{r^2}{R^2}\right).
+u = -\frac{g\rho R(1-2\sigma)(1+\sigma)}{10E(1-\sigma)} r \left(\frac{3-\sigma}{1+\sigma} - \frac{r^2}{R^2}\right).
 $$
 
-La materia está comprimida ($u_{rr} < 0$) dentro de $R$ y dilatada fuera ($u_{rr} > 0$). La presión en el centro es $\frac{3-\sigma}{10(1-\sigma)} g e R$.
+La materia está comprimida ($u_{rr} < 0$) dentro de $R\sqrt{\frac{3-\sigma}{3(1+\sigma)}}$ y dilatada fuera ($u_{rr} > 0$). La presión en el centro es $\frac{3-\sigma}{10(1-\sigma)} g \rho R$.
 
 \subsection*{Problema 4: Deformación de un Tubo Cilíndrico}
 
 \textit{Solución.} Usamos coordenadas cilíndricas con el eje $z$ a lo largo del tubo. La presión uniforme causa un desplazamiento radial puro $u_r = -u(r)$. Análogamente al problema 2:
 
 $$
-\text{div } \mathbf{u} = \frac{1}{r} \frac{d(ru)}{dr} = \text{const} \equiv 2a.
+\text{div } \vec{u} = \frac{1}{r} \frac{d(ru)}{dr} = \text{const} \equiv 2a.
 $$
 
 Por lo tanto, $u = ar + \frac{b}{r}$. Las componentes no nulas del tensor de deformaciones son $u_{rr} = \frac{du}{dr} = a - \frac{b}{r^2}$, $u_{\varphi\varphi} = \frac{u}{r} = a + \frac{b}{r^2}$. De las condiciones $\sigma_{rr} = 0$ en $r = R_2$ y $\sigma_{rr} = -p$ en $r = R_1$:
