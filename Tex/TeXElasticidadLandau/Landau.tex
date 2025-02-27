@@ -81,6 +81,7 @@ La tensión tangencial en la superficie es $\sigma_{\theta\theta} = \sigma_{\var
 
 \subsection*{Problema 3: Deformación de una Esfera Maciza}
 \textbf{Enunciado.} Determinar la deformación de una esfera maciza (de radio $R$) bajo la acción de su propio campo gravitatorio.
+
 \textit{Nota:} Equación 7.3: 
 $$ \nabla (\nabla \cdot \vec{u}) - \frac{1-2\sigma}{2(1-\sigma)}\nabla \times \nabla \times \vec{u} = -\rho \vec{g}\frac{(1+\sigma)(1-2\sigma)}{E(1-\sigma)}$$
 
@@ -99,8 +100,13 @@ $$
 La materia está comprimida ($u_{rr} < 0$) dentro de $R\sqrt{\frac{3-\sigma}{3(1+\sigma)}}$ y dilatada fuera ($u_{rr} > 0$). La presión en el centro es $\frac{3-\sigma}{10(1-\sigma)} g \rho R$.
 
 \subsection*{Problema 4: Deformación de un Tubo Cilíndrico}
+\textbf{Enunciado.} Hallar la deformación de un tubo cilíndrico de radios externo e interno $R_2$ y $R_1$, respectivamente, sometido unicamente a una presión interna $p$ (se supone que se mantiene constante la longitud del cilindro, de manera que no hay deformación longitudinal).
 
-\textit{Solución.} Usamos coordenadas cilíndricas con el eje $z$ a lo largo del tubo. La presión uniforme causa un desplazamiento radial puro $u_r = -u(r)$. Análogamente al problema 2:
+\textit{Nota:} Formulas 1.8: $$ u_{rr} = \frac{\partial u_r}{\partial r}, \quad u_{\varphi \varphi}=\frac{1}{r}\frac{\partial u_\varphi}{\partial \varphi} + \frac{u_r}{r}, \quad u_{zz} = \frac{\partial u_z}{\partial z} $$
+$$ 2u_{\varphi z}=\frac{1}{r}\frac{\partial u_z}{\partial \varphi}+\frac{\partial u_\varphi}{\partial z}, \quad 2u_{rz}=\frac{\partial u_r}{\partial z} + \frac{\partial u_z}{\partial r}$$
+$$ 2u_{r \varphi}= \frac{\partial u_\varphi}{\partial r}-\frac{u_\varphi}{r}+\frac{1}{r}\frac{\partial u}{\partial \varphi} $$
+
+\textit{Solución.} Usamos coordenadas cilíndricas con el eje $z$ a lo largo del tubo. La presión uniforme causa un desplazamiento radial puro $u_r = u(r)$. Análogamente al problema 2:
 
 $$
 \text{div } \vec{u} = \frac{1}{r} \frac{d(ru)}{dr} = \text{const} \equiv 2a.
@@ -112,24 +118,25 @@ $$
 a = \frac{pR_1^2}{R_2^2 - R_1^2} \cdot \frac{(1+\sigma)(1-2\sigma)}{E}, \quad b = \frac{pR_1^2 R_2^2}{R_2^2 - R_1^2} \cdot \frac{1+\sigma}{E}.
 $$
 
-La distribución de tensiones es:
+La distribución de tensiones en el espesor de las paredes del tubo esta dada por:
 
 $$
 \sigma_{rr} = \frac{pR_1^2}{R_2^2 - R_1^2} \left(1 - \frac{R_2^2}{r^2}\right), \quad \sigma_{\varphi\varphi} = \frac{pR_1^2}{R_2^2 - R_1^2} \left(1 + \frac{R_2^2}{r^2}\right), \quad \sigma_{zz} = 2\sigma \frac{pR_1^2}{R_2^2 - R_1^2}.
 $$
 
 \subsection*{Problema 5: Deformación de un Cilindro Giratorio}
+\textbf{Enunciado.} Determinar la deformación de un cilindro que gira uniformemente alrededor de su eje.
 
-\textit{Solución.} Reemplazamos la fuerza gravitatoria por la centrífuga $q \Omega^2 r$. La ecuación para $u_r = u(r)$ es:
+\textit{Solución.} Reemplazamos la fuerza gravitatoria en (7.3) por la centrífuga $\rho \Omega^2 r$. La ecuación para $u_r = u(r)$ es:
 
 $$
-\frac{E(1-\sigma)}{(1+\sigma)(1-2\sigma)} \frac{d}{dr} \left( \frac{1}{r} \frac{d(ru_r)}{dr} \right) = -q \Omega^2 r.
+\frac{E(1-\sigma)}{(1+\sigma)(1-2\sigma)} \frac{d}{dr} \left( \frac{1}{r} \frac{d(ru_r)}{dr} \right) = -\rho \Omega^2 r.
 $$
 
 La solución para $r = 0$ y $\sigma_{rr} = 0$ en $r = R$ es:
 
 $$
-u = \frac{q \Omega^2 (1+\sigma)(1-2\sigma)}{8E(1-\sigma)} r [(3-2\sigma)R^2 - r^2].
+u = \frac{\rho \Omega^2 (1+\sigma)(1-2\sigma)}{8E(1-\sigma)} r [(3-2\sigma)R^2 - r^2].
 $$
 
 \section*{Sección 16: Rigidez a la Torsión}
