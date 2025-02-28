@@ -3,6 +3,7 @@
 \usepackage{amssymb}
 \usepackage{geometry}
 \geometry{a4paper, margin=1in}
+\usepackage{graphicx}
 
 \begin{document}
 
@@ -142,8 +143,17 @@ $$
 \section*{Sección 16: Rigidez a la Torsión}
 
 \subsection*{Problema 1: Barra de Sección Circular}
+\textbf{Enunciado.} Determinar la rigidez a la torsión de una barra de sección circular (de radio R).
 
-\textit{Solución.} Las soluciones de los problemas 1-4 coinciden formalmente con las soluciones de los problemas del movimiento de un líquido viscoso en un tubo de sección correspondiente. Para una barra de sección circular, tenemos:
+\textit{Nota:}
+
+De pag 97: Conviene notar también una analogía hidrodinámica: una equación de la forma $\nabla \chi = -1$ (16.11), determina la distribucion de velocidades $v(x,y)$ de una liquido viscoso en la sección de una tubo: la condición de contorno $\chi = 0$ (16.12), corresponde a la condición $v=0$ en las paredes inmóviles del tubo.
+
+Equación 16.10: $$ \frac{\partial \psi}{\partial x} = y + 2\frac{\partial \chi}{\partial y}, \quad \frac{\partial \psi}{\partial y} = -x -2\frac{\partial \chi}{\partial x} $$
+
+Equación 16.4: $$ u_z = \tau \psi(x,y) $$
+
+\textit{Solución.} Las soluciones de los problemas 1-4 coinciden formalmente con las soluciones de los problemas del movimiento de un líquido viscoso en un tubo de sección correspondiente (nota de pag 97) a la cantidad de liquido $Q$ que pasa a través de una sección del tubo correspondiente aqui la cantidad $C$. Para una barra de sección circular, tenemos:
 
 $$
 \chi = \frac{1}{4} (R^2 - x^2 - y^2).
@@ -155,9 +165,10 @@ $$
 C = \frac{\mu \pi R^4}{2}.
 $$
 
-Para la función $\psi$, se deduce $\psi = \text{const}$. La constante $\psi$ corresponde a un desplazamiento de toda la barra a lo largo del eje $z$, por lo que se puede considerar $\psi = 0$. Así, las secciones transversales permanecen planas.
+Para la función $\psi$, (de 16.10) se deduce $\psi = \text{const}$. La constante (según 16.4) $\psi$ corresponde a un desplazamiento de toda la barra a lo largo del eje $z$, por lo que se puede considerar $\psi = 0$. Así, las secciones transversales permanecen planas.
 
 \subsection*{Problema 2: Barra de Sección Elíptica}
+\textbf{Enunciado.} Lo mismo para una barra de sección eliptica (de semiejes $a$ y $b$).
 
 \textit{Solución.} La rigidez a la torsión es:
 
@@ -170,8 +181,10 @@ La distribución de desplazamientos longitudinales está dada por la función de
 $$
 \psi = \frac{b^2 - a^2}{b^2 + a^2} xy.
 $$
+Los ejes de coordenadas están dirigidos según los ejes de la elipse.
 
 \subsection*{Problema 3: Barra de Sección Triangular}
+\textbf{Enunciado.} Lo mismo para una barra cuya sección es un triángulo equilatero (de lado $a$).
 
 \textit{Solución.} Rigidez a la torsión:
 
@@ -182,12 +195,13 @@ $$
 Función de torsión:
 
 $$
-\psi = y(x\sqrt{3} + y)(x\sqrt{3} - y)/6a.
+\psi = \frac{y(x\sqrt{3} + y)(x\sqrt{3} - y)}{6a}.
 $$
 
 El origen de coordenadas se elige en el centro del triángulo, y el eje $x$ coincide con una de sus alturas.
 
 \subsection*{Problema 4: Barra con Forma de Placa Delgada}
+\textbf{Enunciado.} Ídem para una barra que tiene la forma de una larga placa delgada (de ancho $d$ y grueso $h\llless d$).
 
 \textit{Solución.} El problema es equivalente al flujo de un líquido viscoso entre paredes planas y paralelas. El resultado es:
 
@@ -196,8 +210,12 @@ C = \frac{\mu dh^3}{3}.
 $$
 
 \subsection*{Problema 5: Tubo Cilíndrico}
+\textbf{Enunciado.} Lo mismo para un tubo cilíndrico (de radios interno y externo $R_1$ y $R_2$).
 
-\textit{Solución.} La función:
+\textit{Nota:} Equación 16.13: $$ \oint \frac{\partial \chi}{\partial n}dl=-S $$
+Equación 16.17: $$ C=4\mu \sum_{k}\chi_k S_k +4\mu \int \chi dx dy $$
+
+\textit{Solución.} La función (en coordenadas polares):
 
 $$
 \chi = \frac{1}{4}(R^2 - r^2)
@@ -210,20 +228,21 @@ C = \mu \pi \frac{R_2^4 - R_1^4}{4}.
 $$
 
 \subsection*{Problema 6: Tubo de Paredes Delgadas}
+\textbf{Enunciado.} Ídem para un tubo de paredes delgada y sección arbitraria.
 
-\textit{Solución.} Dado que la pared del tubo es delgada, se puede considerar que en ella la función $\chi$ varía linealmente desde cero hasta $\chi_1$:
+\textit{Solución.} Dado que la pared del tubo es delgada, se puede considerar que en ella la función $\chi$ varía linealmente desde cero, sobre una cara, hasta $\chi_1$, sobre la otra ($y$ es la coordenada a lo largo del espesor del la pared):
 
 $$
 \chi = \chi_1 \frac{y}{h}.
 $$
 
-La condición (16.13) da $\frac{\chi_1 L}{h} = S$, donde $L$ es la longitud del perímetro de la sección del tubo, y $S$ el área que encierra. Obtenemos:
+La condición (16.13) da $\frac{\chi_1 L}{h} = S$, donde $L$ es la longitud del perímetro de la sección del tubo, y $S$ el área que encierra. En la expresion (16.17) el segundo término es pequeño comparado con el primero, y obtenemos:
 
 $$
 C = \frac{4hS^2 \mu}{L}.
 $$
 
-Si se corta el tubo a lo largo de una de sus generatrices, la rigidez a la torsión disminuye a:
+Si se corta el tubo a lo largo de una de sus generatrices, la rigidez a la torsión disminuye a (de acuerdo con el resultado del problema 4):
 
 $$
 C = \frac{\mu Lh^3}{3}.
@@ -232,6 +251,9 @@ $$
 \section*{Sección 19: Problemas de Flexión}
 
 \subsection*{Problema 1: Reducción a Cuadraturas}
+\textbf{Enunciado.} Reducir a cuadraturas el problema de la determinación de la forma de una barra de sección circular (varilla elástica), fuertemente combada en un plano por fuerzas concentradas.
+
+\textit{Nota:} Ecuacion 19.10: $$ EI\frac{d\vec{r}}{dl}\times \frac{d^{3}\vec{r}}{dl^{3}} = \vec{F}\times\frac{d\vec{r}}{dl}$$
 
 \textit{Solución.} Consideremos una porción de la barra comprendida entre puntos de aplicación de las fuerzas; en tal región es $F = \text{const}$. Elijamos el plano de la flexión como plano $x, y$, con el eje $y$ paralelo a la fuerza $F$ e introduzcamos el ángulo $\theta$ entre la tangente a la línea de la barra y el eje $y$. Entonces:
 
@@ -239,7 +261,7 @@ $$
 \frac{dx}{dl} = \sin \theta, \quad \frac{dy}{dl} = \cos \theta,
 $$
 
-donde $x, y$ son las coordenadas de los puntos de la barra. Desarrollando los productos vectoriales, obtenemos:
+donde $x, y$ son las coordenadas de los puntos de la barra. Desarrollando los productos vectoriales en (19.10), obtenemos una ecuación para $\theta$, considerando como función de la longitud de arco $l$:
 
 $$
 IE \frac{d^2 \theta}{dl^2} - F \sin \theta = 0.
@@ -254,7 +276,7 @@ $$
 y de aquí:
 
 $$
-l = \pm \sqrt{\frac{IE}{2}} \int \frac{d\theta}{\sqrt{c_1 - F \cos \theta}} + c_2
+l = \pm \sqrt{\frac{IE}{2}} \int \frac{d\theta}{\sqrt{c_1 - F \cos \theta}} + c_2 \rightarrow (1)
 $$
 
 La función $\theta(l)$ puede expresarse mediante funciones elípticas. Para las coordenadas:
@@ -270,17 +292,23 @@ x = \pm \frac{1}{F} \sqrt{2IE} \sqrt{c_1 - F \cos \theta} + \text{const.}
 $$
 
 $$
-y = \pm \sqrt{\frac{IE}{2}} \int \frac{\cos \theta \, d\theta}{\sqrt{c_1 - F \cos \theta}} + \text{const.}
+y = \pm \sqrt{\frac{IE}{2}} \int \frac{\cos \theta \, d\theta}{\sqrt{c_1 - F \cos \theta}} + \text{const'.} \rightarrow (2)
 $$
 
 El momento $M$ está dirigido según el eje $z$ y su módulo vale $M = IE \frac{d\theta}{dl}$.
 
 \subsection*{Problema 2: Barra Fuertemente Encorvada}
+\textbf{Enunciado.} Hallar la forma de una barra fuertemente encorvada, uno de cuyos extremos está empotrado, y en el otro, que es libre, se aplica una fuerza $\vec{f}$: la dirección de $\vec{f}$ es perpendicular a la recta de la barra no deformada (fig. 15).
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.15\columnwidth]{Screenshot_20250227_180931.png}
+    \caption{fig 15}
+\end{figure}
 
-\textit{Solución.} En toda longitud de la barra es $F = \text{const} = f$. En el extremo empotrado ($l = 0$) se tiene $\theta = \frac{\pi}{2}$, y en el libre ($l = L$, donde $L$ es la longitud de la barra), $M = 0$, esto es, $\theta' = 0$. Introduciendo la notación $\theta_0 = \theta(L)$, tenemos:
+\textit{Solución.} En toda longitud de la barra es $\vec{F} = \text{const} = \vec{f}$. En el extremo empotrado ($l = 0$) se tiene $\theta = \frac{\pi}{2}$, y en el libre ($l = L$, donde $L$ es la longitud de la barra), $M = 0$, esto es, $\theta' = 0$. Introduciendo la notación $\theta_0 = \theta(L)$, tenemos en (1) $c_1 =f\cos(\theta_0)$:
 
 $$
-l = \sqrt{\frac{IE}{2f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{\cos \theta_0 - \cos \theta}}.
+l = \sqrt{\frac{IE}{2f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{\cos \theta - \cos \theta}}.
 $$
 
 De aquí se deduce la ecuación que determina $\theta_0$:
@@ -296,15 +324,22 @@ x = \sqrt{\frac{2IE}{f}} \left( \sqrt{\cos \theta_0} - \sqrt{\cos \theta_0 - \co
 $$
 
 $$
-y = \sqrt{\frac{IE}{2f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{\cos \theta \, d\theta}{\sqrt{\cos \theta_0 - \cos \theta}}.
+y = \sqrt{\frac{IE}{2f}} \int_{\theta}^{\frac{\pi}{2}} \frac{\cos \theta \, d\theta}{\sqrt{\cos \theta_0 - \cos \theta}}.
 $$
 
 \subsection*{Problema 3: Fuerza Aplicada en el Extremo Libre}
+\textbf{Enunciado.} Ídem, si la fuerza $\vec{f}$, aplicada en el extremo libre, está dirigida paralelamente a la linea de la barra no deformada.
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.15\columnwidth]
+    {Screenshot_20250227_182326.png}
+    \caption{fig. 16}
+\end{figure}
 
-\textit{Solución.} Tenemos $F = -f$. Condiciones de contorno: $\theta = 0$ en $l = 0$, $\theta' = 0$ en $l = L$. Tenemos:
+\textit{Solución.} Tenemos $\vec{F} = -\vec{f}$. Condiciones de contorno: $\theta = 0$ en $l = 0$, $\theta' = 0$ en $l = L$. Tenemos:
 
 $$
-l = \sqrt{\frac{IE}{2f}} \int_{0}^{\theta_0} \frac{d\theta}{\sqrt{\cos \theta - \cos \theta_0}},
+l = \sqrt{\frac{IE}{2f}} \int_{0}^{\theta} \frac{d\theta}{\sqrt{\cos \theta - \cos \theta_0}},
 $$
 
 donde $\theta_0 = \theta(L)$ se determina por:
@@ -320,7 +355,7 @@ x = \sqrt{\frac{2IE}{f}} \left( \sqrt{1 - \cos \theta_0} - \sqrt{\cos \theta - \
 $$
 
 $$
-y = \sqrt{\frac{IE}{2f}} \int_{0}^{\theta_0} \frac{\cos \theta \, d\theta}{\sqrt{\cos \theta - \cos \theta_0}}.
+y = \sqrt{\frac{IE}{2f}} \int_{0}^{\theta} \frac{\cos \theta \, d\theta}{\sqrt{\cos \theta - \cos \theta_0}}.
 $$
 
 En una flexión pequeña, $\theta_0 \ll 1$ y se puede escribir:
@@ -329,42 +364,48 @@ $$
 L \approx \sqrt{\frac{IE}{f}} \int_{0}^{\theta_0} \frac{d\theta}{\sqrt{\theta_0^2 - \theta^2}} = \frac{\pi}{2} \sqrt{\frac{IE}{f}}.
 $$
 
-Esto indica que la solución existe solo cuando $f \geq \frac{\pi^2 IE}{4L^2}$.
+Esto es, $\theta_0$ desaparece de esta relación. Indicando que la solución existe solo cuando $f \geq \frac{\pi^2 IE}{4L^2}$.
 
 \subsection*{Problema 4: Barra con Ambos Extremos Apoyados}
+\textbf{Enunciado.} Ídem, si ambos extremos de la barra están apoyados y en su punto medio se aplica una fuerza $\vec{f}$: la distancia entre los puntos de apoyo es $L_0$.
 
-\textit{Solución.} La fuerza $F$ es constante en cada una de las porciones $AB$ y $BC$. La diferencia entre los valores de $F$ en $AB$ y $BC$ es igual a $f$, de donde se deduce que en $AB$ es $F \sin \theta_0 = -\frac{f}{2}$, donde $\theta_0$ es el ángulo entre el eje $y$ y la línea $AC$. En el punto $A$ ($l = 0$) tenemos $\theta = \frac{\pi}{2}$ y $M = 0$, es decir, $\theta' = 0$, de modo que en $AB$:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.2\columnwidth]
+    {Screenshot_20250227_183218.png}
+    \caption{fig. 17}
+\end{figure}
+
+\textit{Solución.} La fuerza $\vec{F}$ es constante en cada una de las porciones $AB$ y $BC$, y en cada una de ellas es perpendicular a la linea de la barra en los puntos de apoyo $A$ y $C$, respectivamente. La diferencia entre los valores de $\vec{F}$ en $AB$ y $BC$ es igual a $\vec{f}$, de donde se deduce que en $AB$ es $F \sin \theta_0 = -\frac{f}{2}$, donde $\theta_0$ es el ángulo entre el eje $y$ y la línea $AC$. En el punto $A$ ($l = 0$) tenemos $\theta = \frac{\pi}{2}$ y $M = 0$, es decir, $\theta' = 0$, de modo que en $AB$:
 
 $$
-l = \sqrt{\frac{IE}{f}} \sqrt{\sin \theta_0} \int_{\theta_0}^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{\cos \theta}},
-$$
-
-$$
+l = \sqrt{\frac{IE}{f}} \sqrt{\sin \theta_0} \int_{\theta}^{\frac{\pi}{2}} \frac{d\theta}{\sqrt{\cos \theta}} \quad
 x = 2 \sqrt{\frac{IE \sin \theta_0}{f}} \sqrt{\cos \theta},
 $$
 
 $$
-y = \sqrt{\frac{IE \sin \theta_0}{f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{\cos \theta \, d\theta}{\sqrt{\cos \theta}}.
+y = \sqrt{\frac{IE \sin \theta_0}{f}} \int_{\theta}^{\frac{\pi}{2}} \sqrt{\cos \theta}  d\theta.
 $$
 
-El ángulo $\theta_0$ se determina mediante la condición:
+El ángulo $\theta_0$ se determina mediante la condición que expresa que la proyección del arco $AB$ sobre la recta $AC$ debe ser igual a $\frac{L_0}{2}$, de donde:
 
 $$
 \frac{L_0}{2} = \sqrt{\frac{IE \sin \theta_0}{f}} \int_{\theta_0}^{\frac{\pi}{2}} \frac{\cos (\theta - \theta_0)}{\sqrt{\sin \theta}} \, d\theta.
 $$
 
-Para determinado valor de $\theta_0$, la derivada $\frac{df}{d\theta_0}$ se anula y pasa a ser positiva, indicando que la solución se hace inestable.
+Para determinado valor de $\theta_0$, entre $0$ y $\frac{\pi}{2}$ la derivada $\frac{df}{d\theta_0}$ se anula y pasa a ser positiva, indicando que la solución se hace inestable.
 
 \section*{Sección 20: Formas de Barras}
 
 \subsection*{Problema 1: Barra Combadura por su Propio Peso}
+\textbf{Enunciado.} Hallar la forma de una barra (de longuitud $l$), combada por la acciónde su propio peso, para diferentes manera de fijar sus extremos.
 
-\textit{Solución.} La forma buscada se obtiene como solución de la ecuación $\zeta^{\prime\prime\prime\prime} = \frac{q}{EI}$ con condiciones de contorno en sus extremos. Para distintos apoyos de los extremos de la barra se obtienen las formas de flexión y los desplazamientos máximos:
+\textit{Solución.} La forma buscada se obtiene como solución de la ecuación $\zeta^{\prime\prime\prime\prime} = \frac{q}{EI}$ ($q$ es el peso de la barra por unidad de longitud) con condiciones de contorno en sus extremos. Para distintos apoyos de los extremos de la barra se obtienen las formas de flexión y los desplazamientos máximos (el origen de coordenadas coincide simepre con uno de los extremos de la barra):
 
 \begin{enumerate}
     \item[a)] Ambos extremos empotrados:
     $$
-    \zeta = -\frac{q}{24EI} z^2(z-l)^2, \quad \zeta\left(\frac{l}{2}\right) = \frac{1}{384} \frac{ql^4}{EI}.
+    \zeta = \frac{q}{24EI} z^2(z-l)^2, \quad \zeta\left(\frac{l}{2}\right) = \frac{1}{384} \frac{ql^4}{EI}.
     $$
 
     \item[b)] Ambos extremos apoyados:
@@ -374,47 +415,53 @@ Para determinado valor de $\theta_0$, la derivada $\frac{df}{d\theta_0}$ se anul
 
     \item[c)] Un extremo ($z = l$) empotrado, y el otro ($z = 0$) apoyado:
     $$
-    \zeta = -\frac{q}{48EI} z(2z^3 - 3lz^2 + l^3), \quad \zeta(0.42l) = 0.0054 \frac{ql^4}{EI}.
+    \zeta = \frac{q}{48EI} z(2z^3 - 3lz^2 + l^3), \quad \zeta(0.42l) = 0.0054 \frac{ql^4}{EI}.
     $$
 
     \item[d)] Un extremo ($z = 0$) empotrado, y el otro ($z = l$) libre:
     $$
-    \zeta = -\frac{q}{24EI} z^2(z^2 - 4lz + 6l^2), \quad \zeta(l) = \frac{1}{8} \frac{ql^4}{EI}.
+    \zeta = \frac{q}{24EI} z^2(z^2 - 4lz + 6l^2), \quad \zeta(l) = \frac{1}{8} \frac{ql^4}{EI}.
     $$
 \end{enumerate}
 
 \subsection*{Problema 2: Barra Encorvada por una Fuerza Concentrada}
+\textbf{Enunciado.} Determinar la forma de una barra encorvada por la acción de una fuerza concentrada $f$, aplicada en su punto medio.
 
-\textit{Solución.} En todas partes, menos en el punto $z = l/2$, tenemos la ecuación $\zeta^{\prime\prime\prime\prime} = 0$. Las condiciones de contorno en los extremos de la barra determinan el modo de fijación. En el punto $z = l/2$ deben ser continuas $\zeta$, $\zeta'$, $\zeta''$, pero la diferencia de las fuerzas de corte debe ser igual a la fuerza $f$.
+\textit{Solución.} En todas partes, menos en el punto $z = l/2$, tenemos la ecuación $\zeta^{\prime\prime\prime\prime} = 0$. Las condiciones de contorno en los extremos de la barra determinan el modo de fijación. En el punto $z = l/2$ deben ser continuas $\zeta$, $\zeta'$, $\zeta''$, pero la diferencia de las fuerzas de corte $F=-EI\zeta^{\prime\prime\prime}$ a uno y otro lado debe ser igual a la fuerza $f$.
+La forma de la barra (en la porción $0\ll z\ll \frac{l}{2}$) y la flecha de la linea elástica vienen dadas por las siguientes fórmulas:
 
 \begin{enumerate}
     \item[a)] Ambos extremos empotrados:
     $$
-    \zeta = -\frac{f}{48EI} z^2(3l - 4z), \quad \zeta\left(\frac{l}{2}\right) = \frac{fl^3}{192EI}.
+    \zeta = \frac{f}{48EI} z^2(3l - 4z), \quad \zeta\left(\frac{l}{2}\right) = \frac{fl^3}{192EI}.
     $$
 
     \item[b)] Ambos extremos apoyados:
     $$
-    \zeta = -\frac{f}{48EI} z(3l^2 - 4z^2), \quad \zeta\left(\frac{l}{2}\right) = \frac{fl^3}{48EI}.
+    \zeta = \frac{f}{48EI} z(3l^2 - 4z^2), \quad \zeta\left(\frac{l}{2}\right) = \frac{fl^3}{48EI}.
     $$
 \end{enumerate}
 
+La forma de la barra es simétrica respecto a su punto medio, de modo que la función $\zeta (z)$ en la porción $\frac{l}{2}\ll z\ll l$ se obtiene cambiando simplemente $z$ por $l-z$ en estas expresiones.
+
 \subsection*{Problema 3: Barra con un Extremo Empotrado y el Otro Libre}
+\textbf{Enunciado.} Ídem, para una barra con uno de sus extremos ($z=0$) empotrado y el otro ($z=l$) libre: en este último esta aplicada una fuerza concentrada $f$.
 
 \textit{Solución.} A lo largo de toda la barra es $F = \text{const} = f$, de modo que $\zeta^{\prime\prime\prime} = -\frac{f}{EI}$. Con las condiciones $\zeta = 0$, $\zeta' = 0$ para $z = 0$ y $\zeta'' = 0$ para $z = l$ obtenemos:
 
 $$
-\zeta = -\frac{f}{6EI} z^2(3l - z), \quad \zeta(l) = \frac{fl^3}{3EI}.
+\zeta = \frac{f}{6EI} z^2(3l - z), \quad \zeta(l) = \frac{fl^3}{3EI}.
 $$
 
 \subsection*{Problema 4: Barra con Extremos Fijos y Par de Fuerzas}
+\textbf{Enunciado.} Hallar la forma de una barra con extremos fijos, combada por la acción de un par de fuerzas concentrado aplicado en su punto medio.
 
-\textit{Solución.} A lo largo de toda la barra es $\zeta^{\prime\prime\prime\prime} = 0$, pero en el punto $z = l/2$ el momento $M = EI\zeta''$ experimenta un salto igual al momento $m$ del par concentrado.
+\textit{Solución.} A lo largo de toda la barra es $\zeta^{\prime\prime\prime\prime} = 0$, pero en el punto $z = l/2$ el momento $M = EI\zeta''$ experimenta un salto igual al momento $m$ del par concentrado, aplicado en él. Con condiciones apropiadas en los extremos:
 
 \begin{enumerate}
     \item[a)] Ambos extremos empotrados:
     $$
-    \zeta = -\frac{m}{24EIl} z^2(l + 2z) \quad \text{cuando } 0 \leq z \leq l/2,
+    \zeta = \frac{m}{24EIl} z^2(l + 2z) \quad \text{cuando } 0 \leq z \leq l/2,
     $$
     $$
     \zeta = -\frac{m}{24EIl} (l - z)^2[l + 2(l - z)] \quad \text{cuando } l/2 \leq z \leq l.
@@ -422,19 +469,21 @@ $$
 
     \item[b)] Ambos extremos articulados:
     $$
-    \zeta = -\frac{m}{24EIl} z(l^2 - 4z^2) \quad \text{cuando } 0 \leq z \leq l/2,
+    \zeta = \frac{m}{24EIl} z(l^2 - 4z^2) \quad \text{cuando } 0 \leq z \leq l/2,
     $$
     $$
     \zeta = -\frac{m}{24EIl} (l - z)[l^2 - 4(l - z)^2] \quad \text{cuando } l/2 \leq z \leq l.
     $$
 \end{enumerate}
+La barra se flexiona en sentidos opuestos a uno y a otro lado en el punto $x=l/2$.
 
 \subsection*{Problema 5: Par Concentrado en el Extremo Libre}
+\textbf{Enunciado.} Ídem, si el par concentrado está aplicado en el extremo libre de una barra, cuyo otro extremo se ecuentra empotrado.
 
 \textit{Solución.} A lo largo de toda la barra tenemos $M = EI\zeta'' = m$, y en el punto $z = 0$ es $\zeta = 0$, $\zeta' = 0$. La forma de la flexión viene dada por la fórmula:
 
 $$
-\zeta = -\frac{m}{2EI} z^2.
+\zeta = \frac{m}{2EI} z^2.
 $$
 
 
