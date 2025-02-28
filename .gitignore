@@ -10,3 +10,6 @@
 # Ignorar archivos de paquetes o configuraciones adicionales
 *.zip
 *.pth
+
+# Ignorar imagenes
+*.png
