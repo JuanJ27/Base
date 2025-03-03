@@ -1,0 +1,48 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{lipsum}
+\usepackage{hyperref}
+\usepackage{graphicx}
+
+\geometry{margin=2.5cm}
+
+\title{Physics Beyond the Imaginable\\[0.5em]
+\large Informe sobre el desarrollo de un nuevo trigger basado en detección de anomalías}
+\author{Juan Montoya}
+\date{09/03/2024}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+CMS está desarrollando un trigger basado en técnicas de detección de anomalías. Este sistema de disparo utiliza herramientas de machine learning para identificar eventos raros en los datos producidos en el LHC, con el objetivo de descubrir señales de nuevas partículas y fenómenos desconocidos.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.4\columnwidth]{Screenshot_20250228_134138.png}
+\end{figure}
+
+\section{Motivación y Contexto}
+Desde temprana edad, el físico experimental \textbf{Abhijith Gandrakota} sintió una atracción natural hacia la física, pasando de la teoría a la experimentación. Según él, aunque la teoría es fundamental, su interés real radica en la prueba experimental de hipótesis. La motivación detrás de este proyecto es poder dar mayor libertad y creatividad a los teóricos, presentándoles todos los fenómenos inusuales que ocurren en los datos.
+
+\section{Desarrollo del Trigger basado en Detección de Anomalías}
+\subsection{Metodología y Machine Learning}
+El nuevo enfoque se basa en un método ``bottom-up''. En lugar de buscar directamente firmas teóricas específicas, el sistema analiza patrones y detecta anomalías comparándolos con lo que se considera ``normal'' en una gran cantidad de colisiones registradas. Para entrenar el algoritmo, se utilizó un conjunto de 10 millones de colisiones recolectadas al azar, permitiendo que el sistema identifique por sí mismo qué eventos se desvían de lo esperado.
+
+\subsection{Optimización y Hardware}
+Dado que el LHC genera cerca de un petabyte de datos por segundo, se ha trabajado en técnicas de compresión y optimización específicas para redes neuronales, garantizando la precisión sin sacrificar la velocidad. Además, se ha implementado el algoritmo en FPGAs (Field Programmable Gate Arrays), lo cual permite reaccionar en menos de 50 nanosegundos ante eventos inusuales, superando en muchos aspectos la velocidad de otros sistemas como los autos autónomos.
+
+\section{Resultados y Conclusiones}
+Durante pruebas controladas en el CMS, el trigger demostró ser efectivo al identificar eventos singulares sin alterar el flujo normal de datos. Entre los beneficios destacados, se menciona que el sistema basado en detección de anomalías puede ser hasta siete veces más eficiente que los métodos tradicionales para la identificación de señales de nuevas partículas. Esta iniciativa está abriendo un nuevo paradigma en la colaboración entre experimentadores y teóricos, ya que incentiva a estos últimos a reconsiderar los modelos físicos basados en los límites de detección actuales.
+
+\section{Perspectivas Futuras}
+El desarrollo de este trigger representa un avance importante para la física experimental. La capacidad de detectar eventos raros podría ampliar el alcance de la investigación en física de partículas, permitiendo a los científicos explorar nuevos modelos teóricos y obtener una comprensión más profunda de los fenómenos fundamentales del universo.
+
+\section{Referencia}
+Escrito a partir de \href{https://www.symmetrymagazine.org/article/physics-beyond-the-imaginable?language_content_entity=und}{\textbf{Physics beyond the imaginable}} escrito por Sarah Charley y publicado en Symmetry Magazine.
+
+\end{document}
