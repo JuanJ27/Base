@@ -19,28 +19,36 @@
 \maketitle
 
 \section{Introducción}
-CMS está desarrollando un trigger basado en técnicas de detección de anomalías. Este sistema de disparo utiliza herramientas de machine learning para identificar eventos raros en los datos producidos en el LHC, con el objetivo de descubrir señales de nuevas partículas y fenómenos desconocidos.
+CMS continúa en el desarrollo de nuevas estrategias de disparo (trigger) que permitan identificar fenómenos raros. Asi, se ha implementado un sistema de detección de anomalías basado en técnicas de machine learning que no solo facilita la labor teórica, sino que también promueve la experimentación directa.
 
 \begin{figure}[h]
     \centering
     \includegraphics[width = 0.4\columnwidth]{Screenshot_20250228_134138.png}
 \end{figure}
 
+\section{El Equipo de Colaboración}
+El proyecto cuenta con:
+
+\begin{itemize}
+    \item \textbf{Abhijith Gandrakota:} Físico postdoctoral en Fermilab. Inicialmente atraído por la teoría, optó por la física experimental para comprobar hipótesis. Integración del machine learning en el CMS, convencido de que probar hechos es tan crucial como predecirlos. 
+    \item \textbf{Jennifer Ngadiuba:} Investigadora de Fermilab y experta en física de partículas. Junto con Gandrakota, lidera el proyecto, enfrentando retos técnicos como la programación en FPGAs.
+    \item \textbf{Javier Duarte:} Profesor en la Universidad de California. Enfatiza la importancia de registrar incluso los eventos menos evidentes para no perder evidencia potencialmente valiosa.
+    \item \textbf{Noah Zipper:} Estudiante de posgrado en la Universidad de Colorado. Se ha unido al desarrollo del algoritmo de detección de anomalías.
+\end{itemize}
+
 \section{Motivación y Contexto}
-Desde temprana edad, el físico experimental \textbf{Abhijith Gandrakota} sintió una atracción natural hacia la física, pasando de la teoría a la experimentación. Según él, aunque la teoría es fundamental, su interés real radica en la prueba experimental de hipótesis. La motivación detrás de este proyecto es poder dar mayor libertad y creatividad a los teóricos, presentándoles todos los fenómenos inusuales que ocurren en los datos.
+La iniciativa surge ante la necesidad de ir más allá del enfoque tradicional, permitiendo que el detector CMS muestre incluso aquellos eventos que, por su rareza, podrían pasar desapercibidos. En este sentido, Gandrakota y Ngadiuba han trabajado para idear una estrategia “bottom-up” que permite identificar patrones inusuales en millones de colisiones.
 
 \section{Desarrollo del Trigger basado en Detección de Anomalías}
-\subsection{Metodología y Machine Learning}
-El nuevo enfoque se basa en un método ``bottom-up''. En lugar de buscar directamente firmas teóricas específicas, el sistema analiza patrones y detecta anomalías comparándolos con lo que se considera ``normal'' en una gran cantidad de colisiones registradas. Para entrenar el algoritmo, se utilizó un conjunto de 10 millones de colisiones recolectadas al azar, permitiendo que el sistema identifique por sí mismo qué eventos se desvían de lo esperado.
+La metodología implementada se centra en entrenar algoritmos de machine learning con grandes volúmenes de datos. El reto se ha superado mediante procedimientos de compresión y la implementación de algoritmos en FPGAs, que operan en paralelo para lograr decisiones dentro de los 50 nanosegundos requeridos.
 
-\subsection{Optimización y Hardware}
-Dado que el LHC genera cerca de un petabyte de datos por segundo, se ha trabajado en técnicas de compresión y optimización específicas para redes neuronales, garantizando la precisión sin sacrificar la velocidad. Además, se ha implementado el algoritmo en FPGAs (Field Programmable Gate Arrays), lo cual permite reaccionar en menos de 50 nanosegundos ante eventos inusuales, superando en muchos aspectos la velocidad de otros sistemas como los autos autónomos.
+La labor de Ngadiuba en la optimización y procesamiento en FPGAs es destacable. La perspectiva de Duarte ofrece una dosis de cautela, recordando que en la búsqueda de la innovación no debe perderse la importancia de registrar incluso los eventos marginales.
 
 \section{Resultados y Conclusiones}
-Durante pruebas controladas en el CMS, el trigger demostró ser efectivo al identificar eventos singulares sin alterar el flujo normal de datos. Entre los beneficios destacados, se menciona que el sistema basado en detección de anomalías puede ser hasta siete veces más eficiente que los métodos tradicionales para la identificación de señales de nuevas partículas. Esta iniciativa está abriendo un nuevo paradigma en la colaboración entre experimentadores y teóricos, ya que incentiva a estos últimos a reconsiderar los modelos físicos basados en los límites de detección actuales.
+Las pruebas controladas en CMS han mostrado que el trigger basado en detección de anomalías es capaz de identificar eventos singulares sin interrumpir el flujo normal de datos. Según Duarte, esta nueva aproximación podría resultar siete veces más efectiva que los métodos tradicionales, lo que evidencia el potencial en la investigación de nuevas partículas.
 
 \section{Perspectivas Futuras}
-El desarrollo de este trigger representa un avance importante para la física experimental. La capacidad de detectar eventos raros podría ampliar el alcance de la investigación en física de partículas, permitiendo a los científicos explorar nuevos modelos teóricos y obtener una comprensión más profunda de los fenómenos fundamentales del universo.
+El avance en la detección de anomalías plantea un cambio en la interacción entre experimentadores y teóricos. Al ampliar los límites de lo que puede dispararse y registrarse, se invita a la comunidad académica a replantear modelos teóricos, explorando nuevas posibilidades en física de partículas.
 
 \section{Referencia}
 Escrito a partir de \href{https://www.symmetrymagazine.org/article/physics-beyond-the-imaginable?language_content_entity=und}{\textbf{Physics beyond the imaginable}} escrito por Sarah Charley y publicado en Symmetry Magazine.
