@@ -11,7 +11,9 @@
 $$ u_{ij} = \frac{1}{2}\left(\frac{\partial u_i}{\partial x_j} + \frac{\partial u_j}{\partial x_i}\right) \text{ Deformacion} $$
 $$ \frac{\partial \sigma_{ij}}{\partial x_j}+f_i =0 \text{ Eq equilibrio, tensor de esfuerzo} $$
 
-$$ \sigma_{ij} = \lambda u_{ll} \delta_{ij} + 2\mu u_{ij} \text{ Ley de Hooke}$$
+$$ \sigma_{ij} = \frac{E}{1+\sigma}(u_{ij}+\frac{\sigma}{1-2\sigma}u_{ll}\delta_{ij}) = \lambda u_{ll} \delta_{ij} + 2\mu u_{ij} \text{ Ley de Hooke}$$
+
+$$ u_{ij} = \frac{1}{E}[(1+\sigma)\sigma_{ij} - \sigma \sigma_{ll}\delta_{ij}] \text{ Ley de Hooke reciproca}$$
 
 Modulo de young $E = \frac{\mu (3\lambda+2\mu)}{\lambda + \mu} $
 
