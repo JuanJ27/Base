@@ -6,8 +6,9 @@
 \usepackage{lipsum}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\usepackage{wrapfig}
 
-\geometry{margin=2.5cm}
+\geometry{margin=2cm}
 
 \title{Physics Beyond the Imaginable\\[0.5em]
 \large Informe sobre el desarrollo de un nuevo trigger basado en detección de anomalías}
@@ -17,38 +18,53 @@
 \begin{document}
 
 \maketitle
-
 \section{Introducción}
-CMS continúa en el desarrollo de nuevas estrategias de disparo (trigger) que permitan identificar fenómenos raros. Asi, se ha implementado un sistema de detección de anomalías basado en técnicas de machine learning que no solo facilita la labor teórica, sino que también promueve la experimentación directa.
 
-\begin{figure}[h]
-    \centering
-    \includegraphics[width = 0.4\columnwidth]{Screenshot_20250228_134138.png}
-\end{figure}
+\begin{wrapfigure}{r}{0.45\columnwidth}
+    \vspace{-35pt}
+    \includegraphics[width=0.4\columnwidth]{Screenshot_20250228_134138.png}
+\end{wrapfigure}
 
-\section{El Equipo de Colaboración}
+En CMS se está desarrollando una nueva estrategia de disparo (trigger) que permite identificar fenómenos raros. Se ha implementado un sistema de detección de anomalías basado en técnicas de machine learning que no solo facilita la labor teórica, sino que también promueve la experimentación directa ya que cambia el enfoque de como tratramos normalmente al ruido experimentalmente.
+
+\vskip 1cm
+
+\section{El equipo de trabajo}
 El proyecto cuenta con:
 
 \begin{itemize}
-    \item \textbf{Abhijith Gandrakota:} Físico postdoctoral en Fermilab. Inicialmente atraído por la teoría, optó por la física experimental para comprobar hipótesis. Integración del machine learning en el CMS, convencido de que probar hechos es tan crucial como predecirlos. 
+    \item \textbf{Abhijith Gandrakota:} Físico postdoctoral en Fermilab. Inicialmente atraído por la teoría, optó por la física experimental para comprobar hipótesis.
     \item \textbf{Jennifer Ngadiuba:} Investigadora de Fermilab y experta en física de partículas. Junto con Gandrakota, lidera el proyecto, enfrentando retos técnicos como la programación en FPGAs.
     \item \textbf{Javier Duarte:} Profesor en la Universidad de California. Enfatiza la importancia de registrar incluso los eventos menos evidentes para no perder evidencia potencialmente valiosa.
     \item \textbf{Noah Zipper:} Estudiante de posgrado en la Universidad de Colorado. Se ha unido al desarrollo del algoritmo de detección de anomalías.
 \end{itemize}
 
 \section{Motivación y Contexto}
-La iniciativa surge ante la necesidad de ir más allá del enfoque tradicional, permitiendo que el detector CMS muestre incluso aquellos eventos que, por su rareza, podrían pasar desapercibidos. En este sentido, Gandrakota y Ngadiuba han trabajado para idear una estrategia “bottom-up” que permite identificar patrones inusuales en millones de colisiones.
+La iniciativa surge para complementar el enfoque tradicional, permitiendo que el CMS muestre eventos que podrían pasar desapercibidos. En este sentido, Gandrakota y Ngadiuba han trabajado para idear una estrategia “bottom-up” que permite identificar patrones inusuales en millones de colisiones. En resumen y representado en la figura, normalmente detectamos la señal y el ruido se aisla, ejemplificado en la figura izquierda. Sin embargo, con la nueva estrategia, se caracteriza el ruido para posteriormente dectectar potenciales anomalías, que normalmente se confundirían con ruido, como se muestra en la figura derecha.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width = 0.45\columnwidth]{Screenshot_20250303_113405.png}
+    \includegraphics[width = 0.45\columnwidth]{Screenshot_20250303_115130.png}
+\end{figure}
 
 \section{Desarrollo del Trigger basado en Detección de Anomalías}
-La metodología implementada se centra en entrenar algoritmos de machine learning con grandes volúmenes de datos. El reto se ha superado mediante procedimientos de compresión y la implementación de algoritmos en FPGAs, que operan en paralelo para lograr decisiones dentro de los 50 nanosegundos requeridos.
 
-La labor de Ngadiuba en la optimización y procesamiento en FPGAs es destacable. La perspectiva de Duarte ofrece una dosis de cautela, recordando que en la búsqueda de la innovación no debe perderse la importancia de registrar incluso los eventos marginales.
+\begin{wrapfigure}{r}{0.35\columnwidth}
+    \vspace{-35pt}
+    \includegraphics[width = 0.34\columnwidth]{Screenshot_20250303_233820.png}
+    \caption{\href{https://commons.wikimedia.org/wiki/File:Altera_StratixIVGX_FPGA.jpg}{Fuente}}
+    \vspace{-30pt}
+\end{wrapfigure}
+La metodología implementa algoritmos de machine learning con grandes volúmenes de datos. Se han implementado procedimientos de compresión y la implementación de algoritmos en FPGAs (que son chips tales como vemos a la derecha), que operan en paralelo para lograr decisiones dentro de los 50 nanosegundos.
+
+\vskip 1cm
 
 \section{Resultados y Conclusiones}
-Las pruebas controladas en CMS han mostrado que el trigger basado en detección de anomalías es capaz de identificar eventos singulares sin interrumpir el flujo normal de datos. Según Duarte, esta nueva aproximación podría resultar siete veces más efectiva que los métodos tradicionales, lo que evidencia el potencial en la investigación de nuevas partículas.
+Las pruebas controladas en CMS han mostrado que el trigger basado en detección de anomalías es capaz de identificar eventos singulares sin interrumpir el flujo normal de datos. Según Duarte, esta nueva aproximación podría resultar siete veces más efectiva que los métodos tradicionales.
 
 \section{Perspectivas Futuras}
-El avance en la detección de anomalías plantea un cambio en la interacción entre experimentadores y teóricos. Al ampliar los límites de lo que puede dispararse y registrarse, se invita a la comunidad académica a replantear modelos teóricos, explorando nuevas posibilidades en física de partículas.
+El avance en la detección de anomalías plantea un cambio en la interacción entre experimentadores y teóricos. Al ampliar los límites de lo que puede dispararse y registrarse, se exploran nuevas posibilidades en física de partículas. No solo da pie a investigar señales ocultas por el ruido sino que también invitan a los teóricos a formular modelos que su principal enfoque sea adaptarse a lo experimental y no al revés.
 
 \section{Referencia}
 Escrito a partir de \href{https://www.symmetrymagazine.org/article/physics-beyond-the-imaginable?language_content_entity=und}{\textbf{Physics beyond the imaginable}} escrito por Sarah Charley y publicado en Symmetry Magazine.
