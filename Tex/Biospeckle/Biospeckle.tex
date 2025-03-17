@@ -1,0 +1,125 @@
+\documentclass{beamer}
+\usetheme{Singapore}
+\useoutertheme{infolines}  % Información en el pie de página
+\usepackage{graphicx}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{multirow}
+
+\title{Análisis de biospeckle en arándanos}
+\author{Laura Velasquez, Juan Montoya}
+\institute{FCEN@UdeA}
+\date{\today}
+
+\begin{document}
+
+% Portada
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Introducción
+\begin{frame}{Introducción}
+    \begin{itemize}
+        \item El biospeckle es un fenómeno óptico que ocurre cuando la luz láser incide sobre superficies biológicas activas, como frutas.
+        \item Este proyecto analiza el biospeckle en arándanos para evaluar su calidad, distinguiendo entre arándanos óptimos y no óptimos para el consumo.
+    \end{itemize}
+\end{frame}
+
+
+% Fundamentos Teóricos
+\begin{frame}{Fundamentos Teóricos}
+    \begin{itemize}
+        \item El speckle es un patrón de interferencia generado por luz coherente reflejada en superficies rugosas.
+        \item En tejidos biológicos, el speckle varía con el tiempo (biospeckle) debido al movimiento de las células.
+        \\[0.5cm]
+        \begin{figure}
+            %\includegraphics[width=0.35\textwidth]{Superficie.png}
+            \includegraphics[width=0.65\textwidth]{Observacion.png}
+        \end{figure}
+    \end{itemize}
+\end{frame}
+
+% Montaje Experimental
+\begin{frame}{Montaje Experimental}
+    \begin{figure}
+        \includegraphics[width=0.4\textwidth]{Bananaforscale.png}
+        \includegraphics[width=0.4\textwidth]{arandalep.png}
+        \caption{Montaje experimental para el análisis de biospeckle en arándanos.}
+    \end{figure}
+\end{frame}
+
+% Metodología
+\begin{frame}{Metodología}
+    \begin{enumerate}
+        \item \textbf{Recolección de datos}: Imágenes de biospeckle de 18 arándanos (14 óptimos, 4 no óptimos).
+        \item \textbf{Procesamiento}: Cálculo de MI, GdMean y GdStd por muestra.
+        \item \textbf{Análisis estadístico}: 
+        \begin{itemize}
+            \item Pruebas de normalidad (Shapiro-Wilk) y varianza (Levene).
+            \item Prueba t de Student para diferencias entre grupos.
+        \end{itemize}
+        \item \textbf{Modelado}: Regresión logística para clasificar arándanos con GdMean y GdStd.
+    \end{enumerate}
+\end{frame}
+
+% Resultados
+\begin{frame}{Resultados - Análisis Estadístico}
+    \begin{table}
+        \centering
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Variable} & \textbf{p-valor (t-test)} & \textbf{Distinguibles?} & \textbf{IC 95\% óptimo} \\
+            \hline
+            GdMean & 0.0042 & Sí & [3.2, 4.6] \\
+            GdStd & 0.00078 & Sí & [10, 15] \\
+            MI & 0.064 & No & [3.3e+06, 7e+06] \\
+            \hline
+        \end{tabular}
+        \caption{Resultados de la prueba t de Student.}
+    \end{table}
+    \begin{itemize}
+        \item GdMean y GdStd diferencian significativamente entre grupos.
+        \item MI no muestra diferencias relevantes (p $>$ 0.05).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Resultados - Modelo de Clasificación}
+    \begin{itemize}
+        \item Modelo de regresión logística con GdMean y GdStd.
+        \item \textbf{Precisión}: 89\% (validación cruzada y prueba).
+        \item \textbf{Matriz de confusión}:
+        \centering
+        \resizebox{\linewidth}{!}{
+            \begin{tabular}{cc|c|c|}
+                \cline{3-4}
+                & & \multicolumn{2}{c|}{\textbf{Predicción}} \\
+                \cline{3-4}
+                & & no óptimo & óptimo \\
+                \hline
+                \multicolumn{1}{|c|}{\multirow{2}{*}{\textbf{Real}}} & no óptimo & 2 & 0 \\
+                \cline{2-4}
+                \multicolumn{1}{|c|}{} & óptimo & 1 & 6 \\
+                \hline
+            \end{tabular}
+        }
+    \end{itemize}
+\end{frame}
+
+% Conclusiones
+\begin{frame}{Conclusiones}
+    \begin{itemize}
+        \item El biospeckle es efectivo para evaluar la calidad de arándanos.
+        \item GdMean y GdStd son indicadores clave para clasificar arándanos.
+        \item El modelo de regresión logística logra un 89\% de precisión.
+        \item Sugerencia: Ampliar la muestra para robustecer el modelo.
+    \end{itemize}
+\end{frame}
+
+% Agradecimientos
+\begin{frame}
+    \centering
+    \Huge{¡Gracias!}
+\end{frame}
+
+\end{document}

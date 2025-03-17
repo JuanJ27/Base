@@ -1,0 +1,61 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{geometry}
+\geometry{margin=2cm}
+
+\title{Borrador de Informe de Lectura:\\
+Observation of Higgs boson decay to bottom quarks}
+\author{Juan Montoya}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción}
+El presente documento es un borrador de informe de lectura del artículo ``Observation of Higgs boson decay to bottom quarks'' publicado por la CMS Collaboration. En este estudio se presenta la observación experimental de la decaída del bosón de Higgs en un par de quarks bottom, un proceso clave para confirmar las predicciones del Modelo Estándar en lo que respecta a las interacciones de Yukawa.
+
+\section{Resumen del Artículo}
+El estudio se centra en la producción del Higgs en asociación con bosones vectoriales (VH, donde V = W o Z) y se exploran tres canales experimentales:
+\begin{itemize}
+    \item \textbf{Canal 0 leptónico:} Sin presencia de leptones; se utiliza el \textit{missing transverse momentum} para reconstruir el bosón Z.
+    \item \textbf{Canal 1 leptónico:} Con un leptón aislado; el W se reconstruye combinando el leptón y el \textit{missing transverse momentum}.
+    \item \textbf{Canal 2 leptónico:} Con dos leptones; el bosón Z se reconstruye directamente a partir del par leptónico.
+\end{itemize}
+En todos los canales se requiere detectar dos jets identificados como quarks bottom, utilizando algoritmos basados en deep learning (\textit{deepCSV}), lo que permite optimizar la separación entre señal y fondo.
+
+\section{Metodología y Análisis}
+El análisis se realizó utilizando datos de colisiones protón-protón a 13 TeV recolectados en 2017 (41.3 fb$^{-1}$) y combinando mediciones previas de datos de 7, 8 y 13 TeV (Run 1 y Run 2). Entre las principales mejoras metodológicas se encuentran:
+\begin{itemize}
+    \item Optimización en la identificación de jets b y mejora en la resolución de masa dijet mediante técnicas multivariantes.
+    \item Uso de modelos de simulación avanzada y re-escalamiento de las secciones eficaces para reflejar correcciones NNLO y NLO, tanto en señal como en fondos.
+    \item Validación de la metodología a través del estudio paralelo del proceso dibosónico (VZ, con Z $\rightarrow$ bb), que presenta un final similar al del proceso VH.
+\end{itemize}
+Se utiliza un ajuste binned de la verosimilitud sobre la distribución de una puntuación generada mediante una red neuronal profunda (DNN) para extraer la señal del Higgs frente a los múltiples procesos de fondo (V+jets, tt, QCD, etc.).
+
+\section{Resultados Principales}
+Los hallazgos claves del estudio incluyen:
+\begin{itemize}
+    \item Una significancia observada de 4.8$\sigma$ (4.9$\sigma$ esperadas) para la combinación de datos de Run 1 y Run 2.
+    \item Una fuerza de señal medida de $\mu = 1.01 \pm 0.22$, consistente con las predicciones del Modelo Estándar.
+    \item Al combinarse con otras producciones de Higgs (gluon fusion, vector boson fusion y producción asociada con quarks top), se obtiene una significancia de 5.6$\sigma$ (5.5$\sigma$ esperadas) y $\mu = 1.04 \pm 0.20$.
+\end{itemize}
+Estos resultados representan la observación definitiva de la decaída H$\rightarrow$bb, confirmando la compatibilidad de las propiedades del Higgs con el Modelo Estándar y proporcionando una prueba crucial de su acoplamiento al sector de quarks down.
+
+\section{Conclusiones}
+El artículo revisado constituye un importante avance en la física de partículas al confirmar experimentalmente la decaída del bosón de Higgs en pares de quarks bottom. Las mejoras en los algoritmos de identificación y el uso de técnicas multivariantes han optimizado la separación entre señal y fondo, permitiendo:
+\begin{itemize}
+    \item Una extracción precisa de la señal del Higgs.
+    \item La validación del acoplamiento de Yukawa del Higgs con quarks bottom.
+    \item La consistencia de los resultados con las predicciones del Modelo Estándar.
+\end{itemize}
+Este trabajo abre la puerta a futuros análisis que puedan explorar con mayor precisión las interacciones del Higgs y buscar posibles indicios de nueva física.
+
+
+\end{document}

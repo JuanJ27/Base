@@ -1,0 +1,335 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage{geometry}
+\usepackage{float} 
+\geometry{margin=2cm}
+\begin{document}
+
+\section*{Operadores de Proyección}
+
+\begin{enumerate}
+    \item [1.] [Has13] Muestre que si $\hat{P}$ es un operador de proyección, entonces:
+    \begin{enumerate}
+        \item $1 - \hat{P}$ es un operador de proyección.
+        \item $\hat{U}^\dagger \hat{P} \hat{U}$ es un operador de proyección para cualquier operador unitario $\hat{U}$.
+    \end{enumerate}
+
+    \item [2.] [Has13] Considere el espacio vectorial $\mathbb{C}^4$ con base estándar $\mathcal{B} = \{e_i\}_{i=1,\ldots,4}$. Para el vector
+    $$
+    |a\rangle \equiv \frac{1}{\sqrt{2}} \begin{pmatrix} 0 \\ 1 \\ -1 \\ 0 \end{pmatrix}
+    $$
+    \begin{enumerate}
+        \item (a) Encuentre la matriz $[\hat{P}_a]_{\mathcal{B}}$.
+        \item (b) Verifique directamente que la matriz $1 - [\hat{P}_a]_{\mathcal{B}}$ también es un ''operador'' de proyección.
+    \end{enumerate}
+
+    \item [3.] [Sak94] Considere el espacio de kets de una partícula de espín-$\frac{1}{2}$, $\mathbb{C}^2$, con base $\mathcal{B} = \{|\uparrow\rangle, |\downarrow\rangle\}$. Utilice la ortonormalidad de $|\uparrow\rangle$ y $|\downarrow\rangle$ para probar que:
+    $$
+    [\hat{S}_i, \hat{S}_j] = i \epsilon_{ijk} \hat{S}_k \quad \text{y} \quad \{\hat{S}_i, \hat{S}_j\} = \frac{1}{2} \delta_{ij},
+    $$
+    donde
+    $$
+    \hat{S}_x \equiv \frac{1}{2} (|\uparrow\rangle\langle\downarrow| + |\downarrow\rangle\langle\uparrow|), \quad \hat{S}_y \equiv \frac{-i}{2} (|\uparrow\rangle\langle\downarrow| - |\downarrow\rangle\langle\uparrow|),
+    $$
+    y
+    $$
+    \hat{S}_z \equiv \frac{1}{2} (|\uparrow\rangle\langle\uparrow| - |\downarrow\rangle\langle\downarrow|).
+    $$
+
+    \item [4.] [Sak94] El operador Hamiltoniano para un sistema de dos estados está dado por
+    $$
+    \hat{H} = E (|1\rangle\langle 1| - |2\rangle\langle 2| + |1\rangle\langle 2| + |2\rangle\langle 1|),
+    $$
+    donde $E$ es una constante con dimensiones de energía. Encuentre:
+    \begin{enumerate}
+        \item (a) los autovalores de energía.
+        \item (b) los autoestados de energía correspondientes (como combinaciones lineales de $|1\rangle$ y $|2\rangle$).
+    \end{enumerate}
+
+    \item [5.] [?] Sea $\mathcal{B} = \{|H\rangle, |V\rangle\}$ una base ortonormal de un espacio de Hilbert 2-dimensional. Defina los operadores:
+    $$
+    \hat{P}_H \equiv |H\rangle\langle H| \quad \text{y} \quad \hat{P}_V \equiv |V\rangle\langle V|.
+    $$
+    \begin{enumerate}
+        \item (a) Encuentre las representaciones matriciales de los operadores $\hat{P}_H$ y $\hat{P}_V$: $[\hat{P}_H]_{\mathcal{B}'}$ y $[\hat{P}_V]_{\mathcal{B}'}$, donde $\mathcal{B}' = \{|\psi\rangle, |\phi\rangle\}$ es una base ortonormal con
+        $$
+        |\psi\rangle \equiv \frac{1}{\sqrt{2}} (|H\rangle + |V\rangle) \quad \text{y} \quad |\phi\rangle \equiv \frac{1}{\sqrt{2}} (|H\rangle - |V\rangle).
+        $$
+        \item (b) Utilice el resultado anterior y diga si los operadores $\hat{P}_H$ y $\hat{P}_V$ son ortogonales o no.
+        \item (c) Verifique si se cumple o no la relación de completitud: $\hat{P}_H + \hat{P}_V = \hat{I}$.
+    \end{enumerate}
+
+    \item [6.] [?] Considere un espacio de Hilbert 2-dimensional con base ortonormal $\mathcal{B}' = \{|e_1\rangle, |e_2\rangle\}$, donde
+    $$
+    |e_1\rangle \equiv \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ 1 \end{pmatrix}, \quad |e_2\rangle \equiv \frac{1}{\sqrt{2}} \begin{pmatrix} 1 \\ -1 \end{pmatrix}.
+    $$
+    \begin{enumerate}
+        \item (a) Encontrar las matrices que representan a los operadores de proyección asociados a cada uno de los vectores de la base $\mathcal{B}'$: $[\hat{P}_i]_{\mathcal{B}}$, donde $\mathcal{B}$ es la base estándar.
+        \item (b) Verifique las relaciones de completitud y de ortogonalidad de los operadores $\hat{P}_i$.
+    \end{enumerate}
+\end{enumerate}
+
+\section*{Tensores Simétricos y Antisimétricos}
+
+\begin{enumerate}
+    \item [1.] [MTT+73] Sea $A_{\mu\nu}$ un tensor antisimétrico y $S^{\mu\nu}$ un tensor simétrico. Muestre que:
+    \begin{enumerate}
+        \item $A_{\mu\nu} S^{\mu\nu} = -A_{\nu\mu} S^{\nu\mu} = -A_{\mu\nu} S^{\nu\mu} = 0$.
+        \item $A_{\mu\nu} = \frac{1}{2} (V_{\mu\nu} - V_{\nu\mu}) A_{\mu\nu} \quad \text{y} \quad V^{\mu\nu} S_{\mu\nu} = \frac{1}{2} (V^{\mu\nu} + V^{\nu\mu}) S_{\mu\nu}$, donde $V^{\mu\nu}$ es un tensor arbitrario.
+    \end{enumerate}
+
+    \item [2.] [MTT+73] Sea $V_{\mu\nu}$ un tensor arbitrario. Muestre que:
+    $$
+    V_{\mu\nu} = V_{(\mu\nu)} + V_{[\mu\nu]},
+    $$
+    donde
+    $$
+    V_{(\mu\nu)} \equiv \frac{1}{2} (V_{\mu\nu} + V_{\nu\mu}) \quad \rightarrow \quad \text{simetrización de } V_{\mu\nu}
+    $$
+    y
+    $$
+    V_{[\mu\nu]} \equiv \frac{1}{2} (V_{\mu\nu} - V_{\nu\mu}) \quad \rightarrow \quad \text{antisimetrización de } V_{\mu\nu}.
+    $$
+
+    \item [3.] [MTT+73] Sea $V_{\alpha\beta}$ un tensor arbitrario. Defina, análogamente, $V_{(\alpha\beta)}$ y $V_{[\alpha\beta]}$.
+
+    \item [4.] [MTT+73] Muestre que el tensor de campo electromagnético satisface:
+    \begin{enumerate}
+        \item (a) $F_{(\mu\nu)} = 0$.
+        \item (b) $F^{\mu\nu} = F_{[\mu\nu]}$.
+    \end{enumerate}
+
+    \item [5.] [MTT+73] Muestre que las ecuaciones de Maxwell homogéneas se pueden escribir como $F_{[\alpha,\beta]} = 0$, donde $V_{\mu} \equiv \partial_{\mu} V$.
+
+    \item [6.] [Arf12] El \textit{dual} de un tensor $B$ de tipo $(0;2)$ se define como el tensor $*B$ de tipo $(2;0)$
+    $$
+    *B^{\mu\nu} \equiv \frac{1}{2!} \epsilon^{\mu\nu\lambda\rho} B_{\lambda\rho}.
+    $$
+    Muestre que $*B$ transforma como:
+    \begin{enumerate}
+        \item (a) un tensor bajo \textit{rotación}.
+        \item (b) un \textit{pseudotensor} bajo \textit{inversión espacial}.
+    \end{enumerate}
+\end{enumerate}
+
+\newpage
+
+\section*{Grupos Discretos}
+
+\begin{enumerate}
+    \item [1.] [Tun85] El grupo $D_3$ es el grupo de las transformaciones que dejan \textit{invariante} al triángulo equilátero con el origen en el centro tal como se indica en la figura.
+    \begin{enumerate}
+        \item (a) Describa cada uno de los elementos del grupo $D_3$. ¿Cuál es el orden del grupo?
+        \item (b) Encuentre la tabla de multiplicación del grupo $D_3$.
+        \item (c) Encuentre la representación matricial de los elementos del grupo $D_3$ en la base estándar de $\mathbb{R}^2$.
+
+    \begin{figure}[h]
+        \centering
+        \begin{tikzpicture}[scale=2]
+            % Definir los vértices de un triángulo equilátero centrado en el origen
+            \coordinate (A) at (0,1.1547);
+            \coordinate (B) at (-1,-0.57735);
+            \coordinate (C) at (1,-0.57735);
+            % Dibujar el triángulo
+            \draw[thick] (A) -- (B) -- (C) -- cycle;
+        \end{tikzpicture}
+        \caption{Triángulo equilátero con el origen en el centro}
+    \end{figure}
+    \end{enumerate}
+\end{enumerate}
+
+\textbf{Respuesta:}
+$$
+D(e) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad D(g_1) = \begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}, \quad D(g_2) = \begin{pmatrix} -\frac{1}{2} & \frac{\sqrt{3}}{2} \\ -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix},
+$$
+$$
+D(g_3) = \begin{pmatrix} -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}, \quad D(g_4) = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}, \quad D(g_5) = \begin{pmatrix} \frac{1}{2} & \frac{\sqrt{3}}{2} \\ \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}.
+$$
+
+
+\begin{enumerate}
+    \item [2.] [Tun85] El grupo $D_4$ es el grupo de las transformaciones que dejan \textit{invariante} al cuadrado con el origen en el centro tal como se indica en la figura.
+    \begin{enumerate}
+        \item (a) Describa cada uno de los elementos del grupo $D_4$. ¿Cuál es el orden del grupo?
+        \item (b) Encuentre la tabla de multiplicación del grupo $D_4$.
+        \item (c) Encuentre la representación matricial de los elementos del grupo $D_4$ en la base estándar de $\mathbb{R}^2$.
+    \end{enumerate}
+\end{enumerate}
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}[scale=2]
+        % Definir los vértices de un cuadrado centrado en el origen
+        \coordinate (A) at (0,0);
+        \coordinate (B) at (0,2);
+        \coordinate (C) at (2,2);
+        \coordinate (D) at (2,0);
+        % Dibujar el cuadrado
+        \draw[thick] (A) -- (B) -- (C) -- (D) -- cycle;
+    \end{tikzpicture}
+    \caption{Cuadrado con el origen en el centro}
+\end{figure}
+
+\textbf{Respuesta:}
+$$
+D(e) = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}, \quad D(g_1) = \begin{pmatrix} 0 & -1 \\ 1 & 0 \end{pmatrix}, \quad D(g_2) = \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}, \quad D(g_3) = \begin{pmatrix} 0 & 1 \\ -1 & 0 \end{pmatrix},
+$$
+$$
+D(g_4) = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}, \quad D(g_5) = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}, \quad D(g_6) = \begin{pmatrix} 0 & 1 \\ 1 & 0 \end{pmatrix}, \quad D(g_7) = \begin{pmatrix} 0 & -1 \\ -1 & 0 \end{pmatrix}.
+$$
+
+\newpage
+
+\begin{enumerate}
+    \item [3.] [Arf12] En general, las representaciones matriciales de los elementos del grupo $D_n$ ($n = 2, 3, \ldots$) se pueden escribir de la forma
+    $$
+    S^a \times R^b\left(\frac{2\pi}{n}\right),
+    $$
+    donde las potencias $a$ y $b$ toman los valores $a = 0, 1$; $b = 0, 1, \ldots, n-1$, $R\left(\frac{2\pi}{n}\right)$ representa una rotación de $\frac{2\pi}{n}$ en el plano (alrededor del origen) y $S$ está definida como $S \equiv \begin{pmatrix} -1 & 0 \\ 0 & 1 \end{pmatrix}$. Encuentre las representaciones matriciales de los elementos de los grupos:
+    \begin{enumerate}
+        \item (a) $D_2$.
+        \item (b) $D_3$.
+        \item (c) $D_4$.
+        \item (d) $D_5$.
+    \end{enumerate}
+\end{enumerate}
+
+\section*{Grupos Discretos}
+
+\begin{enumerate}
+    \item [4.] [Tun85] El grupo $D_3$ también se puede ver como el grupo de permutaciones ($S_3$) de tres objetos (1, 2, 3). Por ejemplo, uno de los elementos de $D_3$ mueve el vértice 1 al vértice 3, mientras que el vértice 2 se mueve al vértice 1 (ver Fig. 1). En términos de \textit{permutaciones} esto corresponde a la permutación $(123) \rightarrow (231)$. En la base estándar de $\mathbb{R}^3$:
+    $$
+    \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix} \begin{pmatrix} 1 \\ 2 \\ 3 \end{pmatrix} = \begin{pmatrix} 2 \\ 3 \\ 1 \end{pmatrix}
+    $$
+    Encuentre las representaciones matriciales (3 x 3) para los demás elementos del grupo $D_3 (\simeq S_3)$.
+
+    \textbf{Respuesta:}
+    $$
+    D(e) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad D(g_1) = \begin{pmatrix} 0 & 0 & 1 \\ 1 & 0 & 0 \\ 0 & 1 & 0 \end{pmatrix}, \quad D(g_2) = \begin{pmatrix} 0 & 1 & 0 \\ 0 & 0 & 1 \\ 1 & 0 & 0 \end{pmatrix},
+    $$
+    $$
+    D(g_3) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 1 \\ 0 & 1 & 0 \end{pmatrix}, \quad D(g_4) = \begin{pmatrix} 0 & 1 & 0 \\ 1 & 0 & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad D(g_5) = \begin{pmatrix} 0 & 0 & 1 \\ 0 & 1 & 0 \\ 1 & 0 & 0 \end{pmatrix}.
+    $$
+
+    \item [5.] [Geo99] Encuentre la representación suma directa de los elementos del grupo $S_3$.
+
+    \textbf{Respuesta:}
+    $$
+    D(e) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 1 & 0 \\ 0 & 0 & 1 \end{pmatrix}, \quad D(g_1) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & -\frac{1}{2} & -\frac{\sqrt{3}}{2} \\ 0 & \frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix}, \quad D(g_2) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & -\frac{1}{2} & \frac{\sqrt{3}}{2} \\ 0 & -\frac{\sqrt{3}}{2} & -\frac{1}{2} \end{pmatrix},
+    $$
+    $$
+    D(g_3) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & -\frac{\sqrt{3}}{2} \\ 0 & \frac{\sqrt{3}}{2} & \frac{1}{2} \end{pmatrix}, \quad D(g_4) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & -1 \\ 0 & 1 & 0 \end{pmatrix}, \quad D(g_5) = \begin{pmatrix} 1 & 0 & 0 \\ 0 & \frac{1}{2} & \frac{\sqrt{3}}{2} \\ 0 & -\frac{\sqrt{3}}{2} & \frac{1}{2} \end{pmatrix}.
+    $$
+
+    \item [6.] [Tun85] Enumere y describa cada uno de los elementos del grupo de transformaciones que dejan \textit{invariante} al tetraedro regular.
+
+    %\begin{figure}[h]
+    %    \centering
+    %    \includegraphics[width=0.4\textwidth]{tetrahedron.png}
+    %\end{figure}
+
+    \textit{Sugerencia:} Tome como referencia a los grupos $S_3$ y $S_4$.
+
+\end{enumerate}
+
+\section*{Grupos Continuos}
+
+\begin{enumerate}
+    \item [7.] [Tun85] Muestre que la representación 2 dimensional de las rotaciones en el plano dada por $D(\phi) = \begin{pmatrix} \cos \phi & -\sin \phi \\ \sin \phi & \cos \phi \end{pmatrix}$ se puede descomponer en dos representaciones (complejas) 1 dimensionales. \textit{Sugerencia: Diagonalizar $D(\phi)$.}
+
+    \textbf{Respuesta:}
+    $$
+    D'(\phi) = \begin{pmatrix} e^{i\phi} & 0 \\ 0 & e^{-i\phi} \end{pmatrix}.
+    $$
+
+    \item [8.] [Geo99] Muestre que:
+    $$
+    e^{i\vec{r} \cdot \vec{\sigma}} = \cos(r) \, \mathbb{1} + i \sin(r) (\hat{r} \cdot \vec{\sigma}),
+    $$
+    donde $\vec{r}$ es el vector posición en coordenadas esféricas y $\vec{\sigma} \equiv (\sigma_1, \sigma_2, \sigma_3)$ son las matrices de Pauli.
+
+    \textit{Sugerencia: En coordenadas esféricas $\vec{r} = r \hat{r}$.}
+
+    \item [9.] [Gri08] Muestre que:
+    $$
+    e^{-i(\vec{\theta} \cdot \vec{\sigma})/2} = \cos\left(\frac{\theta}{2}\right) \, \mathbb{1} - i \sin\left(\frac{\theta}{2}\right) (\hat{\theta} \cdot \vec{\sigma}),
+    $$
+    donde $\hat{\theta} = \frac{\vec{\theta}}{\theta}$.
+
+    \textit{Sugerencia:} $(\vec{\sigma} \cdot \vec{a})(\vec{\sigma} \cdot \vec{b}) = \vec{a} \cdot \vec{b} \, \mathbb{1} + i \vec{\sigma} \cdot (\vec{a} \times \vec{b})$.
+
+    \item [10.] [CL84] Sean $\hat{J}_1, \hat{J}_2$ y $\hat{J}_3$ los generadores del grupo $SU(2)$.
+    \begin{enumerate}
+        \item (a) Encuentre la representación $j = 1$ de los generadores del grupo.
+        \item (b) Utilice el resultado anterior y calcule los \textit{conmutadores}: $[\hat{J}_1, \hat{J}_2]$, $[\hat{J}_2, \hat{J}_3]$ y $[\hat{J}_3, \hat{J}_1]$.
+    \end{enumerate}
+
+    \item [11.] [Geo99] La representación \textit{adjunta} de los generadores del grupo $SU(2)$ se define como:
+    $$
+    [\hat{T}_a]_{bc} \equiv -i \epsilon_{abc}; \quad a, b, c = 1, 2, 3.
+    $$
+    Muestre que la representación $j = 1$ y la representación adjunta son \textit{equivalentes}, es decir existe $A$ (no singular) tal que:
+    $$
+    [J] = A[\hat{T}]A^{-1}.
+    $$
+\end{enumerate}
+
+\section*{Ejercicios de Física}
+
+\begin{enumerate}
+    \item [12.] [Jee11] El operador de momentum angular total de espín $\vec{S}$ de un sistema de dos partículas está dado por:
+    $$
+    \vec{S} \equiv \vec{S}^{(1)} \otimes \hat{\mathbb{I}} + \hat{\mathbb{I}} \otimes \vec{S}^{(2)}.
+    $$
+    Muestre que
+    \begin{enumerate}
+        \item (a) $\left[ \hat{S}_i^{(1)} \otimes \hat{\mathbb{I}} + \hat{\mathbb{I}} \otimes \hat{S}_i^{(2)}, \hat{S}_j^{(1)} \otimes \hat{\mathbb{I}} + \hat{\mathbb{I}} \otimes \hat{S}_j^{(2)} \right] = i \epsilon_{ijk} (\hat{S}_k^{(1)} \otimes \hat{\mathbb{I}} + \hat{\mathbb{I}} \otimes \hat{S}_k^{(2)})$.
+        \item (b) $\vec{S}^2 = \vec{S}^{(1)2} \otimes \hat{\mathbb{I}} + \hat{\mathbb{I}} \otimes \vec{S}^{(2)2} + 2 \vec{S}^{(1)} \otimes \vec{S}^{(2)}$.
+    \end{enumerate}
+
+    \item [13.] [CL84] Utilice la tabla de coeficientes de \textit{Clebsch-Gordan} y calcule la representación producto $|j_1, m_1\rangle \otimes |j_2, m_2\rangle$, con $j_1 = 1$ y $j_2 = \frac{1}{2}$.
+\end{enumerate}
+
+\section*{Tensores en Relatividad General}
+
+\begin{enumerate}
+    \item Calcular las derivadas covariantes: $g_{\mu\nu;\lambda}$, $g^{\mu\nu}{}_{;\lambda}$ y $\delta^\mu_{\nu;\lambda}$.
+
+    \item Muestre que: $(g^{\mu\nu} V_\nu)_{;\lambda} = g^{\mu\nu} V_{\nu;\lambda}$.
+
+    \item Derivar las siguientes relaciones:
+    \begin{enumerate}
+        \item (a) $\Gamma^\mu_{\mu\lambda} = \partial_\lambda \ln(\sqrt{g})$.
+        \item (b) $V^\mu{}_{;\mu} = \frac{1}{\sqrt{g}} \partial_\mu (\sqrt{g} V^\mu)$.
+        \item (c) $T^{\mu\nu}{}_{;\mu} = \frac{1}{\sqrt{g}} \partial_\mu (\sqrt{g} T^{\mu\nu}) + \Gamma^\nu_{\mu\lambda} T^{\mu\lambda}$.
+        \item (d) $A^{\mu\nu}{}_{;\mu} = \frac{1}{\sqrt{g}} \partial_\mu (\sqrt{g} A^{\mu\nu})$, donde $A$ es antisimétrico.
+        \item (e) $A_{\mu\nu;\lambda} + A_{\lambda\mu;\nu} + A_{\nu\lambda;\mu} = \partial_\lambda A_{\mu\nu} + \partial_\nu A_{\lambda\mu} + \partial_\mu A_{\nu\lambda}$, donde $A$ es antisimétrico.
+    \end{enumerate}
+
+    \item Muestre que: $R_{\alpha\beta} \equiv R^\lambda{}_{\alpha\lambda\beta} = \frac{1}{\sqrt{g}} \partial_\mu (\sqrt{g} \Gamma^\mu_{\alpha\beta}) - \partial_\beta \partial_\alpha \ln(\sqrt{g}) - \Gamma^\mu_{\alpha\lambda} \Gamma^\lambda_{\beta\mu}$.
+
+    \item Considere la métrica 2-dimensional: $dl^2 = a^2 [d\chi^2 + \sinh^2 \chi d\xi^2]$, donde $a$ es constante. Calcular:
+    \begin{enumerate}
+        \item (a) los coeficientes de conexión: $\Gamma^i_{jk}$.
+        \item (b) las componentes del tensor de Riemann: $R^i{}_{jkl}$.
+        \item (c) las componentes del tensor de Ricci: $R_{ij}$.
+        \item (d) el escalar de curvatura: $R \equiv R^i{}_i$.
+    \end{enumerate}
+
+    \item Muestre que:
+    \begin{enumerate}
+        \item (a) $R_{\lambda\mu\nu\rho} = R_{\nu\rho\lambda\mu}$.
+        \item (b) $R_{\lambda\mu\nu\rho} = -R_{\mu\lambda\nu\rho} = -R_{\lambda\mu\rho\nu} = R_{\nu\rho\lambda\mu}$.
+        \item (c) $R_{\lambda\mu\nu\rho} + R_{\lambda\nu\rho\mu} + R_{\lambda\rho\mu\nu} = 0$.
+    \end{enumerate}
+\end{enumerate}
+
+\end{document}
