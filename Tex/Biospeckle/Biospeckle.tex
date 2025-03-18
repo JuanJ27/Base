@@ -51,16 +51,39 @@
 
 % Metodología
 \begin{frame}{Metodología}
-    \begin{enumerate}
-        \item \textbf{Recolección de datos}: Imágenes de biospeckle de 18 arándanos (14 óptimos, 4 no óptimos).
-        \item \textbf{Procesamiento}: Cálculo de MI, GdMean y GdStd por muestra.
-        \item \textbf{Análisis estadístico}: 
-        \begin{itemize}
-            \item Pruebas de normalidad (Shapiro-Wilk) y varianza (Levene).
-            \item Prueba t de Student para diferencias entre grupos.
-        \end{itemize}
-        \item \textbf{Modelado}: Regresión logística para clasificar arándanos con GdMean y GdStd.
-    \end{enumerate}
+    
+    \textbf{Recolección de datos}: Imágenes de biospeckle de 18 arándanos (14 óptimos, 4 no óptimos).
+    \begin{figure}
+        \includegraphics[width=0.4\textwidth]{A5.png}
+        \includegraphics[width=0.4\textwidth]{verde.png}
+        \caption{Capturas de pantalla de los videos tomados de los arandanos}
+    \end{figure}
+\end{frame}
+
+% Metodología
+\begin{frame}{Metodología}
+    \textbf{Procesamiento}: THSP, matriz de co-ocurrencia y momento de inercia.
+    \begin{figure}
+        \includegraphics[width=0.8\textwidth]{THSPMCO.png}
+    \end{figure}
+\end{frame}
+
+% Metodología
+\begin{frame}{Metodología}
+    \textbf{Procesamiento}: Diferencias generalizadas.
+    \begin{figure}
+        \includegraphics[width=0.6\textwidth]{Gd.png}
+    \end{figure}
+
+\end{frame}
+
+% Metodología
+\begin{frame}{Metodología}
+    \textbf{Análisis estadístico}: 
+    \begin{figure}
+        \includegraphics[width=0.7\textwidth]{pairplot.png}
+    \end{figure}
+
 \end{frame}
 
 % Resultados
