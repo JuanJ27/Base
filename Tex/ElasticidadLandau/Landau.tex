@@ -671,7 +671,7 @@ $$
 The solution of Laplace's equation which satisfies this boundary condition is
 
 $$
-\phi = \Omega \frac{a^2 - b^2}{a^2 + b^2} xy. \tag{1}
+\phi = \Omega \frac{a^2 - b^2}{a^2 + b^2} xy. {1}
 $$
 
 The angular momentum of the fluid in the vessel is
@@ -707,7 +707,7 @@ $$
 a constant term in $\phi$ is immaterial. The constant coefficients are determined so that $\phi$ satisfies the equation $\Delta \phi = 0$ and the boundary conditions $v_z = \partial \phi/\partial z = 0$ for $z = 0$ and all $x, y$, $\partial \phi/\partial x = \partial \phi/\partial y = 0$ for $x = y = z = 0$ (the stagnation point). This gives $a = b = c = 0; C = -A - B, E = F = 0$. The term $Dxy$ can always be removed by an appropriate rotation of the $x$ and $y$ axes. We then have
 
 $$
-\phi = Ax^2 + By^2 - (A + B)z^2. \tag{1}
+\phi = Ax^2 + By^2 - (A + B)z^2. {1}
 $$
 
 If the flow is axially symmetrical about the $z$-axis (symmetrical flow past a solid of revolution), we must have $A = B$, so that
@@ -755,13 +755,13 @@ The stream function, which gives the form of the streamlines, is $\psi = Ar^n \s
 The flow after the formation of the hole will be spherically symmetrical, the velocity at every point being directed to the centre of the hole. For the radial velocity $v_r \equiv v < 0$ we have Euler's equation in spherical polar coordinates:
 
 $$
-\frac{\partial v}{\partial t} + v \frac{\partial v}{\partial r} = -\frac{1}{\rho} \frac{\partial p}{\partial r}. \tag{1}
+\frac{\partial v}{\partial t} + v \frac{\partial v}{\partial r} = -\frac{1}{\rho} \frac{\partial p}{\partial r}. {1}
 $$
 
 The equation of continuity gives
 
 $$
-r^2 v = F(t), \tag{2}
+r^2 v = F(t), {2}
 $$
 
 where $F(t)$ is an arbitrary function of time; this equation expresses the fact that, since the fluid is incompressible, the volume flowing through any spherical surface is independent of the radius of that surface.
@@ -775,7 +775,7 @@ $$
 Integrating this equation over $r$ from the instantaneous radius $R = R(t) \leq a$ of the hole to infinity, we obtain
 
 $$
--\frac{F'(t)}{R} + \frac{1}{2} v^2 = \frac{p_0}{\rho}, \tag{3}
+-\frac{F'(t)}{R} + \frac{1}{2} v^2 = \frac{p_0}{\rho}, {3}
 $$
 
 where $\dot{R} = dR(t)/dt$ is the rate of change of the radius of the hole, and $p_0$ is the pressure at infinity; the fluid velocity at infinity is zero, and so is the pressure at the surface of the hole. From equation (2) for points on the surface of the hole we find
@@ -830,6 +830,224 @@ Bearing in mind the fact that $V = dR/dt$, we can write the expression for $P(t)
 
 $$
 P(t) = p_0 + \frac{1}{2} \left[ \frac{d^2(R^2)}{dt^2} + \left( \frac{dR}{dt} \right)^2 \right].
+$$
+
+\section*{Seccion 17: Flujo en una tuberia}
+
+\subsection*{Problem 1}
+
+Determine the flow in a pipe of annular cross-section, the internal and external radii being $R_1, R_2$.
+
+\textit{Solution.} Determining the constants $a$ and $b$ in the general solution (17.8) from the conditions that $v = 0$ for $r = R_1$ and $r = R_2$, we find
+
+$$
+v = \frac{\Delta p}{4\eta l} \left[ R_2^2 - r^2 + \frac{R_2^2 - R_1^2}{\log(R_2/R_1)} \log \frac{r}{R_2} \right]
+$$
+
+The discharge is
+
+$$
+Q = \frac{\pi \Delta p}{8\eta l} \left[ R_2^4 - R_1^4 - \frac{(R_2^2 - R_1^2)^2}{\log(R_2/R_1)} \right].
+$$
+
+\subsection*{Problem 2}
+
+The same as Problem 1, but for a pipe of elliptical cross-section.
+
+\textit{Solution.} We seek a solution of equation (17.7) in the form $v = Ay^2 + Bz^2 + C$. The constants $A, B, C$ are determined from the requirement that this expression must satisfy the boundary condition $v = 0$ on the circumference of the ellipse (i.e. $Ay^2 + Bz^2 + C = 0$ must be the same as the equation $y^2/a^2 + z^2/b^2 = 1$, where $a$ and $b$ are the semi-axes of the ellipse). The result is
+
+$$
+v = \frac{\Delta p}{2\eta l} \frac{a^2 b^2}{a^2 + b^2} \left( 1 - \frac{y^2}{a^2} - \frac{z^2}{b^2} \right).
+$$
+
+The discharge is
+
+$$
+Q = \frac{\pi \Delta p}{4\eta l} \frac{a^3 b^3}{a^2 + b^2}.
+$$
+
+\subsection*{Problem 3}
+
+The same as Problem 1, but for a pipe whose cross-section is an equilateral triangle with side $a$.
+
+\textit{Solution.} The solution of equation (17.7) which vanishes on the bounding triangle is
+
+$$
+v = \frac{\Delta p}{l} \frac{2}{3a\eta} h_1 h_2 h_3,
+$$
+
+where $h_1, h_2, h_3$ are the lengths of the perpendiculars from a given point in the triangle to its three sides. For each of the expressions $\Delta h_1, \Delta h_2, \Delta h_3$ (where $\Delta = \partial^2/\partial y^2 + \partial^2/\partial z^2$) is zero; this is seen at once from the fact that each of the perpendiculars $h_1, h_2, h_3$ may be taken as the axis of $y$ or $z$, and the result of applying the Laplacian to a coordinate is zero. We therefore have
+
+$$
+\Delta (h_1 h_2 h_3) = 2(h_1 \, \text{grad} \, h_2 \cdot \text{grad} \, h_3 + h_2 \, \text{grad} \, h_3 \cdot \text{grad} \, h_1 + h_3 \, \text{grad} \, h_1 \cdot \text{grad} \, h_2)
+$$
+
+But $\text{grad} \, h_1 = \mathbf{n}_1, \text{grad} \, h_2 = \mathbf{n}_2, \text{grad} \, h_3 = \mathbf{n}_3$, where $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ are unit vectors along the perpendiculars $h_1, h_2, h_3$. Any two of $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ are at an angle $2\pi/3$, so that $\text{grad} \, h_1 \cdot \text{grad} \, h_2 = \mathbf{n}_1 \cdot \mathbf{n}_2 = \cos(2\pi/3) = -\frac{1}{2}$, and so on. We thus obtain the relation
+
+$$
+\Delta (h_1 h_2 h_3) = -(h_1 + h_2 + h_3) = -\frac{1}{2} \sqrt{3} a,
+$$
+
+and we see that equation (17.7) is satisfied. The discharge is
+
+$$
+Q = \frac{\sqrt{3} a^4 \Delta p}{320 \eta l}.
+$$
+
+\subsection*{Problem 4}
+
+A cylinder with radius $R_1$ moves parallel to its axis with velocity $u$ inside a coaxial cylinder with radius $R_2$. Determine the motion of a fluid occupying the space between the cylinders.
+
+\textit{Solution.} We take cylindrical polar coordinates, with the $z$-axis along the axis of the cylinders. The velocity is everywhere along the $z$-axis and depends only on $r$ (as does the pressure); $v_z = v(r)$. We obtain for $v$ the equation
+
+$$
+\Delta v = -\frac{1}{r} \frac{d}{dr} \left( r \frac{dv}{dr} \right) = 0;
+$$
+
+the term $(\mathbf{v} \cdot \text{grad})w = v \, \partial v/\partial z$ vanishes identically. Using the boundary conditions $v = u$ for $r = R_1$ and $v = 0$ for $r = R_2$, we find
+
+$$
+v = \frac{u \log(r/R_2)}{\log(R_1/R_2)}.
+$$
+
+The frictional force per unit length of either cylinder is $2\pi \eta u/\log(R_2/R_1)$.
+
+\subsection*{Problem 5}
+
+A layer of fluid with thickness $h$ is bounded above by a free surface and below by a fixed plane inclined at an angle $\alpha$ to the horizontal. Determine the flow due to gravity.
+
+\textit{Solution.} We take the fixed plane as the $xy$-plane, with the $x$-axis in the direction of flow (Fig. 6). We seek a solution depending only on $z$. The Navier–Stokes equations with $v_x = v(z)$ in a gravitational field are
+
+$$
+\eta \frac{d^2 v}{dz^2} + \rho g \sin \alpha = 0, \quad \frac{dp}{dz} + \rho g \cos \alpha = 0.
+$$
+
+At the free surface ($z = h$) we must have $\sigma_{xz} = \eta dv/dz = 0$, $\sigma_{zz} = -p = -p_0$ ($p_0$ being the atmospheric pressure). For $z = 0$ we must have $v = 0$. The solution satisfying these conditions is
+
+$$
+p = p_0 + \rho g (h - z) \cos \alpha, \quad v = \frac{\rho g \sin \alpha}{2\eta} z(2h - z).
+$$
+
+The discharge, per unit length in the $y$-direction, is
+
+$$
+Q = \rho \int_0^h v \, dz = \frac{\rho g h^3 \sin \alpha}{3\eta}.
+$$
+
+\section*{Seccion 20: Flujo con pequeños numueros de Reynolds}
+
+\subsection*{Problem 1}
+
+Determine the motion of a fluid occupying the space between two concentric spheres with radii $R_1, R_2$ ($R_2 > R_1$), rotating uniformly about different diameters with angular velocities $\Omega_1, \Omega_2$; the Reynolds numbers $\Omega_1 R_1^2/\nu, \Omega_2 R_2^2/\nu$ are small compared with unity.
+
+\textit{Solution.} On account of the linearity of the equations, the motion between two rotating spheres may be regarded as a superposition of the two motions obtained when one sphere is at rest and the other rotates. We first put $\Omega_2 = 0$, i.e. only the inner sphere is rotating. It is reasonable to suppose that the fluid velocity at every point is along the tangent to a circle in a plane perpendicular to the axis of rotation with its centre on the axis. On account of the axial symmetry, the pressure gradient in this direction is zero. Hence the equation of motion (20.1) becomes $\Delta v = 0$. The angular velocity vector $\Omega_1$ is an axial vector. Arguments similar to those given previously show that the velocity can be written as
+
+$$
+\mathbf{v} = \text{curl} [f(r) \Omega_1] = \text{grad} f \times \Omega_1.
+$$
+
+The equation of motion then gives $\text{grad} \Delta f \times \Omega_1 = 0$. Since the vector $\text{grad} \Delta f$ is parallel to the position vector, and the vector product $\mathbf{r} \times \Omega_1$ cannot be zero for given $\Omega_1$ and arbitrary $\mathbf{r}$, we must have $\text{grad} \Delta f = 0$, so that $\Delta f = \text{constant}$.
+
+Integrating, we find
+
+$$
+f = ar^2 + \frac{b}{r}, \quad \mathbf{v} = \left( \frac{b}{r^3} - 2a \right) \Omega_1 \times \mathbf{r}.
+$$
+
+The constants $a$ and $b$ are found from the conditions that $v = 0$ for $r = R_2$ and $v = u$ for $r = R_1$, where $u = \Omega_1 \times \mathbf{r}$ is the velocity of points on the rotating sphere. The result is
+
+$$
+\mathbf{v} = \frac{R_1^3 R_2^3}{R_2^3 - R_1^3} \left( \frac{1}{r^3} - \frac{1}{R_2^3} \right) \Omega_1 \times \mathbf{r}.
+$$
+
+The fluid pressure is constant ($p = p_0$). Similarly, we have for the case where the outer sphere rotates and the inner one is at rest ($\Omega_1 = 0$)
+
+$$
+\mathbf{v} = \frac{R_1^3 R_2^3}{R_2^3 - R_1^3} \left( \frac{1}{R_1^3} - \frac{1}{r^3} \right) \Omega_2 \times \mathbf{r}.
+$$
+
+In the general case where both spheres rotate, we have
+
+$$
+\mathbf{v} = \frac{R_1^3 R_2^3}{R_2^3 - R_1^3} \left( \left( \frac{1}{r^3} - \frac{1}{R_2^3} \right) \Omega_1 \times \mathbf{r} + \left( \frac{1}{R_1^3} - \frac{1}{r^3} \right) \Omega_2 \times \mathbf{r} \right).
+$$
+
+If the outer sphere is absent ($R_2 = \infty, \Omega_2 = 0$), i.e. we have simply a sphere with radius $R$ rotating in an infinite fluid, then
+
+$$
+\mathbf{v} = (R^3/r^3) \Omega \times \mathbf{r}.
+$$
+
+Let us calculate the moment of the frictional forces acting on the sphere in this case. If we take spherical polar coordinates with the polar axis parallel to $\Omega$, we have $v_r = v_\theta = 0, v_\phi = (R^2 \Omega/r^2) \sin \theta$. The frictional force on unit area of the sphere is
+
+$$
+\sigma_{r\phi} = \eta \left( \frac{\partial v_\phi}{\partial r} - \frac{v_\phi}{r} \right)_{r=R} = -3\eta \Omega \sin \theta.
+$$
+
+The total moment on the sphere is
+
+$$
+M = \int_0^\pi \sigma_{r\phi} R \sin \theta \cdot 2\pi R^2 \sin \theta \, d\theta,
+$$
+
+whence we find
+
+$$
+M = -8\pi \eta R^3 \Omega.
+$$
+
+If the inner sphere is absent, $\mathbf{v} = \Omega \times \mathbf{r}$, i.e. the fluid simply rotates rigidly with the sphere surrounding it.
+
+\subsection*{Problem 3}
+
+Two parallel plane circular disks (with radius $R$) lie one above the other a small distance apart; the space between them is filled with fluid. The disks approach at a constant velocity $u$, displacing the fluid. Determine the resistance to their motion (O. Reynolds).
+
+\textit{Solution.} We take cylindrical polar coordinates, with the origin at the centre of the lower disk, which we suppose fixed. The flow is axially symmetric and, since the fluid layer is thin, predominantly radial: $v_z \ll v_r$, and also $\partial v_r/\partial r \ll \partial v_r/\partial z$. Hence the equations of motion become
+
+$$
+\eta \frac{\partial^2 v_r}{\partial z^2} = \frac{\partial p}{\partial r}, \quad \frac{\partial p}{\partial z} = 0, {1}
+$$
+
+$$
+\frac{1}{r} \frac{\partial (rv_r)}{\partial r} + \frac{\partial v_z}{\partial z} = 0, {2}
+$$
+
+with the boundary conditions
+
+$$
+\text{at } z = 0: \quad v_r = v_z = 0;
+$$
+
+$$
+\text{at } z = h: \quad v_r = 0, \quad v_z = -u;
+$$
+
+$$
+\text{at } r = R: \quad p = p_0,
+$$
+
+where $h$ is the distance between the disks, and $p_0$ the external pressure. From equations (1) we find
+
+$$
+v_r = \frac{1}{2\eta} \frac{dp}{dr} z(z - h).
+$$
+
+Integrating equation (2) with respect to $z$, we obtain
+
+$$
+u = \frac{1}{r} \frac{d}{dr} \int_0^h rv_r \, dz = -\frac{h^3}{12\eta r} \frac{d}{dr} \left( r \frac{dp}{dr} \right),
+$$
+
+whence
+
+$$
+p = p_0 + \frac{3\eta u}{h^3} (R^2 - r^2).
+$$
+
+The total resistance to the moving disk is
+
+$$
+F = \frac{3\pi \eta u R^4}{2h^3}.
 $$
 
 \end{document}

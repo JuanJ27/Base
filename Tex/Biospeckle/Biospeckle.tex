@@ -90,22 +90,37 @@
 \begin{frame}{Resultados - Análisis Estadístico}
     \begin{table}
         \centering
+        \begin{figure}
+            \includegraphics[width=0.45\textwidth]{TGdMean.png}
+            \includegraphics[width=0.45\textwidth]{TGdStd.png}
+        \end{figure}
         \begin{tabular}{|l|c|c|c|}
             \hline
             \textbf{Variable} & \textbf{p-valor (t-test)} & \textbf{Distinguibles?} & \textbf{IC 95\% óptimo} \\
             \hline
             GdMean & 0.0042 & Sí & [3.2, 4.6] \\
             GdStd & 0.00078 & Sí & [10, 15] \\
+            \hline
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Resultados - Análisis Estadístico}
+    \begin{table}
+        \centering
+        \begin{figure}
+            \includegraphics[width=0.6\textwidth]{TMi.png}
+        \end{figure}
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Variable} & \textbf{p-valor (t-test)} & \textbf{Distinguibles?} & \textbf{IC 95\% óptimo} \\
+            \hline
             MI & 0.064 & No & [3.3e+06, 7e+06] \\
             \hline
         \end{tabular}
-        \caption{Resultados de la prueba t de Student.}
     \end{table}
-    \begin{itemize}
-        \item GdMean y GdStd diferencian significativamente entre grupos.
-        \item MI no muestra diferencias relevantes (p $>$ 0.05).
-    \end{itemize}
 \end{frame}
+
 
 \begin{frame}{Resultados - Modelo de Clasificación}
     \begin{itemize}
@@ -124,14 +139,14 @@
         \item El biospeckle es efectivo para evaluar la calidad de arándanos.
         \item GdMean y GdStd son indicadores clave para clasificar arándanos.
         \item El modelo de regresión logística logra un 89\% de precisión.
-        \item Para mejorar: Ampliar la muestra para robustecer el modelo.
+        \item Para mejorar: Ampliar la muestra para robustecer los resultados.
     \end{itemize}
 \end{frame}
 
 % Agradecimientos
 \begin{frame}
     \centering
-    \Huge{¡Gracias!}
+    \Huge{\textbf{Gracias por su atención}}
 \end{frame}
 
 \end{document}

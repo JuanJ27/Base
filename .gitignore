@@ -6,10 +6,26 @@
 *.out
 *.synctex.gz
 *.gz
+*.nav
+*.snm
+*.toc
 
 # Ignorar archivos de paquetes o configuraciones adicionales
 *.zip
 *.pth
+*.bin
 
-# Ignorar imagenes
+# Ignorar imagenes y videos
+*.mp4
+*.mkv
 *.png
+*.jpeg
+# Entorno
+/Python/Experimental IV/Exp4
+*.vscode
+
+# Datos 
+*.json
+*.csv
+*.txt
+*.yaml
