@@ -518,491 +518,491 @@ $$
     \item $c$ velocidad del sonido.
     \item $M$ Ratio de la velocidad del fluido a la velocidad del sonido. (Mach number).
 \end{itemize}
-\section*{Seccion 8: Conservacion de la circulación}
+\section*{Sección 8: Conservación de la circulación}
 \subsection*{Problema 1}
 
-\textbf{Enunciado.} Show that, in flow which is not isentropic, any moving particle carries with it a constant value of the product $(1/\rho) \, \nabla \, s \cdot \nabla \times \, \mathbf{v}$ (H. Ertel 1942).
+\textbf{Enunciado.} Muestra que, en un flujo que no es isoentrópico, cualquier partícula en movimiento lleva consigo un valor constante del producto $(1/\rho) , \nabla , s \cdot \nabla \times , \mathbf{v}$ (H. Ertel 1942).
 
 \textit{Solución.}
 
-When the flow is not isentropic, the right-hand side of Euler's equation (2.3) cannot be replaced by $-\nabla \, w$, and (2.11) becomes
+Cuando el flujo no es isoentrópico, el lado derecho de la ecuación de Euler (2.3) no se puede reemplazar por $-\nabla , w$, y (2.11) se convierte en
 
 $$
-\frac{\partial \boldsymbol{\omega}}{\partial t} = \nabla \times \, (\mathbf{v} \times \boldsymbol{\omega}) + \left( \frac{1}{\rho^2} \right) \nabla \, \rho \times \nabla \, p,
+\frac{\partial \boldsymbol{\omega}}{\partial t} = \nabla \times , (\mathbf{v} \times \boldsymbol{\omega}) + \left( \frac{1}{\rho^2} \right) \nabla , \rho \times \nabla , p,
 $$
 
-where for brevity $\boldsymbol{\omega} = \nabla \times \, \mathbf{v}$. We multiply scalarly by $\nabla \, s$; since $s = s(p, \rho)$, $\nabla \, s$ is a linear function of $\nabla \, p$ and $\nabla \, \rho$, and $\nabla \, s \cdot (\nabla \, \rho \times \nabla \, p) = 0$. The expression on the right-hand side can then be transformed as follows:
+donde, para abreviar, $\boldsymbol{\omega} = \nabla \times , \mathbf{v}$. Multiplicamos escalarmente por $\nabla , s$; dado que $s = s(p, \rho)$, $\nabla , s$ es una función lineal de $\nabla , p$ y $\nabla , \rho$, y $\nabla , s \cdot (\nabla , \rho \times \nabla , p) = 0$. La expresión en el lado derecho se puede transformar de la siguiente manera:
 
 $$
-\nabla \, s \cdot \frac{\partial \boldsymbol{\omega}}{\partial t} = \nabla \, s \cdot \nabla \times \, (\mathbf{v} \times \boldsymbol{\omega})
-$$
-
-$$
-= -\nabla \cdot \, [\nabla \, s \times (\mathbf{v} \times \boldsymbol{\omega})]
+\nabla , s \cdot \frac{\partial \boldsymbol{\omega}}{\partial t} = \nabla , s \cdot \nabla \times , (\mathbf{v} \times \boldsymbol{\omega})
 $$
 
 $$
-= -\nabla \cdot \, [\mathbf{v} (\boldsymbol{\omega} \cdot \nabla \, s)] + \nabla \cdot \, [\boldsymbol{\omega} (\mathbf{v} \cdot \nabla \, s)]
+= -\nabla \cdot , [\nabla , s \times (\mathbf{v} \times \boldsymbol{\omega})]
 $$
 
 $$
-= -(\boldsymbol{\omega} \cdot \nabla \, s) \, \nabla \cdot \, \mathbf{v} - \mathbf{v} \cdot \nabla \, (\boldsymbol{\omega} \cdot \nabla \, s) + \boldsymbol{\omega} \cdot \nabla \, (\mathbf{v} \cdot \nabla \, s).
+= -\nabla \cdot , [\mathbf{v} (\boldsymbol{\omega} \cdot \nabla , s)] + \nabla \cdot , [\boldsymbol{\omega} (\mathbf{v} \cdot \nabla , s)]
 $$
 
-From (2.6), $\mathbf{v} \cdot \nabla \, s = -\partial s/\partial t$, and therefore
-
 $$
-\frac{\partial}{\partial t} (\boldsymbol{\omega} \cdot \nabla \, s) + \mathbf{v} \cdot \nabla \, (\boldsymbol{\omega} \cdot \nabla \, s) + (\boldsymbol{\omega} \cdot \nabla \, s) \, \nabla \cdot \, \mathbf{v} = 0.
+= -(\boldsymbol{\omega} \cdot \nabla , s) , \nabla \cdot , \mathbf{v} - \mathbf{v} \cdot \nabla , (\boldsymbol{\omega} \cdot \nabla , s) + \boldsymbol{\omega} \cdot \nabla , (\mathbf{v} \cdot \nabla , s).
 $$
 
-The first two terms can be combined as $d(\boldsymbol{\omega} \cdot \nabla \, s)/dt$, where $d/dt = \partial/\partial t + \mathbf{v} \cdot \nabla$; in the last term, we put from (1.3) $\rho \, \nabla \cdot \, \mathbf{v} = -d\rho/dt$. The result is
+De (2.6), $\mathbf{v} \cdot \nabla , s = -\partial s/\partial t$, y por lo tanto
 
 $$
-\frac{d}{dt} \left( \frac{\boldsymbol{\omega} \cdot \nabla \, s}{\rho} \right) = 0,
+\frac{\partial}{\partial t} (\boldsymbol{\omega} \cdot \nabla , s) + \mathbf{v} \cdot \nabla , (\boldsymbol{\omega} \cdot \nabla , s) + (\boldsymbol{\omega} \cdot \nabla , s) , \nabla \cdot , \mathbf{v} = 0.
 $$
 
-which gives the required conservation law.
+Los primeros dos términos se pueden combinar como $d(\boldsymbol{\omega} \cdot \nabla , s)/dt$, donde $d/dt = \partial/\partial t + \mathbf{v} \cdot \nabla$; en el último término, ponemos de (1.3) $\rho , \nabla \cdot , \mathbf{v} = -d\rho/dt$. El resultado es
 
-\section*{Seccion 10: Fluidos incompresibles}
-\subsection*{Problem 1}
+$$
+\frac{d}{dt} \left( \frac{\boldsymbol{\omega} \cdot \nabla , s}{\rho} \right) = 0,
+$$
 
-\textbf{Enunciado.} Determine the shape of the surface of an incompressible fluid subject to a gravitational field, contained in a cylindrical vessel which rotates about its (vertical) axis with a constant angular velocity $\Omega$.
+lo que da la ley de conservación requerida.
 
-\textit{Solution.} Let us take the axis of the cylinder as the $z$-axis. Then $v_x = -y\Omega$, $v_y = x\Omega$, $v_z = 0$. The equation of continuity is satisfied identically, and Euler's equation (10.1) gives
+\section*{Sección 10: Fluidos incompresibles}
+\subsection*{Problema 1}
+
+\textbf{Enunciado.} Determina la forma de la superficie de un fluido incompresible sujeto a un campo gravitacional, contenido en un recipiente cilíndrico que gira alrededor de su eje (vertical) con una velocidad angular constante $\Omega$.
+
+\textit{Solución.} Tomemos el eje del cilindro como el eje $z$. Entonces $v_x = -y\Omega$, $v_y = x\Omega$, $v_z = 0$. La ecuación de continuidad se satisface idénticamente, y la ecuación de Euler (10.1) da
 
 $$
 x\Omega^2 = \frac{1}{\rho} \frac{\partial p}{\partial x}, \quad y\Omega^2 = \frac{1}{\rho} \frac{\partial p}{\partial y}, \quad \frac{1}{\rho} \frac{\partial p}{\partial z} + g = 0.
 $$
 
-The general integral of these equations is
+La integral general de estas ecuaciones es
 
 $$
-p/\rho = \frac{1}{2} \Omega^2 (x^2 + y^2) - gz + \text{constant}.
+p/\rho = \frac{1}{2} \Omega^2 (x^2 + y^2) - gz + \text{constante}.
 $$
 
-At the free surface $p = \text{constant}$, so that the surface is a paraboloid:
+En la superficie libre $p = \text{constante}$, de modo que la superficie es un paraboloide:
 
 $$
 z = \frac{1}{2} \Omega^2 (x^2 + y^2)/g,
 $$
 
-the origin being taken at the lowest point of the surface.
+tomando el origen en el punto más bajo de la superficie.
 
-\subsection*{Problem 2}
+\subsection*{Problema 2}
 
-\textbf{Enunciado.}A sphere, with radius $R$, moves with velocity $\mathbf{u}$ in an incompressible ideal fluid. Determine the potential flow of the fluid past the sphere.
+\textbf{Enunciado.} Una esfera, con radio $R$, se mueve con velocidad $\mathbf{u}$ en un fluido incompresible ideal. Determina el flujo potencial del fluido alrededor de la esfera.
 
-\textit{Solution.} The fluid velocity must vanish at infinity. The solutions of Laplace's equation $\Delta \phi = 0$ which vanish at infinity are well known to be $1/r$ and the derivatives, of various orders, of $1/r$ with respect to the coordinates (the origin is taken at the centre of the sphere). On account of the complete symmetry of the sphere, only one constant vector, the velocity $\mathbf{u}$, can appear in the solution, and, on account of the linearity of both Laplace's equation and the boundary condition, $\phi$ must involve $\mathbf{u}$ linearly. The only scalar which can be formed from $\mathbf{u}$ and the derivatives of $1/r$ is the scalar product $\mathbf{u} \cdot \nabla (1/r)$. We therefore seek $\phi$ in the form
+\textit{Solución.} La velocidad del fluido debe anularse en el infinito. Las soluciones de la ecuación de Laplace $\Delta \phi = 0$ que se anulan en el infinito son bien conocidas: $1/r$ y las derivadas, de varios órdenes, de $1/r$ con respecto a las coordenadas (el origen se toma en el centro de la esfera). Debido a la completa simetría de la esfera, solo un vector constante, la velocidad $\mathbf{u}$, puede aparecer en la solución, y, debido a la linealidad tanto de la ecuación de Laplace como de la condición de contorno, $\phi$ debe involucrar a $\mathbf{u}$ linealmente. El único escalar que se puede formar a partir de $\mathbf{u}$ y las derivadas de $1/r$ es el producto escalar $\mathbf{u} \cdot \nabla (1/r)$. Por lo tanto, buscamos $\phi$ en la forma
 
 $$
 \phi = \mathbf{A} \cdot \nabla (1/r) = -(\mathbf{A} \cdot \mathbf{n})/r^2,
 $$
 
-where $\mathbf{n}$ is a unit vector in the direction of $\mathbf{r}$. The constant $\mathbf{A}$ is determined from the condition that the normal components of the velocities $\mathbf{v}$ and $\mathbf{u}$ must be equal at the surface at the sphere, i.e. $\mathbf{v} \cdot \mathbf{n} = \mathbf{u} \cdot \mathbf{n}$ for $r = R$. This condition gives $\mathbf{A} = \frac{1}{2} \mathbf{u} R^3$, so that
+donde $\mathbf{n}$ es un vector unitario en la dirección de $\mathbf{r}$. La constante $\mathbf{A}$ se determina a partir de la condición de que los componentes normales de las velocidades $\mathbf{v}$ y $\mathbf{u}$ deben ser iguales en la superficie de la esfera, es decir, $\mathbf{v} \cdot \mathbf{n} = \mathbf{u} \cdot \mathbf{n}$ para $r = R$. Esta condición da $\mathbf{A} = \frac{1}{2} \mathbf{u} R^3$, de modo que
 
 $$
 \phi = -\frac{R^3}{2r^2} \mathbf{u} \cdot \mathbf{n}, \quad \mathbf{v} = \frac{R^3}{2r^3} [3\mathbf{n}(\mathbf{u} \cdot \mathbf{n}) - \mathbf{u}].
 $$
 
-The pressure distribution is given by equation (10.7):
+La distribución de presión está dada por la ecuación (10.7):
 
 $$
 p = p_0 - \frac{1}{2} \rho v^2 - \rho \frac{\partial \phi}{\partial t},
 $$
 
-where $p_0$ is the pressure at infinity. To calculate the derivative $\partial \phi/\partial t$, we must bear in mind that the origin (which we have taken at the centre of the sphere) moves with velocity $\mathbf{u}$. Hence
+donde $p_0$ es la presión en el infinito. Para calcular la derivada $\partial \phi/\partial t$, debemos tener en cuenta que el origen (que hemos tomado en el centro de la esfera) se mueve con velocidad $\mathbf{u}$. Por lo tanto,
 
 $$
 \frac{\partial \phi}{\partial t} = (\partial \phi/\partial \mathbf{u}) \cdot \dot{\mathbf{u}} - \mathbf{u} \cdot \nabla \phi.
 $$
 
-The pressure distribution over the surface of the sphere is given by the formula
+La distribución de presión sobre la superficie de la esfera está dada por la fórmula
 
 $$
 p = p_0 + \frac{1}{8} \rho u^2 (9 \cos^2 \theta - 5) + \frac{1}{2} \rho R n \cdot \dot{\mathbf{u}},
 $$
 
-where $\theta$ is the angle between $\mathbf{n}$ and $\mathbf{u}$.
+donde $\theta$ es el ángulo entre $\mathbf{n}$ y $\mathbf{u}$.
 
-\subsection*{Problem 3}
+\subsection*{Problema 3}
 
-\textbf{Enunciado.} The same as Problem 2, but for an infinite cylinder moving perpendicular to its axis.
+\textbf{Enunciado.} Lo mismo que el Problema 2, pero para un cilindro infinito que se mueve perpendicularmente a su eje.
 
-\textit{Solution.} The flow is independent of the axial coordinate, so that we have to solve Laplace's equation in two dimensions. The solutions which vanish at infinity are the first and higher derivatives of $\log r$ with respect to the coordinates, where $r$ is the radius vector perpendicular to the axis of the cylinder. We seek a solution in the form
+\textit{Solución.} El flujo es independiente de la coordenada axial, por lo que tenemos que resolver la ecuación de Laplace en dos dimensiones. Las soluciones que se anulan en el infinito son la primera y las derivadas superiores de $\log r$ con respecto a las coordenadas, donde $r$ es el vector radial perpendicular al eje del cilindro. Buscamos una solución en la forma
 
 $$
 \phi = \mathbf{A} \cdot \nabla \log r = \mathbf{A} \cdot \mathbf{n}/r,
 $$
 
-and from the boundary conditions we obtain $\mathbf{A} = -R^2 \mathbf{u}$, so that
+y de las condiciones de contorno obtenemos $\mathbf{A} = -R^2 \mathbf{u}$, de modo que
 
 $$
 \phi = -\frac{R^2}{r} \mathbf{u} \cdot \mathbf{n}, \quad \mathbf{v} = \frac{R^2}{r^2} [2\mathbf{n}(\mathbf{u} \cdot \mathbf{n}) - \mathbf{u}].
 $$
 
-The pressure at the surface of the cylinder is given by
+La presión en la superficie del cilindro está dada por
 
 $$
 p = p_0 + \frac{1}{2} \rho u^2 (4 \cos^2 \theta - 3) + \rho R n \cdot \frac{d\mathbf{u}}{dt}.
 $$
 
-\subsection*{Problem 4}
+\subsection*{Problema 4}
 
-\textbf{Enunciado.} Determine the potential flow of an incompressible ideal fluid in an ellipsoidal vessel rotating about a principal axis with angular velocity $\Omega$, and determine the total angular momentum of the fluid.
+\textbf{Enunciado.} Determina el flujo potencial de un fluido incompresible ideal en un recipiente elipsoidal que gira alrededor de un eje principal con velocidad angular $\Omega$, y determina el momento angular total del fluido.
 
-\textit{Solution.} We take Cartesian coordinates $x, y, z$ along the axes of the ellipsoid at a given instant, the $z$-axis being the axis of rotation. The velocity of points in the vessel wall is
+\textit{Solución.} Tomamos coordenadas cartesianas $x, y, z$ a lo largo de los ejes del elipsoide en un instante dado, siendo el eje $z$ el eje de rotación. La velocidad de los puntos en la pared del recipiente es
 
 $$
 \mathbf{u} = \Omega \mathbf{x} \mathbf{r},
 $$
 
-so that the boundary condition $v_n = \partial \phi/\partial n = u_n$ is
+por lo que la condición de contorno $v_n = \partial \phi/\partial n = u_n$ es
 
 $$
 \frac{\partial \phi}{\partial n} = \Omega (x_n, -y_n),
 $$
 
-or, using the equation of the ellipsoid $x^2/a^2 + y^2/b^2 + z^2/c^2 = 1$,
+o, usando la ecuación del elipsoide $x^2/a^2 + y^2/b^2 + z^2/c^2 = 1$,
 
 $$
 \frac{x}{a^2} \frac{\partial \phi}{\partial x} + \frac{y}{b^2} \frac{\partial \phi}{\partial y} + \frac{z}{c^2} \frac{\partial \phi}{\partial z} = xy \Omega \left( \frac{1}{b^2} - \frac{1}{a^2} \right).
 $$
 
-The solution of Laplace's equation which satisfies this boundary condition is
+La solución de la ecuación de Laplace que satisface esta condición de contorno es
 
 $$
 \phi = \Omega \frac{a^2 - b^2}{a^2 + b^2} xy. {1}
 $$
 
-The angular momentum of the fluid in the vessel is
+El momento angular del fluido en el recipiente es
 
 $$
-M = \rho \int (xy - yx) \, dV.
+M = \rho \int (xy - yx) , dV.
 $$
 
-Integrating over the volume $V$ of the ellipsoid, we have
+Integrando sobre el volumen $V$ del elipsoide, tenemos
 
 $$
 M = \frac{\Omega \rho V (a^2 - b^2)^2}{5(a^2 + b^2)}.
 $$
 
-Formula (1) gives the absolute motion of the fluid relative to the instantaneous position of the axes $x, y, z$ which are fixed to the rotating vessel. The motion relative to the vessel is found by subtracting the velocity $\Omega \mathbf{x} \mathbf{r}$ from the absolute velocity; denoting the relative velocity of the fluid by $\mathbf{v}'$, we have
+La fórmula (1) da el movimiento absoluto del fluido relativo a la posición instantánea de los ejes $x, y, z$ que están fijos al recipiente en rotación. El movimiento relativo al recipiente se encuentra restando la velocidad $\Omega \mathbf{x} \mathbf{r}$ de la velocidad absoluta; denotando la velocidad relativa del fluido por $\mathbf{v}'$, tenemos
 
 $$
 v'_x = \frac{\partial \phi}{\partial x} + y \Omega = \frac{2 \Omega a^2}{a^2 + b^2} y, \quad v'_y = -\frac{2 \Omega b^2}{a^2 + b^2} x, \quad v'_z = 0.
 $$
 
-The paths of the relative motion are found by integrating the equations $\dot{x} = v'_x$, $\dot{y} = v'_y$, and are the ellipses $x^2/a^2 + y^2/b^2 = \text{constant}$, which are similar to the boundary ellipse.
+Las trayectorias del movimiento relativo se encuentran integrando las ecuaciones $\dot{x} = v'_x$, $\dot{y} = v'_y$, y son las elipses $x^2/a^2 + y^2/b^2 = \text{constante}$, que son similares a la elipse límite.
 
-\subsection*{Problem 5}
+\subsection*{Problema 5}
 
-\textbf{Enunciado.} Determine the flow near a stagnation point (Fig. 2).
+\textbf{Enunciado.} Determina el flujo cerca de un punto de estancamiento (Fig. 2).
 
-\textit{Solution.} A small part of the surface of the body near the stagnation point may be regarded as plane. Let us take it as the $xy$-plane. Expanding $\phi$ for $x, y, z$ small, we have as far as the second-order terms
+\textit{Solución.} Una pequeña parte de la superficie del cuerpo cerca del punto de estancamiento puede considerarse plana. Tomémosla como el plano $xy$. Expandiendo $\phi$ para $x, y, z$ pequeños, tenemos hasta los términos de segundo orden
 
 $$
 \phi = ax + by + cz + Ax^2 + By^2 + Cz^2 + Dxy + Eyz + Fzx;
 $$
 
-a constant term in $\phi$ is immaterial. The constant coefficients are determined so that $\phi$ satisfies the equation $\Delta \phi = 0$ and the boundary conditions $v_z = \partial \phi/\partial z = 0$ for $z = 0$ and all $x, y$, $\partial \phi/\partial x = \partial \phi/\partial y = 0$ for $x = y = z = 0$ (the stagnation point). This gives $a = b = c = 0; C = -A - B, E = F = 0$. The term $Dxy$ can always be removed by an appropriate rotation of the $x$ and $y$ axes. We then have
+un término constante en $\phi$ es irrelevante. Los coeficientes constantes se determinan de modo que $\phi$ satisfaga la ecuación $\Delta \phi = 0$ y las condiciones de contorno $v_z = \partial \phi/\partial z = 0$ para $z = 0$ y todos $x, y$, $\partial \phi/\partial x = \partial \phi/\partial y = 0$ para $x = y = z = 0$ (el punto de estancamiento). Esto da $a = b = c = 0; C = -A - B, E = F = 0$. El término $Dxy$ siempre se puede eliminar mediante una rotación adecuada de los ejes $x$ e $y$. Entonces tenemos
 
 $$
 \phi = Ax^2 + By^2 - (A + B)z^2. {1}
 $$
 
-If the flow is axially symmetrical about the $z$-axis (symmetrical flow past a solid of revolution), we must have $A = B$, so that
+Si el flujo es axialmente simétrico alrededor del eje $z$ (flujo simétrico alrededor de un sólido de revolución), debemos tener $A = B$, de modo que
 
 $$
 \phi = A(x^2 + y^2 - 2z^2).
 $$
 
-The velocity components are $v_x = 2Ax, v_y = 2Ay, v_z = -4Az$. The streamlines are given by equations (5.2), from which we find $x^2z = c_1, y^2z = c_2$, i.e. the streamlines are cubical hyperbolae.
+Los componentes de la velocidad son $v_x = 2Ax, v_y = 2Ay, v_z = -4Az$. Las líneas de corriente están dadas por las ecuaciones (5.2), de las cuales encontramos $x^2z = c_1, y^2z = c_2$, es decir, las líneas de corriente son hipérbolas cúbicas.
 
-If the flow is uniform in the $y$-direction (e.g. flow in the $z$-direction past a cylinder with its axis in the $y$-direction), we must have $B = 0$ in (1), so that
+Si el flujo es uniforme en la dirección $y$ (por ejemplo, flujo en la dirección $z$ alrededor de un cilindro con su eje en la dirección $y$), debemos tener $B = 0$ en (1), de modo que
 
 $$
 \phi = A(x^2 - z^2).
 $$
 
-The streamlines are the hyperbolae $xz = \text{constant}$.
+Las líneas de corriente son las hipérbolas $xz = \text{constante}$.
 
-\subsection*{Problem 6}
+\subsection*{Problema 6}
 
-\textbf{Enunciado.} Determine the potential flow near an angle formed by two intersecting planes.
+\textbf{Enunciado.} Determina el flujo potencial cerca de un ángulo formado por dos planos que se intersectan.
 
-\textit{Solution.} Let us take polar coordinates $r, \theta$ in the cross-sectional plane (perpendicular to the line of intersection), with the origin at the vertex of the angle; $\theta$ is measured from one of the arms of the angle. Let the angle be $\alpha$ radians; for $\alpha < \pi$ the flow takes place within the angle, for $\alpha > \pi$ outside it. The boundary condition that the normal velocity component vanish means that $\partial \phi/\partial \theta = 0$ for $\theta = 0$ and $\theta = \alpha$. The solution of Laplace's equation satisfying these conditions can be written
+\textit{Solución.} Tomemos coordenadas polares $r, \theta$ en el plano transversal (perpendicular a la línea de intersección), con el origen en el vértice del ángulo; $\theta$ se mide desde uno de los brazos del ángulo. Sea el ángulo $\alpha$ radianes; para $\alpha < \pi$ el flujo tiene lugar dentro del ángulo, para $\alpha > \pi$ fuera de él. La condición de contorno de que el componente normal de la velocidad se anule significa que $\partial \phi/\partial \theta = 0$ para $\theta = 0$ y $\theta = \alpha$. La solución de la ecuación de Laplace que satisface estas condiciones se puede escribir como
 
 $$
 \phi = Ar^n \cos n\theta, \quad n = \pi/\alpha,
 $$
 
-so that
+de modo que
 
 $$
 v_r = nAr^{n-1} \cos n\theta, \quad v_\theta = -nAr^{n-1} \sin n\theta.
 $$
 
-For $n < 1$ (flow outside an angle; Fig. 3), $v_r$ becomes infinite as $1/r^{1-n}$ at the origin. For $n > 1$ (flow inside an angle; Fig. 4), $v_r$ becomes zero for $r = 0$.
+Para $n < 1$ (flujo fuera de un ángulo; Fig. 3), $v_r$ se hace infinita como $1/r^{1-n}$ en el origen. Para $n > 1$ (flujo dentro de un ángulo; Fig. 4), $v_r$ se hace cero para $r = 0$.
 
-The stream function, which gives the form of the streamlines, is $\psi = Ar^n \sin n\theta$. The expressions obtained for $\phi$ and $\psi$ are the real and imaginary parts of the complex potential $w = Az^n$.
+La función de corriente, que da la forma de las líneas de corriente, es $\psi = Ar^n \sin n\theta$. Las expresiones obtenidas para $\phi$ y $\psi$ son las partes real e imaginaria del potencial complejo $w = Az^n$.
 
-\subsection*{Problem 7}
+\subsection*{Problema 7}
 
-\textbf{Enunciado.} A spherical hole with radius $a$ is suddenly formed in an incompressible fluid filling all space. Determine the time taken for the hole to be filled with fluid (Besant 1859; Rayleigh 1917).
+\textbf{Enunciado.} Un agujero esférico con radio $a$ se forma repentinamente en un fluido incompresible que llena todo el espacio. Determina el tiempo que tarda el agujero en llenarse de fluido (Besant 1859; Rayleigh 1917).
 
-\subsection*{Solution}
+\subsection*{Solución}
 
-The flow after the formation of the hole will be spherically symmetrical, the velocity at every point being directed to the centre of the hole. For the radial velocity $v_r \equiv v < 0$ we have Euler's equation in spherical polar coordinates:
+El flujo después de la formación del agujero será esféricamente simétrico, con la velocidad en cada punto dirigida hacia el centro del agujero. Para la velocidad radial $v_r \equiv v < 0$ tenemos la ecuación de Euler en coordenadas polares esféricas:
 
 $$
 \frac{\partial v}{\partial t} + v \frac{\partial v}{\partial r} = -\frac{1}{\rho} \frac{\partial p}{\partial r}. {1}
 $$
 
-The equation of continuity gives
+La ecuación de continuidad da
 
 $$
 r^2 v = F(t), {2}
 $$
 
-where $F(t)$ is an arbitrary function of time; this equation expresses the fact that, since the fluid is incompressible, the volume flowing through any spherical surface is independent of the radius of that surface.
+donde $F(t)$ es una función arbitraria del tiempo; esta ecuación expresa el hecho de que, dado que el fluido es incompresible, el volumen que fluye a través de cualquier superficie esférica es independiente del radio de esa superficie.
 
-Substituting $v$ from (2) in (1), we have
+Sustituyendo $v$ de (2) en (1), tenemos
 
 $$
 \frac{F'(t)}{r^2} + v \frac{\partial v}{\partial r} = -\frac{1}{\rho} \frac{\partial p}{\partial r}.
 $$
 
-Integrating this equation over $r$ from the instantaneous radius $R = R(t) \leq a$ of the hole to infinity, we obtain
+Integrando esta ecuación sobre $r$ desde el radio instantáneo $R = R(t) \leq a$ del agujero hasta el infinito, obtenemos
 
 $$
 -\frac{F'(t)}{R} + \frac{1}{2} v^2 = \frac{p_0}{\rho}, {3}
 $$
 
-where $\dot{R} = dR(t)/dt$ is the rate of change of the radius of the hole, and $p_0$ is the pressure at infinity; the fluid velocity at infinity is zero, and so is the pressure at the surface of the hole. From equation (2) for points on the surface of the hole we find
+donde $\dot{R} = dR(t)/dt$ es la tasa de cambio del radio del agujero, y $p_0$ es la presión en el infinito; la velocidad del fluido en el infinito es cero, y también lo es la presión en la superficie del agujero. De la ecuación (2) para puntos en la superficie del agujero encontramos
 
 $$
 F(t) = R^2(t) \dot{R}(t),
 $$
 
-and, substituting this expression for $F(t)$ in (3), we obtain the equation
+y, sustituyendo esta expresión para $F(t)$ en (3), obtenemos la ecuación
 
 $$
 \frac{3\dot{R}^2}{2} - \frac{1}{2} R \frac{d\dot{R}^2}{dR} = \frac{p_0}{\rho}. {4}
 $$
 
-The variables are separable; integrating with the boundary condition $\dot{R} = 0$ for $R = a$ (the fluid being initially at rest), we have
+Las variables son separables; integrando con la condición de contorno $\dot{R} = 0$ para $R = a$ (el fluido está inicialmente en reposo), tenemos
 
 $$
 \dot{R} \equiv \frac{dR}{dt} = -\sqrt{\frac{2p_0}{3\rho} \left( a^3/R^3 - 1 \right)}.
 $$
 
-Hence we have for the required total time for the hole to be filled
+Por lo tanto, tenemos para el tiempo total requerido para que el agujero se llene
 
 $$
 \tau = \sqrt{\frac{3\rho}{2p_0}} \int_0^a \frac{dR}{\sqrt{[(a/R)^3 - 1]}}.
 $$
 
-This integral reduces to a beta function, and we have finally
+Esta integral se reduce a una función beta, y finalmente tenemos
 
 $$
 \tau = \sqrt{\frac{3a^2 \rho \pi \Gamma(5/6)}{2p_0 \Gamma(1/3)}} = 0.915a \sqrt{\frac{\rho}{p_0}}.
 $$
 
-\subsection*{Problem 8}
+\subsection*{Problema 8}
 
-\textbf{Enunciado.} A sphere immersed in an incompressible fluid expands according to a given law $R = R(t)$. Determine the fluid pressure at the surface of the sphere.
+\textbf{Enunciado.} Una esfera sumergida en un fluido incompresible se expande según una ley dada $R = R(t)$. Determina la presión del fluido en la superficie de la esfera.
 
-\subsection*{Solution}
+\subsection*{Solución}
 
-Let the required pressure be $P(t)$. Calculations exactly similar to those of Problem 7, except that the pressure at $r = R$ is $P(t)$ and not zero, give instead of (3) the equation
+Sea la presión requerida $P(t)$. Cálculos exactamente similares a los del Problema 7, excepto que la presión en $r = R$ es $P(t)$ y no cero, dan en lugar de (3) la ecuación
 
 $$
 -\frac{F'(t)}{R(t)} + \frac{1}{2} V^2 = \frac{p_0}{\rho} - \frac{P(t)}{\rho}
 $$
 
-and accordingly instead of (4) the equation
+y, en consecuencia, en lugar de (4), la ecuación
 
 $$
 \frac{p_0 - P(t)}{\rho} = -\frac{3V^2}{2} - R \frac{V' dV}{dR}.
 $$
 
-Bearing in mind the fact that $V = dR/dt$, we can write the expression for $P(t)$ in the form
+Teniendo en cuenta que $V = dR/dt$, podemos escribir la expresión para $P(t)$ en la forma
 
 $$
 P(t) = p_0 + \frac{1}{2} \left[ \frac{d^2(R^2)}{dt^2} + \left( \frac{dR}{dt} \right)^2 \right].
 $$
 
-\section*{Seccion 17: Flujo en una tuberia}
+\section*{Sección 17: Flujo en una tubería}
 
-\subsection*{Problem 1}
+\subsection*{Problema 1}
 
-Determine the flow in a pipe of annular cross-section, the internal and external radii being $R_1, R_2$.
+Determina el flujo en una tubería de sección transversal anular, siendo los radios interno y externo $R_1, R_2$.
 
-\textit{Solution.} Determining the constants $a$ and $b$ in the general solution (17.8) from the conditions that $v = 0$ for $r = R_1$ and $r = R_2$, we find
+\textit{Solución.} Determinando las constantes $a$ y $b$ en la solución general (17.8) a partir de las condiciones de que $v = 0$ para $r = R_1$ y $r = R_2$, encontramos
 
 $$
 v = \frac{\Delta p}{4\eta l} \left[ R_2^2 - r^2 + \frac{R_2^2 - R_1^2}{\log(R_2/R_1)} \log \frac{r}{R_2} \right]
 $$
 
-The discharge is
+El caudal es
 
 $$
 Q = \frac{\pi \Delta p}{8\eta l} \left[ R_2^4 - R_1^4 - \frac{(R_2^2 - R_1^2)^2}{\log(R_2/R_1)} \right].
 $$
 
-\subsection*{Problem 2}
+\subsection*{Problema 2}
 
-The same as Problem 1, but for a pipe of elliptical cross-section.
+Lo mismo que el Problema 1, pero para una tubería de sección transversal elíptica.
 
-\textit{Solution.} We seek a solution of equation (17.7) in the form $v = Ay^2 + Bz^2 + C$. The constants $A, B, C$ are determined from the requirement that this expression must satisfy the boundary condition $v = 0$ on the circumference of the ellipse (i.e. $Ay^2 + Bz^2 + C = 0$ must be the same as the equation $y^2/a^2 + z^2/b^2 = 1$, where $a$ and $b$ are the semi-axes of the ellipse). The result is
+\textit{Solución.} Buscamos una solución de la ecuación (17.7) en la forma $v = Ay^2 + Bz^2 + C$. Las constantes $A, B, C$ se determinan a partir del requisito de que esta expresión debe satisfacer la condición de contorno $v = 0$ en la circunferencia de la elipse (es decir, $Ay^2 + Bz^2 + C = 0$ debe ser lo mismo que la ecuación $y^2/a^2 + z^2/b^2 = 1$, donde $a$ y $b$ son los semiejes de la elipse). El resultado es
 
 $$
 v = \frac{\Delta p}{2\eta l} \frac{a^2 b^2}{a^2 + b^2} \left( 1 - \frac{y^2}{a^2} - \frac{z^2}{b^2} \right).
 $$
 
-The discharge is
+El caudal es
 
 $$
 Q = \frac{\pi \Delta p}{4\eta l} \frac{a^3 b^3}{a^2 + b^2}.
 $$
 
-\subsection*{Problem 3}
+\subsection*{Problema 3}
 
-The same as Problem 1, but for a pipe whose cross-section is an equilateral triangle with side $a$.
+Lo mismo que el Problema 1, pero para una tubería cuya sección transversal es un triángulo equilátero con lado $a$.
 
-\textit{Solution.} The solution of equation (17.7) which vanishes on the bounding triangle is
+\textit{Solución.} La solución de la ecuación (17.7) que se anula en el triángulo limítrofe es
 
 $$
 v = \frac{\Delta p}{l} \frac{2}{3a\eta} h_1 h_2 h_3,
 $$
 
-where $h_1, h_2, h_3$ are the lengths of the perpendiculars from a given point in the triangle to its three sides. For each of the expressions $\Delta h_1, \Delta h_2, \Delta h_3$ (where $\Delta = \partial^2/\partial y^2 + \partial^2/\partial z^2$) is zero; this is seen at once from the fact that each of the perpendiculars $h_1, h_2, h_3$ may be taken as the axis of $y$ or $z$, and the result of applying the Laplacian to a coordinate is zero. We therefore have
+donde $h_1, h_2, h_3$ son las longitudes de las perpendiculares desde un punto dado en el triángulo a sus tres lados. Para cada una de las expresiones $\Delta h_1, \Delta h_2, \Delta h_3$ (donde $\Delta = \partial^2/\partial y^2 + \partial^2/\partial z^2$) es cero; esto se ve inmediatamente del hecho de que cada una de las perpendiculares $h_1, h_2, h_3$ puede tomarse como el eje de $y$ o $z$, y el resultado de aplicar el Laplaciano a una coordenada es cero. Por lo tanto, tenemos
 
 $$
-\Delta (h_1 h_2 h_3) = 2(h_1 \, \nabla \, h_2 \cdot \nabla \, h_3 + h_2 \, \nabla \, h_3 \cdot \nabla \, h_1 + h_3 \, \nabla \, h_1 \cdot \nabla \, h_2)
+\Delta (h_1 h_2 h_3) = 2(h_1 , \nabla , h_2 \cdot \nabla , h_3 + h_2 , \nabla , h_3 \cdot \nabla , h_1 + h_3 , \nabla , h_1 \cdot \nabla , h_2)
 $$
 
-But $\nabla \, h_1 = \mathbf{n}_1, \nabla \, h_2 = \mathbf{n}_2, \nabla \, h_3 = \mathbf{n}_3$, where $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ are unit vectors along the perpendiculars $h_1, h_2, h_3$. Any two of $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ are at an angle $2\pi/3$, so that $\nabla \, h_1 \cdot \nabla \, h_2 = \mathbf{n}_1 \cdot \mathbf{n}_2 = \cos(2\pi/3) = -\frac{1}{2}$, and so on. We thus obtain the relation
+Pero $\nabla , h_1 = \mathbf{n}_1, \nabla , h_2 = \mathbf{n}_2, \nabla , h_3 = \mathbf{n}_3$, donde $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ son vectores unitarios a lo largo de las perpendiculares $h_1, h_2, h_3$. Cualesquiera dos de $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ están en un ángulo $2\pi/3$, de modo que $\nabla , h_1 \cdot \nabla , h_2 = \mathbf{n}_1 \cdot \mathbf{n}_2 = \cos(2\pi/3) = -\frac{1}{2}$, y así sucesivamente. Así, obtenemos la relación
 
 $$
 \Delta (h_1 h_2 h_3) = -(h_1 + h_2 + h_3) = -\frac{1}{2} \sqrt{3} a,
 $$
 
-and we see that equation (17.7) is satisfied. The discharge is
+y vemos que la ecuación (17.7) se satisface. El caudal es
 
 $$
 Q = \frac{\sqrt{3} a^4 \Delta p}{320 \eta l}.
 $$
 
-\subsection*{Problem 4}
+\subsection*{Problema 4}
 
-A cylinder with radius $R_1$ moves parallel to its axis with velocity $u$ inside a coaxial cylinder with radius $R_2$. Determine the motion of a fluid occupying the space between the cylinders.
+Un cilindro con radio $R_1$ se mueve paralelo a su eje con velocidad $u$ dentro de un cilindro coaxial con radio $R_2$. Determina el movimiento de un fluido que ocupa el espacio entre los cilindros.
 
-\textit{Solution.} We take cylindrical polar coordinates, with the $z$-axis along the axis of the cylinders. The velocity is everywhere along the $z$-axis and depends only on $r$ (as does the pressure); $v_z = v(r)$. We obtain for $v$ the equation
+\textit{Solución.} Tomamos coordenadas polares cilíndricas, con el eje $z$ a lo largo del eje de los cilindros. La velocidad está en todas partes a lo largo del eje $z$ y depende solo de $r$ (al igual que la presión); $v_z = v(r)$. Obtenemos para $v$ la ecuación
 
 $$
 \Delta v = -\frac{1}{r} \frac{d}{dr} \left( r \frac{dv}{dr} \right) = 0;
 $$
 
-the term $(\mathbf{v} \cdot \nabla)w = v \, \partial v/\partial z$ vanishes identically. Using the boundary conditions $v = u$ for $r = R_1$ and $v = 0$ for $r = R_2$, we find
+el término $(\mathbf{v} \cdot \nabla)w = v , \partial v/\partial z$ se anula idénticamente. Usando las condiciones de contorno $v = u$ para $r = R_1$ y $v = 0$ para $r = R_2$, encontramos
 
 $$
 v = \frac{u \log(r/R_2)}{\log(R_1/R_2)}.
 $$
 
-The frictional force per unit length of either cylinder is $2\pi \eta u/\log(R_2/R_1)$.
+La fuerza de fricción por unidad de longitud de cualquiera de los cilindros es $2\pi \eta u/\log(R_2/R_1)$.
 
-\subsection*{Problem 5}
+\subsection*{Problema 5}
 
-A layer of fluid with thickness $h$ is bounded above by a free surface and below by a fixed plane inclined at an angle $\alpha$ to the horizontal. Determine the flow due to gravity.
+Una capa de fluido con espesor $h$ está limitada arriba por una superficie libre y abajo por un plano fijo inclinado en un ángulo $\alpha$ con respecto a la horizontal. Determina el flujo debido a la gravedad.
 
-\textit{Solution.} We take the fixed plane as the $xy$-plane, with the $x$-axis in the direction of flow (Fig. 6). We seek a solution depending only on $z$. The Navier–Stokes equations with $v_x = v(z)$ in a gravitational field are
+\textit{Solución.} Tomamos el plano fijo como el plano $xy$, con el eje $x$ en la dirección del flujo (Fig. 6). Buscamos una solución que dependa solo de $z$. Las ecuaciones de Navier-Stokes con $v_x = v(z)$ en un campo gravitacional son
 
 $$
 \eta \frac{d^2 v}{dz^2} + \rho g \sin \alpha = 0, \quad \frac{dp}{dz} + \rho g \cos \alpha = 0.
 $$
 
-At the free surface ($z = h$) we must have $\sigma_{xz} = \eta dv/dz = 0$, $\sigma_{zz} = -p = -p_0$ ($p_0$ being the atmospheric pressure). For $z = 0$ we must have $v = 0$. The solution satisfying these conditions is
+En la superficie libre ($z = h$) debemos tener $\sigma_{xz} = \eta dv/dz = 0$, $\sigma_{zz} = -p = -p_0$ ($p_0$ siendo la presión atmosférica). Para $z = 0$ debemos tener $v = 0$. La solución que satisface estas condiciones es
 
 $$
 p = p_0 + \rho g (h - z) \cos \alpha, \quad v = \frac{\rho g \sin \alpha}{2\eta} z(2h - z).
 $$
 
-The discharge, per unit length in the $y$-direction, is
+El caudal, por unidad de longitud en la dirección $y$, es
 
 $$
-Q = \rho \int_0^h v \, dz = \frac{\rho g h^3 \sin \alpha}{3\eta}.
+Q = \rho \int_0^h v , dz = \frac{\rho g h^3 \sin \alpha}{3\eta}.
 $$
 
-\section*{Seccion 20: Flujo con pequeños numueros de Reynolds}
+\section*{Sección 20: Flujo con pequeños números de Reynolds}
 
-\subsection*{Problem 1}
+\subsection*{Problema 1}
 
-Determine the motion of a fluid occupying the space between two concentric spheres with radii $R_1, R_2$ ($R_2 > R_1$), rotating uniformly about different diameters with angular velocities $\Omega_1, \Omega_2$; the Reynolds numbers $\Omega_1 R_1^2/\nu, \Omega_2 R_2^2/\nu$ are small compared with unity.
+Determina el movimiento de un fluido que ocupa el espacio entre dos esferas concéntricas con radios $R_1, R_2$ ($R_2 > R_1$), que giran uniformemente alrededor de diferentes diámetros con velocidades angulares $\Omega_1, \Omega_2$; los números de Reynolds $\Omega_1 R_1^2/\nu, \Omega_2 R_2^2/\nu$ son pequeños en comparación con la unidad.
 
-\textit{Solution.} On account of the linearity of the equations, the motion between two rotating spheres may be regarded as a superposition of the two motions obtained when one sphere is at rest and the other rotates. We first put $\Omega_2 = 0$, i.e. only the inner sphere is rotating. It is reasonable to suppose that the fluid velocity at every point is along the tangent to a circle in a plane perpendicular to the axis of rotation with its centre on the axis. On account of the axial symmetry, the pressure gradient in this direction is zero. Hence the equation of motion (20.1) becomes $\Delta v = 0$. The angular velocity vector $\Omega_1$ is an axial vector. Arguments similar to those given previously show that the velocity can be written as
+\textit{Solución.} Debido a la linealidad de las ecuaciones, el movimiento entre dos esferas giratorias puede considerarse como una superposición de los dos movimientos obtenidos cuando una esfera está en reposo y la otra gira. Primero ponemos $\Omega_2 = 0$, es decir, solo la esfera interior está girando. Es razonable suponer que la velocidad del fluido en cada punto está a lo largo de la tangente a un círculo en un plano perpendicular al eje de rotación con su centro en el eje. Debido a la simetría axial, el gradiente de presión en esta dirección es cero. Por lo tanto, la ecuación de movimiento (20.1) se convierte en $\Delta v = 0$. El vector de velocidad angular $\Omega_1$ es un vector axial. Argumentos similares a los dados anteriormente muestran que la velocidad se puede escribir como
 
 $$
 \mathbf{v} = \nabla \times [f(r) \Omega_1] = \nabla f \times \Omega_1.
 $$
 
-The equation of motion then gives $\nabla \Delta f \times \Omega_1 = 0$. Since the vector $\nabla \Delta f$ is parallel to the position vector, and the vector product $\mathbf{r} \times \Omega_1$ cannot be zero for given $\Omega_1$ and arbitrary $\mathbf{r}$, we must have $\nabla \Delta f = 0$, so that $\Delta f = \text{constant}$.
+La ecuación de movimiento entonces da $\nabla \Delta f \times \Omega_1 = 0$. Dado que el vector $\nabla \Delta f$ es paralelo al vector de posición, y el producto vectorial $\mathbf{r} \times \Omega_1$ no puede ser cero para un $\Omega_1$ dado y un $\mathbf{r}$ arbitrario, debemos tener $\nabla \Delta f = 0$, de modo que $\Delta f = \text{constante}$.
 
-Integrating, we find
+Integrando, encontramos
 
 $$
 f = ar^2 + \frac{b}{r}, \quad \mathbf{v} = \left( \frac{b}{r^3} - 2a \right) \Omega_1 \times \mathbf{r}.
 $$
 
-The constants $a$ and $b$ are found from the conditions that $v = 0$ for $r = R_2$ and $v = u$ for $r = R_1$, where $u = \Omega_1 \times \mathbf{r}$ is the velocity of points on the rotating sphere. The result is
+Las constantes $a$ y $b$ se encuentran a partir de las condiciones de que $v = 0$ para $r = R_2$ y $v = u$ para $r = R_1$, donde $u = \Omega_1 \times \mathbf{r}$ es la velocidad de los puntos en la esfera giratoria. El resultado es
 
 $$
 \mathbf{v} = \frac{R_1^3 R_2^3}{R_2^3 - R_1^3} \left( \frac{1}{r^3} - \frac{1}{R_2^3} \right) \Omega_1 \times \mathbf{r}.
 $$
 
-The fluid pressure is constant ($p = p_0$). Similarly, we have for the case where the outer sphere rotates and the inner one is at rest ($\Omega_1 = 0$)
+La presión del fluido es constante ($p = p_0$). De manera similar, tenemos para el caso en que la esfera exterior gira y la interior está en reposo ($\Omega_1 = 0$)
 
 $$
 \mathbf{v} = \frac{R_1^3 R_2^3}{R_2^3 - R_1^3} \left( \frac{1}{R_1^3} - \frac{1}{r^3} \right) \Omega_2 \times \mathbf{r}.
 $$
 
-In the general case where both spheres rotate, we have
+En el caso general en que ambas esferas giran, tenemos
 
 $$
 \mathbf{v} = \frac{R_1^3 R_2^3}{R_2^3 - R_1^3} \left( \left( \frac{1}{r^3} - \frac{1}{R_2^3} \right) \Omega_1 \times \mathbf{r} + \left( \frac{1}{R_1^3} - \frac{1}{r^3} \right) \Omega_2 \times \mathbf{r} \right).
 $$
 
-If the outer sphere is absent ($R_2 = \infty, \Omega_2 = 0$), i.e. we have simply a sphere with radius $R$ rotating in an infinite fluid, then
+Si la esfera exterior está ausente ($R_2 = \infty, \Omega_2 = 0$), es decir, simplemente tenemos una esfera con radio $R$ girando en un fluido infinito, entonces
 
 $$
 \mathbf{v} = (R^3/r^3) \Omega \times \mathbf{r}.
 $$
 
-Let us calculate the moment of the frictional forces acting on the sphere in this case. If we take spherical polar coordinates with the polar axis parallel to $\Omega$, we have $v_r = v_\theta = 0, v_\phi = (R^2 \Omega/r^2) \sin \theta$. The frictional force on unit area of the sphere is
+Calculemos el momento de las fuerzas de fricción que actúan sobre la esfera en este caso. Si tomamos coordenadas polares esféricas con el eje polar paralelo a $\Omega$, tenemos $v_r = v_\theta = 0, v_\phi = (R^2 \Omega/r^2) \sin \theta$. La fuerza de fricción por unidad de área de la esfera es
 
 $$
 \sigma_{r\phi} = \eta \left( \frac{\partial v_\phi}{\partial r} - \frac{v_\phi}{r} \right)_{r=R} = -3\eta \Omega \sin \theta.
 $$
 
-The total moment on the sphere is
+El momento total sobre la esfera es
 
 $$
-M = \int_0^\pi \sigma_{r\phi} R \sin \theta \cdot 2\pi R^2 \sin \theta \, d\theta,
+M = \int_0^\pi \sigma_{r\phi} R \sin \theta \cdot 2\pi R^2 \sin \theta , d\theta,
 $$
 
-whence we find
+de donde encontramos
 
 $$
 M = -8\pi \eta R^3 \Omega.
 $$
 
-If the inner sphere is absent, $\mathbf{v} = \Omega \times \mathbf{r}$, i.e. the fluid simply rotates rigidly with the sphere surrounding it.
+Si la esfera interior está ausente, $\mathbf{v} = \Omega \times \mathbf{r}$, es decir, el fluido simplemente gira rígidamente con la esfera que lo rodea.
 
-\subsection*{Problem 3}
+\subsection*{Problema 3}
 
-Two parallel plane circular disks (with radius $R$) lie one above the other a small distance apart; the space between them is filled with fluid. The disks approach at a constant velocity $u$, displacing the fluid. Determine the resistance to their motion (O. Reynolds).
+Dos discos planos circulares (con radio $R$) se encuentran uno sobre el otro a una pequeña distancia; el espacio entre ellos está lleno de fluido. Los discos se acercan a una velocidad constante $u$, desplazando el fluido. Determina la resistencia a su movimiento (O. Reynolds).
 
-\textit{Solution.} We take cylindrical polar coordinates, with the origin at the centre of the lower disk, which we suppose fixed. The flow is axially symmetric and, since the fluid layer is thin, predominantly radial: $v_z \ll v_r$, and also $\partial v_r/\partial r \ll \partial v_r/\partial z$. Hence the equations of motion become
+\textit{Solución.} Tomamos coordenadas polares cilíndricas, con el origen en el centro del disco inferior, que suponemos fijo. El flujo es axialmente simétrico y, dado que la capa de fluido es delgada, predominantemente radial: $v_z \ll v_r$, y también $\partial v_r/\partial r \ll \partial v_r/\partial z$. Por lo tanto, las ecuaciones de movimiento se convierten en
 
 $$
 \eta \frac{\partial^2 v_r}{\partial z^2} = \frac{\partial p}{\partial r}, \quad \frac{\partial p}{\partial z} = 0, {1}
@@ -1012,42 +1012,41 @@ $$
 \frac{1}{r} \frac{\partial (rv_r)}{\partial r} + \frac{\partial v_z}{\partial z} = 0, {2}
 $$
 
-with the boundary conditions
+con las condiciones de contorno
 
 $$
-\text{at } z = 0: \quad v_r = v_z = 0;
-$$
-
-$$
-\text{at } z = h: \quad v_r = 0, \quad v_z = -u;
+\text{en } z = 0: \quad v_r = v_z = 0;
 $$
 
 $$
-\text{at } r = R: \quad p = p_0,
+\text{en } z = h: \quad v_r = 0, \quad v_z = -u;
 $$
 
-where $h$ is the distance between the disks, and $p_0$ the external pressure. From equations (1) we find
+$$
+\text{en } r = R: \quad p = p_0,
+$$
+
+donde $h$ es la distancia entre los discos, y $p_0$ la presión externa. De las ecuaciones (1) encontramos
 
 $$
 v_r = \frac{1}{2\eta} \frac{dp}{dr} z(z - h).
 $$
 
-Integrating equation (2) with respect to $z$, we obtain
+Integrando la ecuación (2) con respecto a $z$, obtenemos
 
 $$
-u = \frac{1}{r} \frac{d}{dr} \int_0^h rv_r \, dz = -\frac{h^3}{12\eta r} \frac{d}{dr} \left( r \frac{dp}{dr} \right),
+u = \frac{1}{r} \frac{d}{dr} \int_0^h rv_r , dz = -\frac{h^3}{12\eta r} \frac{d}{dr} \left( r \frac{dp}{dr} \right),
 $$
 
-whence
+de donde
 
 $$
 p = p_0 + \frac{3\eta u}{h^3} (R^2 - r^2).
 $$
 
-The total resistance to the moving disk is
+La resistencia total al disco en movimiento es
 
 $$
 F = \frac{3\pi \eta u R^4}{2h^3}.
 $$
-
 \end{document}
