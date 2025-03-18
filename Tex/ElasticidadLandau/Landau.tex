@@ -313,7 +313,7 @@ El momento $M$ está dirigido según el eje $z$ y su módulo vale $M = IE \frac{
 
 \subsection*{Problema 2: Barra Fuertemente Encorvada}
 \textbf{Enunciado.} Hallar la forma de una barra fuertemente encorvada, uno de cuyos extremos está empotrado, y en el otro, que es libre, se aplica una fuerza $\vec{f}$: la dirección de $\vec{f}$ es perpendicular a la recta de la barra no deformada (fig. 15).
-\begin{figure}[h]
+\begin{figure}[ht]
     \centering
     \includegraphics[width = 0.15\columnwidth]{Screenshot_20250227_180931.png}
     \caption{fig 15}
@@ -521,44 +521,44 @@ $$
 \section*{Seccion 8: Conservacion de la circulación}
 \subsection*{Problema 1}
 
-\textbf{Enunciado.} Show that, in flow which is not isentropic, any moving particle carries with it a constant value of the product $(1/\rho) \, \text{grad} \, s \cdot \text{curl} \, \mathbf{v}$ (H. Ertel 1942).
+\textbf{Enunciado.} Show that, in flow which is not isentropic, any moving particle carries with it a constant value of the product $(1/\rho) \, \nabla \, s \cdot \nabla \times \, \mathbf{v}$ (H. Ertel 1942).
 
 \textit{Solución.}
 
-When the flow is not isentropic, the right-hand side of Euler's equation (2.3) cannot be replaced by $-\text{grad} \, w$, and (2.11) becomes
+When the flow is not isentropic, the right-hand side of Euler's equation (2.3) cannot be replaced by $-\nabla \, w$, and (2.11) becomes
 
 $$
-\frac{\partial \boldsymbol{\omega}}{\partial t} = \text{curl} \, (\mathbf{v} \times \boldsymbol{\omega}) + \left( \frac{1}{\rho^2} \right) \text{grad} \, \rho \times \text{grad} \, p,
+\frac{\partial \boldsymbol{\omega}}{\partial t} = \nabla \times \, (\mathbf{v} \times \boldsymbol{\omega}) + \left( \frac{1}{\rho^2} \right) \nabla \, \rho \times \nabla \, p,
 $$
 
-where for brevity $\boldsymbol{\omega} = \text{curl} \, \mathbf{v}$. We multiply scalarly by $\text{grad} \, s$; since $s = s(p, \rho)$, $\text{grad} \, s$ is a linear function of $\text{grad} \, p$ and $\text{grad} \, \rho$, and $\text{grad} \, s \cdot (\text{grad} \, \rho \times \text{grad} \, p) = 0$. The expression on the right-hand side can then be transformed as follows:
+where for brevity $\boldsymbol{\omega} = \nabla \times \, \mathbf{v}$. We multiply scalarly by $\nabla \, s$; since $s = s(p, \rho)$, $\nabla \, s$ is a linear function of $\nabla \, p$ and $\nabla \, \rho$, and $\nabla \, s \cdot (\nabla \, \rho \times \nabla \, p) = 0$. The expression on the right-hand side can then be transformed as follows:
 
 $$
-\text{grad} \, s \cdot \frac{\partial \boldsymbol{\omega}}{\partial t} = \text{grad} \, s \cdot \text{curl} \, (\mathbf{v} \times \boldsymbol{\omega})
-$$
-
-$$
-= -\text{div} \, [\text{grad} \, s \times (\mathbf{v} \times \boldsymbol{\omega})]
+\nabla \, s \cdot \frac{\partial \boldsymbol{\omega}}{\partial t} = \nabla \, s \cdot \nabla \times \, (\mathbf{v} \times \boldsymbol{\omega})
 $$
 
 $$
-= -\text{div} \, [\mathbf{v} (\boldsymbol{\omega} \cdot \text{grad} \, s)] + \text{div} \, [\boldsymbol{\omega} (\mathbf{v} \cdot \text{grad} \, s)]
+= -\nabla \cdot \, [\nabla \, s \times (\mathbf{v} \times \boldsymbol{\omega})]
 $$
 
 $$
-= -(\boldsymbol{\omega} \cdot \text{grad} \, s) \, \text{div} \, \mathbf{v} - \mathbf{v} \cdot \text{grad} \, (\boldsymbol{\omega} \cdot \text{grad} \, s) + \boldsymbol{\omega} \cdot \text{grad} \, (\mathbf{v} \cdot \text{grad} \, s).
+= -\nabla \cdot \, [\mathbf{v} (\boldsymbol{\omega} \cdot \nabla \, s)] + \nabla \cdot \, [\boldsymbol{\omega} (\mathbf{v} \cdot \nabla \, s)]
 $$
 
-From (2.6), $\mathbf{v} \cdot \text{grad} \, s = -\partial s/\partial t$, and therefore
-
 $$
-\frac{\partial}{\partial t} (\boldsymbol{\omega} \cdot \text{grad} \, s) + \mathbf{v} \cdot \text{grad} \, (\boldsymbol{\omega} \cdot \text{grad} \, s) + (\boldsymbol{\omega} \cdot \text{grad} \, s) \, \text{div} \, \mathbf{v} = 0.
+= -(\boldsymbol{\omega} \cdot \nabla \, s) \, \nabla \cdot \, \mathbf{v} - \mathbf{v} \cdot \nabla \, (\boldsymbol{\omega} \cdot \nabla \, s) + \boldsymbol{\omega} \cdot \nabla \, (\mathbf{v} \cdot \nabla \, s).
 $$
 
-The first two terms can be combined as $d(\boldsymbol{\omega} \cdot \text{grad} \, s)/dt$, where $d/dt = \partial/\partial t + \mathbf{v} \cdot \text{grad}$; in the last term, we put from (1.3) $\rho \, \text{div} \, \mathbf{v} = -d\rho/dt$. The result is
+From (2.6), $\mathbf{v} \cdot \nabla \, s = -\partial s/\partial t$, and therefore
 
 $$
-\frac{d}{dt} \left( \frac{\boldsymbol{\omega} \cdot \text{grad} \, s}{\rho} \right) = 0,
+\frac{\partial}{\partial t} (\boldsymbol{\omega} \cdot \nabla \, s) + \mathbf{v} \cdot \nabla \, (\boldsymbol{\omega} \cdot \nabla \, s) + (\boldsymbol{\omega} \cdot \nabla \, s) \, \nabla \cdot \, \mathbf{v} = 0.
+$$
+
+The first two terms can be combined as $d(\boldsymbol{\omega} \cdot \nabla \, s)/dt$, where $d/dt = \partial/\partial t + \mathbf{v} \cdot \nabla$; in the last term, we put from (1.3) $\rho \, \nabla \cdot \, \mathbf{v} = -d\rho/dt$. The result is
+
+$$
+\frac{d}{dt} \left( \frac{\boldsymbol{\omega} \cdot \nabla \, s}{\rho} \right) = 0,
 $$
 
 which gives the required conservation law.
@@ -592,10 +592,10 @@ the origin being taken at the lowest point of the surface.
 
 \textbf{Enunciado.}A sphere, with radius $R$, moves with velocity $\mathbf{u}$ in an incompressible ideal fluid. Determine the potential flow of the fluid past the sphere.
 
-\textit{Solution.} The fluid velocity must vanish at infinity. The solutions of Laplace's equation $\Delta \phi = 0$ which vanish at infinity are well known to be $1/r$ and the derivatives, of various orders, of $1/r$ with respect to the coordinates (the origin is taken at the centre of the sphere). On account of the complete symmetry of the sphere, only one constant vector, the velocity $\mathbf{u}$, can appear in the solution, and, on account of the linearity of both Laplace's equation and the boundary condition, $\phi$ must involve $\mathbf{u}$ linearly. The only scalar which can be formed from $\mathbf{u}$ and the derivatives of $1/r$ is the scalar product $\mathbf{u} \cdot \text{grad} (1/r)$. We therefore seek $\phi$ in the form
+\textit{Solution.} The fluid velocity must vanish at infinity. The solutions of Laplace's equation $\Delta \phi = 0$ which vanish at infinity are well known to be $1/r$ and the derivatives, of various orders, of $1/r$ with respect to the coordinates (the origin is taken at the centre of the sphere). On account of the complete symmetry of the sphere, only one constant vector, the velocity $\mathbf{u}$, can appear in the solution, and, on account of the linearity of both Laplace's equation and the boundary condition, $\phi$ must involve $\mathbf{u}$ linearly. The only scalar which can be formed from $\mathbf{u}$ and the derivatives of $1/r$ is the scalar product $\mathbf{u} \cdot \nabla (1/r)$. We therefore seek $\phi$ in the form
 
 $$
-\phi = \mathbf{A} \cdot \text{grad} (1/r) = -(\mathbf{A} \cdot \mathbf{n})/r^2,
+\phi = \mathbf{A} \cdot \nabla (1/r) = -(\mathbf{A} \cdot \mathbf{n})/r^2,
 $$
 
 where $\mathbf{n}$ is a unit vector in the direction of $\mathbf{r}$. The constant $\mathbf{A}$ is determined from the condition that the normal components of the velocities $\mathbf{v}$ and $\mathbf{u}$ must be equal at the surface at the sphere, i.e. $\mathbf{v} \cdot \mathbf{n} = \mathbf{u} \cdot \mathbf{n}$ for $r = R$. This condition gives $\mathbf{A} = \frac{1}{2} \mathbf{u} R^3$, so that
@@ -613,7 +613,7 @@ $$
 where $p_0$ is the pressure at infinity. To calculate the derivative $\partial \phi/\partial t$, we must bear in mind that the origin (which we have taken at the centre of the sphere) moves with velocity $\mathbf{u}$. Hence
 
 $$
-\frac{\partial \phi}{\partial t} = (\partial \phi/\partial \mathbf{u}) \cdot \dot{\mathbf{u}} - \mathbf{u} \cdot \text{grad} \phi.
+\frac{\partial \phi}{\partial t} = (\partial \phi/\partial \mathbf{u}) \cdot \dot{\mathbf{u}} - \mathbf{u} \cdot \nabla \phi.
 $$
 
 The pressure distribution over the surface of the sphere is given by the formula
@@ -631,7 +631,7 @@ where $\theta$ is the angle between $\mathbf{n}$ and $\mathbf{u}$.
 \textit{Solution.} The flow is independent of the axial coordinate, so that we have to solve Laplace's equation in two dimensions. The solutions which vanish at infinity are the first and higher derivatives of $\log r$ with respect to the coordinates, where $r$ is the radius vector perpendicular to the axis of the cylinder. We seek a solution in the form
 
 $$
-\phi = \mathbf{A} \cdot \text{grad} \log r = \mathbf{A} \cdot \mathbf{n}/r,
+\phi = \mathbf{A} \cdot \nabla \log r = \mathbf{A} \cdot \mathbf{n}/r,
 $$
 
 and from the boundary conditions we obtain $\mathbf{A} = -R^2 \mathbf{u}$, so that
@@ -879,10 +879,10 @@ $$
 where $h_1, h_2, h_3$ are the lengths of the perpendiculars from a given point in the triangle to its three sides. For each of the expressions $\Delta h_1, \Delta h_2, \Delta h_3$ (where $\Delta = \partial^2/\partial y^2 + \partial^2/\partial z^2$) is zero; this is seen at once from the fact that each of the perpendiculars $h_1, h_2, h_3$ may be taken as the axis of $y$ or $z$, and the result of applying the Laplacian to a coordinate is zero. We therefore have
 
 $$
-\Delta (h_1 h_2 h_3) = 2(h_1 \, \text{grad} \, h_2 \cdot \text{grad} \, h_3 + h_2 \, \text{grad} \, h_3 \cdot \text{grad} \, h_1 + h_3 \, \text{grad} \, h_1 \cdot \text{grad} \, h_2)
+\Delta (h_1 h_2 h_3) = 2(h_1 \, \nabla \, h_2 \cdot \nabla \, h_3 + h_2 \, \nabla \, h_3 \cdot \nabla \, h_1 + h_3 \, \nabla \, h_1 \cdot \nabla \, h_2)
 $$
 
-But $\text{grad} \, h_1 = \mathbf{n}_1, \text{grad} \, h_2 = \mathbf{n}_2, \text{grad} \, h_3 = \mathbf{n}_3$, where $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ are unit vectors along the perpendiculars $h_1, h_2, h_3$. Any two of $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ are at an angle $2\pi/3$, so that $\text{grad} \, h_1 \cdot \text{grad} \, h_2 = \mathbf{n}_1 \cdot \mathbf{n}_2 = \cos(2\pi/3) = -\frac{1}{2}$, and so on. We thus obtain the relation
+But $\nabla \, h_1 = \mathbf{n}_1, \nabla \, h_2 = \mathbf{n}_2, \nabla \, h_3 = \mathbf{n}_3$, where $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ are unit vectors along the perpendiculars $h_1, h_2, h_3$. Any two of $\mathbf{n}_1, \mathbf{n}_2, \mathbf{n}_3$ are at an angle $2\pi/3$, so that $\nabla \, h_1 \cdot \nabla \, h_2 = \mathbf{n}_1 \cdot \mathbf{n}_2 = \cos(2\pi/3) = -\frac{1}{2}$, and so on. We thus obtain the relation
 
 $$
 \Delta (h_1 h_2 h_3) = -(h_1 + h_2 + h_3) = -\frac{1}{2} \sqrt{3} a,
@@ -904,7 +904,7 @@ $$
 \Delta v = -\frac{1}{r} \frac{d}{dr} \left( r \frac{dv}{dr} \right) = 0;
 $$
 
-the term $(\mathbf{v} \cdot \text{grad})w = v \, \partial v/\partial z$ vanishes identically. Using the boundary conditions $v = u$ for $r = R_1$ and $v = 0$ for $r = R_2$, we find
+the term $(\mathbf{v} \cdot \nabla)w = v \, \partial v/\partial z$ vanishes identically. Using the boundary conditions $v = u$ for $r = R_1$ and $v = 0$ for $r = R_2$, we find
 
 $$
 v = \frac{u \log(r/R_2)}{\log(R_1/R_2)}.
@@ -943,10 +943,10 @@ Determine the motion of a fluid occupying the space between two concentric spher
 \textit{Solution.} On account of the linearity of the equations, the motion between two rotating spheres may be regarded as a superposition of the two motions obtained when one sphere is at rest and the other rotates. We first put $\Omega_2 = 0$, i.e. only the inner sphere is rotating. It is reasonable to suppose that the fluid velocity at every point is along the tangent to a circle in a plane perpendicular to the axis of rotation with its centre on the axis. On account of the axial symmetry, the pressure gradient in this direction is zero. Hence the equation of motion (20.1) becomes $\Delta v = 0$. The angular velocity vector $\Omega_1$ is an axial vector. Arguments similar to those given previously show that the velocity can be written as
 
 $$
-\mathbf{v} = \text{curl} [f(r) \Omega_1] = \text{grad} f \times \Omega_1.
+\mathbf{v} = \nabla \times [f(r) \Omega_1] = \nabla f \times \Omega_1.
 $$
 
-The equation of motion then gives $\text{grad} \Delta f \times \Omega_1 = 0$. Since the vector $\text{grad} \Delta f$ is parallel to the position vector, and the vector product $\mathbf{r} \times \Omega_1$ cannot be zero for given $\Omega_1$ and arbitrary $\mathbf{r}$, we must have $\text{grad} \Delta f = 0$, so that $\Delta f = \text{constant}$.
+The equation of motion then gives $\nabla \Delta f \times \Omega_1 = 0$. Since the vector $\nabla \Delta f$ is parallel to the position vector, and the vector product $\mathbf{r} \times \Omega_1$ cannot be zero for given $\Omega_1$ and arbitrary $\mathbf{r}$, we must have $\nabla \Delta f = 0$, so that $\Delta f = \text{constant}$.
 
 Integrating, we find
 
