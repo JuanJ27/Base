@@ -63,6 +63,19 @@
 % Metodología
 \begin{frame}{Metodología}
     \textbf{Procesamiento}: THSP, matriz de co-ocurrencia y momento de inercia.
+    \begin{equation*}
+        M_{co} = [N_{i,j}]
+    \end{equation*}
+    \begin{equation*}
+        MI = \sum_{i,j} (i - j)^2 \cdot M_{co}(i,j)
+    \end{equation*}
+    \begin{equation*}
+        DG(x,y) = \sum_{k} \sum_{j} |I_{k}(x,y) - I_{k+l}(x,y)|
+    \end{equation*}
+\end{frame}
+
+\begin{frame}{Metodología}
+    \textbf{Procesamiento}: THSP, matriz de co-ocurrencia y momento de inercia.
     \begin{figure}
         \includegraphics[width=0.8\textwidth]{THSPMCO.png}
     \end{figure}
@@ -74,7 +87,14 @@
     \begin{figure}
         \includegraphics[width=0.6\textwidth]{Gd.png}
     \end{figure}
+\end{frame}
 
+% Metodología
+\begin{frame}{Metodología}
+    \textbf{Procesamiento}: Cuantificación.
+    \begin{figure}
+        \includegraphics[width=0.6\textwidth]{numeros.png}
+    \end{figure}
 \end{frame}
 
 % Metodología
@@ -146,6 +166,46 @@
 \begin{frame}
     \centering
     \Huge{\textbf{Gracias por su atención}}
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
+        \includegraphics[width =1\textwidth]{whitney.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{shapiro.levene.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
+        \includegraphics[width=0.9\textwidth]{mcevents.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \begin{figure}
+        \includegraphics[width=\textwidth]{mcwhitney.png}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{Mi con monte carlo}
+    \begin{table}
+        \centering
+        \begin{figure}
+            \includegraphics[width=0.85\textwidth]{McMi.png}
+        \end{figure}
+        \begin{tabular}{|l|c|c|c|}
+            \hline
+            \textbf{Variable} & \textbf{p-valor (t-test)} & \textbf{Distinguibles?} & \textbf{IC 95\% óptimo} \\
+            \hline
+            MI & 1.4e-07 & Si & [4.5e+06, 7.2e+06] \\
+            \hline
+        \end{tabular}
+    \end{table}
 \end{frame}
 
 \end{document}
