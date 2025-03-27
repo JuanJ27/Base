@@ -1,0 +1,81 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage[left=2cm, right=2cm, top=2cm, bottom=2cm]{geometry}
+
+\title{Informe de Lectura: Decaimiento del Higgs a Quarks Bottom}
+\author{Juan Montoya}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+% Se agrega un abstract ampliado con información relevante
+\begin{abstract}
+Se presenta la observación de la desintegración del bosón de Higgs del Modelo Estándar (SM) en un par de quarks bottom (H $\rightarrow$ bb). El resultado proviene de procesos donde el Higgs se produce en asociación con un bosón W o Z, buscando eventos con 0, 1 o 2 leptones cargados y dos jets identificados como provenientes de quarks bottom. 
+
+El análisis se basa en datos registrados por el experimento CMS en 2017, en colisiones proton-proton a $\sqrt{s} = 13$ TeV. Al combinar estos datos con mediciones previas a $\sqrt{s}=7,8$ y 13 TeV, se observa un exceso de eventos en $m_H = 125$ GeV con una significancia de 4.8 desviaciones estándar, cercano al valor esperado de 4.9, y en una combinación global con otras producciones se alcanza una significancia observada de 5.6 (esperada 5.5). 
+\end{abstract}
+
+
+\section{Contenido e Ideas Principales}
+\subsection*{Contexto y Motivación}
+Tras el descubrimiento en torno a 125 GeV por ATLAS y CMS, se han estudiado en detalle las propiedades del bosón de Higgs. Aunque se han observado otras desintegraciones (como $\gamma\gamma$, $ZZ$, $WW$, $\tau\tau$) y recientemente su producción en asociación con quarks top, el canal H $\rightarrow$ bb resulta crucial dado su alto porcentaje de ramificación (aproximadamente 58\%). La confirmación de este canal refuerza la verificación del mecanismo de generación de masa en el sector de fermiones.
+
+\subsection*{Estrategia Experimental Ampliada}
+El análisis se centra en la producción asociada (VH), donde el Higgs se produce junto con un bosón W o Z. Se consideran cinco canales distintos, que incluyen:
+\begin{itemize}
+    \item Z$(\nu\nu)$H
+    \item W$(\mu\nu)$H
+    \item W$(e\nu)$H
+    \item Z$(\mu\mu)$H
+    \item Z$(ee)$H
+\end{itemize}
+Esto abarca escenarios con 0, 1 o 2 leptones cargados, junto con la presencia de dos jets b. La estrategia incluye el uso de disparadores en línea, definiendo umbrales en la energía faltante ($p_{\text{T}}^{\text{miss}}$) y $H_{\text{T}}^{\text{miss}}$, para optimizar la eficiencia, especialmente en el canal 0-leptón, donde se requieren $p_{\text{T}}^{\text{miss}} > 220$ GeV.
+
+\subsection*{Metodología, Reconstrucción y Control de Fondos}
+El estudio se apoya en:
+\begin{itemize}
+    \item \textbf{Selección y reconstrucción de eventos:}  
+    Se definen criterios para la selección basada en la presencia de 0, 1 o 2 leptones y dos jets identificados como provenientes de quarks bottom. Cada canal tiene su metodología para reconstruir el bosón vectorial, considerando el $p_{\text{T}}^{\text{miss}}$ (para el caso 0-leptón) o la reconstrucción directa (en canales con leptones).
+
+    \item \textbf{Identificación de jets b:}  
+    Se emplea el algoritmo deepCSV, basado en redes neuronales, que combina información de vértices secundarios, propiedades cinemáticas y la posible presencia de leptones suaves, utilizando puntos de trabajo (tight y loose) para optimizar su identificación.
+
+    \item \textbf{Reducción de fondos:}  
+    Se definen regiones señal y de control para separar la señal de importantes fondos como V+jets, ttbar, top único, dibosones y eventos multijets de QCD. Un ajuste simultáneo mediante likelihood fit, bindeado a la forma y normalización de distribuciones (por ejemplo, el score de la DNN), permite extraer la fuerza de señal ($\mu$).
+
+    \item \textbf{Medición de la energía faltante:}  
+    La energía faltante ($p_{\text{T}}^{\text{miss}}$) se define como la magnitud del vector negativo de la suma de los momentos transversales de los objetos físicos, corrigiendo las contribuciones de pileup y la energía neutra. Esto resulta esencial para la reconstrucción en el canal sin leptones.
+\end{itemize}
+
+\subsection*{Datos, Resultados y Combinación}
+Los datos analizados corresponden a colisiones proton-proton a 13 TeV registradas por CMS en 2017, con una luminosidad integrada de 41.3 fb$^{-1}$. Los puntos clave incluyen:
+\begin{itemize}    
+    \item \textbf{Combinación de Datos:}  
+    La combinación de los datos de Run 2 (2016 y 2017) resulta en una significancia de 4.4$\sigma$ y $\mu = 1.06 \pm 0.26$, mientras que la combinación de Run 1 y Run 2 alcanza una significancia observada de 4.8$\sigma$ (esperada 4.9$\sigma$) y $\mu = 1.01 \pm 0.22$.
+    
+    \item \textbf{Integración con Otros Procesos:}  
+    Se combinan estos resultados con otras búsquedas de H $\rightarrow$ bb (incluyendo producciones vía gluón-fusión, fusión vectorial y asociación con quarks top), logrando una significancia global observada de 5.6$\sigma$ (esperada 5.5$\sigma$) y confirmando la predicción del Modelo Estándar.
+    
+    \item \textbf{Distribución de la Masa Invariante:}  
+    La distribución de la masa invariante del par de jets, ponderada según la razón señal/fondo (S/(S+B)), muestra claramente la contribución de la señal VH y de el fondo VZ, lo que valida la metodología de análisis.
+\end{itemize}
+
+\subsection*{Evaluación de Incertidumbres}
+Se analiza detalladamente el impacto de diversas fuentes de incertidumbre:
+\begin{itemize}
+    \item Normalización de fondos.
+    \item Tamaño de las muestras simuladas (MC).
+    \item Eficiencias y tasas de malidentificación en el b-tagging.
+    \item Modelado de procesos V+jets.
+\end{itemize}
+En estos procesos se mencionan softwares como \textit{POWHEGv2}, \textit{MADGRAPH5}, \textit{PYTHIA} y \textit{GEANT4}
+
+\section{Conclusión}
+El análisis del decaimiento del Higgs en quarks bottom demuestra la eficacia de la estrategia VH para identificar y medir la señal en presencia de fondos complejos. La combinación de datos de distintos periodos y canales, junto con técnicas avanzadas de reconstrucción y reducción de incertidumbres, confirma la observación de H $\rightarrow$ bb y la consistencia con la predicción del Modelo Estándar, aportando evidencia crucial al estudio del mecanismo de generación de masa en el sector de fermiones.
+
+\end{document}
