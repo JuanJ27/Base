@@ -1,0 +1,176 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{lmodern}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\begin{document}
+\textbf{Ejercicios de Mecánica y Teoría Clásica de Campos (Landau)}
+
+\section{Introducción}
+Este documento es una recopilación de ejercicios y ejemplos de mecánica clásica y teoría clásica de campos del Landau.
+
+\section{Mecánica Clásica}
+Encontrar la lagrangiana de los siguientes sistemas, colocados en un campo gravitatorio (aceleración de la gravedad: $g$).
+\subsection{Ejercicio 1: Péndulo doble coplanario}
+\textbf{Solución:} Tomemos como coordenadas los ángulos $\phi_1$ y $\phi_2$ que forman los hilos $l_1$ y $l_2$ con la vertical. Tenemos entonces para la partícula $m_1$:
+$$
+T_1 = \frac{1}{2} m_1 l_1^2 \dot{\phi}_1^2, \quad U = -m_1 g l_1 \cos \phi_1
+$$
+Para hallar la energía cinética de la segunda partícula, expresamos sus coordenadas cartesianas $x_2, y_2$ (origen de coordenadas en el punto de suspensión, eje $y$ dirigido verticalmente hacia abajo) en función de $\phi_1$ y $\phi_2$:
+
+$$
+x_2 = l_1 \sin \phi_1 + l_2 \sin \phi_2, \quad y_2 = l_1 \cos \phi_1 + l_2 \cos \phi_2
+$$
+
+Obtenemos entonces:
+
+$$
+T_2 = \frac{1}{2} m_2 (\dot{x}_2^2 + \dot{y}_2^2)
+$$
+
+$$
+= \frac{1}{2} m_2 [l_1^2 \dot{\phi}_1^2 + l_2^2 \dot{\phi}_2^2 + 2 l_1 l_2 \cos(\phi_1 - \phi_2) \dot{\phi}_1 \dot{\phi}_2]
+$$
+
+Y finalmente,
+
+$$
+L = \frac{1}{2} (m_1 + m_2) l_1^2 \dot{\phi}_1^2 + \frac{1}{2} m_2 l_2^2 \dot{\phi}_2^2 + m_2 l_1 l_2 \dot{\phi}_1 \dot{\phi}_2 \cos(\phi_1 - \phi_2) + (m_1 + m_2) g l_1 \cos \phi_1 + m_2 g l_2 \cos \phi_2
+$$
+
+\subsection{Ejercicio 2: Pendulo plano}
+\textbf{Enunciado.}  Péndulo plano de masa $m_2$, cuyo punto de suspensión (de masa $m_1$) puede desplazarse en el mismo plano sobre una recta horizontal (fig. 2).
+
+\textbf{Solución:} Usando la coordenada $x$ del punto $m_1$ y el ángulo $\phi$ entre el hilo del péndulo y la vertical, tenemos:
+
+$$
+L = \frac{1}{2} (m_1 + m_2) \dot{x}^2 + \frac{1}{2} m_2 (l^2 \dot{\phi}^2 + 2 l \dot{x} \dot{\phi} \cos \phi) + m_2 g l \cos \phi
+$$
+
+\subsection{Ejercicio 3: Péndulo plano, cuyo punto de suspensión:}
+\textbf{a)}  se desplaza uniformemente sobre una circunferencia vertical con una frecuencia constante $\gamma$ (fig. 3);  
+
+\textbf{b)} oscila horizontalmente en el plano del péndulo según la ley $x = a \cos \gamma t$;
+
+\textbf{c)} oscila verticalmente según la ley $y = a \cos \gamma t$.
+
+\textbf{Solución:} a) coordenadas del punto $m$: 
+$$ x = a \cos \gamma t + l \sin \phi \text{,       } \text{        } y = -a \sin \gamma t + l \cos \phi $$.
+Lagrangiana:
+
+$$
+L = \frac{1}{2} m l^2 \dot{\phi}^2 + m l a \gamma \sin(\phi - \gamma t) + m g l \cos \phi;
+$$
+
+se han omitido los términos que sólo dependen del tiempo y eliminado la derivada total con respecto al tiempo de $ m l a \gamma \cos(\phi - \gamma t) $.
+
+b) Coordenadas del punto $m$:
+
+$$ x = a \cos \gamma t + l \sin \phi \text{,   }\text{} y = l \cos \phi $$.
+
+Lagrangiana (omitiendo las derivadas totales con respecto al tiempo):
+
+$$
+L = \frac{1}{2} m l^2 \dot{\phi}^2 + m l a \gamma^2 \cos \gamma t \sin \phi + m g l \cos \phi.
+$$
+
+c) De la misma manera:
+
+$$
+L = \frac{1}{2} m l^2 \dot{\phi}^2 + m l a \gamma^2 \cos \gamma t \cos \phi + m g l \cos \phi.
+$$
+
+\subsection{Ejercicio 4:}
+\textbf{Enunciado.} En el sistema representado en la figura 4, el punto $m_2$ se mueve sobre el eje vertical, y todo el sistema gira con velocidad angular constante $\Omega$ alrededor de este eje.
+
+\textbf{Solución:} Sea $\theta$ el ángulo formado por el segmento $a$ y la vertical, y $\phi$ el ángulo de rotación del sistema alrededor del eje; $\dot{\phi} = \Omega$. Para cada partícula $m_1$, un desplazamiento elemental $dl_1^2 = a^2 d\theta^2 + a^2 \sin^2 \theta d\phi^2$. La distancia de $m_2$ al punto de suspensión $A$ es $2a \cos \theta$ y así, $dl_2 = -2a \sin \theta d\theta$. La lagrangiana:
+
+$$
+L = m_1 a^2 (\dot{\theta}^2 + \Omega^2 \sin^2 \theta) + 2 m_2 a^2 \dot{\theta}^2 \sin^2 \theta + 2 (m_1 + m_2) g a \cos \theta.
+$$
+
+\subsection{Ejercicio 5: Anillo oscilante con masa puntual}
+\textbf{Enunciado.} Considere un anillo de radio $R$ y masa $M$ que se cuelga de uno de sus puntos y oscila en su propio plano. Se comporta como un péndulo físico cuyo centro de gravedad está ubicado a una distancia $R$ del punto de suspensión. En el anillo se coloca una masa puntual $M$ que se puede deslizar sin fricción. Halle el lagrangiano del sistema. Realice la aproximación de pequeñas oscilaciones. Resuelva el problema de vectores propios y valores propios implicado. Analice los resultados.
+
+\subsection{Ejercicio 6: Oscilaciones de molécula triatómica lineal}
+\textit{Ejercicio 1 secc 24: Frecuencia de vibraciones de molécula triatómica lineal}
+1. Determinar la frecuencia de las vibraciones de una molécula simétrica lineal triatómica $ABA$ (fig. 28). Se supone que la energía potencial de la molécula depende solamente de las distancias $AB$ y $BA$ y del ángulo $ABA$.
+
+\textbf{Solución:} Los desplazamientos longitudinales $x_1, x_2, x_3$ de los átomos están relacionados, según (24.1), por:
+\[
+m_A(x_1 + x_3) + m_B x_2 = 0.
+\]
+Con la ayuda de esta ecuación, eliminamos $x_2$ de la lagrangiana del movimiento longitudinal de la molécula:
+\[
+L = \frac{1}{2}m_A(\dot{x}_1^2 + \dot{x}_3^2) + \frac{1}{2}m_B \dot{x}_2^2 - \frac{1}{2}k_1[(x_1 - x_2)^2 + (x_3 - x_2)^2],
+\]
+y utilizando las nuevas coordenadas:
+\[
+Q_a = x_1 + x_3, \quad Q_s = x_1 - x_3,
+\]
+obtenemos:
+\[
+L = \frac{\mu}{4m_B} \dot{Q}_a^2 + \frac{m_A}{4} \dot{Q}_s^2 - \frac{k_1 l^2}{4m_B^2} Q_a^2 - \frac{k_1}{4} Q_s^2.
+\]
+
+Es evidente que $Q_a$ y $Q_s$ son coordenadas normales (todavía no normalizadas). La coordenada $Q_a$ corresponde a una vibración antisimétrica alrededor del centro de la molécula ($x_1 = x_3$; fig. 28, a) y de frecuencia:
+\[
+\omega_a = \sqrt{\frac{k_1 \mu}{m_A m_B}}.
+\]
+La coordenada $Q_s$ corresponde a una vibración simétrica ($x_1 = x_3$; fig. 28, b) de frecuencia:
+\[
+\omega_{s1} = \sqrt{\frac{k_1}{m_A}}.
+\]
+Los desplazamientos transversales de los átomos $y_1, y_2, y_3$ están relacionados, según (24.1) y (24.2), por:
+\[
+m_A(y_1 + y_2) + m_B y_2 = 0, \quad y_1 = y_3.
+\]
+
+(vibraciones simétricas de curvatura de la molécula; fig. 28, c). Sea $\frac{1}{2}k_2 l^2 \delta^2$ la energía potencial de curvatura de la molécula, donde $\delta$ es la desviación del ángulo $ABA$ con respecto a $\pi$; su expresión en función de los desplazamientos es:
+\[
+\delta = \frac{[(y_1 - y_2) + (y_3 - y_2)]}{l}.
+\]
+Expresando $y_1, y_2, y_3$ en función de $\delta$, se obtiene la lagrangiana del movimiento transversal de la molécula:
+\[
+L = \frac{1}{2}m_A(\dot{y}_1^2 + \dot{y}_3^2) + \frac{1}{2}m_B\dot{y}_2^2 - \frac{1}{2}k_2 l^2 \delta^2
+\]
+\[
+= \frac{m_A m_B l^2 \dot{\delta}^2}{4\mu} - \frac{1}{2}k_2 l^2 \delta^2,
+\]
+de donde la frecuencia:
+\[
+\omega_{s2} = \sqrt{\frac{2k_2 \mu}{m_A m_B}}.
+\]
+
+\textbf{Enunciado.} Plantee y resuelva el problema de las oscilaciones de la molécula triatómica lineal, descrito en la Fig.28 (que corresponde al Pro.1 de la sección §24), cuando se considera que cada átomo está sometido a fricción y a una forzante periódica.
+
+\subsection{Ejercicio 7: Oscilador forzado y amortiguado}
+\textbf{Enunciado.} Considere el oscilador forzado y amortiguado descrito por la ecuación (26.1). Halle la amplitud de la oscilación de estado estacionario de la velocidad correspondiente a la $B$ de (26.2). Halle el valor $\gamma_R$ de $\gamma$ para el cual dicha amplitud es máxima y compárelo con la frecuencia de las oscilaciones amortiguadas libres. Se define el factor de calidad del oscilador:
+\[
+Q = \frac{\gamma_R}{2\lambda}.
+\]
+Demuestre que si el amortiguamiento es pequeño y la frecuencia de la forzante es cercana a la resonancia:
+\[
+Q \approx 2\pi \frac{\text{Energía total}}{\text{Energía perdida en un período}} \approx \frac{\omega_0}{\Delta \omega},
+\]
+donde $\Delta \omega$ representa el intervalo de frecuencia entre los puntos en los cuales la amplitud alcanza $1/\sqrt{2}$ de su valor máximo. Ilustre con gráficas cuando $Q = 5$ y cuando $Q = 100$.
+
+\subsection{Ejercicio 8: Sistema con fuerzas periódicas}
+\textbf{Enunciado.} Considere el sistema mostrado en la Fig.2, que corresponde al Pro.2 de la sección §5. Suponga que las masas $m_1$ y $m_2$ están sometidas a fuerzas externas periódicas horizontales de la forma $f_i \cos(\gamma t + \alpha_i)$ para $i = 1, 2$. Realice la aproximación de pequeñas oscilaciones. Lleve el problema a coordenadas normales. Analice los resultados.
+
+\section{Teoría Clásica de Campos}
+\subsection{Ejercicio 1: Campo Escalar}
+Estudie el campo escalar \(\phi(x)\) a partir del lagrangiano:
+\[
+\mathcal{L} = \frac{1}{2}\partial_\mu\phi\,\partial^\mu\phi - V(\phi).
+\]
+Derive las ecuaciones de movimiento correspondientes usando el formalismo de Euler-Lagrange.
+
+\subsection{Ejercicio 2: Campo Electromagnético}
+Exponga las ecuaciones de Maxwell en el contexto del campo electromagnético y su representación en términos del tensor electromagnético.
+
+\end{document}
