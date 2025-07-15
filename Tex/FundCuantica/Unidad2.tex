@@ -1,0 +1,50 @@
+\section*{Resumen: Ilustración de los postulados en el caso de un espín 1/2}
+
+Se analiza el caso de un sistema cuántico de espín $1/2$ (por ejemplo, átomos de plata) y cómo los postulados de la mecánica cuántica se manifiestan experimentalmente mediante el aparato de Stern-Gerlach.
+
+\subsection*{Preparación de estados de espín}
+
+Cualquier estado de espín puede escribirse como combinación lineal de los autoestados $\ket{+}$ y $\ket{-}$:
+\[
+\ket{\psi} = \alpha \ket{+} + \beta \ket{-}, \quad |\alpha|^2 + |\beta|^2 = 1
+\]
+Para cada par $(\alpha, \beta)$ existe un vector unitario $\vec{u}$ tal que $\ket{\psi}$ es colineal con el autoestado $\ket{+}_u$ correspondiente a la dirección $\vec{u}$, cuyos ángulos polares se determinan por:
+\[
+\alpha = \cos\frac{\theta}{2} e^{-i\varphi/2}, \quad \beta = \sin\frac{\theta}{2} e^{i\varphi/2}
+\]
+El aparato de Stern-Gerlach orientado según $\vec{u}$ permite preparar átomos en el estado deseado.
+
+\subsection*{Mediciones de espín}
+
+\begin{itemize}
+    \item \textbf{Primer experimento:} Si ambos aparatos están alineados, todos los átomos preparados en $\ket{+}$ son detectados en el mismo lugar, obteniéndose siempre el valor $+\hbar/2$ para $S_z$.
+    \item \textbf{Segundo experimento:} Si el primer aparato prepara el estado $\ket{+}_u$ y el segundo mide $S_z$, los resultados posibles son $+\hbar/2$ (probabilidad $\cos^2(\theta/2)$) y $-\hbar/2$ (probabilidad $\sin^2(\theta/2)$).
+    \item \textbf{Tercer experimento:} Si el “analizador” se rota, las probabilidades dependen del ángulo relativo entre los ejes de los aparatos.
+\end{itemize}
+
+El valor medio de las mediciones reproduce el resultado clásico para el momento angular proyectado:
+\[
+\langle S_z \rangle = \frac{\hbar}{2} \cos\theta
+\]
+
+\subsection*{Evolución temporal en un campo magnético uniforme}
+
+El Hamiltoniano para un espín $1/2$ en un campo magnético uniforme $\vec{B}_0$ es:
+\[
+\hat{H} = \omega_0 \hat{S}_z, \quad \omega_0 = -\gamma B_0
+\]
+Los autoestados de $\hat{H}$ son $\ket{+}$ y $\ket{-}$, con energías separadas por $\hbar\omega_0$.
+
+Si el estado inicial es:
+\[
+\ket{\psi(0)} = \cos\frac{\theta}{2} e^{-i\varphi/2} \ket{+} + \sin\frac{\theta}{2} e^{i\varphi/2} \ket{-}
+\]
+la evolución temporal introduce una precesión de Larmor:
+\[
+\ket{\psi(t)} = \cos\frac{\theta}{2} e^{-i(\varphi+\omega_0 t)/2} \ket{+} + \sin\frac{\theta}{2} e^{i(\varphi+\omega_0 t)/2} \ket{-}
+\]
+El vector de espín precesa alrededor del campo magnético a la frecuencia de Larmor $\omega_0$.
+
+\subsection*{Conclusión}
+
+El análisis experimental y teórico del espín $1/2$ ilustra los postulados fundamentales de la mecánica cuántica: la preparación de estados, la naturaleza probabilística de las mediciones y la evolución temporal gobernada por el Hamiltoniano. Además, los valores medios de los observables permiten establecer un puente con la descripción clásica del

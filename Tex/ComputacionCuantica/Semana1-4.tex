@@ -1,0 +1,138 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{braket}
+\usepackage{geometry}
+\geometry{margin=1in}
+
+\title{Computación Cuántica: Internet Cuántico y Comunicación Superdensa}
+\author{Notas de Clase}
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\section{Internet Cuántico}
+
+Comunicar información por medio del entrelazamiento cuántico.
+
+\subsection{Estados de Bell}
+Los estados de Bell son:
+\[
+\{\phi^{+},\phi^{-},\psi^{+},\psi^{-}\}
+\]
+Si cada subsistema se mide en su propia base, el resultado parece aleatorio y con probabilidad $\frac{1}{2}$. Solo si existe correlación clásica, Alice y Bob pueden mostrar que hay correlación entre sus componentes.
+
+Definiciones:
+\[
+\ket{\phi^+} = \frac{\ket{0}_A\ket{0}_B + \ket{1}_A\ket{1}_B}{\sqrt{2}}
+\]
+\[
+\ket{\psi^\pm} = \frac{\ket{0,1} \pm \ket{1,0}}{\sqrt{2}}
+\]
+Los estados de Bell pueden clasificarse mediante etiquetas binarias.
+
+\subsection{Canales Cuánticos}
+\begin{itemize}
+    \item Codificación superdensa (envía dos bits clásicos)
+\end{itemize}
+
+\subsection{Compuerta de Hall (Hadamard)}
+La compuerta Hadamard se define mediante:
+\[
+\hat{H} = \frac{\ket{0}+\ket{1}}{\sqrt{2}}\bra{0} + \frac{\ket{0}-\ket{1}}{\sqrt{2}}\bra{1}
+\]
+Su forma matricial es:
+\[
+H = \frac{1}{\sqrt{2}}
+\begin{pmatrix}
+1 & 1 \\
+1 & -1 \\
+\end{pmatrix}
+\]
+
+\subsection{CNOT}
+La acción de la puerta CNOT se ilustra por:
+\[
+\hat{U}_{NOT}\frac{\ket{0,0}+\ket{0,1}}{\sqrt{2}} = \frac{\hat{U}_{NOT}\ket{0,0}+\hat{U}_{NOT}\ket{0,1}}{\sqrt{2}} = \frac{\ket{0,0}+\ket{1,1}}{\sqrt{2}}
+\]
+Se usan circuitos para preparar estados de Bell.
+
+\subsection{Registro de Estados de Bell}
+\[
+\ket{\phi^{\pm}} = \frac{\ket{0,0} \pm \ket{1,1}}{\sqrt{2}}
+\]
+\[
+\ket{\psi^{\pm}} = \frac{\ket{0,1} \pm \ket{1,0}}{\sqrt{2}}
+\]
+Asimismo, podemos formar estados de Bell utilizando Hadamard y CNOT:
+\[
+\ket{B_{yx}} = \frac{\ket{0,y} + (-1)^x \ket{1,\bar{y}}}{\sqrt{2}}
+\]
+
+\subsection{Tabla de Estados de Bell}
+\[
+\begin{array}{c|c|c}
+\text{Bell} & y & x \\ \hline
+\phi^{+} & 0 & 0 \\
+\phi^{-} & 0 & 1 \\
+\psi^{+} & 1 & 0 \\
+\psi^{-} & 1 & 1 \\
+\end{array}
+\]
+
+\section{Comunicación Superdensa}
+
+Protocolo: \\
+1. Alice y Bob comparten un par de qubits entrelazados. \\
+2. Alice mide su qubit y envía el resultado a Bob. \\
+3. Bob decodifica el mensaje utilizando la información recibida de Alice.
+
+\[
+\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{00} + \ket{11}) \rightarrow \text{Alice mide } 0 \text{ o } 1
+\]
+
+\[
+\text{Si Alice mide } 0 \text{, Bob tiene } \ket{00} \text{ y si mide } 1 \text{, Bob tiene } \ket{11}
+\]
+
+\section{Ejemplo de Comunicación Superdensa}
+\subsection{Ejemplo de Comunicación Superdensa}
+Consideremos el siguiente ejemplo práctico:
+
+\begin{enumerate}
+    \item Alice y Bob comparten inicialmente el estado de Bell
+    \[
+    \ket{\phi^+} = \frac{\ket{00} + \ket{11}}{\sqrt{2}}.
+    \]
+    \item Para enviar el mensaje "10", Alice aplica las siguientes operaciones en su qubit:
+    \begin{itemize}
+        \item Aplica la compuerta X si el primer bit es 1.
+        \item Aplica la compuerta Z si el segundo bit es 1.
+    \end{itemize}
+    En este caso, como el mensaje es "10", aplica la compuerta X, transformando el estado a:
+    \[
+    (X \otimes I)\ket{\phi^+} = \ket{\psi^+} = \frac{\ket{01} + \ket{10}}{\sqrt{2}}.
+    \]
+    \item Bob, al recibir su qubit, realiza una medición en la base de Bell. La medición le permite identificar el estado \(\ket{\psi^+}\) y, por lo tanto, recuperar el mensaje "10".
+\end{enumerate}
+
+Así se demuestra cómo, mediante la manipulación de un solo qubit, se pueden transmitir dos bits clásicos utilizando la comunicación superdensa.
+
+\section{Teleportación}
+Alice quiere enviar a Bob un bit unico, usando un canal provisto por charlie. Para ello, Alice y Bob comparten un par de qubits entrelazados. Alice mide su qubit con una CNOT y una Hadamard, y envía el resultado a Bob. Bob aplica una compuerta CNOT y una Hadamard en su qubit, obteniendo el estado original de Alice.
+\[
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1}
+\]
+\[
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1} \rightarrow \text{Alice mide } 0 \text{ o } 1
+\]
+\[
+\text{Si Alice mide } 0 \text{, Bob tiene } \ket{00} \text{ y si mide } 1 \text{, Bob tiene } \ket{11}
+\]
+
+
+\end{document}

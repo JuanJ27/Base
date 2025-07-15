@@ -162,6 +162,283 @@ donde $\Delta \omega$ representa el intervalo de frecuencia entre los puntos en 
 \subsection{Ejercicio 8: Sistema con fuerzas periódicas}
 \textbf{Enunciado.} Considere el sistema mostrado en la Fig.2, que corresponde al Pro.2 de la sección §5. Suponga que las masas $m_1$ y $m_2$ están sometidas a fuerzas externas periódicas horizontales de la forma $f_i \cos(\gamma t + \alpha_i)$ para $i = 1, 2$. Realice la aproximación de pequeñas oscilaciones. Lleve el problema a coordenadas normales. Analice los resultados.
 
+\section{2da unidad teorica 2"}
+\subsection*{§ 38. Cuerpos rígidos en contacto}
+
+Las ecuaciones del movimiento (34.1) y (34.3) muestran que las \textit{condiciones de equilibrio} de un cuerpo rígido se pueden formular anulando la resultante general y el momento resultante de las fuerzas que actúan sobre él.
+\[
+\mathbf{F} = \sum \mathbf{f} = 0, \qquad \mathbf{K} = \sum \mathbf{r} \times \mathbf{f} = 0. \tag{38.1}
+\]
+La suma se extiende a todas las fuerzas exteriores aplicadas al cuerpo, y $\mathbf{r}$ es el radio vector del ``punto de aplicación'' de estas fuerzas; el origen, con respecto al cual se definen los momentos, puede escogerse arbitrariamente, ya que si $\mathbf{F} = 0$ el valor de $\mathbf{K}$ no depende de esta elección [véase (34.5)].
+
+La condición impuesta en el movimiento de rodadura es que las velocidades de los puntos de contacto deben ser iguales; por ejemplo, cuando un cuerpo rueda sobre una superficie fija, la velocidad del punto de contacto debe ser nula. En el caso general, esta condición está expresada por \textit{ecuaciones de ligadura} del tipo
+\[
+\sum_i c_{\alpha i} \dot{q}_i = 0, \tag{38.2}
+\]
+donde las $c_{\alpha i}$ son funciones de las coordenadas solamente (el índice $\alpha$ numera las ecuaciones de ligadura). Si los primeros miembros de estas ecuaciones no son derivadas totales con respecto al tiempo de funciones de las coordenadas, estas ecuaciones no pueden ser integradas. En otras palabras, no pueden reducirse a la forma $f(q_1, \ldots, q_n, t) = \text{const}$, y se llaman \textit{ligaduras no holónomas}.
+
+Como de costumbre, llamaremos $\mathbf{V}$ a la velocidad de traslación (velocidad del centro de la esfera), y $\mathbf{\Omega}$ a la velocidad angular de rotación. La velocidad del punto de contacto con el plano se obtiene poniendo $\mathbf{r} = -a\mathbf{n}$ en la fórmula general $\mathbf{v} = \mathbf{V} + \mathbf{\Omega} \times \mathbf{r}$ ($a$ es el radio de la esfera y $\mathbf{n}$ el vector unitario de la normal al plano en el punto de contacto). La ligadura buscada está dada por la condición de que no haya deslizamiento en el punto de contacto, es decir,
+\[
+\mathbf{V} - a \mathbf{\Omega} \times \mathbf{n} = 0. \tag{38.3}
+\]
+Esta ecuación no es integrable: aunque la velocidad $\mathbf{V}$ es la derivada total respecto al tiempo del radio vector del centro de la esfera, la velocidad angular no es en general la derivada total de una coordenada respecto al tiempo, de modo que la ligadura (38.3) es no holónoma\footnote{Observemos que la ligadura análoga en la rodadura de un cilindro sería holónoma. En este caso, el eje de rotación tiene una dirección fija en el espacio, y, por lo tanto, $\Omega = d\phi/dt$ es una derivada total del ángulo $\phi$ de rotación del cilindro alrededor de su eje. La condición (38.3) puede entonces integrarse y da una relación entre el ángulo $\phi$ y la coordenada del centro de masa.}.
+
+La presencia de ligaduras del tipo (38.2) impone ciertas restricciones en los valores posibles de las variaciones de las coordenadas: multiplicando las ecuaciones (38.2) por $\delta t$, se encuentra que las variaciones $\delta q_i$ no son independientes, sino están relacionadas por
+\[
+\sum_i c_{\alpha i} \delta q_i = 0. \tag{38.4}
+\]
+Esto debe tenerse en cuenta cuando se varía la acción. Según el método de Lagrange para hallar extremales condicionados, deben añadirse al integrando de la variación de la acción
+\[
+\delta S = \int \left[ \sum_i \delta q_i \left( \frac{\partial L}{\partial q_i} - \frac{d}{dt} \frac{\partial L}{\partial \dot{q}_i} \right) \right] dt
+\]
+los términos de la izquierda de las ecuaciones (38.4) multiplicados por coeficientes indeterminados\footnote{Denominados \textit{multiplicadores de Lagrange}.} $\lambda_\alpha$ (funciones de las coordenadas), y después igualar el integrando a cero. Entonces pueden considerarse todas las variaciones $\delta q_i$ como independientes, y se obtienen las ecuaciones
+\[
+\frac{d}{dt} \left( \frac{\partial L}{\partial \dot{q}_i} \right) - \frac{\partial L}{\partial q_i} = \sum_\alpha \lambda_\alpha c_{\alpha i}. \tag{38.5}
+\]
+
+Existe sin embargo otro método para establecer las ecuaciones del movimiento de cuerpos en contacto, en el cual se introducen explícitamente las reacciones. Este método, que constituye el \textit{principio de d'Alembert}, consiste esencialmente en escribir para cada uno de los cuerpos en contacto las ecuaciones
+\[
+\frac{d\mathbf{P}}{dt} = \sum \mathbf{f}, \qquad \frac{d\mathbf{M}}{dt} = \sum \mathbf{r} \times \mathbf{f}, \tag{38.6}
+\]
+estando comprendidas las fuerzas de reacción en el conjunto de las fuerzas $\mathbf{f}$ que actúan sobre el cuerpo; estas fuerzas son desconocidas \textit{a priori} y se determinarán, a la vez que el movimiento del cuerpo, resolviendo las ecuaciones.
+
+\subsection{Ejecicios}
+\textbf{1. Utilizando el principio de d'Alembert, hallar las ecuaciones del movimiento de una esfera homogénea que rueda sobre un plano bajo la acción de una fuerza exterior $\mathbf{F}$ y de un momento $\mathbf{K}$.}
+
+\textit{Solución:} La ecuación de ligadura es (38.3). Llamando a $\mathbf{R}$ la fuerza de reacción en el punto de contacto entre la esfera y el plano, se escriben las ecuaciones (38.6):
+\begin{align*}
+m \frac{d\mathbf{V}}{dt} &= \mathbf{F} + \mathbf{R}, \tag{1} \\
+I \frac{d\mathbf{\Omega}}{dt} &= \mathbf{K} - a \mathbf{n} \times \mathbf{R}, \tag{2}
+\end{align*}
+(teniendo en cuenta que $\mathbf{P} = m\mathbf{V}$ y que para una peonza esférica $M = I\Omega$). Derivando con respecto al tiempo la ecuación de ligadura (38.3), se obtiene:
+\[
+\dot{\mathbf{V}} = a \dot{\mathbf{\Omega}} \times \mathbf{n}.
+\]
+Sustituyendo en (1) y eliminando $\dot{\mathbf{\Omega}}$ por medio de (2), se encuentra,
+\[
+(I/ma)\mathbf{F} + \mathbf{R} = \mathbf{K} \times \mathbf{n} - a \mathbf{R} + a \mathbf{n}(\mathbf{n} \cdot \mathbf{R}),
+\]
+que relaciona la fuerza de reacción con $\mathbf{F}$ y $\mathbf{K}$. Escribiendo esta ecuación en componentes y sustituyendo $I = \frac{2}{5}ma^2$ (véase problema 2 b, §32), se tiene
+\[
+R_{x} = \frac{5}{7a}K_y - \frac{2}{7}F_x, \qquad R_{y} = -\frac{5}{7a}K_x - \frac{2}{7}F_y, \qquad R_z = -F_z,
+\]
+(se ha tomado el plano como plano $xy$). Finalmente, sustituyendo estas expresiones en (1), se obtienen las ecuaciones del movimiento conteniendo solamente los datos, fuerza exterior y momento:
+\[
+m \frac{dV_x}{dt} = \frac{5}{7} \left( F_x + \frac{K_y}{a} \right), \qquad m \frac{dV_y}{dt} = \frac{5}{7} \left( F_y - \frac{K_x}{a} \right).
+\]
+Las componentes $\Omega_x$ y $\Omega_y$ de la velocidad angular se expresan en función de $V_y$, $V_x$ por la ecuación de ligadura (38.3), y para $\Omega_z$ se tiene,
+\[
+I \frac{d\Omega_z}{dt} = K_z,
+\]
+donde $I$ es el momento de inercia respecto al eje $z$.
+
+
+\textbf{2. Una varilla homogénea $BD$ de peso $P$ y longitud $l$ está apoyada contra una pared (fig. 52); su extremo inferior $B$ está mantenido por un hilo $AB$. Calcular la reacción de la pared y la tensión del hilo.}
+
+\textit{Solución:} El peso de la varilla puede representarse por una fuerza $P$ aplicada en su punto medio y dirigida verticalmente hacia abajo. Las reacciones $R_B$ y $R_C$ están respectivamente dirigidas verticalmente hacia arriba y perpendicularmente a la varilla; la tensión $T$ del hilo está dirigida de $B$ hacia $A$. La resolución de las ecuaciones de equilibrio da:
+\[
+R_C = \frac{Pl}{4h} \sen 2\alpha, \qquad R_B = P - R_C \sen \alpha, \qquad T = R_C \cos \alpha,
+\]
+donde $h$ es la altura y $\alpha$ el ángulo indicado en la figura.
+
+\vspace{1cm}
+
+\textbf{3. Una varilla $AB$ de peso $P$ tiene un extremo sobre un plano horizontal y el otro en un plano vertical, y se mantiene en esta posición por dos hilos horizontales $AD$ y $BC$; el hilo $BC$ se halla en el mismo plano vertical que la varilla. Determinar las reacciones de los planos y las tensiones en los hilos.}
+
+\textit{Solución:} Las tensiones de los hilos $T_A$ y $T_B$ están dirigidas de $A$ hacia $D$ y de $B$ a $C$, respectivamente. Las reacciones $R_A$ y $R_B$ son perpendiculares a los planos correspondientes. La resolución de las ecuaciones de equilibrio da:
+\[
+R_B = P, \qquad T_B = \frac{1}{2}P \cotg \alpha, \qquad R_A = T_B \sen \beta, \qquad T_A = T_B \cos \beta.
+\]
+
+\vspace{1cm}
+
+\textbf{4. Dos varillas de longitud $l$ y peso despreciable están unidas por una articulación, y sus extremos se apoyan en un plano conectados por un hilo $AB$ (fig. 54). En el centro de una de las varillas se aplica una fuerza $F$. Determinar las reacciones.}
+
+\textit{Solución:} La tensión $T$ del hilo actúa en el punto $A$ de $A$ hacia $B$, y en el punto $B$ de $B$ hacia $A$. Las reacciones $R_A$ y $R_B$ son perpendiculares al plano. Sea $R_C$ la reacción sobre la varilla $AC$ en la articulación; entonces, sobre la varilla $BC$ actúa una reacción $-R_C$. La condición de que la suma de los momentos de las fuerzas $R_B$, $T$ y $-R_C$ sobre la varilla $BC$ sea nula muestra que $R_C$ actúa a lo largo de $BC$. Las otras condiciones de equilibrio (para las dos varillas por separado) dan:
+\[
+R_A = \frac{3}{4}F, \qquad R_B = \frac{1}{4}F, \qquad R_C = \frac{1}{4}F \csc \alpha, \qquad T = \frac{1}{4}F \cotg \alpha,
+\]
+donde $\alpha$ es el ángulo $CAB$.
+
+\vspace{1cm}
+
+\subsection*{§ 39. Movimiento en un sistema de referencia no inercial}
+
+Hasta aquí, siempre se han utilizado sistemas de referencia inerciales al discutir el movimiento de los sistemas mecánicos. Por ejemplo, la lagrangiana de una partícula en un campo exterior
+\begin{equation}
+L_0 = \tfrac{1}{2} m v_0^2 - U,
+\tag{39.1}
+\end{equation}
+y la ecuación del movimiento correspondiente
+\begin{equation}
+m \, d\mathbf{v}_0/dt = -\partial U/\partial \mathbf{r},
+\end{equation}
+son válidas solamente en un sistema inercial. (En esta sección se designará con el índice 0 las magnitudes referidas a un sistema inercial.)
+
+Veamos ahora qué forma toman las ecuaciones del movimiento de una partícula en un sistema no inercial. El punto de partida para resolver este problema es otra vez el principio de la mínima acción, cuya validez no depende del sistema de referencia elegido. Las ecuaciones de Lagrange
+\begin{equation}
+\frac{d}{dt} \left( \frac{\partial L}{\partial \mathbf{v}} \right) = \frac{\partial L}{\partial \mathbf{r}}
+\tag{39.2}
+\end{equation}
+son igualmente válidas. Sin embargo, la lagrangiana no toma la forma (39.1), y para calcularla debe transformarse adecuadamente la función $L_0$.
+
+Esta transformación se realiza en dos etapas. Consideremos, primero un sistema de referencia $K'$ que se mueve con una velocidad de traslación $\mathbf{V}(t)$ con respecto al sistema de referencia inercial $K_0$. Las velocidades $\mathbf{v}_0$ y $\mathbf{v}'$ de una partícula, en los sistemas $K_0$ y $K'$ respectivamente, están relacionadas por
+\begin{equation}
+\mathbf{v}_0 = \mathbf{v}' + \mathbf{V}(t).
+\tag{39.3}
+\end{equation}
+Sustituyendo en (39.1) se obtiene la lagrangiana en el sistema $K'$:
+\[
+L' = \tfrac{1}{2} m v'^2 + m \mathbf{v}' \cdot \mathbf{V} + \tfrac{1}{2} m V^2 - U.
+\]
+
+\vspace{1em}
+
+Introduzcamos ahora otro sistema de referencia $K$, cuyo origen coincide con el de $K'$, pero que gira con relación a $K'$ con velocidad angular $\mathbf{\Omega}(t)$; con respecto al sistema inercial $K_0$, el sistema $K$ efectúa a la vez una traslación y una rotación.
+
+La velocidad $\mathbf{v'}$ de la partícula con relación al sistema $K'$ se expresa en función de su velocidad $\mathbf{v}$ relativa al sistema $K$ y de la velocidad $\mathbf{\Omega} \times \mathbf{r}$ y del movimiento de su rotación con $K$:
+\[
+\mathbf{v'} = \mathbf{v} + \mathbf{\Omega} \times \mathbf{r}
+\]
+(los vectores de posición $\mathbf{r}$ y $\mathbf{r}'$ de la partícula en los sistemas $K$ y $K'$ coinciden).
+Sustituyendo en la lagrangiana (39.4), se obtiene:
+\begin{align}
+L &= \tfrac{1}{2} m v^2 + m \mathbf{v} \cdot \mathbf{\Omega} \times \mathbf{r} + \tfrac{1}{2} m (\mathbf{\Omega} \times \mathbf{r})^2 - m \mathbf{w} \cdot \mathbf{r} - U.
+\tag{39.6}
+\end{align}
+
+Esta es la forma general de la lagrangiana de una partícula en un sistema de referencia arbitrario, no necesariamente inercial. Observamos que la rotación del sistema de referencia hace aparecer en la lagrangiana un término lineal con respecto a la velocidad de la partícula.
+
+Para calcular las derivadas que entran en la ecuación de Lagrange, escribimos la diferencial total:
+\begin{align*}
+dL &= m \mathbf{v} \cdot d\mathbf{v} + m d\mathbf{v} \cdot \mathbf{\Omega} \times \mathbf{r} + m \mathbf{v} \cdot \mathbf{\Omega} \times d\mathbf{r} \\
+&\quad + \tfrac{1}{2} m (\mathbf{\Omega} \times \mathbf{r}) \cdot d(\mathbf{\Omega} \times \mathbf{r}) - m d\mathbf{w} \cdot \mathbf{r} - (\partial U/\partial \mathbf{r}) \cdot d\mathbf{r}.
+\end{align*}
+Reuniendo por separado los términos que contienen $d\mathbf{v}$ y $d\mathbf{r}$, se tiene,
+\[
+\frac{\partial L}{\partial \mathbf{v}} = m \mathbf{v} + m \mathbf{\Omega} \times \mathbf{r}, \qquad
+\frac{\partial L}{\partial \mathbf{r}} = m \mathbf{v} \times \mathbf{\Omega} + m (\mathbf{\Omega} \times \mathbf{r}) \times \mathbf{\Omega} - m \mathbf{w} - \frac{\partial U}{\partial \mathbf{r}}.
+\]
+Sustituidas estas expresiones en (39.2), nos dan la ecuación del movimiento buscada:
+\begin{equation}
+m \frac{d\mathbf{v}}{dt} = -\frac{\partial U}{\partial \mathbf{r}} - m \mathbf{w} + m \mathbf{r} \times \mathbf{\dot{\Omega}} + 2m \mathbf{v} \times \mathbf{\Omega} + m \mathbf{\Omega} \times (\mathbf{r} \times \mathbf{\Omega}).
+\tag{39.7}
+\end{equation}
+
+\vspace{1em}
+
+Haciendo en (39.6) y (39.7) $\mathbf{\Omega} = \text{cte.}$, $\mathbf{w} = 0$, se obtiene la lagrangiana
+\begin{equation}
+L = \tfrac{1}{2} m v^2 + m \mathbf{v} \cdot \mathbf{\Omega} \times \mathbf{r} + \tfrac{1}{2} m (\mathbf{\Omega} \times \mathbf{r})^2 - U
+\tag{39.8}
+\end{equation}
+y la ecuación del movimiento
+\begin{equation}
+m \frac{d\mathbf{v}}{dt} = -\frac{\partial U}{\partial \mathbf{r}} + 2m \mathbf{v} \times \mathbf{\Omega} + m \mathbf{\Omega} \times (\mathbf{r} \times \mathbf{\Omega}).
+\tag{39.9}
+\end{equation}
+
+La energía de la partícula en este caso se obtiene sustituyendo
+\[
+\mathbf{p} = \frac{\partial L}{\partial \mathbf{v}} = m \mathbf{v} + m \mathbf{\Omega} \times \mathbf{r}
+\]
+en $E = \mathbf{p} \cdot \mathbf{v} - L$, obteniéndose,
+\begin{equation}
+E = \tfrac{1}{2} m v^2 - \tfrac{1}{2} m (\mathbf{\Omega} \times \mathbf{r})^2 + U.
+\tag{39.11}
+\end{equation}
+
+Observemos que la expresión de la energía no contiene término lineal en la velocidad. La rotación del sistema añade simplemente a la energía un término que depende solamente de las coordenadas de la partícula y es proporcional al cuadrado de la velocidad angular. Este término adicional $-\tfrac{1}{2} m (\mathbf{\Omega} \times \mathbf{r})^2$ se llama \textit{energía potencial centrífuga}.
+
+La velocidad $\mathbf{v}$ de la partícula con respecto al sistema que gira uniformemente está relacionada con su velocidad $\mathbf{v}_0$ con respecto al sistema inercial $K_0$ por
+\begin{equation}
+\mathbf{v}_0 = \mathbf{v} + \mathbf{\Omega} \times \mathbf{r}.
+\tag{39.12}
+\end{equation}
+
+El ímpetu $\mathbf{p}$ (39.10) de la partícula en el sistema $K$ coincide por lo tanto con su ímpetu $\mathbf{p}_0 = m \mathbf{v}_0$ en el sistema $K_0$. Los momentos angulares $\mathbf{M} = \mathbf{r} \times \mathbf{p}$ y $\mathbf{M}_0 = \mathbf{r} \times \mathbf{p}_0$ son también iguales. Sin embargo, las energías de la partícula en los sistemas $K$ y $K_0$ son diferentes. Sustituyendo $\mathbf{v'}$ de (39.12) en (39.11), se obtiene
+\[
+E = \tfrac{1}{2} m v_0^2 - m \mathbf{v}_0 \cdot \mathbf{\Omega} \times \mathbf{r} + U = \tfrac{1}{2} m v_0^2 + U - m \mathbf{r} \times \mathbf{v}_0 \cdot \mathbf{\Omega}.
+\]
+Los dos primeros términos son la energía $E_0$ en el sistema $K_0$. Utilizando el momento angular, se tiene
+\begin{equation}
+E = E_0 - \mathbf{M} \cdot \mathbf{\Omega}.
+\tag{39.13}
+\end{equation}
+
+Esta fórmula define la ley de transformación de la energía cuando se pasa a un sistema de coordenadas animado de una rotación uniforme. Aunque se ha deducido para una sola partícula, es evidente que el razonamiento puede
+
+\subsection*{PROBLEMAS}
+
+\textbf{1. Encontrar la separación con respecto a la vertical, provocada por la rotación de la Tierra, de un cuerpo que cae libremente. (La velocidad angular de rotación se considera pequeña.)}
+
+\textit{Solución:} En el campo de la gravedad $U = -mg\mathbf{r}$ donde $g$ es el vector aceleración de la gravedad; despreciando en la ecuación (39.9) la fuerza centrífuga que contiene el cuadrado de $\Omega$, se tiene la ecuación del movimiento
+\begin{equation}
+\dot{\mathbf{v}} = 2\mathbf{v} \times \mathbf{\Omega} + \mathbf{g}. \tag{1}
+\end{equation}
+
+Esta ecuación puede resolverse por aproximaciones sucesivas. Para ello ponemos $\mathbf{v} = \mathbf{v}_1 + \mathbf{v}_2$, donde $\mathbf{v}_1$ es la solución de la ecuación $\dot{\mathbf{v}}_1 = \mathbf{g}$, es decir, $\mathbf{v}_1 = g t + \mathbf{v}_0$ (siendo $\mathbf{v}_0$ la velocidad inicial). Sustituyendo $\mathbf{v} = \mathbf{v}_1 + \mathbf{v}_2$ en (1) y conservando solamente $\mathbf{v}_1$ en el segundo miembro, se obtiene para $\mathbf{v}_2$ la ecuación
+\[
+\dot{\mathbf{v}}_2 = 2\mathbf{v}_1 \times \mathbf{\Omega} = 2t\mathbf{g} \times \mathbf{\Omega} + 2\mathbf{v}_0 \times \mathbf{\Omega}.
+\]
+
+La integración da
+\begin{equation}
+\mathbf{r} = \mathbf{h} + \mathbf{v}_0 t + \tfrac{1}{2} g t^2 + \tfrac{1}{3} t^3 \mathbf{g} \times \mathbf{\Omega} + t^2 \mathbf{v}_0 \times \mathbf{\Omega},
+\tag{2}
+\end{equation}
+donde $\mathbf{h}$ es el vector de posición inicial de la partícula.
+
+Tomemos el eje $z$ verticalmente hacia arriba y el eje $x$ hacia el polo; entonces
+\[
+g_x = g_y = 0, \quad g_z = -g; \quad \Omega_x = \Omega \cos \lambda, \quad \Omega_y = 0, \quad \Omega_z = \Omega \sin \lambda,
+\]
+donde $\lambda$ es la latitud (que tomamos norte para fijar ideas). Haciendo $\mathbf{v}_0 = 0$ (en $z$), resulta,
+\[
+x = 0, \quad y = -\tfrac{1}{3} t^3 g \Omega \cos \lambda.
+\]
+
+Sustituyendo el tiempo de caída $t \approx \sqrt{2h/g}$, encontramos finalmente,
+\[
+x = 0, \quad y = -\tfrac{1}{3} (2h/g)^{3/2} g \Omega \cos \lambda,
+\]
+(el signo menos indica un desplazamiento hacia el este).
+
+\vspace{1em}
+
+\textbf{2. Determinar la separación de la trayectoria de un cuerpo lanzado desde la superficie de la Tierra con velocidad $v_0$, respecto del plano inicial.}
+
+\textit{Solución:} Sea el plano $xz$ tal que contenga la velocidad $v_0$. La altura inicial es $h = 0$. La desviación lateral dada por la ecuación (2) del problema 1 es:
+\[
+y = -\tfrac{1}{3} t^2 g \Omega_z + t^2 ( \Omega_x v_{0z} - \Omega_z v_{0x} )
+\]
+o, sustituyendo la duración de la trayectoria $t \approx 2v_{0z}/g$:
+\[
+y = \tfrac{4v_{0z}^2}{g^2} (\frac{1}{3} \Omega_x v_{0z} - \Omega_z v_{0x} ).
+\]
+
+\vspace{1em}
+
+\textbf{3. Determinar la influencia de la rotación de la Tierra en las pequeñas oscilaciones de un péndulo (problema del \textit{péndulo de Foucault}).}
+
+\textit{Solución:} Despreciando el desplazamiento vertical del péndulo, como infinitésimo de segundo orden, puede considerarse que el movimiento tiene lugar en el plano horizontal $xy$. Omitiendo los términos que contienen $\Omega^2$, se tienen las ecuaciones del movimiento
+\[
+\ddot{x} + \omega^2 x = 2\Omega_z \dot{y}, \qquad \ddot{y} + \omega^2 y = -2\Omega_z \dot{x},
+\]
+donde $\omega$ es la frecuencia de oscilación del péndulo si no se tuviese en cuenta la rotación de la Tierra. Multiplicando la segunda ecuación por $i$ y sumando, se obtiene la ecuación única
+\[
+\ddot{\xi} + 2i\Omega_z \dot{\xi} + \omega^2 \xi = 0
+\]
+en la magnitud compleja $\xi = x + i y$. Para $\Omega_z \ll \omega$ la solución de esta ecuación es:
+\[
+\xi = \exp(-i\Omega_z t) [A_1 \exp(i\omega t) + A_2 \exp(-i\omega t)]
+\]
+o
+\[
+x + i y = (x_0 + i y_0) \exp(-i\Omega_z t),
+\]
+donde las funciones $x_0(t)$ e $y_0(t)$ dan la trayectoria del péndulo cuando se desprecia la rotación de la Tierra. El efecto de esta rotación es, por lo tanto, un giro de la trayectoria alrededor de la vertical con una
+
 \section{Teoría Clásica de Campos}
 \subsection{Ejercicio 1: Campo Escalar}
 Estudie el campo escalar \(\phi(x)\) a partir del lagrangiano:

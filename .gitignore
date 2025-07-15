@@ -23,6 +23,7 @@
 # Entorno
 /Python/Experimental IV/Exp4
 *.vscode
+**/venv/
 
 # Datos 
 *.json
