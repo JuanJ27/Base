@@ -1,50 +1,884 @@
-\section*{Resumen: Ilustración de los postulados en el caso de un espín 1/2}
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
 
-Se analiza el caso de un sistema cuántico de espín $1/2$ (por ejemplo, átomos de plata) y cómo los postulados de la mecánica cuántica se manifiestan experimentalmente mediante el aparato de Stern-Gerlach.
+\title{Notas de Clase}
+\author{Juan Montoya}
+\date{\today}
 
-\subsection*{Preparación de estados de espín}
+\begin{document}
+\maketitle
 
-Cualquier estado de espín puede escribirse como combinación lineal de los autoestados $\ket{+}$ y $\ket{-}$:
+\section*{Resumen}
+El objetivo de estas notas es ilustrar los postulados fundamentales de la mecánica cuántica mediante el caso de un sistema de espín $1/2$ (por ejemplo, átomos de plata) y el uso del aparato de Stern–Gerlach. Se aborda la preparación de estados, la naturaleza probabilística de las mediciones y la evolución temporal bajo un Hamiltoniano simple.
+
+\section{Operador \texorpdfstring{$S_z$} y espacio de espín}
+Al observable $\mathcal{S}_z$ corresponde el operador $S_z$, cuyos autovalores son $\pm\hbar/2$. Denotamos por $\ket{+}$ y $\ket{-}$ los autovectores ortonormales:
+\begin{equation}
+    \begin{cases}
+    S_z \ket{+} = +\dfrac{\hbar}{2}\ket{+},\\
+    S_z \ket{-} = -\dfrac{\hbar}{2}\ket{-},
+    \end{cases}
+\tag{A-10}
+\end{equation}
+con
+\begin{equation}
+    \begin{cases}
+    \braket{+|+} = \braket{-|-} = 1,\\
+    \braket{+|-} = 0,
+    \end{cases}
+\tag{A-11}
+\end{equation}
+y la relación de cierre
+\begin{equation}
+\ket{+}\bra{+} + \ket{-}\bra{-} = \mathbb{I}.
+\tag{A-12}
+\end{equation}
+
+\subsection*{A-2-b. Los operadores $S_x$, $S_y$ y $S_u$}
+Los operadores $S_x$, $S_y$ y $S_u$ tienen los mismos autovalores, $+\hbar/2$ y $-\hbar/2$, que $S_z$. Este resultado era de esperar, ya que siempre es posible girar todo el conjunto del aparato de Stern–Gerlach de modo que el eje definido por el campo magnético quede paralelo a $Ox$, $Oy$ o $\vec u$. Dado que todas las direcciones del espacio son físicamente equivalentes, los fenómenos observados en la placa no cambian bajo tales rotaciones; así, la medición de $S_x$, $S_y$ o $S_u$ sólo puede dar como resultado $+\hbar/2$ o $-\hbar/2$.
+
+En cuanto a los autovectores de $S_x$, $S_y$ y $S_u$, los denotaremos respectivamente por $\ket{\pm}_x$, $\ket{\pm}_y$ y $\ket{\pm}_u$ (el signo en el ket coincide con el del autovalor correspondiente). Sus desarrollos en la base $\{\ket{+},\ket{-}\}$ de $S_z$ se escriben:
+
+\begin{equation}
+\ket{\pm}_x = \frac{1}{\sqrt{2}}\bigl(\ket{+}\pm\ket{-}\bigr)
+\tag{A-20}
+\end{equation}
+
+\begin{equation}
+\ket{\pm}_y = \frac{1}{\sqrt{2}}\bigl(\ket{+}\pm i\,\ket{-}\bigr)
+\tag{A-21}
+\end{equation}
+
+\begin{equation}
+\begin{cases}
+\ket{+}_u = \cos\dfrac{\theta}{2}\,e^{-i\varphi/2}\,\ket{+}
+           + \sin\dfrac{\theta}{2}\,e^{i\varphi/2}\,\ket{-},\\[8pt]
+\ket{-}_u = -\,\sin\dfrac{\theta}{2}\,e^{-i\varphi/2}\,\ket{+}
+           + \cos\dfrac{\theta}{2}\,e^{i\varphi/2}\,\ket{-}.
+\end{cases}
+\tag{A-22a,b}
+\end{equation}
+
+\section{Estado general y parámetros esféricos}
+El estado más general en el espacio de espín es
+\begin{equation}
+\ket{\psi} = \alpha \ket{+} + \beta \ket{-},
+\tag{A-13}
+\end{equation}
+sujeto a
+\begin{equation}
+|\alpha|^2 + |\beta|^2 = 1.
+\tag{A-14}
+\end{equation}
+Con la parametrización
 \[
-\ket{\psi} = \alpha \ket{+} + \beta \ket{-}, \quad |\alpha|^2 + |\beta|^2 = 1
+\alpha = \cos\frac{\theta}{2}e^{-i\varphi/2},\quad
+\beta  = \sin\frac{\theta}{2}e^{i\varphi/2},
 \]
-Para cada par $(\alpha, \beta)$ existe un vector unitario $\vec{u}$ tal que $\ket{\psi}$ es colineal con el autoestado $\ket{+}_u$ correspondiente a la dirección $\vec{u}$, cuyos ángulos polares se determinan por:
-\[
-\alpha = \cos\frac{\theta}{2} e^{-i\varphi/2}, \quad \beta = \sin\frac{\theta}{2} e^{i\varphi/2}
-\]
-El aparato de Stern-Gerlach orientado según $\vec{u}$ permite preparar átomos en el estado deseado.
+podemos asociar cada par $(\alpha,\beta)$ a un vector unitario en la esfera de Bloch.
 
-\subsection*{Mediciones de espín}
-
+\section{Mediciones de espín}
+Para ilustrar la naturaleza probabilística de las mediciones:
 \begin{itemize}
-    \item \textbf{Primer experimento:} Si ambos aparatos están alineados, todos los átomos preparados en $\ket{+}$ son detectados en el mismo lugar, obteniéndose siempre el valor $+\hbar/2$ para $S_z$.
-    \item \textbf{Segundo experimento:} Si el primer aparato prepara el estado $\ket{+}_u$ y el segundo mide $S_z$, los resultados posibles son $+\hbar/2$ (probabilidad $\cos^2(\theta/2)$) y $-\hbar/2$ (probabilidad $\sin^2(\theta/2)$).
-    \item \textbf{Tercer experimento:} Si el “analizador” se rota, las probabilidades dependen del ángulo relativo entre los ejes de los aparatos.
+    \item \textbf{Experimento 1:} Con ambos aparatos alineados, si se prepara $\ket{+}$ siempre se obtiene $+\hbar/2$.
+    \item \textbf{Experimento 2:} Si se prepara $\ket{+}_u$ (dirección $\vec{u}$) y se mide $S_z$, las probabilidades son
+        \[
+            P(+\tfrac{\hbar}{2}) = \cos^2\frac{\theta}{2},\quad
+            P(-\tfrac{\hbar}{2}) = \sin^2\frac{\theta}{2}.
+        \]
+    \item \textbf{Experimento 3:} Al rotar el analizador, las probabilidades cambian con el ángulo relativo.
 \end{itemize}
-
-El valor medio de las mediciones reproduce el resultado clásico para el momento angular proyectado:
+El valor medio se corresponde con el resultado clásico:
 \[
-\langle S_z \rangle = \frac{\hbar}{2} \cos\theta
+\langle S_z\rangle = \frac{\hbar}{2}\cos\theta.
 \]
 
-\subsection*{Evolución temporal en un campo magnético uniforme}
-
-El Hamiltoniano para un espín $1/2$ en un campo magnético uniforme $\vec{B}_0$ es:
+\section{Evolución temporal}
+En un campo magnético uniforme $\vec{B}_0$, el Hamiltoniano es
 \[
-\hat{H} = \omega_0 \hat{S}_z, \quad \omega_0 = -\gamma B_0
+\hat H = \omega_0 \hat S_z,\quad \omega_0 = -\gamma B_0.
 \]
-Los autoestados de $\hat{H}$ son $\ket{+}$ y $\ket{-}$, con energías separadas por $\hbar\omega_0$.
-
-Si el estado inicial es:
+Sus autoestados $\ket{\pm}$ tienen energías separadas por $\hbar\omega_0$. Si
 \[
-\ket{\psi(0)} = \cos\frac{\theta}{2} e^{-i\varphi/2} \ket{+} + \sin\frac{\theta}{2} e^{i\varphi/2} \ket{-}
+\ket{\psi(0)} = \cos\frac{\theta}{2}e^{-i\varphi/2}\ket{+}
+                             + \sin\frac{\theta}{2}e^{i\varphi/2}\ket{-},
 \]
-la evolución temporal introduce una precesión de Larmor:
+entonces la evolución de Schrödinger produce una precesión de Larmor:
 \[
-\ket{\psi(t)} = \cos\frac{\theta}{2} e^{-i(\varphi+\omega_0 t)/2} \ket{+} + \sin\frac{\theta}{2} e^{i(\varphi+\omega_0 t)/2} \ket{-}
+\ket{\psi(t)}
+= \cos\frac{\theta}{2}e^{-i(\varphi+\omega_0 t)/2}\ket{+}
++ \sin\frac{\theta}{2}e^{i(\varphi+\omega_0 t)/2}\ket{-}.
 \]
-El vector de espín precesa alrededor del campo magnético a la frecuencia de Larmor $\omega_0$.
 
-\subsection*{Conclusión}
+\subsection*{Demostración de la existencia de un vector unitario $\mathbf{u}$}
+% Demostración de la existencia de un vector unitario u
+Vamos a mostrar que existe, para todo $\ket{\psi}$, un vector unitario $\mathbf{u}$ tal que $\ket{\psi}$ es colineal con el ket $\ket{+}_u$. Elegimos por tanto dos números complejos $\alpha$ y $\beta$ que satisfacen la relación
+\begin{equation}
+|\alpha|^2 + |\beta|^2 = 1
+\tag{B-2}
+\end{equation}
+pero que son arbitrarios en lo demás. Teniendo en cuenta (B-2), existe necesariamente un ángulo $\theta$ tal que
+\begin{equation}
+\begin{cases}
+\cos\dfrac{\theta}{2} = |\alpha|,\\
+\sin\dfrac{\theta}{2} = |\beta|.
+\end{cases}
+\tag{B-3}
+\end{equation}
+Si, además, imponemos
+\begin{equation}
+0 \le \theta \le \pi,
+\tag{B-4}
+\end{equation}
+la ecuación
+\[
+\tan\dfrac{\theta}{2} = \left|\dfrac{\beta}{\alpha}\right|
+\]
+determina $\theta$ de forma única. Sabemos que sólo la diferencia de fases de $\alpha$ y $\beta$ influye en las predicciones físicas. Definimos entonces
+\begin{align}
+\varphi &= Arg(\beta) - Arg(\alpha), \tag{B-5}\\
+\chi    &= Arg(\beta) + Arg(\alpha). \tag{B-6}
+\end{align}
+De aquí se sigue
+\begin{equation}
+    Arg(\beta) = \tfrac12\,\chi + \tfrac12\,\varphi,
+    \quad
+    Arg(\alpha) = \tfrac12\,\chi - \tfrac12\,\varphi.
+\tag{B-7}
+\end{equation}
+Con esta notación, el ket $\ket{\psi}$ puede escribirse:
+\begin{equation}
+\ket{\psi}
+= e^{i\chi/2}
+\Bigl[
+\cos\dfrac{\theta}{2}\,e^{-i\varphi/2}\,\ket{+}
++
+\sin\dfrac{\theta}{2}\,e^{i\varphi/2}\,\ket{-}
+\Bigr].
+\tag{B-8}
+\end{equation}
 
-El análisis experimental y teórico del espín $1/2$ ilustra los postulados fundamentales de la mecánica cuántica: la preparación de estados, la naturaleza probabilística de las mediciones y la evolución temporal gobernada por el Hamiltoniano. Además, los valores medios de los observables permiten establecer un puente con la descripción clásica del
+\subsection*{Resumen de la Figura 9: Trayectorias clásicas vs.\ superposición cuántica}
+
+Cuando un átomo de plata entra con espín en el estado $\ket{+}$ (Fig.~9-a) o $\ket{-}$ (Fig.~9-b), su función de onda externa está concentrada en un único paquete estrecho cuyo centro recorre una trayectoria que puede describirse clásicamente.  
+
+Sin embargo, si el estado de espín es la superposición  
+\[
+\ket{\psi} = \cos\frac{\theta}{2}\,\ket{+} + \sin\frac{\theta}{2}\,\ket{-}
+\tag{B-9}
+\]
+el paquete de onda inicial se divide en dos subpaquetes (Fig.~9-c), cada uno localizado cerca de los puntos 1 y 2 al llegar a la pantalla. Aunque cada subpaquete sigue siendo muy estrecho, el átomo ya no tiene una sola trayectoria clásica: la probabilidad de detección se reparte entre ambos lugares.  
+
+Estos dos subpaquetes corresponden a la misma partícula con distinta fase relativa; de hecho, si no se realiza la medición (quitan- do la pantalla) y se aplica un gradiente de campo magnético inverso, podrían recombinarse en un único paquete.
+
+\textbf{Comentario:}\\
+(i) Si el campo $\mathbf{B}_{0}$ es paralelo al vector unitario $\mathbf{u}$ de ángulos polares $\theta,\varphi$, la ecuación (B-17) debe reemplazarse por
+\begin{equation}
+H=\omega_{0}\,S_{u}
+\tag{B-20}
+\end{equation}
+donde $S_{u}=\mathbf{S}\cdot\mathbf{u}$.\\
+(ii) Para el átomo de plata $\gamma<0$, luego $\omega_{0}>0$ según (B-16), lo cual explica la disposición de los niveles en la figura.
+
+\subsection*{B-3. Evolución de un espín 1/2 en un campo magnético uniforme}
+
+\subsubsection*{B-3-a. Hamiltoniano de interacción y ecuación de Schrödinger}
+
+Consideremos un átomo de plata en un campo magnético uniforme $\mathbf{B}_{0}$, y tomemos el eje $O z$ paralelo a $\mathbf{B}_{0}$. La energía potencial clásica del momento magnético $\boldsymbol{\mathcal{M}}=\gamma\,\mathbf{S}$ es:
+\begin{equation}
+W=-\boldsymbol{\mathcal{M}}\cdot\mathbf{B}_{0}
+=-\mathcal{M}_{z}\,B_{0}
+=-\gamma\,B_{0}\,S_{z}
+\tag{B-15}
+\end{equation}
+donde $B_{0}=\lvert\mathbf{B}_{0}\rvert$. Definimos:
+\begin{equation}
+\omega_{0}=-\gamma\,B_{0}
+\tag{B-16}
+\end{equation}
+que tiene dimensión de velocidad angular.
+
+Al cuantizar sólo los grados internos, $S_{z}$ se reemplaza por el operador $\hat S_{z}$ y la energía (B-15) pasa a ser el Hamiltoniano
+\begin{equation}
+H=\omega_{0}\,\hat S_{z}
+\tag{B-17}
+\end{equation}
+Este operador es independiente del tiempo, por lo que resolver la ecuación de Schrödinger equivale a encontrar los autovalores de $H$. Sus autovectores son los mismos de $\hat S_{z}$:
+\begin{equation}
+\begin{cases}
+H\ket{+}=+\dfrac{\hbar\,\omega_{0}}{2}\,\ket{+},\\[6pt]
+H\ket{-}=-\dfrac{\hbar\,\omega_{0}}{2}\,\ket{-}.
+\end{cases}
+\tag{B-18}
+\end{equation}
+Por tanto, existen dos niveles de energía,
+\[
+E_{+}=+\frac{\hbar\omega_{0}}{2},
+\quad
+E_{-}=-\frac{\hbar\omega_{0}}{2},
+\]
+y su separación $\hbar\omega_{0}$ define la frecuencia de Bohr
+\begin{equation}
+\nu_{+-}
+=\frac{1}{h}\,(E_{+}-E_{-})
+=\frac{\omega_{0}}{2\pi}\,.
+\tag{B-19}
+\end{equation}
+
+\subsection*{C-2. Aspecto estático: efecto del acoplamiento en los estados estacionarios del sistema}
+
+\subsubsection*{C-2-a. Expresiones para los autoestados y autoenergías de \(H\)}
+
+En la base \(\{\ket{\varphi_1},\ket{\varphi_2}\}\), la matriz que representa \(H\) es:
+\begin{equation}
+H = \begin{pmatrix}
+E_1 + W_{11} & W_{12} \\
+W_{21}       & E_2 + W_{22}
+\end{pmatrix}
+\tag{C-7}
+\end{equation}
+
+Su diagonalización conduce a los autoenergías:
+\begin{equation}
+\begin{aligned}
+E_+ &= \tfrac12\bigl(E_1 + W_{11} + E_2 + W_{22}\bigr)
+       + \tfrac12\sqrt{\bigl(E_1 + W_{11} - E_2 - W_{22}\bigr)^2 + 4|W_{12}|^2},\\
+E_- &= \tfrac12\bigl(E_1 + W_{11} + E_2 + W_{22}\bigr)
+       - \tfrac12\sqrt{\bigl(E_1 + W_{11} - E_2 - W_{22}\bigr)^2 + 4|W_{12}|^2}.
+\end{aligned}
+\tag{C-8}
+\end{equation}
+(si \(W_{ij}=0\), entonces \(E_+=E_1\) y \(E_-=E_2\)).  
+
+Los autoestados asociados son:
+\begin{align}
+\ket{\psi_+}
+&= \cos\frac{\theta}{2}\,e^{-i\varphi/2}\,\ket{\varphi_1}
++ \sin\frac{\theta}{2}\,e^{i\varphi/2}\,\ket{\varphi_2},
+\tag{C-9a}\\
+\ket{\psi_-}
+&= -\sin\frac{\theta}{2}\,e^{-i\varphi/2}\,\ket{\varphi_1}
++ \cos\frac{\theta}{2}\,e^{i\varphi/2}\,\ket{\varphi_2}.
+\tag{C-9b}
+\end{align}
+
+donde los ángulos \(\theta\) y \(\varphi\) se definen por:
+\begin{equation}
+\tan\theta
+= \frac{2\,|W_{12}|}{E_1 + W_{11} - E_2 - W_{22}},
+\quad
+0 \le \theta < \pi,
+\tag{C-10}
+\end{equation}
+\begin{equation}
+W_{21} = |W_{21}|\,e^{i\varphi}.
+\tag{C-11}
+\end{equation}
+
+\subsection*{C-3. Aspecto dinámico: oscilación del sistema entre los dos estados no perturbados}
+
+\subsubsection*{C-3-a. Evolución del vector de estado}
+
+Sea el vector de estado en el instante \(t\):
+\[
+\ket{\psi(t)} = a_1(t)\ket{\varphi_1} + a_2(t)\ket{\varphi_2}
+\tag{C-22}
+\]
+La ecuación de Schrödinger es:
+\[
+i\hbar\,\frac{d}{dt}\ket{\psi(t)} = \bigl(H_0 + W\bigr)\ket{\psi(t)}\,.
+\tag{C-23}
+\]
+Proyectando en \(\ket{\varphi_1}\) y \(\ket{\varphi_2}\), con \(W_{11}=W_{22}=0\), obtenemos el sistema acoplado:
+\[
+\begin{aligned}
+i\hbar\,\frac{da_1}{dt} &= E_1\,a_1 + W_{12}\,a_2\,,\\
+i\hbar\,\frac{da_2}{dt} &= W_{21}\,a_1 + E_2\,a_2\,.
+\end{aligned}
+\tag{C-24}
+\]
+La solución se construye descomponiendo \(\ket{\psi(0)}\) en los autoestados \(\ket{\psi_+}\), \(\ket{\psi_-}\) de \(H=H_0+W\):
+\[
+\ket{\psi(0)}=\lambda\,\ket{\psi_+}+\mu\,\ket{\psi_-}\,,
+\tag{C-25}
+\]
+y asumiendo la condición inicial
+\[
+\ket{\psi(0)}=\ket{\varphi_1}\,.
+\tag{C-27}
+\]
+
+\subsubsection*{C-3-b. Cálculo de \(\mathcal{P}_{12}(t)\): fórmula de Rabi}
+
+Expandiendo \(\ket{\psi(0)}\) en la base \(\{\ket{\psi_+},\ket{\psi_-}\}\) (invertir (C-9)), se tiene:
+\[
+\ket{\psi(0)} = \ket{\varphi_1}
+= e^{i\varphi/2}\Bigl[\cos\frac{\theta}{2}\,\ket{\psi_+}
+                 -\sin\frac{\theta}{2}\,\ket{\psi_-}\Bigr].
+\tag{C-28}
+\]
+Entonces la evolución temporal es
+\[
+\ket{\psi(t)}
+= e^{i\varphi/2}\Bigl[\cos\frac{\theta}{2}\,e^{-iE_+t/\hbar}\ket{\psi_+}
+                      -\sin\frac{\theta}{2}\,e^{-iE_-t/\hbar}\ket{\psi_-}\Bigr].
+\tag{C-29}
+\]
+La amplitud de probabilidad de hallar el sistema en \(\ket{\varphi_2}\) es
+\[
+\braket{\varphi_2|\psi(t)}
+= e^{i\varphi/2}\Bigl[\cos\frac{\theta}{2}\,e^{-iE_+t/\hbar}\braket{\varphi_2|\psi_+}
+                     -\sin\frac{\theta}{2}\,e^{-iE_-t/\hbar}\braket{\varphi_2|\psi_-}\Bigr],
+\tag{C-30}
+\]
+y la probabilidad
+\[
+\mathcal{P}_{12}(t) = \bigl|\braket{\varphi_2|\psi(t)}\bigr|^2
+= \tfrac12\sin^2\theta\bigl[1-\cos\bigl((E_+ - E_-)\,t/\hbar\bigr)\bigr]
+= \sin^2\theta\;\sin^2\!\bigl((E_+ - E_-)\,t/2\hbar\bigr).
+\tag{C-31}
+\]
+Usando además las expresiones de los ángulos \(\theta\) y \(\varphi\) [(C-12),(C-13)], se reescribe como
+\[
+\mathcal{P}_{12}(t)
+= \frac{4\,|W_{12}|^2}{4\,|W_{12}|^2 + (E_1 - E_2)^2}
+  \;\sin^2\!\Bigl[t/(2\hbar)\,\sqrt{4\,|W_{12}|^2 + (E_1 - E_2)^2}\Bigr].
+\tag{C-32}
+\]
+Esta última es la conocida como \emph{fórmula de Rabi}.
+
+\section*{Complemento JIV: Ejercicios}
+
+\subsection*{Ejercicio 1}
+Considera una partícula de espín $1/2$ de momento magnético $\mathbf{M}=\gamma\,\mathbf{S}$. El espacio de estados de espín está generado por los vectores $\ket{+}$ y $\ket{-}$, autovectores de $S_z$ con autovalores $+\hbar/2$ y $-\hbar/2$. En $t=0$, el estado del sistema es
+\[
+\ket{\psi(0)}=\ket{+}.
+\]
+\begin{enumerate}
+  \item Si en $t=0$ medimos el observable $S_z$, ¿qué resultados se pueden obtener y con qué probabilidades?
+  \item En lugar de realizar esa medición, dejamos que el sistema evolucione bajo la acción de un campo magnético uniforme paralelo a $Oy$, de módulo $B_0$. Calcula, en la base $\{\ket{+},\ket{-}\}$, el estado del sistema en tiempo $t$.
+  \item En ese instante medimos los observables $S_x$, $S_y$ y $S_z$. ¿Qué valores pueden obtenerse y con qué probabilidades? ¿Qué relación debe existir entre $B_0$ y $t$ para que alguno de los resultados sea absolutamente cierto? Da su interpretación física.
+\end{enumerate}
+
+\subsection*{Ejercicio 2}
+Considera de nuevo una partícula de espín $1/2$ (misma notación).
+\begin{enumerate}
+  \item En $t=0$ medimos $S_y$ y hallamos $+\hbar/2$. ¿Cuál es el vector de estado $\ket{\psi(0)}$ inmediatamente tras la medición?
+  \item Inmediatamente después aplicamos un campo magnético uniforme dependiente del tiempo, paralelo a $Oz$, de modo que
+  \[
+    H(t)=\omega_0(t)\,S_z\,.
+  \]
+  Supón que $\omega_0(t)=0$ para $t<0$ y $t>T$, y que crece linealmente de $0$ a $\omega_0$ en el intervalo $0<t<T$ (siendo $T$ un parámetro de tiempo dado). Demuestra que, en cualquier instante $t$, el estado puede escribirse
+  \[
+    \ket{\psi(t)}
+    = \frac{1}{\sqrt{2}}\Bigl[e^{\,i\theta(t)}\ket{+}
+      \;+\; i\,e^{-\,i\theta(t)}\ket{-}\Bigr],
+  \]
+  donde $\theta(t)$ es una función real de $t$ (a calcular).
+  \item En $t=T$ medimos $S_y$. ¿Qué resultados pueden hallarse y con qué probabilidades? Determina la relación entre $\omega_0$ y $T$ para garantizar un resultado único. Da su interpretación física.
+\end{enumerate}
+
+\textbf{Solución:}
+\begin{enumerate}
+  \item Tras medir $S_y=+\hbar/2$ el sistema queda en el autovector correspondiente,
+    \[
+      \ket{\psi(0)} = \ket{+}_y
+      = \frac{1}{\sqrt{2}}\bigl(\ket{+} + i\ket{-}\bigr).
+    \]
+  \item Como $[H(t),H(t')]=0$, la evolución es
+    \[
+      U(t)
+      = \exp\!\Bigl(-\tfrac{i}{\hbar}\!\int_0^tH(t')\,dt'\Bigr).
+    \]
+    Dado que 
+    $H(t)\ket{\pm}=\pm\frac{\hbar}{2}\,\omega_0(t)\ket{\pm}$, definimos
+    \[
+      \theta(t)=\frac{1}{2}\int_0^t\omega_0(t')\,dt',
+    \]
+    y se obtiene
+    \[
+      U(t)\ket{+}=e^{-\,i\theta(t)}\ket{+},\qquad
+      U(t)\ket{-}=e^{\,i\theta(t)}\ket{-}.
+    \]
+    Aplicando a $\ket{\psi(0)}$:
+    \[
+      \ket{\psi(t)}
+      =\frac{1}{\sqrt{2}}\Bigl(e^{-\,i\theta(t)}\ket{+}
+        +i\,e^{\,i\theta(t)}\ket{-}\Bigr).
+    \]
+    Redefiniendo $\theta\to-\theta$ recuperamos la forma deseada.
+  \item Escribimos las proyecciones sobre $\ket{\pm}_y$:
+    \[
+      \ket{+}_y=\tfrac1{\sqrt2}(\ket{+}+i\ket{-}),\quad
+      \ket{-}_y=\tfrac1{\sqrt2}(\ket{+}-i\ket{-}).
+    \]
+    Entonces
+    \[
+      P\bigl(+\tfrac{\hbar}{2}\bigr)
+      =\bigl|\braket{+_y|\psi(T)}\bigr|^2
+      =\cos^2\theta(T),
+      \quad
+      P\bigl(-\tfrac{\hbar}{2}\bigr)=\sin^2\theta(T).
+    \]
+    Para que el resultado sea siempre $+\hbar/2$ se pide
+    \[
+      \cos^2\theta(T)=1
+      \;\Longrightarrow\;
+      \theta(T)=n\pi
+      \;\Longrightarrow\;
+      \int_0^T\omega_0(t)\,dt=2n\pi.
+    \]
+    Si $\omega_0(t)=\tfrac{\omega_0}{T}\,t$ en $[0,T]$, entonces
+    $\int_0^T\omega_0(t)\,dt=\tfrac12\,\omega_0T$, y la condición es
+    $\tfrac12\,\omega_0T=2n\pi$, esto es $\omega_0T=4n\pi$.  
+    Físicamente, equivale a girar el espín alrededor de $Oz$ un número entero
+    de vueltas completas, de modo que el autovector de $S_y$ regresa a sí mismo.
+\end{enumerate}
+
+\subsection*{Ejercicio 3}
+Considera una partícula de espín $1/2$ en un campo magnético $\mathbf{B}_0$ con componentes
+\[
+  B_x=\frac{1}{\sqrt{2}}\,B_0,\quad B_y=0,\quad B_z=\frac{1}{\sqrt{2}}\,B_0.
+\]
+\begin{enumerate}
+  \item Calcula la matriz que representa el Hamiltoniano $H=\gamma\,\mathbf{S}\cdot\mathbf{B}_0$ en la base $\{\ket{+},\ket{-}\}$ de $S_z$.
+  \item Halla los autovalores y autovectores de $H$.
+  \item Si en $t=0$ el sistema está en el estado $\ket{-}$, ¿qué valores de energía se obtienen y con qué probabilidades?
+  \item Determina el vector de estado $\ket{\psi(t)}$ en tiempo $t$. En ese instante medimos $S_x$: calcula el valor medio de la medición y explica su interpretación geométrica.
+\end{enumerate}
+
+\subsection*{Ejercicio 4\,d)}
+Supón ahora que la velocidad de un átomo es una variable aleatoria, de modo que el tiempo de vuelo $T$ sólo se conoce con una incertidumbre $\Delta T$. Además, el campo $B_0$ es tan intenso que $\omega_0\,\Delta T \gg 1$. Entonces el producto $\omega_0 T$ (módulo $2\pi$) es equiprobable en $[0,2\pi]$.
+\begin{enumerate}
+  \item ¿Cuál es el operador densidad $\rho_2$ de un átomo justo al entrar en el analizador? ¿Corresponde a un estado puro?
+  \item Calcula $Tr(\rho_2\,S_x)$, $Tr(\rho_2\,S_y)$ y $Tr(\rho_2\,S_z)$. ¿Cómo interpretas esos resultados? ¿En qué caso la densidad describe un espín totalmente polarizado? ¿Cuándo uno completamente no polarizado?
+  \item Describe cualitativamente los fenómenos observados a la salida del analizador al variar $\omega_0$ desde $0$ hasta el régimen $\omega_0\,\Delta T\gg1$.
+\end{enumerate}
+
+\subsection*{A-3. Propiedades generales del Hamiltoniano cuántico}
+
+En mecánica cuántica, las coordenadas clásicas \(x\) y \(p\) se reemplazan por los operadores \(\hat X\) y \(\hat P\), que cumplen la relación de conmutación:
+\[
+[\hat X,\hat P]=i\hbar
+\tag{A-14}
+\]
+Partiendo de la forma clásica
+\[
+H=\frac{p^2}{2m} \;+\;\frac12\,m\omega^2\,x^2,
+\]
+se obtiene el operador Hamiltoniano
+\[
+\hat H \;=\; \frac{\hat P^2}{2m} \;+\;\frac12\,m\omega^2\,\hat X^2.
+\tag{A-15}
+\]
+Al ser \(\hat H\) independiente del tiempo, resolvemos la ecuación de autovalores
+\[
+\hat H\ket{\varphi}=E\ket{\varphi}
+\tag{A-16}
+\]
+que en representación \(x\) toma la forma
+\[
+\Bigl[-\tfrac{\hbar^2}{2m}\tfrac{d^2}{dx^2} + \tfrac12\,m\omega^2\,x^2\Bigr]\varphi(x)
+= E\,\varphi(x).
+\tag{A-17}
+\]
+De aquí se deducen las siguientes propiedades:
+\begin{enumerate}
+  \item Los valores propios de \(\hat H\) son positivos, pues si \(V(x)\ge V_m\) entonces
+  \[
+    E>V_m.
+    \tag{A-18}
+  \]
+  \item Las autofunciones tienen paridad definida, dado que el potencial es par:
+  \[
+    V(-x)=V(x).
+    \tag{A-19}
+  \]
+  \item El espectro es discreto, ya que el movimiento queda confinado en una región limitada del eje \(x\).
+\end{enumerate}
+
+\subsection*{B-1. Notación y operadores adimensionales}
+
+Para simplificar la resolución, definimos los operadores adimensionales
+\[
+  \hat X = \sqrt{\frac{m\omega}{\hbar}}\;\hat x,
+  \quad
+  \hat P = \frac{1}{\sqrt{m\hbar\omega}}\;\hat p,
+  \tag{B-1}
+\]
+que satisfacen el conmutador canónico
+\[
+  [\hat X,\hat P]=i.
+  \tag{B-2}
+\]
+El Hamiltoniano se factoriza como
+\[
+  H = \hbar\omega\,\hat H,
+  \tag{B-3}
+\]
+donde el operador adimensional es
+\[
+  \hat H = \frac12\bigl(\hat X^2 + \hat P^2\bigr).
+  \tag{B-4}
+\]
+Buscamos las soluciones de la ecuación de autovalores
+\[
+  \hat H\ket{\varphi_n} = \varepsilon_n\,\ket{\varphi_n}.
+  \tag{B-5}
+\]
+
+\subsubsection*{B-1-a. Operador \(a^\dagger a\) y Hamiltoniano adimensional}
+
+Partiendo de las definiciones
+\[
+a = \frac{1}{\sqrt2}(\hat X + i\hat P), 
+\quad
+a^\dagger = \frac{1}{\sqrt2}(\hat X - i\hat P),
+\]
+calculamos primero
+\begin{equation}
+\begin{split}
+a^\dagger a
+&= \tfrac12\,(\hat X - i\hat P)(\hat X + i\hat P)\\
+&= \tfrac12\bigl(\hat X^2 + \hat P^2 + i[\hat X,\hat P]\bigr)\\
+&= \tfrac12\bigl(\hat X^2 + \hat P^2 -1\bigr)
+\end{split}
+\tag{B-10}
+\end{equation}
+Comparando con la forma adimensional del Hamiltoniano
+\(\hat H = \tfrac12(\hat X^2 + \hat P^2)\) (Ecuación (B-4)), obtenemos
+\begin{equation}
+\hat H 
+= a^\dagger a + \tfrac12
+= \tfrac12\,(\hat X - i\hat P)(\hat X + i\hat P) \;+\;\tfrac12
+\tag{B-11}
+\end{equation}
+y, de manera análoga,
+\begin{equation}
+\hat H = a\,a^\dagger - \tfrac12.
+\tag{B-12}
+\end{equation}
+Introducimos entonces el operador número
+\begin{equation}
+N = a^\dagger a,
+\tag{B-13}
+\end{equation}
+que es hermítico, pues
+\begin{equation}
+N^\dagger = (a^\dagger a)^\dagger = a^\dagger a = N.
+\tag{B-14}
+\end{equation}
+Por tanto, de (B-11) se sigue
+\begin{equation}
+\hat H = N + \tfrac12.
+\tag{B-15}
+\end{equation}
+
+\subsubsection*{B-1-b. Operadores \(a\), \(a^\dagger\) y \(N\)}
+
+Si intentáramos factorizar \(\hat X^2 + \hat P^2\) como si \(\hat X,\hat P\) fuesen números, fallaríamos por la no conmutatividad. En su lugar, definimos
+\begin{align}
+a        &= \tfrac{1}{\sqrt2}(\hat X + i\hat P),
+\tag{B-6a}\\
+a^\dagger&= \tfrac{1}{\sqrt2}(\hat X - i\hat P).
+\tag{B-6b}
+\end{align}
+Invertir estas relaciones da
+\begin{align}
+\hat X &= \tfrac{1}{\sqrt2}(a^\dagger + a),
+\tag{B-7a}\\
+\hat P &= \tfrac{i}{\sqrt2}(a^\dagger - a).
+\tag{B-7b}
+\end{align}
+Su conmutador se calcula con (B-6) y la relación canónica \([\hat X,\hat P]=i\):
+\begin{equation}
+\begin{split}
+[a,a^\dagger]
+&= \tfrac12\,[\,\hat X + i\hat P\,,\,\hat X - i\hat P\,]\\
+&= \tfrac{i}{2}\,[\hat P,\hat X] \;-\;\tfrac{i}{2}\,[\hat X,\hat P]
+=1.
+\end{split}
+\tag{B-8}
+\end{equation}
+Es decir,
+\begin{equation}
+[a,a^\dagger]=1,
+\tag{B-9}
+\end{equation}
+que es equivalente a la conmutación canónica \([\hat X,\hat P]=i\hbar\).```\subsubsection*{B-1-a. Operador \(a^\dagger a\) y Hamiltoniano adimensional}
+
+Partiendo de las definiciones
+\[
+a = \frac{1}{\sqrt2}(\hat X + i\hat P), 
+\quad
+a^\dagger = \frac{1}{\sqrt2}(\hat X - i\hat P),
+\]
+calculamos primero
+\begin{equation}
+\begin{split}
+a^\dagger a
+&= \tfrac12\,(\hat X - i\hat P)(\hat X + i\hat P)\\
+&= \tfrac12\bigl(\hat X^2 + \hat P^2 + i[\hat X,\hat P]\bigr)\\
+&= \tfrac12\bigl(\hat X^2 + \hat P^2 -1\bigr)
+\end{split}
+\tag{B-10}
+\end{equation}
+Comparando con la forma adimensional del Hamiltoniano
+\(\hat H = \tfrac12(\hat X^2 + \hat P^2)\) (Ecuación (B-4)), obtenemos
+\begin{equation}
+\hat H 
+= a^\dagger a + \tfrac12
+= \tfrac12\,(\hat X - i\hat P)(\hat X + i\hat P) \;+\;\tfrac12
+\tag{B-11}
+\end{equation}
+y, de manera análoga,
+\begin{equation}
+\hat H = a\,a^\dagger - \tfrac12.
+\tag{B-12}
+\end{equation}
+Introducimos entonces el operador número
+\begin{equation}
+N = a^\dagger a,
+\tag{B-13}
+\end{equation}
+que es hermítico, pues
+\begin{equation}
+N^\dagger = (a^\dagger a)^\dagger = a^\dagger a = N.
+\tag{B-14}
+\end{equation}
+Por tanto, de (B-11) se sigue
+\begin{equation}
+\hat H = N + \tfrac12.
+\tag{B-15}
+\end{equation}
+
+\subsubsection*{B-1-b. Operadores \(a\), \(a^\dagger\) y \(N\)}
+
+Si intentáramos factorizar \(\hat X^2 + \hat P^2\) como si \(\hat X,\hat P\) fuesen números, fallaríamos por la conmutatividad. En su lugar, definimos
+\begin{align}
+a        &= \tfrac{1}{\sqrt2}(\hat X + i\hat P),
+\tag{B-6a}\\
+a^\dagger&= \tfrac{1}{\sqrt2}(\hat X - i\hat P).
+\tag{B-6b}
+\end{align}
+Invertir estas relaciones da
+\begin{align}
+\hat X &= \tfrac{1}{\sqrt2}(a^\dagger + a),
+\tag{B-7a}\\
+\hat P &= \tfrac{i}{\sqrt2}(a^\dagger - a).
+\tag{B-7b}
+\end{align}
+Su conmutador se calcula con (B-6) y la relación canónica \([\hat X,\hat P]=i\):
+\begin{equation}
+\begin{split}
+[a,a^\dagger]
+&= \tfrac12\,[\,\hat X + i\hat P\,,\,\hat X - i\hat P\,]\\
+&= \tfrac{i}{2}\,[\hat P,\hat X] \;-\;\tfrac{i}{2}\,[\hat X,\hat P]
+=1.
+\end{split}
+\tag{B-8}
+\end{equation}
+Es decir,
+\begin{equation}
+[a,a^\dagger]=1,
+\tag{B-9}
+\end{equation}
+que es equivalente a la conmutación canónica \([\hat X,\hat P]=i\hbar\).
+
+\subsection*{B-2. Determinación del espectro}
+
+Cuando se resuelve la ecuación de autovalores de \(N\),
+\[
+N\ket{\varphi_\nu}=\nu\ket{\varphi_\nu},
+\tag{B-18}
+\]
+se demuestra que \(\ket{\varphi_\nu}\) es también autovector de \(\hat H\) con autovalor
+\[
+E_\nu=(\nu+\tfrac12)\hbar,
+\tag{B-19}
+\]
+pues \(\hat H=N+\tfrac12\) [Ecuaciones (B-3) y (B-15)].
+
+\subsubsection*{B-2-a. Lemas}
+
+\paragraph{Lema I (propiedad de los autovalores de \(N\)).}  
+Los autovalores \(\nu\) de \(N=a^\dagger a\) son no negativos.  
+De hecho, para cualquier autovector \(\ket{\varphi_\nu}\) de \(N\):
+\[
+\|a\ket{\varphi_\nu}\|^2
+=\bra{\varphi_\nu}a^\dagger a\ket{\varphi_\nu}
+=\bra{\varphi_\nu}N\ket{\varphi_\nu}
+=\nu\braket{\varphi_\nu|\varphi_\nu}\ge0.
+\tag{B-20,B-21}
+\]
+Como \(\braket{\varphi_\nu|\varphi_\nu}>0\), se obtiene \(\nu\ge0\).
+  
+\paragraph{Lema II (propiedades de \(a\ket{\varphi_\nu}\)).}  
+Sea \(\ket{\varphi_\nu}\ne0\) autovector de \(N\) con autovalor \(\nu\); definamos  
+\(\ket{\chi}=a\ket{\varphi_\nu}\). Entonces:  
+(i) Si \(\nu=0\), \(\|\ket{\chi}\|^2=\nu\|\varphi_\nu\|^2=0\) y \(\ket{\chi}=0\).  
+(ii) Si \(\nu>0\), \(\|\ket{\chi}\|^2>0\) y, usando \([N,a]=-a\) [(B-17a)],
+\[
+N\ket{\chi}=(aN+[N,a])\ket{\varphi_\nu}
+=(\nu-1)\ket{\chi}\,,
+\tag{B-27}
+\]
+de modo que \(\ket{\chi}\) es un autovector de \(N\) con autovalor \(\nu-1\).
+
+\paragraph{Lema III (propiedades de \(a^\dagger\ket{\varphi_\nu}\)).}  
+Sea \(\ket{\varphi_\nu}\ne0\) autovector de \(N\) con \(\nu\ge0\); definamos  
+\(\ket{\chi'}=a^\dagger\ket{\varphi_\nu}\). Entonces:  
+(i) \(\|\ket{\chi'}\|^2=\bra{\varphi_\nu}aa^\dagger\ket{\varphi_\nu}
+=(\nu+1)\|\varphi_\nu\|^2>0\), luego \(\ket{\chi'}\ne0\).  
+(ii) Con \([N,a^\dagger]=a^\dagger\) [(B-17b)] se halla
+\[
+N\ket{\chi'}
+=(a^\dagger N+[N,a^\dagger])\ket{\varphi_\nu}
+=(\nu+1)\ket{\chi'}\,.
+\tag{B-29}
+\]
+
+\subsubsection*{B-2-b. El espectro de \(N\) son enteros no negativos}
+
+Sea \(\nu\) un autovalor de \(N\) y \(\ket{\varphi_\nu}\) su autovector.  
+
+– Si \(\nu\notin\mathbb{Z}\), existe \(k\in\mathbb{Z}\) tal que  
+\(\nu-k<0\)  \((\!)\).  
+Aplicando sucesivamente \(a\) a \(\ket{\varphi_\nu}\), por el lema II se obtienen autovectores de autovalores \(\nu-1,\nu-2,\dots,\nu-k<0\), lo cual contradice el lema I.  
+
+– Si \(\nu=n\in\{0,1,2,\dots\}\), la cadena  
+\[
+\ket{\varphi_n},\;a\ket{\varphi_n},\;\dots,\;a^n\ket{\varphi_n},\;
+a^{n+1}\ket{\varphi_n}=0
+\tag{B-31,B-33}
+\]
+termina en cero y no produce autovalores negativos.  
+
+Por tanto, los únicos autovalores posibles son los enteros \(\nu=0,1,2,\dots\).
+
+\subsubsection*{B-2-c. Interpretación de los operadores \(a\) y \(a^\dagger\)}
+
+Partiendo de un autovector \(\ket{\varphi_n}\) de \(N\) (y por tanto de \(\hat H\)) con  
+\[
+\hat H\ket{\varphi_n}=(n+\tfrac12)\hbar\ket{\varphi_n},
+\]
+la acción de \(a\) y \(a^\dagger\) satisface:
+\[
+a\ket{\varphi_n}\propto\ket{\varphi_{n-1}},\qquad
+a^\dagger\ket{\varphi_n}\propto\ket{\varphi_{n+1}}.
+\]
+Así, \(a\) “aniquila” un quantum \(\hbar\) de energía y \(a^\dagger\) lo “crea”, de ahí su nombre de operadores de destrucción y creación.
+
+\subsubsection*{B-2-d. Niveles de energía}
+
+De lo anterior y la relación (B-19) se concluye que los niveles de energía del oscilador armónico 1-D son
+\[
+E_n=\hbar\omega\Bigl(n+\tfrac12\Bigr),
+\quad n=0,1,2,\dots
+\tag{B-34}
+\]
+con separación \(\Delta E=\hbar\omega\) y nivel de cero punto \(E_0=\tfrac12\hbar\omega\).````\subsection*{B-2. Determinación del espectro}
+
+Cuando se resuelve la ecuación de autovalores de \(N\),
+\[
+N\ket{\varphi_\nu}=\nu\ket{\varphi_\nu},
+\tag{B-18}
+\]
+se demuestra que \(\ket{\varphi_\nu}\) es también autovector de \(\hat H\) con autovalor
+\[
+E_\nu=(\nu+\tfrac12)\hbar,
+\tag{B-19}
+\]
+pues \(\hat H=N+\tfrac12\) [Ecuaciones (B-3) y (B-15)].
+
+\subsubsection*{B-2-a. Lemas}
+
+\paragraph{Lema I (propiedad de los autovalores de \(N\)).}  
+Los autovalores \(\nu\) de \(N=a^\dagger a\) son no negativos.  
+De hecho, para cualquier autovector \(\ket{\varphi_\nu}\) de \(N\):
+\[
+\|a\ket{\varphi_\nu}\|^2
+=\bra{\varphi_\nu}a^\dagger a\ket{\varphi_\nu}
+=\bra{\varphi_\nu}N\ket{\varphi_\nu}
+=\nu\braket{\varphi_\nu|\varphi_\nu}\ge0.
+\tag{B-20,B-21}
+\]
+Como \(\braket{\varphi_\nu|\varphi_\nu}>0\), se obtiene \(\nu\ge0\).
+  
+\paragraph{Lema II (propiedades de \(a\ket{\varphi_\nu}\)).}  
+Sea \(\ket{\varphi_\nu}\ne0\) autovector de \(N\) con autovalor \(\nu\); definamos  
+\(\ket{\chi}=a\ket{\varphi_\nu}\). Entonces:  
+(i) Si \(\nu=0\), \(\|\ket{\chi}\|^2=\nu\|\varphi_\nu\|^2=0\) y \(\ket{\chi}=0\).  
+(ii) Si \(\nu>0\), \(\|\ket{\chi}\|^2>0\) y, usando \([N,a]=-a\) [(B-17a)],
+\[
+N\ket{\chi}=(aN+[N,a])\ket{\varphi_\nu}
+=(\nu-1)\ket{\chi}\,,
+\tag{B-27}
+\]
+de modo que \(\ket{\chi}\) es un autovector de \(N\) con autovalor \(\nu-1\).
+
+\paragraph{Lema III (propiedades de \(a^\dagger\ket{\varphi_\nu}\)).}  
+Sea \(\ket{\varphi_\nu}\ne0\) autovector de \(N\) con \(\nu\ge0\); definamos  
+\(\ket{\chi'}=a^\dagger\ket{\varphi_\nu}\). Entonces:  
+(i) \(\|\ket{\chi'}\|^2=\bra{\varphi_\nu}aa^\dagger\ket{\varphi_\nu}
+=(\nu+1)\|\varphi_\nu\|^2>0\), luego \(\ket{\chi'}\ne0\).  
+(ii) Con \([N,a^\dagger]=a^\dagger\) [(B-17b)] se halla
+\[
+N\ket{\chi'}
+=(a^\dagger N+[N,a^\dagger])\ket{\varphi_\nu}
+=(\nu+1)\ket{\chi'}\,.
+\tag{B-29}
+\]
+
+\subsubsection*{B-2-b. El espectro de \(N\) son enteros no negativos}
+
+Sea \(\nu\) un autovalor de \(N\) y \(\ket{\varphi_\nu}\) su autovector.  
+
+– Si \(\nu\notin\mathbb{Z}\), existe \(k\in\mathbb{Z}\) tal que  
+\(\nu-k<0\)  \((\!)\).  
+Aplicando sucesivamente \(a\) a \(\ket{\varphi_\nu}\), por el lema II se obtienen autovectores de autovalores \(\nu-1,\nu-2,\dots,\nu-k<0\), lo cual contradice el lema I.  
+
+– Si \(\nu=n\in\{0,1,2,\dots\}\), la cadena  
+\[
+\ket{\varphi_n},\;a\ket{\varphi_n},\;\dots,\;a^n\ket{\varphi_n},\;
+a^{n+1}\ket{\varphi_n}=0
+\tag{B-31,B-33}
+\]
+termina en cero y no produce autovalores negativos.  
+
+Por tanto, los únicos autovalores posibles son los enteros \(\nu=0,1,2,\dots\).
+
+\subsubsection*{B-2-c. Interpretación de los operadores \(a\) y \(a^\dagger\)}
+
+Partiendo de un autovector \(\ket{\varphi_n}\) de \(N\) (y por tanto de \(\hat H\)) con  
+\[
+\hat H\ket{\varphi_n}=(n+\tfrac12)\hbar\ket{\varphi_n},
+\]
+la acción de \(a\) y \(a^\dagger\) satisface:
+\[
+a\ket{\varphi_n}\propto\ket{\varphi_{n-1}},\qquad
+a^\dagger\ket{\varphi_n}\propto\ket{\varphi_{n+1}}.
+\]
+Así, \(a\) “aniquila” un quantum \(\hbar\) de energía y \(a^\dagger\) lo “crea”, de ahí su nombre de operadores de destrucción y creación.
+
+\subsubsection*{B-2-d. Niveles de energía}
+
+De lo anterior y la relación (B-19) se concluye que los niveles de energía del oscilador armónico 1-D son
+\[
+E_n=\hbar\omega\Bigl(n+\tfrac12\Bigr),
+\quad n=0,1,2,\dots
+\tag{B-34}
+\]
+con separación \(\Delta E=\hbar\omega\) y nivel de cero punto \(E_0=\tfrac12\hbar\omega\).
+
+
+\section*{Conclusión}
+El estudio del espín $1/2$ ejemplifica claramente los postulados de la mecánica cuántica: preparación de estados, probabilidades de medición y evolución temporal gobernada por el Hamiltoniano.
+\end{document}
