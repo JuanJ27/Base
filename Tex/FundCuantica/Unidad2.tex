@@ -454,13 +454,210 @@ Considera una partícula de espín $1/2$ en un campo magnético $\mathbf{B}_0$ c
   \item Determina el vector de estado $\ket{\psi(t)}$ en tiempo $t$. En ese instante medimos $S_x$: calcula el valor medio de la medición y explica su interpretación geométrica.
 \end{enumerate}
 
-\subsection*{Ejercicio 4\,d)}
-Supón ahora que la velocidad de un átomo es una variable aleatoria, de modo que el tiempo de vuelo $T$ sólo se conoce con una incertidumbre $\Delta T$. Además, el campo $B_0$ es tan intenso que $\omega_0\,\Delta T \gg 1$. Entonces el producto $\omega_0 T$ (módulo $2\pi$) es equiprobable en $[0,2\pi]$.
+
+\subsection*{Ejercicio 4}
+Considera el dispositivo experimental descrito en § B-2-b del Capítulo IV: un haz de átomos de espín \(1/2\) atraviesa un “polarizador” que selecciona la dirección que forma un ángulo \(\theta\) con el eje \(Oz\) en el plano \(xOz\), y luego un “analizador” que mide la componente \(S_z\). Entre polarizador y analizador, sobre una longitud \(L\) del haz, se aplica un campo magnético uniforme \(\mathbf{B}_0\parallel Oz\). Sea \(v\) la velocidad de los átomos y \(T=L/v\) el tiempo de interacción. Definimos
+\[
+\omega_0 = -\gamma\,B_0.
+\]
+
 \begin{enumerate}
-  \item ¿Cuál es el operador densidad $\rho_2$ de un átomo justo al entrar en el analizador? ¿Corresponde a un estado puro?
-  \item Calcula $Tr(\rho_2\,S_x)$, $Tr(\rho_2\,S_y)$ y $Tr(\rho_2\,S_z)$. ¿Cómo interpretas esos resultados? ¿En qué caso la densidad describe un espín totalmente polarizado? ¿Cuándo uno completamente no polarizado?
-  \item Describe cualitativamente los fenómenos observados a la salida del analizador al variar $\omega_0$ desde $0$ hasta el régimen $\omega_0\,\Delta T\gg1$.
+  \item ¿Cuál es el vector de estado \(\ket{\psi_i}\) de un espín al entrar en el analizador?
+  \item Demuestra que, al medir en el analizador, la probabilidad de encontrar \(+\hbar/2\) es
+  \[
+    \tfrac12\bigl(1+\cos\theta\cos\omega_0 T\bigr),
+  \]
+  y la de encontrar \(-\hbar/2\) es
+  \[
+    \tfrac12\bigl(1-\cos\theta\cos\omega_0 T\bigr).
+  \]
+  Da una interpretación física.
+  \item (Esta parte y la siguiente implican el concepto de operador densidad, definido en el Complemento EIV.) Demuestra que la matriz de densidad \(\rho_1\) de una partícula al entrar en el analizador, en la base \(\{\ket{+},\ket{-}\}\), es
+  \[
+    \rho_1 = \frac12
+    \begin{pmatrix}
+      1 + \cos\theta\cos(\omega_0 T)                  & \sin\theta + i\,\cos\theta\,\sin(\omega_0 T) \\[6pt]
+      \sin\theta - i\,\cos\theta\,\sin(\omega_0 T)     & 1 - \cos\theta\cos(\omega_0 T)
+    \end{pmatrix}.
+  \]
+  Calcula \( Tr(\rho_1 S_x)\), \( Tr(\rho_1 S_y)\) y \( Tr(\rho_1 S_z)\). ¿Describe \(\rho_1\) un estado puro?
+
+\item Ahora supongamos que la velocidad de un átomo es una variable aleatoria, y por tanto el tiempo de vuelo \(T\) sólo se conoce con una incertidumbre \(\Delta T\). Además, el campo \(\mathbf{B}_0\) es tan intenso que 
+\[
+\omega_0\,\Delta T \gg 1.
+\]
+Los posibles valores del producto \(\omega_0 T\) (módulo \(2\pi\)) son entonces todos los comprendidos entre \(0\) y \(2\pi\), equiprobables.
+
+  \begin{enumerate}
+    \item ¿Cuál es el operador densidad \(\rho_2\) de un átomo en el instante en que entra en el analizador? ¿Corresponde \(\rho_2\) a un estado puro?
+    \item Calcula \( Tr(\rho_2\,S_x)\), \( Tr(\rho_2\,S_y)\) y \( Tr(\rho_2\,S_z)\). ¿Cuál es tu interpretación? ¿En qué caso el operador densidad describe un espín completamente polarizado? ¿Uno completamente no polarizado?
+    \item Describe cualitativamente los fenómenos observados a la salida del analizador al variar \(\omega_0\) desde \(0\) hasta el régimen \(\omega_0\,\Delta T\gg1\).
+  \end{enumerate}
+
 \end{enumerate}
+
+\subsection*{Ejercicio 5. Operador de evolución de un espín \(1/2\) (Complemento FIII)}
+
+Considera un espín \(1/2\) de momento magnético \(\mathbf{M}=\gamma\,\mathbf{S}\) en un campo magnético
+\(\mathbf{B}_0\) de componentes
+\[
+B_x=-\frac{\omega_x}{\gamma},\quad
+B_y=-\frac{\omega_y}{\gamma},\quad
+B_z=-\frac{\omega_z}{\gamma}.
+\]
+Definimos 
+\[
+\omega_0=\sqrt{\omega_x^2+\omega_y^2+\omega_z^2}\,.
+\]
+
+\begin{enumerate}
+\item Demuestra que el operador de evolución es
+\[
+U(t,0)=\exp(i M t),
+\]
+donde
+\[
+M=\frac{1}{\hbar}\bigl(\omega_x S_x+\omega_y S_y+\omega_z S_z\bigr)
+=\frac12\bigl(\omega_x\sigma_x+\omega_y\sigma_y+\omega_z\sigma_z\bigr).
+\]
+Calcula la matriz de \(M\) en la base \(\{\ket{+},\ket{-}\}\) de autovectores de \(S_z\), y muestra que
+\[
+M^2=\frac14\bigl(\omega_x^2+\omega_y^2+\omega_z^2\bigr)
+=\Bigl(\frac{\omega_0}{2}\Bigr)^2.
+\]
+
+\item Escribe \(U(t,0)\) en la forma
+\[
+U(t,0)=\cos\!\frac{\omega_0t}{2}
+\;-\;\frac{2i}{\omega_0}\,M\;\sin\!\frac{\omega_0t}{2}.
+\]
+
+\item Supón que en \(t=0\) el espín está en \(\ket{\psi(0)}=\ket{+}\).  
+La probabilidad de hallarlo en \(\ket{+}\) a tiempo \(t\) es
+\[
+\mathcal{P}_{++}(t)=\bigl|\bra{+}U(t,0)\ket{+}\bigr|^2.
+\]
+Usando la forma de \(U(t,0)\), demuestra que
+\[
+\mathcal{P}_{++}(t)
+=1-\frac{\omega_x^2+\omega_y^2}{\omega_0^2}\,
+\sin^2\!\frac{\omega_0 t}{2}.
+\]
+Proporciona una interpretación geométrica de este resultado.
+\end{enumerate}
+
+\subsection*{Ejercicio 6}
+Considera el sistema de dos espines \(1/2\), \(\mathbf{S}_1\) y \(\mathbf{S}_2\), en la base de cuatro vectores \(\{\ket{+,+},\ket{+,-},\ket{-,+},\ket{-,-}\}\) definida en el Complemento DIV. En \(t=0\), el estado del sistema es
+\[
+\ket{\psi(0)} = \frac12\ket{+,+} \;+\;\frac12\ket{+,-}\;+\;\frac1{\sqrt2}\ket{-,-}.
+\]
+\begin{enumerate}
+  \item En \(t=0\) se mide \(S_{1z}\): ¿cuál es la probabilidad de obtener \(-\hbar/2\)? ¿Cuál es el vector de estado tras la medición? Si a continuación medimos \(S_{1x}\), ¿qué resultados pueden obtenerse y con qué probabilidades? Responde de igual forma si la medición de \(S_{1z}\) hubiera dado \(+\hbar/2\).
+  \item Cuando el sistema está en el estado \(\ket{\psi(0)}\), se miden simultáneamente \(S_{1x}\) y \(S_{2z}\). ¿Cuál es la probabilidad de encontrar resultados opuestos? ¿Y resultados idénticos?
+  \item En lugar de las mediciones anteriores, dejamos que el sistema evolucione bajo el Hamiltoniano
+    \[
+      H = \omega_1\,S_{1z} \;+\;\omega_2\,S_{2z}.
+    \]
+    Determina el estado \(\ket{\psi(t)}\) a tiempo \(t\). Calcula en ese instante los valores medios \(\langle S_1\rangle\) y \(\langle S_2\rangle\). Da una interpretación física.
+  \item Demuestra que las longitudes de los vectores \(\langle S_1\rangle\) y \(\langle S_2\rangle\) son menores que \(\hbar/2\). ¿Qué forma debe tener \(\ket{\psi(0)}\) para que cada una de esas longitudes sea exactamente \(+\hbar/2\)?
+\end{enumerate}
+
+\subsection*{Ejercicio 7}
+Considera el mismo sistema de dos espines \(1/2\) del ejercicio anterior; el espacio de estados está generado por la base \(\{\ket{\pm,\pm}\}\).
+\begin{enumerate}
+  \item Escribe la matriz \(4\times4\) que representa, en esta base, el operador \(S_{1y}\). ¿Cuáles son sus autovalores y autovectores?
+  \item El estado normalizado del sistema es
+    \[
+      \ket{\psi}=\alpha\ket{+,+} + \beta\ket{+,-} + \gamma\ket{-,+} + \delta\ket{-,-},
+    \]
+    con \(\alpha,\beta,\gamma,\delta\in\mathbb{C}\). Se miden simultáneamente \(S_{1x}\) y \(S_{2y}\). ¿Qué resultados pueden hallarse y con qué probabilidades? ¿Cómo cambian estas probabilidades si \(\ket{\psi}\) es un producto tensorial de un estado del primer espín y un estado del segundo espín?
+  \item Repite las preguntas del apartado anterior para una medición de \(S_{1y}\) y \(S_{2y}\).
+  \item En lugar de realizar las mediciones anteriores, medimos sólo \(S_{2y}\). Calcula, primero a partir de los resultados del apartado b) y luego de los del c), la probabilidad de encontrar \(-\hbar/2\).
+\end{enumerate}
+
+\subsection*{Ejercicio 8}
+Considera un electrón en una molécula lineal triatómica formada por tres átomos equidistantes:
+\[
+A\;-\;B\;-\;C.
+\]
+Usamos \(\ket{\varphi_A},\ket{\varphi_B},\ket{\varphi_C}\) para denotar tres estados ortonormales localizados en los núcleos de los átomos \(A\), \(B\) y \(C\). Nos restringimos al subespacio generado por \(\{\ket{\varphi_A},\ket{\varphi_B},\ket{\varphi_C}\}\). Si despreciamos el salto del electrón entre núcleos, su energía viene dada por
+\[
+H_0\ket{\varphi_A}=E_0\ket{\varphi_A},\quad
+H_0\ket{\varphi_B}=E_0\ket{\varphi_B},\quad
+H_0\ket{\varphi_C}=E_0\ket{\varphi_C}.
+\]
+El acoplamiento entre estos estados lo describe un Hamiltoniano adicional \(W\):
+\[
+W\ket{\varphi_A}=-a\,\ket{\varphi_B},\quad
+W\ket{\varphi_B}=-a\bigl(\ket{\varphi_A}+\ket{\varphi_C}\bigr),\quad
+W\ket{\varphi_C}=-a\,\ket{\varphi_B},
+\]
+donde \(a>0\) es una constante real. El Hamiltoniano total es
+\[
+H = H_0 + W.
+\]
+
+\begin{enumerate}
+  \item Calcula las energías y los estados estacionarios (autovectores) de \(H\).
+  \item Si en \(t=0\) el electrón está en el estado \(\ket{\varphi_A}\), discute cualitativamente su localización en tiempos posteriores. ¿Hay instantes \(t\) en que esté perfectamente localizado en \(A\), \(B\) o \(C\)?
+  \item Sea el observable \(D\) cuyos autovectores son \(\ket{\varphi_A},\ket{\varphi_B},\ket{\varphi_C}\) con autovalores \(-d,0,+d\), respectivamente. Si se mide \(D\) en tiempo \(t\), ¿qué valores pueden obtenerse y con qué probabilidades?
+  \item Si el estado inicial es arbitrario, ¿cuáles son las frecuencias de Bohr que aparecen en la evolución de \(\langle D\rangle\)? Da una interpretación física de estas frecuencias como las de las radiaciones electromagnéticas que la molécula puede absorber o emitir.
+\end{enumerate}
+
+\subsection*{Ejercicio 9.a Definición y espectro de \(R\)}
+
+Sea \(\{\ket{\varphi_n}\}_{n=1}^6\) una base ortonormal. Definimos el operador \(R\) por:
+\[
+R\ket{\varphi_1}=\ket{\varphi_2},\quad
+R\ket{\varphi_2}=\ket{\varphi_3},\;\dots,\;
+R\ket{\varphi_6}=\ket{\varphi_1}.
+\]
+Buscamos \(\lambda\in\mathbb{C}\) y \(\ket{\psi}\neq0\) tales que
+\[
+R\ket{\psi}=\lambda\ket{\psi}.
+\]
+Si escribimos \(\ket{\psi}=\sum_{n=1}^6c_n\ket{\varphi_n}\), la ecuación anterior da el sistema
+\[
+c_1=\lambda\,c_6,\quad
+c_2=\lambda\,c_1,\;\dots,\;
+c_6=\lambda\,c_5.
+\]
+De ello se deduce \(\lambda^6=1\), es decir
+\[
+\lambda_k = e^{2\pi i k/6},\quad k=0,1,\dots,5.
+\]
+Los autovectores normalizados son
+\[
+\ket{\psi_k}
+= \frac{1}{\sqrt6}\sum_{n=1}^6 e^{-2\pi i k(n-1)/6}\,\ket{\varphi_n},
+\]
+que forman un sistema ortonormal y completo en el espacio de estados.
+
+\subsection*{Ejercicio 9.b Hamiltoneano de «benceno» y conmutación con \(R\)}
+
+Despreciando el salto del electrón entre átomos, el Hamiltoniano no perturbado es
+\[
+H_0\ket{\varphi_n}=E_0\ket{\varphi_n},\quad n=1,\dots,6.
+\]
+La perturbación que permite el salto sólo entre vecinos se escribe
+\[
+W\ket{\varphi_1} = -a\bigl(\ket{\varphi_6}+\ket{\varphi_2}\bigr),\quad
+W\ket{\varphi_2} = -a\bigl(\ket{\varphi_1}+\ket{\varphi_3}\bigr),\;\dots,\;
+W\ket{\varphi_6} = -a\bigl(\ket{\varphi_5}+\ket{\varphi_1}\bigr).
+\]
+El Hamiltoniano total es \(H=H_0+W\). Como \(R\) permuta cíclicamente los \(\ket{\varphi_n}\) y \(H_0\) es trivial en esa base, se comprueba fácilmente que
+\[
+[\,R,H\,]=0.
+\]
+Por tanto, los autovectores comunes de \(R\) y \(H\) son precisamente los \(\ket{\psi_k}\) hallados en el apartado anterior. Sus energías son
+\[
+E_k = E_0 + \bra{\psi_k}W\ket{\psi_k}
+= E_0 \;-\;2a\cos\!\frac{2\pi k}{6},
+\quad k=0,1,\dots,5.
+\]
+En ninguno de estos estados el electrón queda localizado en un solo átomo; su función de onda se extiende a todo el anillo. Estos resultados son esenciales para explicar el comportamiento electrónico del benceno.
+
+
 
 \subsection*{A-3. Propiedades generales del Hamiltoniano cuántico}
 
@@ -878,6 +1075,275 @@ E_n=\hbar\omega\Bigl(n+\tfrac12\Bigr),
 \]
 con separación \(\Delta E=\hbar\omega\) y nivel de cero punto \(E_0=\tfrac12\hbar\omega\).
 
+\section*{Complemento MV: Ejercicios}
+
+Considere un oscilador armónico de masa \(m\) y frecuencia angular \(\omega\). En \(t=0\), el estado del oscilador es
+\[
+\ket{\psi(0)}=\sum_{n=0}^\infty c_n\ket{\varphi_n},
+\]
+donde \(\{\ket{\varphi_n}\}\) son estados estacionarios con energías \(E_n=(n+\tfrac12)\hbar\omega\).
+
+\begin{enumerate}
+  \item ¿Cuál es la probabilidad \(\mathcal{P}\) de que una medición de la energía realizada en un tiempo arbitrario \(t>0\) dé un resultado mayor que \(2\hbar\omega\)? Cuando \(\mathcal{P}=0\), ¿qué coeficientes \(c_n\) son distintos de cero?
+  \item A partir de ahora, suponga que sólo \(c_0\) y \(c_1\) son distintos de cero. Escriba la condición de normalización para \(\ket{\psi(0)}\) y exprese el valor medio \(\langle H\rangle\) de la energía en función de \(c_0\) y \(c_1\). Con el requisito adicional \(\langle H\rangle=\hbar\omega\), calcule \(\lvert c_0\rvert^2\) y \(\lvert c_1\rvert^2\).
+  \item Dado que el estado normalizado \(\ket{\psi(0)}\) está definido sólo hasta un factor de fase global, fijamos este factor eligiendo \(c_0\) real y positivo. Sea
+  \[
+    c_1 = \lvert c_1\rvert\,e^{\,i\theta_1}.
+  \]
+  Suponemos además que 
+  \(\langle H\rangle=\hbar\omega\) y que 
+  \(\langle X\rangle=\tfrac12\sqrt{\hbar/(m\omega)}\).  
+  Calcule el ángulo de fase \(\theta_1\).
+  \item Con \(\ket{\psi(0)}\) así determinado, escriba \(\ket{\psi(t)}\) para \(t>0\) y calcule el valor de \(\theta_1\) en el instante \(t\). Deduzca a partir de ello la evolución del valor medio \(\langle X\rangle(t)\) de la posición.
+\end{enumerate}
+
+\subsection*{Ejercicio 2. Oscilador armónico anisótropo en tres dimensiones}
+
+En un problema tridimensional, considere una partícula de masa \(m\) y con energía potencial
+\[
+V(X,Y,Z)
+= \frac{m\omega^2}{2}\Bigl[\bigl(1+\tfrac{2\lambda}{3}\bigr)\,(X^2+Y^2)
+                      +\bigl(1-\tfrac{4\lambda}{3}\bigr)\,Z^2\Bigr],
+\]
+donde \(\omega\ge0\) y \(0\le\lambda<\tfrac34\).
+
+\begin{enumerate}
+  \item ¿Cuáles son los estados propios del Hamiltoniano y las energías correspondientes?
+  \item Calcule y discuta, en función de \(\lambda\), la variación de la energía, la paridad y el grado de degeneración del estado fundamental y de los dos primeros estados excitados.
+\end{enumerate}
+
+\subsection*{Ejercicio 3. Oscilador armónico: dos partículas}
+
+Dos partículas de la misma masa \(m\), con posiciones \(X_1,X_2\) y momentos \(P_1,P_2\), se encuentran sometidas al mismo potencial unidimensional
+\[
+V(X)=\tfrac12\,m\omega^2X^2.
+\]
+Las partículas no interactúan entre sí.
+
+\begin{enumerate}
+  \item Escriba el operador Hamiltoniano \(H\) del sistema de dos partículas. Demuestre que
+  \[
+    H = H_1 + H_2,
+  \]
+  donde \(H_1\) actúa sólo en el espacio de estados de la partícula 1 y \(H_2\) sólo en el de la partícula 2. Calcule los niveles de energía del sistema, sus grados de degeneración y las funciones de onda correspondientes.
+  
+  \item ¿Forma \(H\) un conjunto completo de operadores que se conmutan mutuamente (C.S.C.O.)? ¿Y el conjunto \(\{H_1,H_2\}\)? Denotemos por \(\ket{\Phi_{n_1,n_2}}\) los autovectores comunes de \(H_1\) y \(H_2\). Escriba las relaciones de ortonormalidad y de cierre para los estados \(\{\ket{\Phi_{n_1,n_2}}\}\).
+  
+  \item Consideremos un sistema que, en \(t=0\), está en el estado
+  \[
+    \ket{\psi(0)}
+    = \tfrac12\bigl(\ket{\Phi_{0,0}} + \ket{\Phi_{1,0}} + \ket{\Phi_{0,1}} + \ket{\Phi_{1,1}}\bigr).
+  \]
+  ¿Qué resultados pueden obtenerse, y con qué probabilidades, si en ese instante medimos:
+  \begin{itemize}
+    \item la energía total del sistema \(H\),
+    \item la energía de la partícula 1 (\(H_1\)),
+    \item la posición o la velocidad de la partícula 1?
+  \end{itemize}
+\end{enumerate}
+
+\subsection*{Ejercicio 4 (continuación)}
+
+El sistema de dos partículas, en \(t=0\), se encuentra en el mismo estado \(\ket{\psi(0)}\) definido en el ejercicio anterior.
+
+\begin{enumerate}
+  \item En \(t=0\) se mide la energía total \(H\) y el resultado hallado es \(2\hbar\omega\).  
+  \begin{enumerate}
+    \item Calcule los valores medios de la posición, del momento y de la energía de la partícula 1 para un tiempo arbitrario \(t>0\). Repita para la partícula 2.
+    \item Para \(t>0\) se mide la energía de la partícula 1. ¿Qué valores pueden encontrarse y con qué probabilidades? Haga la misma pregunta para la medición de la posición de la partícula 1 y dibuje la densidad de probabilidad resultante.
+  \end{enumerate}
+  
+  \item En lugar de medir la energía total \(H\), en \(t=0\) se mide la energía \(H_2\) de la partícula 2 y el resultado es \(\tfrac12\hbar\omega\). ¿Cómo cambian las respuestas a los apartados $\alpha$) y $\beta$) del punto a)?
+\end{enumerate}
+
+\subsection*{Ejercicio 5. Operador de intercambio de dos partículas}
+
+Denotemos por \(\{\ket{\Phi_{n_1,n_2}}\}\) los autovectores comunes de \(H_1\) y \(H_2\), con autovalores \((n_1+\tfrac12)\hbar\omega\) y \((n_2+\tfrac12)\hbar\omega\). Definimos el operador de “intercambio” de partículas \(P_e\) mediante
+\[
+P_e \ket{\Phi_{n_1,n_2}} = \ket{\Phi_{n_2,n_1}}.
+\]
+
+\begin{enumerate}
+\item Demuestra que \(P_e^{-1}=P_e\) y que \(P_e\) es unitario. ¿Cuáles son los autovalores de \(P_e\)? Sea \(B\) un observable cualquiera y definamos
+\[
+B' = P_e\,B\,P_e^\dagger.
+\]
+Muestra que la condición \(B'=B\) (invarianza de \(B\) bajo el intercambio) es equivalente a \([B,P_e]=0\).
+
+\item Prueba que
+\[
+P_e \,H_1\,P_e^\dagger = H_2,
+\quad
+P_e \,H_2\,P_e^\dagger = H_1.
+\]
+¿Conmuta el Hamiltoniano total \(H=H_1+H_2\) con \(P_e\)? Calcula la acción de \(P_e\) sobre los observables \(X_1,P_1,X_2,P_2\).
+
+\item Construye una base de autovectores comunes a \(H\) y \(P_e\). ¿Forman estos operadores un C.S.C.O.? ¿Qué sucede con el espectro de \(H\) y la degeneración de sus autovalores si se conservan únicamente los autovectores \(\ket{\Phi}\) de \(H\) que satisfacen 
+\[
+P_e\ket{\Phi}=-\ket{\Phi}\;?
+\]
+\end{enumerate}
+
+\subsection*{Ejercicio 6. Oscilador armónico cargado en un campo eléctrico variable}
+
+Consideremos un oscilador armónico unidimensional de masa \(m\), carga \(q\) y potencial  
+\[
+V(X)=\tfrac12\,m\omega^2X^2.
+\]
+Si se aplica un campo eléctrico \(\mathcal{E}(t)\parallel Oz\), el término de interacción es
+\[
+W(t)=-\,q\,\mathcal{E}(t)\,X.
+\]
+\begin{enumerate}
+  \item Exprese el Hamiltoniano total \(H(t)=H_0+W(t)\) en términos de los operadores de creación y aniquilación \(a\), \(a^\dagger\). Calcule los conmutadores \([a,H(t)]\) y \([a^\dagger,H(t)]\).
+  
+  \item Sea
+  \[
+    \alpha(t)=\bra{\psi(t)}\,a\,\ket{\psi(t)},
+  \]
+  donde \(\ket{\psi(t)}\) es el estado normalizado de la partícula. Muestre, usando a), que  
+  \[
+    \frac{d}{dt}\,\alpha(t)
+    = -\,i\,\omega\,\alpha(t)\;+\;i\,\lambda(t),
+    \quad
+    \lambda(t)=\frac{q}{\sqrt{2m\hbar\omega}}\;\mathcal{E}(t).
+  \]
+  Integre esta ecuación diferencial. A partir de \(\alpha(t)\), determine los valores medios de la posición \(\langle X\rangle(t)\) y del momento \(\langle P\rangle(t)\).
+
+  \item Sea \(\ket{\psi(t)}\) el estado normalizado de un oscilador armónico en un campo eléctrico variable, y definamos
+\[
+\alpha(t)=\bra{\psi(t)}\,a\,\ket{\psi(t)}.
+\]
+  \item Definimos el «ket desplazado»
+  \[
+    \ket{\phi(t)} = \bigl[a - \alpha(t)\bigr]\,\ket{\psi(t)}.
+  \]
+  Donde \(\alpha(t)\) es el valor calculado en el apartado b). Usando los resultados de a) y b) demuestre que
+  \[
+    i\hbar\frac{d}{dt}\ket{\phi(t)}
+    = \bigl[\,H(t)+\hbar\omega\bigr]\,\ket{\phi(t)}.
+  \]
+  ¿Cómo varía con el tiempo la norma de \(\ket{\phi(t)}\)?
+
+  \item Suponga que \(\ket{\psi(0)}\) es autovector de \(a\) con autovalor \(\alpha(0)\). Demuestre que \(\ket{\psi(t)}\) sigue siendo autovector de \(a\) y calcule su autovalor \(\alpha(t)\).  
+  A continuación, en \(t\) calcule el valor medio del Hamiltoniano no perturbado
+  \[
+    H_0 = H(t) - W(t)
+  \]
+  en función de \(\alpha(0)\). Dé además las desviaciones cuadráticas RMS \(\Delta X\), \(\Delta P\) y \(\Delta H_0\). ¿Cómo dependen de \(t\)?
+
+  \item Suponga que en \(t=0\) el oscilador está en el estado fundamental \(\ket{\varphi_0}\). El campo eléctrico actúa entre \(0\) y \(T\) y luego se anula.  
+  \begin{enumerate}
+    \item Para \(t>T\), ¿cómo evolucionan los valores medios \(\langle X\rangle(t)\) y \(\langle P\rangle(t)\)?  
+    \item Aplicación: suponga que durante \(0<t<T\) el campo es  
+    \[
+      \mathcal{E}(t)=\mathcal{E}_0\cos(\omega' t).
+    \]
+    Discuta el fenómeno de resonancia en función de \(\Delta\omega=\omega'-\omega\).  
+    Si para \(t>T\) se mide la energía, ¿qué resultados pueden encontrarse y con qué probabilidades?
+  \end{enumerate}
+\end{enumerate}
+
+\subsection*{Ejercicio 7}
+
+Sea un oscilador armónico unidimensional con hamiltoniano \(H\) y estados estacionarios \(\{\ket{\varphi_n}\}\), tales que
+\[
+  H\ket{\varphi_n}=(n+\tfrac12)\hbar\omega\,\ket{\varphi_n}.
+\]
+Definimos el operador de traslación
+\[
+  U(k)=e^{\,i k X},
+\]
+con \(k\in\mathbb{R}\).
+
+\begin{enumerate}
+  \item ¿Es \(U(k)\) unitario? Demuestre que, para todo \(n\), sus elementos de matriz satisfacen
+  \[
+    \sum_{n'}\bigl|\bra{\varphi_n}U(k)\ket{\varphi_{n'}}\bigr|^2 \;=\;1.
+  \]
+  
+  \item Exprese \(U(k)\) en términos de los operadores \(a\) y \(a^\dagger\). Utilice la fórmula de Glauber (fórmula (63) del Complemento B\,II) para escribir \(U(k)\) como producto de exponentes:
+  \[
+    U(k)=\exp\bigl(A\,a^\dagger\bigr)\;\exp\bigl(B\,a\bigr)\;\exp\bigl(C\bigr),
+  \]
+  determinando las constantes \(A,B,C\).
+  
+  \item Pruebe las siguientes identidades, para un parámetro \(\lambda\in\mathbb{C}\):
+  \[
+    e^{\lambda\,a}\,\ket{\varphi_0} = \ket{\varphi_0},
+    \qquad
+    \bra{\varphi_n}\,e^{\lambda\,a^\dagger}\,\ket{\varphi_0}
+    = \frac{\lambda^n}{\sqrt{n!}}.
+  \]
+
+  \item Encuentre la expresión, en términos de 
+  \[
+    E_k = \frac{\hbar^2k^2}{2m}
+    \quad\text{y}\quad
+    E_\omega = \hbar\omega,
+  \]
+  para el elemento de matriz
+  \[
+    \bra{\varphi_0}\,U(k)\,\ket{\varphi_n}.
+  \]
+  ¿Qué sucede cuando \(k\to0\)? ¿Se podía haber predicho este resultado de forma directa?
+\end{enumerate}
+
+\subsection*{Ejercicio 8. Operador de evolución del oscilador armónico}
+
+Definimos  
+\[
+U(t,0)=e^{-\tfrac{i}{\hbar}Ht},\qquad
+H=\hbar\omega\Bigl(a^\dagger a + \tfrac12\Bigr).
+\]
+
+\begin{enumerate}
+\item Defina los operadores en Heisenberg
+\[
+\widetilde a(t)=U^\dagger(t,0)\,a\,U(t,0),\quad
+\widetilde a^\dagger(t)=U^\dagger(t,0)\,a^\dagger\,U(t,0).
+\]
+Calculando su acción sobre los autovectores \(\ket{\varphi_n}\) de \(H\), obtenga las expresiones de \(\widetilde a(t)\) y \(\widetilde a^\dagger(t)\) en función de \(a\) y \(a^\dagger\).
+
+\item Calcule los operadores  
+\[
+\widetilde X(t)=U^\dagger(t,0)\,X\,U(t,0),\quad
+\widetilde P(t)=U^\dagger(t,0)\,P\,U(t,0).
+\]
+¿Cómo pueden interpretarse físicamente las relaciones obtenidas?
+
+\item Demuestre que  
+\[
+U^\dagger\!\Bigl(\tfrac{\pi}{2\omega},0\Bigr)\ket{x}
+\]
+es un autovector del momento \(P\) y especifique su autovalor.  
+De igual modo, pruebe que  
+\[
+U^\dagger\!\Bigl(\tfrac{\pi}{2\omega},0\Bigr)\ket{p}
+\]
+es un autovector de la posición \(X\).
+
+\item  En \(t=0\), la función de onda del oscilador es \(\psi(x,0)\). ¿Cómo puede obtenerse a partir de \(\psi(x,0)\) la función de onda \(\psi(x,t_q)\) en los tiempos  
+\[
+t_q = \frac{q\pi}{2\omega},\qquad q\in\mathbb{N}^+?
+\]
+
+\item  Elija para \(\psi(x,0)\) la función de onda \(\varphi_n(x)\) correspondiente a un estado estacionario. A partir de la pregunta anterior, derive la relación que debe existir entre \(\varphi_n(x)\) y su transformada de Fourier \(\widetilde\varphi_n(p)\).
+
+\item  Describa cualitativamente la evolución de la función de onda en los siguientes casos:  
+(i) \(\psi(x,0)=e^{ikx}\) con \(k\in\mathbb{R}\).  
+(ii) \(\psi(x,0)=e^{-\rho x}\) con \(\rho>0\).
+
+(iii) \[
+\psi(x,0)=
+\begin{cases}
+\dfrac{1}{\sqrt a}, & -\tfrac a2 \le x \le \tfrac a2,\\
+0,                   & \text{en otro caso}.
+\end{cases}
+\]
+(iv) \(\psi(x,0)=e^{-\rho^2 x^2}\) con \(\rho\in\mathbb{R}\).
+
+\end{enumerate}
 
 \section*{Conclusión}
 El estudio del espín $1/2$ ejemplifica claramente los postulados de la mecánica cuántica: preparación de estados, probabilidades de medición y evolución temporal gobernada por el Hamiltoniano.
