@@ -453,7 +453,36 @@ Considera una partícula de espín $1/2$ en un campo magnético $\mathbf{B}_0$ c
   \item Si en $t=0$ el sistema está en el estado $\ket{-}$, ¿qué valores de energía se obtienen y con qué probabilidades?
   \item Determina el vector de estado $\ket{\psi(t)}$ en tiempo $t$. En ese instante medimos $S_x$: calcula el valor medio de la medición y explica su interpretación geométrica.
 \end{enumerate}
+$$H = \frac{\omega_0}{\sqrt{2}}\,(S_x + S_z)
+  = \frac{\hbar\,\omega_0}{2\sqrt{2}}
+    \begin{pmatrix}
+      1 & 1\\
+      1 & -1
+    \end{pmatrix}$$
 
+\text{Mientras que las energías y estados pedidos en b son, respectivamente:}
+
+$$E_{+} = +\frac{\hbar\,\omega_0}{2},\quad
+E_{-} = -\frac{\hbar\,\omega_0}{2}$$
+
+$$\ket{\psi_{+}}
+  = \cos\frac{\theta}{2}\,\ket{+} \;+\; \sin\frac{\theta}{2}\,\ket{-}
+  = \cos\frac{\pi}{8}\,\ket{+} \;+\; \sin\frac{\pi}{8}\,\ket{-}$$
+
+$$\ket{\psi_{-}}
+  = -\sin\frac{\theta}{2}\,\ket{+} \;+\; \cos\frac{\theta}{2}\,\ket{-}
+  = -\sin\frac{\pi}{8}\,\ket{+} \;+\; \cos\frac{\pi}{8}\,\ket{-}$$
+\text{En d, tras propagar, llegamos a}
+
+$$\ket{\psi(t)}
+  = \sin\frac{\theta}{2}\,e^{-i\omega_0 t/2}\ket{\psi_{+}}
+  \;+\; \cos\frac{\theta}{2}\,e^{\,i\omega_0 t/2}\ket{\psi_{-}}$$
+
+\text{Y el valor esperado requerido es}
+
+$$\langle S_x\rangle
+  = -\frac{\hbar}{4}\bigl(1-\cos\omega_0 t\bigr)
+  = -\frac{\hbar}{4} \;+\; \frac{\hbar}{4}\cos\omega_0 t$$
 
 \subsection*{Ejercicio 4}
 Considera el dispositivo experimental descrito en § B-2-b del Capítulo IV: un haz de átomos de espín \(1/2\) atraviesa un “polarizador” que selecciona la dirección que forma un ángulo \(\theta\) con el eje \(Oz\) en el plano \(xOz\), y luego un “analizador” que mide la componente \(S_z\). Entre polarizador y analizador, sobre una longitud \(L\) del haz, se aplica un campo magnético uniforme \(\mathbf{B}_0\parallel Oz\). Sea \(v\) la velocidad de los átomos y \(T=L/v\) el tiempo de interacción. Definimos

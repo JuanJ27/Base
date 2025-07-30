@@ -366,7 +366,7 @@ E = E_0 - \mathbf{M} \cdot \mathbf{\Omega}.
 \tag{39.13}
 \end{equation}
 
-Esta fórmula define la ley de transformación de la energía cuando se pasa a un sistema de coordenadas animado de una rotación uniforme. Aunque se ha deducido para una sola partícula, es evidente que el razonamiento puede
+Esta fórmula define la ley de transformación de la energía cuando se pasa a un sistema de coordenadas animado de una rotación uniforme.
 
 \subsection*{PROBLEMAS}
 
@@ -438,6 +438,1590 @@ o
 x + i y = (x_0 + i y_0) \exp(-i\Omega_z t),
 \]
 donde las funciones $x_0(t)$ e $y_0(t)$ dan la trayectoria del péndulo cuando se desprecia la rotación de la Tierra. El efecto de esta rotación es, por lo tanto, un giro de la trayectoria alrededor de la vertical con una
+
+\section{Ecuaciones canonicas}
+
+\paragraph*{§ 40. Ecuaciones de Hamilton}
+
+La formulación de las leyes de la Mecánica con la ayuda de la lagrangiana (y de las ecuaciones de Lagrange que de ella se deducen) presupone que el estado mecánico del sistema está determinado dando sus coordenadas y velocidades generalizadas. Sin embargo, éste no es el único método posible; la descripción del estado de un sistema en función de sus coordenadas e ímpetus generalizados presenta un cierto número de ventajas, especialmente en el estudio de diferentes problemas generales de Mecánica. Entonces se deben deducir las ecuaciones del movimiento correspondientes a esta formulación.
+
+El paso de un conjunto de variables independientes a otro puede realizarse mediante lo que se llama en matemáticas transformación de Legendre. En el presente caso esta transformación toma la forma siguiente. La diferencial total de la lagrangiana como función de las coordenadas y de las velocidades es:
+\[
+dL
+= \sum_i \frac{\partial L}{\partial q_i}\,dq_i
++ \sum_i \frac{\partial L}{\partial \dot q_i}\,d\dot q_i.
+\]
+Esta expresión puede escribirse
+\begin{equation}
+d\biggl(\sum_i p_i\,\dot q_i - L\biggr)
+= -\sum_i \dot p_i\,dq_i
++ \sum_i \dot q_i\,dp_i
+\tag{40.1}
+\end{equation}
+
+La cantidad bajo el signo diferencial es la energía del sistema (véase § 6); expresada en función de las coordenadas y de los ímpetus, se llama función de Hamilton o hamiltoniana del sistema:
+\begin{equation}
+H(p,q,t)
+= \sum_i p_i\,\dot q_i - L
+\tag{40.2}
+\end{equation}
+
+De la ecuación
+\begin{equation}
+dH
+= -\sum_i \dot p_i\,dq_i
++ \sum_i \dot q_i\,dp_i
+\tag{40.3}
+\end{equation}
+en la cual las variables independientes son las coordenadas y los ímpetus, se obtienen las ecuaciones
+\begin{equation}
+\dot q_i = \frac{\partial H}{\partial p_i},
+\qquad
+\dot p_i = -\frac{\partial H}{\partial q_i}
+\tag{40.4}
+\end{equation}
+Estas son las deseadas ecuaciones del movimiento en las variables \(p\) y \(q\), y se llaman ecuaciones de Hamilton. Constituyen un conjunto de \(2s\) ecuaciones diferenciales de primer orden, entre las \(2s\) funciones incógnitas \(p_i(t)\) y \(q_i(t)\), que sustituyen a las ecuaciones de segundo orden obtenidas por medio de Lagrange. A causa de su sencillez y simetría de forma se les llama ecuaciones canónicas.
+
+La derivada total con respecto al tiempo de la hamiltoniana es:
+\[
+\frac{dH}{dt}
+= \frac{\partial H}{\partial t}
++ \sum_i \frac{\partial H}{\partial q_i}\,\dot q_i
++ \sum_i \frac{\partial H}{\partial p_i}\,\dot p_i.
+\]
+Sustituyendo \(\dot q_i\) y \(\dot p_i\) de las ecuaciones (40.4) los dos últimos términos se eliminan, de modo que
+\begin{equation}
+\frac{dH}{dt}
+= \frac{\partial H}{\partial t}
+\tag{40.5}
+\end{equation}
+En particular, si la función de Hamilton no depende explícitamente del tiempo, entonces \(\tfrac{dH}{dt}=0\), y se tiene la ley de la conservación de la energía.
+
+Además de las variables dinámicas \(q\) y \(p\), las funciones de Lagrange y de Hamilton contienen varios parámetros, los cuales se refieren bien a las propiedades del sistema mecánico o bien al campo exterior que actúa sobre él. Sea \(\lambda\) uno de estos parámetros. Considerándolo como una variable, se tiene en lugar de (40.1):
+\[
+dL
+= \sum_i p_i\,d\dot q_i
++ \sum_i \dot p_i\,dq_i
++ \frac{\partial L}{\partial \lambda}\,d\lambda,
+\]
+y en lugar de (40.3):
+\[
+dH
+= -\sum_i \dot p_i\,dq_i
++ \sum_i \dot q_i\,dp_i
+- \frac{\partial L}{\partial \lambda}\,d\lambda,
+\]
+de donde
+\begin{equation}
+\Bigl(\frac{\partial H}{\partial \lambda}\Bigr)_{p,q}
+= -\Bigl(\frac{\partial L}{\partial \lambda}\Bigr)_{\dot q,q}
+\tag{40.6}
+\end{equation}
+
+\paragraph*{Este resultado puede expresarse de otro modo.}
+Sea la lagrangiana 
+\[
+L = L_0 + L',
+\]
+siendo \(L'\) una pequeña corrección a la función fundamental \(L_0\). La correspondiente adición \(H'\) en la hamiltoniana 
+\[
+H = H_0 + H'
+\]
+está relacionada con \(L'\) por
+\begin{equation}
+(H')_{p,q}
+= -\,\bigl(L'\bigr)_{\dot q,q}
+\tag{40.7}
+\end{equation}
+
+Puede observarse que en la transformación de (40.1) en (40.3) no se ha escrito un término en \(dt\), que tendría en cuenta la posible dependencia explícita del tiempo de la lagrangiana; el tiempo representaría en este caso sólo el papel de un parámetro que nada tiene que ver con la transformación. Las derivadas parciales con respecto al tiempo de \(L\) y de \(H\) están ligadas por la relación
+\begin{equation}
+\Bigl(\tfrac{\partial H}{\partial t}\Bigr)_{p,q}
+= -\,\Bigl(\tfrac{\partial L}{\partial t}\Bigr)_{\dot q,q}
+\tag{40.8}
+\end{equation}
+
+\section*{Problemas}
+
+1. Hallar la función de Hamilton de una partícula, en coordenadas cartesianas, cilíndricas y esféricas.  
+Solución.  
+En coordenadas cartesianas \((x,y,z)\):
+\[
+H=\frac{1}{2m}\bigl(p_x^2+p_y^2+p_z^2\bigr)+U(x,y,z).
+\]
+En coordenadas cilíndricas \((r,\phi,z)\):
+\[
+H=\frac{1}{2m}\Bigl(p_r^2+\frac{p_\phi^2}{r^2}+p_z^2\Bigr)+U(r,\phi,z).
+\]
+En coordenadas esféricas \((r,\theta,\phi)\):
+\[
+H=\frac{1}{2m}\Bigl(p_r^2+\frac{p_\theta^2}{r^2}+\frac{p_\phi^2}{r^2\sin^2\theta}\Bigr)
++U(r,\theta,\phi).
+\]
+
+2. Hallar la hamiltoniana de una partícula en un sistema de referencia animado de un movimiento de rotación uniforme.  
+Solución.  
+Usando la expresión de la energía en función de \(p\) se obtiene
+\[
+H=\frac{p^2}{2m}-\boldsymbol\Omega\!\cdot(\mathbf r\times\mathbf p)+U.
+\]
+
+3. Hallar la función de Hamilton de una partícula de masa \(M\) y \(n\) partículas de masa \(m\), excluido el movimiento del centro de masa (véase el problema en § 13).  
+Solución.  
+Partiendo de la lagrangiana del § 13 (cambiando el signo de \(U\)), los ímpetus generalizados son
+\[
+p_a=\frac{\partial L}{\partial \dot v_a}
+= m\,v_a-\frac{m}{M}\sum_{b}v_b.
+\]
+De aquí se sigue
+\[
+v_a=\frac{p_a}{m}+\frac{1}{M}\sum_{b}p_b.
+\]
+
+\section*{§ 41. Función de Routh}
+
+En ciertos casos es conveniente, cuando se pasa a las nuevas variables, no sustituir todas las velocidades generalizadas por los ímpetus, sino sólo algunas de ellas. La transformación correspondiente es análoga a la del § 40.
+
+Para simplificar, supongamos dos coordenadas \(q\) y \(\xi\). Pasamos de \((q,\xi,\dot q,\dot\xi)\) a \((q,\xi,p,\dot\xi)\), siendo 
+\[
+p=\frac{\partial L}{\partial \dot q}
+\]
+el ímpetu generalizado de \(q\). La diferencial de \(L(q,\xi,\dot q,\dot\xi)\) es
+\[
+dL
+=(\partial_qL)\,dq+(\partial_{\dot q}L)\,d\dot q
++(\partial_\xi L)\,d\xi+(\partial_{\dot\xi}L)\,d\dot\xi
+=p\,d\dot q+(\partial_qL)\,dq+(\partial_\xi L)\,d\xi+(\partial_{\dot\xi}L)\,d\dot\xi,
+\]
+por tanto
+\[
+d\bigl(L-p\,\dot q\bigr)
+=-p\,dq+q\,dp+(\partial_\xi L)\,d\xi+(\partial_{\dot\xi}L)\,d\dot\xi.
+\]
+Si se define la función de Routh como
+\begin{equation}
+R(q,p,\xi,\dot\xi)=p\,\dot q-L,
+\tag{41.1}
+\end{equation}
+en la cual \(\dot q\) se expresa en función de \(p\), su diferencial es
+\begin{equation}
+dR=-\dot q\,dq+q\,dp-(\partial_\xi L)\,d\xi-(\partial_{\dot\xi}L)\,d\dot\xi.
+\tag{41.2}
+\end{equation}
+De aquí se deduce
+\begin{equation}
+\frac{\partial R}{\partial p}=\dot q,\quad
+\dot p=-\frac{\partial R}{\partial q},
+\tag{41.3}
+\end{equation}
+\begin{equation}
+\frac{\partial R}{\partial \xi}=-\,\frac{\partial L}{\partial \xi},\quad
+\frac{\partial R}{\partial \dot\xi}=-\,\frac{\partial L}{\partial \dot\xi}.
+\tag{41.4}
+\end{equation}
+Sustituyendo en las ecuaciones de Lagrange para \(\xi\) se obtiene
+\begin{equation}
+\frac{d}{dt}\!\Bigl(\partial_{\dot\xi}R\Bigr)
+-\partial_\xi R=0.
+\tag{41.5}
+\end{equation}
+
+Entonces la función de Routh es una hamiltoniana con respecto a \(q\) (ec.\,(41.3)) y una lagrangiana para \(\xi\) (ec.\,(41.5)).
+De acuerdo con la definición general, la energía del sistema es:
+\[
+E = \dot q\,\frac{\partial L}{\partial \dot q}
+  + \dot\xi\,\frac{\partial L}{\partial \dot\xi}
+  - L
+  = p\dot q + \xi\,\frac{\partial L}{\partial \dot\xi} - L.
+\]
+Se expresa mediante la función de Routh sustituyendo (41.1) y (41.4):
+\begin{equation}
+E = R - \xi\,\frac{\partial R}{\partial \dot\xi}.
+\tag{41.6}
+\end{equation}
+
+La generalización de estas fórmulas para el caso de varias coordenadas \(q\) y \(\xi\) es inmediata.  
+En particular, puede convenir usar la función de Routh cuando algunas coordenadas son cíclicas. Si \(q\) es cíclica, no aparece en la lagrangiana ni en \(R\), que sólo depende entonces de \(p,\xi,\dot\xi\). Los ímpetus \(p\) relativos a las coordenadas cíclicas son constantes (véase la segunda ecuación de (41.3)). Sustituyendo estos valores constantes en (41.5)
+\[
+\frac{d}{dt}\!\Bigl(\frac{\partial R}{\partial \dot\xi}\Bigr)
+= \frac{\partial R}{\partial \xi},
+\]
+se obtienen ecuaciones sólo en \(\xi(t)\). Una vez resuelta \(\xi(t)\), las ecuaciones
+\[
+\dot q = \frac{\partial R}{\partial p}
+\]
+dan \(q(t)\) por integración directa.
+
+\paragraph*{Problema}  
+Encontrar la función de Routh de una peonza simétrica en un campo exterior \(U(\theta,\varphi)\), eliminando la coordenada cíclica \(\psi\) (\(\varphi,\psi,\theta\) son los ángulos de Euler).
+
+\paragraph*{Solución}  
+La lagrangiana es
+\[
+L = \frac12 I\bigl(\dot\varphi^2\sin^2\theta + \dot\theta^2\bigr)
+  + \frac12 I_3\bigl(\dot\psi + \dot\varphi\cos\theta\bigr)^2
+  - U(\theta,\varphi).
+\]
+(véase problema 1, § 35). La función de Routh se define por
+\[
+R = p_\psi\,\dot\psi - L
+= p_\psi\,\dot\psi
+- \frac12 I\bigl(\dot\varphi^2\sin^2\theta + \dot\theta^2\bigr)
+- \frac12 I_3\bigl(\dot\psi + \dot\varphi\cos\theta\bigr)^2
++ U(\theta,\varphi).
+\]
+El primer término es constante y puede omitirse.
+
+\section*{§ 42. Paréntesis de Poisson}
+
+Sea \(f(q,p,t)\) una función de coordenadas, ímpetus y tiempo. Su derivada total es
+\[
+\frac{df}{dt}
+= \frac{\partial f}{\partial t}
++ \sum_k\Bigl(\frac{\partial f}{\partial q_k}\dot q_k
+           + \frac{\partial f}{\partial p_k}\dot p_k\Bigr).
+\]
+Sustituyendo \(\dot q_k,\dot p_k\) de las ecuaciones de Hamilton (40.4), resulta
+\begin{equation}
+\frac{df}{dt} = \frac{\partial f}{\partial t} + [H,f],
+\tag{42.1}
+\end{equation}
+donde
+\begin{equation}
+[H,f]
+= \sum_k\Bigl(
+    \frac{\partial H}{\partial p_k}\frac{\partial f}{\partial q_k}
+  - \frac{\partial H}{\partial q_k}\frac{\partial f}{\partial p_k}
+  \Bigr).
+\tag{42.2}
+\end{equation}
+La expresión (42.2) es el paréntesis de Poisson de \(H\) y \(f\).
+
+Recordando que las integrales del movimiento son funciones constantes en la evolución, de (42.1) se deduce la condición
+\begin{equation}
+\frac{\partial f}{\partial t} + [H,f] = 0.
+\tag{42.3}
+\end{equation}
+Si \(f\) no depende explícitamente del tiempo,
+\begin{equation}
+[H,f] = 0.
+\tag{42.4}
+\end{equation}
+
+Para dos magnitudes \(f,g\), el paréntesis de Poisson se define como
+\begin{equation}
+[f,g]
+= \sum_k\Bigl(
+    \frac{\partial f}{\partial p_k}\frac{\partial g}{\partial q_k}
+  - \frac{\partial f}{\partial q_k}\frac{\partial g}{\partial p_k}
+  \Bigr).
+\tag{42.5}
+\end{equation}
+Sus propiedades son:
+\[
+[f,g] = -[g,f],
+\tag{42.6}
+\]
+\[
+[f,c] = 0,
+\tag{42.7}
+\]
+\[
+[f_1+f_2,g] = [f_1,g] + [f_2,g],
+\tag{42.8}
+\]
+\[
+[f_1f_2,g] = f_1\,[f_2,g] + [f_1,g]\,f_2.
+\tag{42.9}
+\]
+Derivando (42.5) respecto al tiempo:
+\[
+\frac{\partial}{\partial t}[f,g]
+= \Bigl[\frac{\partial f}{\partial t},g\Bigr]
++ \Bigl[f,\frac{\partial g}{\partial t}\Bigr].
+\tag{42.10}
+\]
+Si una de las funciones coincide con una coordenada o un ímpetu,
+\[
+[f,q_j] = \frac{\partial f}{\partial p_j},
+\tag{42.11}
+\]
+\[
+[f,p_j] = -\frac{\partial f}{\partial q_j}.
+\tag{42.12}
+\]
+
+La fórmula (42.11), por ejemplo, se obtiene haciendo \(g=q_k\) en (42.5); la suma se reduce a un solo término, puesto que \(\partial q_l/\partial q_k=\delta_{lk}\) y \(\partial q_l/\partial p_k=0\). Haciendo \(g=p_k\) en (42.5) y (42.12), y la función \(f\) igual a \(q_j\) y \(p_j\), se tiene, en particular,
+\[
+[q_i,q_k]=0,\quad [p_i,p_k]=0,\quad [p_k,q_i]=\delta_{ik}.
+\tag{42.13}
+\]
+
+Entre los paréntesis de Poisson formados por tres funciones existe la relación
+\begin{equation}
+[[f,g],h]+[h,[f,g]]+[g,[h,f]]=0,
+\tag{42.14}
+\end{equation}
+llamada identidad de Jacobi. Para demostrarla, observemos que, según la definición (42.5), los paréntesis de Poisson \([f,g]\) son funciones homogéneas bilineales de las primeras derivadas de \(f\) y \(g\). Entonces el paréntesis \([h,[f,g]]\), por ejemplo, será una función lineal homogénea de las segundas derivadas de \(f\), de \(g\) y de \(h\). Agrupemos en (42.14) los términos que contienen las derivadas segundas de \(f\). El primer paréntesis no contiene tales derivadas, ya que sólo contiene las primeras derivadas de \(f\). La suma del segundo y tercer paréntesis puede escribirse en forma simbólica utilizando dos operadores diferenciales lineales \(D_1,D_2\) definidos por
+\[
+D_1=\sum_k\xi_k\frac{\partial}{\partial x_k},
+\qquad
+D_2=\sum_k\eta_k\frac{\partial}{\partial x_k},
+\]
+donde \(\xi_k\) y \(\eta_k\) son funciones arbitrarias de las variables \(x_1,x_2,\dots\). Entonces,
+\[
+D_1D_2\phi
+=\sum_{k,l}\xi_k\frac{\partial\eta_l}{\partial x_k}\,
+\frac{\partial\phi}{\partial x_l}
++\sum_{k,l}\xi_k\eta_l\frac{\partial^2\phi}{\partial x_k\partial x_l},
+\]
+\[
+D_2D_1\phi
+=\sum_{k,l}\eta_k\frac{\partial\xi_l}{\partial x_k}\,
+\frac{\partial\phi}{\partial x_l}
++\sum_{k,l}\eta_k\xi_l\frac{\partial^2\phi}{\partial x_k\partial x_l},
+\]
+y su diferencia es
+\[
+(D_1D_2-D_2D_1)\phi
+=\sum_{l}\Bigl(\sum_k\xi_k\frac{\partial\eta_l}{\partial x_k}
+            -\eta_k\frac{\partial\xi_l}{\partial x_k}\Bigr)
+\frac{\partial\phi}{\partial x_l},
+\]
+que sólo contiene derivadas primeras. Procediendo análogamente con los otros términos de (42.14), todos los segundos derivados se cancelan, y la identidad de Jacobi queda demostrada.
+
+De nuevo, un operador que sólo contiene derivadas primeras. Así, en el primer miembro de la ecuación (42.14), todos los términos con derivadas segundas se anulan recíprocamente, y puesto que ocurre análogamente con las funciones \(g\) y \(h\), la expresión entera es idénticamente nula.
+
+Una propiedad importante de los paréntesis de Poisson es que, si \(f\) y \(g\) son integrales del movimiento, su paréntesis de Poisson es también una integral del movimiento:
+\begin{equation}
+[f,g]=\mathrm{cte}.
+\tag{42.15}
+\end{equation}
+Este es el teorema de Poisson. La demostración es muy sencilla si \(f\) y \(g\) no dependen explícitamente del tiempo. Haciendo \(h=H\) en la identidad de Jacobi (42.14), se tiene
+\[
+[[H,f],g]+[g,[H,f]]+[f,[g,H]]=0.
+\]
+Como \( [H,g]=0\) y \([H,f]=0\), se deduce \([H,[f,g]]=0\), que es justo lo que se quería demostrar.
+
+Si las integrales \(f\) y \(g\) dependen explícitamente del tiempo, partiendo de (42.1) escribimos
+\[
+\frac{d}{dt}[f,g]
+=\frac{\partial}{\partial t}[f,g]+[H,[f,g]].
+\]
+Utilizando la fórmula (42.10) y expresando \([H,[f,g]]\) por medio de la identidad de Jacobi, se obtiene
+\[
+\begin{aligned}
+\frac{d}{dt}[f,g]
+&=\Bigl[\tfrac{\partial f}{\partial t},g\Bigr]
+ +\Bigl[f,\tfrac{\partial g}{\partial t}\Bigr]
+ +[H,[f,g]]
+ -\bigl[[f,H],g\bigr]
+ -\bigl[[g,H],f\bigr]\\
+&=\bigl[\tfrac{df}{dt},\,g\bigr]
+ +\bigl[f,\,\tfrac{dg}{dt}\bigr].
+\end{aligned}
+\tag{42.16}
+\]
+Esto demuestra el teorema de Poisson en el caso general.
+
+Por supuesto, aplicando el teorema de Poisson no siempre se obtendrán nuevas integrales del movimiento, pues su número es limitado (\(2s-1\), siendo \(s\) el número de grados de libertad). En algunos casos el paréntesis es constante; en otros, la nueva integral resulta depender sólo de las originales. Sólo cuando no ocurre ninguno de estos casos, \([f,g]\) es una integral nueva.
+
+\section*{Problemas}
+
+\begin{enumerate}
+\item Determinar los paréntesis de Poisson formados por las componentes cartesianas del ímpetu $\mathbf p$ y del momento angular $\mathbf M=\mathbf r\times\mathbf p$ de una partícula.
+
+Solución. Por medio de la fórmula (42.12) se tiene
+\[
+[M_x,p_x]
+= -\frac{\partial M_x}{\partial y}
+= -\frac{\partial(y\,p_z - z\,p_y)}{\partial y}
+= -\,p_z,
+\quad
+[M_x,p_y]=0,
+\quad
+[M_x,p_z]=p_y.
+\]
+Los restantes paréntesis se obtienen por permutación circular de los índices $x,y,z$.
+
+\item Determinar los paréntesis de Poisson formados por las componentes de $\mathbf M$.
+
+Solución. Un cálculo inmediato de la fórmula (42.5) da
+\[
+[M_x,M_y]=M_z,\quad
+[M_y,M_z]=M_x,\quad
+[M_z,M_x]=M_y.
+\]
+Puesto que los ímpetus y las coordenadas de distintas partículas son variables independientes, las fórmulas de los problemas 1 y 2 valen también para el momento angular total de un sistema.
+
+\item Demostrar que
+\[
+[f,\mathbf M]=0,
+\]
+siendo $f$ una función escalar de las coordenadas $\mathbf r$ y del ímpetu $\mathbf p$.
+
+Solución. Una función escalar sólo puede depender de $\mathbf r,\mathbf p$ a través de $r^2$, $p^2$ y $\mathbf r\cdot\mathbf p$. Luego
+\[
+\frac{\partial f}{\partial\mathbf r}
+=2\frac{\partial f}{\partial(r^2)}\,\mathbf r
++\frac{\partial f}{\partial(\mathbf r\cdot\mathbf p)}\,\mathbf p,
+\quad
+\frac{\partial f}{\partial\mathbf p}
+=2\frac{\partial f}{\partial(p^2)}\,\mathbf p
++\frac{\partial f}{\partial(\mathbf r\cdot\mathbf p)}\,\mathbf r,
+\]
+y la relación se verifica inmediatamente con (42.5).
+
+\item Demostrar que
+\[
+[\boldsymbol\varepsilon,\,M_z]
+=\mathbf n\times\boldsymbol\varepsilon,
+\]
+donde $\boldsymbol\varepsilon$ es una función vectorial de $\mathbf r$ y $\mathbf p$ y $\mathbf n$ el versor del eje $z$.
+
+Solución. Todo vector $\boldsymbol\varepsilon(\mathbf r,\mathbf p)$ puede escribirse
+\[
+\boldsymbol\varepsilon
+=\mathbf r\,\phi+\mathbf p\,\psi+(\mathbf r\times\mathbf p)\,\chi,
+\]
+con $\phi,\psi,\chi$ escalares. La relación se verifica directamente con (42.9), (42.11), (42.12) y el resultado del problema 3.
+\end{enumerate}
+
+\section*{\S\,43. La acción como una función de las coordenadas}
+
+Al formular el principio de la mínima acción, consideramos la integral
+\begin{equation}
+S=\int_{t_1}^{t_2}L\,dt
+\tag{43.1}
+\end{equation}
+tomada a lo largo de una trayectoria entre dos posiciones dadas $q^{(1)}$ y $q^{(2)}$ en los instantes $t_1$ y $t_2$. Al variar la acción, se comparan los valores de la integral para trayectorias vecinas con los mismos extremos; sólo aquella que hace $S$ mínimo es el movimiento real.
+
+Ahora tratamos $S$ como función de la posición final $q(t_2)=q$, con $q(t_1)=q^{(1)}$ fijo. La variación de la acción al pasar a una trayectoria vecina está dada (si hay un grado de libertad) por
+\[
+\delta S
+=\biggl[\frac{\partial L}{\partial\dot q}\,\delta q\biggr]_{t_1}^{t_2}
++\int_{t_1}^{t_2}\Bigl(\frac{\partial L}{\partial q}
+-\frac{d}{dt}\frac{\partial L}{\partial\dot q}\Bigr)\delta q\,dt.
+\]
+Como la trayectoria real satisface las ecuaciones de Lagrange, la integral se anula. En el primer término ponemos $\partial L/\partial\dot q=p$ y designamos $q(t_2)=q$, resultando
+\begin{equation}
+\delta S = p\,\delta q,
+\tag{43.2}
+\end{equation}
+y en el caso general
+\begin{equation}
+\delta S = \sum_i p_i\,\delta q_i.
+\tag{43.2}
+\end{equation}
+De aquí se deduce que las derivadas parciales de la acción respecto de las coordenadas finales son
+\begin{equation}
+\frac{\partial S}{\partial q_i}=p_i.
+\tag{43.3}
+\end{equation}
+
+De la definición de acción se sigue que su derivada total respecto al tiempo a lo largo de la trayectoria es:
+\[
+\frac{dS}{dt}=L.
+\tag{43.4}
+\]
+
+Por otra parte, considerando \(S\) como función de las coordinadas y del tiempo, y aplicando la fórmula (43.3) se tiene:
+\[
+\frac{dS}{dt}
+=\frac{\partial S}{\partial t}
++\sum_i\frac{\partial S}{\partial q_i}\,\dot q_i
+=\frac{\partial S}{\partial t}
++\sum_i p_i\,\dot q_i.
+\]
+Comparando las dos expresiones, se deduce
+\[
+\frac{\partial S}{\partial t}
+= L - \sum_i p_i\,\dot q_i,
+\quad\text{o sea,}\quad
+\frac{\partial S}{\partial t} = -H.
+\tag{43.5}
+\]
+
+Las fórmulas (43.3) y (43.5) pueden reunirse en la expresión
+\[
+dS = \sum_i p_i\,dq_i - H\,dt.
+\tag{43.6}
+\]
+
+Supongamos ahora que las coordenadas y el tiempo varían tanto en el instante inicial \(t_1\) como en el final \(t_2\). La variación de la acción vendrá dada por la diferencia de las expresiones (43.3) y (43.5) en los extremos de la trayectoria:
+\[
+dS
+=\sum_i p_i\,\delta q_i\big\vert_{t_2}
+ - H\,\delta t_2
+-\Bigl(\sum_i p_i\,\delta q_i\big\vert_{t_1}
+ - H\,\delta t_1\Bigr).
+\tag{43.7}
+\]
+
+De aquí se deduce que, independientemente de la forma particular de \(L\), la condición de mínima acción equivale a requerir que la integral
+\[
+S=-\int\Bigl(\sum_i p_i\,dq_i - H\,dt\Bigr)
+\tag{43.8}
+\]
+sea estacionaria.
+
+\section*{\S\,44. Principio de Maupertuis}
+
+Si \(L\) y, por tanto, \(H\) no dependen explícitamente del tiempo, la energía del sistema se conserva:
+\[
+H(p,q)=E=\mathrm{cte}.
+\]
+De acuerdo con el principio de mínima acción, variando el tiempo final y manteniendo fijas las coordenadas inicial y final, la variación de la acción es
+\[
+\delta S = -H\,\delta t.
+\tag{44.1}
+\]
+Como \(H=E\) es constante,
+\[
+\delta S + E\,\delta t = 0.
+\tag{44.2}
+\]
+Escribiendo la acción en la forma (43.8) y reemplazando \(H\) por \(E\), resulta
+\[
+S = \int \sum_i p_i\,dq_i \;-\; E\,(t_2 - t_1).
+\tag{44.3}
+\]
+
+\paragraph*{El primer término en esta expresión}
+\[
+S_0 \;=\;\int \sum_i p_i\,dq_i
+\tag{44.4}
+\]
+se denomina acción abreviada. Sustituyendo (44.3) en (44.2) se encuentra que
+\[
+\delta S_0 = 0.
+\tag{44.5}
+\]
+
+Para aplicar este principio variacional, los ímpetus y todo el integrando de (44.2) deben expresarse en función de las coordenadas \(q\) y de sus diferenciales \(dq\); para ello empleamos
+
+\begin{equation}
+p_i = \frac{\partial L}{\partial \dot q_i}\bigl(q,\dot q\bigr)\,,
+\tag{44.6}
+\end{equation}
+
+\begin{equation}
+E\bigl(q,\dot q\bigr) = E\,.
+\tag{44.7}
+\end{equation}
+
+Cuando la lagrangiana tiene la forma habitual  
+\[
+L=\frac12\sum_{i,k}a_{ik}(q)\,\dot q_i\dot q_k - U(q),
+\]
+los ímpetus y la energía se escriben
+\[
+p_i=\sum_k a_{ik}(q)\,\dot q_k,\qquad
+E=\frac12\sum_{i,k}a_{ik}(q)\,\dot q_i\dot q_k+U(q).
+\]
+De aquí se deduce
+\begin{equation}
+dt = \sqrt{\frac{\sum_{i,k}a_{ik}\,dq_i\,dq_k}{2\bigl(E-U\bigr)}}.
+\tag{44.8}
+\end{equation}
+Sustituyendo en \(\sum_i p_i\,dq_i\) se obtiene la acción abreviada
+\begin{equation}
+S_0 = \int \sqrt{2\bigl(E-U\bigr)\sum_{i,k}a_{ik}\,dq_i\,dq_k}\,.
+\tag{44.9}
+\end{equation}
+
+En particular, para una sola partícula la energía cinética es  
+\[
+T=\tfrac12m\bigl(dl/dt\bigr)^2,
+\]
+donde \(m\) es la masa y \(dl\) un elemento de longitud de la trayectoria; el principio variacional es
+\[
+\delta\int\sqrt{2m\bigl(E-U\bigr)}\,dl = 0.
+\tag{44.10}
+\]
+
+Volviendo a la acción abreviada \(S_0\), su derivada con respecto a \(E\) da
+\begin{equation}
+\frac{\partial S_0}{\partial E} = t - t_0.
+\tag{44.11}
+\end{equation}
+Cuando \(S_0\) toma la forma (44.9), esta igualdad conduce a
+\begin{equation}
+\int\sqrt{\frac{\sum_{i,k}a_{ik}\,dq_i\,dq_k}{2\bigl(E-U\bigr)}} \;=\; t - t_0.
+\tag{44.12}
+\end{equation}
+
+\paragraph*{Problema}
+Deducir la ecuación de la trayectoria del principio variacional (44.10).
+
+\paragraph*{Solución}
+Efectuando la variación se halla
+\[
+\delta\int\sqrt{E-U}\,dl
+=-\int\frac{\partial U/\partial r}{2\sqrt{E-U}}\,\delta r\,dl
+-\int\sqrt{E-U}\,\delta(dl).
+\]
+Como \(dl^2=dr^2\), se usa \(dl\,\delta(dl)=dr\,\delta r\); integrando por partes el segundo término y anulando el coeficiente de \(\delta r\), se obtiene la ecuación diferencial
+\[
+2\bigl(E-U\bigr)\,\frac{d}{dl}\Bigl(\sqrt{E-U}\,\frac{dr}{dl}\Bigr)
+=-\frac{\partial U}{\partial r}\,. 
+\] 
+\section*{\S\,45. Transformaciones canónicas}
+
+La elección de las coordenadas generalizadas \(q\) no está limitada por ninguna condición; pueden ser \(s\) magnitudes cualesquiera que definan unívocamente la posición del sistema en el espacio. El aspecto formal de las ecuaciones de Lagrange no depende de esta elección, y en este sentido puede decirse que las ecuaciones de Lagrange son invariantes respecto a una transformación de las coordenadas \(q_i\), \(q_i'\), … en otras magnitudes independientes \(Q_i\), \(Q_i'\), …. Las nuevas coordenadas \(Q_i\) son funciones de las antiguas \(q_i\), y admitimos que pueden depender explícitamente del tiempo, es decir, que la transformación es de la forma
+\[
+Q_i = Q_i(q,t)
+\tag{45.1}
+\]
+(denominadas a veces transformaciones puntuales).
+
+Puesto que las ecuaciones de Lagrange son invariantes por la transformación (45.1), también son invariantes las ecuaciones de Hamilton (40.4). Sin embargo, estas últimas ecuaciones admiten en realidad un margen mucho más amplio de transformaciones. Esto es, por supuesto, porque en el método de Hamilton los ímpetus \(p\) son variables independientes con igual categoría que las coordenadas \(q\), y, por tanto, puede ampliarse la transformación para incluir las \(2s\) variables independientes \(p\) y \(q\) que pasarán a \(P\) y \(Q\) según las fórmulas
+\[
+Q_i = Q_i(q,p,t), 
+\quad
+P_i = P_i(q,p,t).
+\tag{45.2}
+\]
+
+Esta ampliación de las posibles transformaciones constituye una de las ventajas esenciales del método de Hamilton en Mecánica. Sin embargo, las ecuaciones del movimiento no conservan su forma canónica para toda transformación del tipo (45.2). Por ello vamos a deducir ahora las condiciones que deben satisfacerse para que las ecuaciones del movimiento en las nuevas variables \(P,Q\) sean de la forma
+\[
+\dot Q_i = +\frac{\partial H'}{\partial P_i}, 
+\quad
+\dot P_i = -\frac{\partial H'}{\partial Q_i},
+\tag{45.3}
+\]
+con una nueva hamiltoniana \(H'(P,Q)\). Cuando esto ocurre, la transformación se dice que es canónica.
+
+Las fórmulas para las transformaciones canónicas pueden obtenerse de modo siguiente. Se ha demostrado al final del § 43 que las ecuaciones de Hamilton pueden deducirse del principio de la mínima acción en la forma
+\[
+\delta\!\bigl(\sum_i p_i\,dq_i - H\,dt\bigr) = 0,
+\tag{45.4}
+\]
+en la cual la variación se aplica a todas las coordenadas y los ímpetus independientemente. Si las nuevas variables \(P\) y \(Q\) satisfacen también a las ecuaciones de Hamilton, deben verificar igualmente el principio de la mínima acción:
+\[
+\delta\!\bigl(\sum_i P_i\,dQ_i - H'\,dt\bigr) = 0.
+\tag{45.5}
+\]
+
+Las dos formas (45.4) y (45.5) son equivalentes solamente si sus integrandos difieren en la diferencial total de una función arbitraria \(F\) de las coordenadas, de los ímpetus y del tiempo; la diferencia entre las dos integrales (diferencia de los valores de \(F\) en los límites de integración) será entonces una constante cuya variación es nula. Consecuentemente se debe tener:
+\[
+\sum_i p_i\,dq_i - H\,dt
+= \sum_i P_i\,dQ_i - H'\,dt + dF.
+\tag{45.6}
+\]
+
+Toda transformación canónica está caracterizada por su función \(F\), denominada función generatriz de la transformación. Escribiendo la relación anterior en la forma
+\[
+dF = \sum_i p_i\,dq_i - \sum_i P_i\,dQ_i + (H' - H)\,dt,
+\tag{45.6$'$}
+\]
+se tiene, comparando coeficientes,
+\[
+p_i = \frac{\partial F}{\partial q_i},
+\quad
+P_i = -\,\frac{\partial F}{\partial Q_i},
+\quad
+H' = H + \frac{\partial F}{\partial t}.
+\tag{45.7}
+\] 
+\noindent El argumento de la diferencial del primer miembro, expresada en función de las variables \(q\) y \(P\), es una nueva función generatriz. Denominémosla \(\Phi(q,P,t)\), y se tiene:
+\begin{equation}
+p_i \;=\;\frac{\partial\Phi}{\partial q_i},\quad
+Q_i \;=\;\frac{\partial\Phi}{\partial P_i},\quad
+H' \;=\;H + \frac{\partial\Phi}{\partial t}\tag{45.8}
+\end{equation}
+
+De modo análogo se pueden obtener las fórmulas para las transformaciones canónicas que encierran funciones generatrices dependientes de las variables \(p\) y \(Q\), o de las \(p\) y \(P\).
+
+La relación entre la nueva y la antigua hamiltoniana es siempre de la misma forma; la diferencia \(H'-H\) es la derivada parcial de la función generatriz respecto al tiempo. En particular, si la función generatriz es independiente del tiempo, entonces \(H'=H\); es decir, en este caso la nueva hamiltoniana se obtiene sustituyendo en \(H\) las magnitudes \(p\) y \(q\) por sus valores en función de las nuevas variables \(P\) y \(Q\).
+
+El amplio alcance de las transformaciones canónicas en el método de Hamilton se mantiene incluso cuando parte de su significado inicial. Puesto que las transformaciones (45.2) relacionan cada una de las magnitudes \(P_i, Q_i\) tanto a las coordenadas \(q\) como a los antiguos \(p\), no se pueden considerar las variables \(Q\) como coordenadas estrictamente espaciales, y la diferencia entre los dos grupos de variables \(p\) y \(Q\) se convierte esencialmente en cuestión de nomenclatura. Esto se ve muy claramente en la transformación
+\[
+Q_1 = p_1,\quad P_1 = -q_1,
+\]
+que evidentemente no cambia la forma canónica de las ecuaciones, y se reduce simplemente al intercambio de los nombres de las coordenadas y de los ímpetus.
+
+Teniendo en cuenta esta arbitrariedad de terminología, a las variables \(p\) y \(q\) en el método de Hamilton se les denomina habitualmente magnitudes canónicamente conjugadas. Las condiciones para que las variables sean canónicamente conjugadas pueden expresarse con ayuda de los paréntesis de Poisson. Demostremos primero un teorema general sobre la invarianza de los paréntesis de Poisson con respecto a las transformaciones canónicas.
+
+Sea \([f,g]_{p,q}\) el paréntesis de Poisson de las magnitudes \(f\) y \(g\), en el cual la diferenciación se hace respecto a las variables \(p\) y \(q\), y \([f,g]_{P,Q}\) el paréntesis de Poisson de las mismas magnitudes diferenciadas con respecto a las variables canónicas \(P\) y \(Q\). Entonces
+\begin{equation}
+[f,g]_{p,q} \;=\;[f,g]_{P,Q} \tag{45.9}
+\end{equation}
+Esta relación puede demostrarse por cálculo directo, empleando las fórmulas de las transformaciones canónicas; sin embargo, pueden evitarse estos cálculos mediante el razonamiento siguiente:
+
+Empecemos por observar que en las transformaciones canónicas (45.7) y (45.8), el tiempo aparece como un parámetro; por lo tanto, es suficiente demostrar el teorema (45.9) para magnitudes que no dependan explícitamente del tiempo. Consideremos ahora, de modo puramente formal, a la magnitud \(H\) como la hamiltoniana de un sistema ficticio; entonces, de la fórmula (42.1)
+\[
+\dot f \;=\;[f,H].
+\]
+La derivada \(\dot f/dt\) sólo puede depender de las propiedades del movimiento del sistema ficticio, y de la elección particular de las variables. De aquí que el paréntesis de Poisson \([\,,\,]\) sea inalterable por el paso de un conjunto de variables canónicas a otro.
+
+De las fórmulas (42.13) y del teorema (45.9) se tiene:
+\begin{equation}
+\{Q_i,Q_j\}_{p,q} = 0,\quad
+\{P_i,P_j\}_{p,q} = 0,\quad
+\{P_i,Q_j\}_{p,q} = \delta_{ij}
+\tag{45.10}
+\end{equation}
+Estas son las condiciones, expresadas en función de los paréntesis de Poisson, que deben satisfacer las nuevas variables para que la transformación \(q,p\to Q,P\) sea canónica.
+
+Es interesante observar que la variación de las magnitudes \(p,q\) durante el movimiento del sistema puede ser considerada por sí misma como una serie de transformaciones canónicas. El significado de esta afirmación es el siguiente: sean \(q_i,p_i\) dos variables canónicas conjugadas en el instante \(t\); sean también \(q_i',p_i'\) sus valores en el instante \(t+\tau\). Estas últimas son funciones de las primeras (y del valor \(t\) del intervalo como parámetro):
+\[
+q_i' = q_i(q,p,t),\quad
+p_i' = p_i(q,p,t).
+\]
+Si se consideran estas fórmulas como una transformación de las variables \(q_i,p_i\to q_i',p_i'\), entonces esta transformación será canónica; esto es evidente si se considera la expresión de la diferencia de la acción \(S\):
+\[
+\Delta S = \sum_i p_i\,dq_i - \sum_i p_i'\,dq_i',
+\]
+calculada a lo largo de la trayectoria real que pasa por los puntos \((q,p)\) en los instantes dados \(t\) y \(t+\tau\); cf. (43.7). La comparación de esta fórmula con (45.6) prueba que \(-S\) es la función generatriz de la transformación.
+
+\section*{\S\,46. Teorema de Liouville}
+\section*{\S\,46. Teorema de Liouville}
+
+\noindent Esta integral tiene la propiedad de ser invariante con respecto a las transformaciones canónicas, es decir, si las variables \(p,q\) se transforman canónicamente en las variables \(P,Q\), los volúmenes de las regiones correspondientes de los espacios \(p,q\) y \(P,Q\) serán los mismos:
+\begin{equation}
+\int\cdots\int dq_1\ldots dq_n\,dp_1\ldots dp_n
+=
+\int\cdots\int dQ_1\ldots dQ_n\,dP_1\ldots dP_n
+\tag{46.1}
+\end{equation}
+
+\noindent Como es sabido, la transformación de variables en una integral múltiple se realiza por la fórmula
+\[
+\int\cdots\int f(q_1,\dots,q_n,p_1,\dots,p_n)\,dq_1\ldots dq_n\,dp_1\ldots dp_n
+=
+\int\cdots\int D\,dq_1\ldots dq_n\,dp_1\ldots dp_n,
+\]
+en la que
+\begin{equation}
+D = \frac{\partial(Q_1,\dots,Q_n,P_1,\dots,P_n)}{\partial(q_1,\dots,q_n,p_1,\dots,p_n)}
+\tag{46.2}
+\end{equation}
+es el jacobiano de la transformación. Consecuentemente, la demostración del teorema (46.1) queda reducida a probar que el jacobiano de toda transformación canónica es igual a la unidad:
+\begin{equation}
+D = 1
+\tag{46.3}
+\end{equation}
+
+\noindent Haremos uso de la conocida propiedad de los jacobianos por la cual pueden ser tratados como si fuesen fracciones. Dividiendo numerador y denominador por
+\(\partial(q_1,\dots,q_n,P_1,\dots,P_n)\), se obtiene:
+\begin{equation}
+D
+=
+\frac{\partial(Q_1,\dots,Q_n,P_1,\dots,P_n)}
+     {\partial(q_1,\dots,q_n,P_1,\dots,P_n)}
+\;
+\frac{\partial(q_1,\dots,q_n,P_1,\dots,P_n)}
+     {\partial(q_1,\dots,q_n,p_1,\dots,p_n)}
+\tag{46.4}
+\end{equation}
+
+\noindent Otra propiedad de los jacobianos es que cuando las mismas magnitudes aparecen en el numerador y denominador, el jacobiano se reduce a otro con menor número de variables, y en el cual las magnitudes repetidas se consideran como constantes y salen fuera de los símbolos de derivación. De aquí que
+\[
+D
+=
+\left[\frac{\partial(Q_1,\dots,Q_n)}{\partial(q_1,\dots,q_n)}\right]_{P=\mathrm{cte}}
+\;
+\left[\frac{\partial(P_1,\dots,P_n)}{\partial(P_1,\dots,P_n)}\right]_{q=\mathrm{cte}}.
+\]
+
+\noindent El jacobiano del numerador es, por definición, un determinante de orden \(n\) cuyo elemento de la fila \(i\) y columna \(k\) es \(\partial Q_i/\partial q_k\). Representando la transformación canónica por la función generatriz \(\Phi(q,P,t)\) en la forma (45.8), se obtiene:
+\[
+\frac{\partial Q_i}{\partial q_k}
+=
+\frac{\partial^2\Phi}{\partial P_i\,\partial q_k}
+=
+\frac{\partial^2\Phi}{\partial q_k\,\partial P_i}
+=
+\frac{\partial p_k}{\partial P_i}.
+\]
+Análogamente se encuentra que el elemento de la fila \(i\) y columna \(k\) del determinante del denominador es \(\partial^2\Phi/\partial q_i\,\partial P_k\). Esto quiere decir que ambos determinantes sólo difieren en el intercambio de filas y columnas; por tanto serán iguales, de modo que el cociente (46.4) es igual a la unidad, como queríamos demostrar.
+
+\noindent Supongamos ahora que cada punto en la región considerada del espacio físico se mueve en el curso del tiempo de acuerdo con las ecuaciones de movimiento del sistema mecánico; la región también se moverá como un todo, sin que cambie su volumen:
+\begin{equation}
+\int d\Gamma = \mathrm{cte}
+\tag{46.5}
+\end{equation}
+
+\noindent Este resultado, conocido como teorema de Liouville, es consecuencia inmediata de la invariancia del volumen del espacio físico en las transformaciones canónicas, y del hecho de que la variación de \(p\) y \(q\) durante el movimiento puede ser considerada como una transformación canónica (como se ha demostrado al final de \S45).
+
+\noindent De modo análogo puede demostrarse la invariancia de las integrales
+\[
+\iint\sum_i q_i\,dp_i,\quad
+\iiint\sum_i q_i\,dq_i\,dp_i,\dots,
+\]
+en las que la integración se extiende a variedades bidimensionales, cuadrimensionales, etc., del espacio físico.
+
+\section*{\S\,47. Ecuación de Hamilton–Jacobi}
+
+\noindent Al considerar en \S43 la acción \(S\) como función de las coordenadas y del tiempo se ha demostrado que la derivada parcial respecto al tiempo de esta función \(S(q,t)\) está relacionada con la hamiltoniana por la expresión
+\[
+\frac{\partial S}{\partial t}
++
+H\Bigl(q_1,\dots,q_n;\tfrac{\partial S}{\partial q_1},\dots,\tfrac{\partial S}{\partial q_n};t\Bigr)
+=0,
+\]
+y que sus derivadas parciales con respecto a las coordenadas son los ímpetus. Sustituyendo entonces en la hamiltoniana los ímpetus \(p\) por las derivadas \(\partial S/\partial q\), se obtiene la ecuación:
+\begin{equation}
+\frac{\partial S}{\partial t}
++
+H\Bigl(q_1,\dots,q_n;\tfrac{\partial S}{\partial q_1},\dots,\tfrac{\partial S}{\partial q_n};t\Bigr)
+=0
+\tag{47.1}
+\end{equation}
+\section*{\S\,47. Ecuación de Hamilton–Jacobi}
+
+\noindent En un sistema con \(s\) grados de libertad, una integral completa de la ecuación de Hamilton–Jacobi debe contener \(s+1\) constantes arbitrarias. Como la función \(S\) sólo interviene en la ecuación por sus derivadas, una de dichas constantes será aditiva. Así, una integral completa tiene la forma
+\begin{equation}
+S = f\bigl(t,q_1,\dots,q_s;\alpha_1,\dots,\alpha_s\bigr)\,+\,A
+\tag{47.2}
+\end{equation}
+siendo \(\alpha_1,\dots,\alpha_s\) y \(A\) constantes arbitrarias.
+
+\noindent Para relacionar esta integral con la solución de las ecuaciones del movimiento, efectuemos una transformación canónica de las variables \(p,q\) a las nuevas variables \(\alpha,\beta\), tomando como función generatriz \(f(t,q;\alpha)\). Las nuevas coordenadas las llamamos \(\alpha_i\) y los nuevos ímpetus \(\beta_i\). Según las fórmulas (45.8),
+\[
+p_i = \frac{\partial f}{\partial q_i},\quad
+\beta_i = -\frac{\partial f}{\partial \alpha_i},\quad
+H' = H + \frac{\partial f}{\partial t}.
+\]
+Como \(f\) satisface la ecuación de Hamilton–Jacobi, \(\partial f/\partial t + H = 0\), resulta
+\[
+H' = H + \frac{\partial f}{\partial t} = 0.
+\]
+Por tanto las ecuaciones canónicas en las nuevas variables son
+\(\dot\alpha_i=0\), \(\dot\beta_i=0\), de modo que
+\begin{equation}
+\alpha_i = \text{cte.},\quad \beta_i = \text{cte.}
+\tag{47.3}
+\end{equation}
+
+\noindent Además, las \(s\) ecuaciones
+\begin{equation}
+\frac{\partial S}{\partial \alpha_i} = \beta_i
+\tag{47.4}
+\end{equation}
+permiten expresar las coordenadas \(q_i\) como funciones de \(t\), \(\alpha\) y \(\beta\). A su vez,
+\[
+p_i = \frac{\partial S}{\partial q_i}
+\]
+da los ímpetus en función del tiempo y de las constantes.
+
+\noindent Si se dispone sólo de una integral incompleta dependiente de menos de \(s\) constantes, no podrá obtenerse la solución general, pero sí simplificarse el problema. Por ejemplo, si \(S\) contiene una constante arbitraria \(a\), la relación
+\[
+\frac{\partial S}{\partial a} = \text{cte}
+\]
+genera una ecuación entre \(q_1,\dots,q_s\) y \(t\).
+
+\noindent En el caso conservativo (\(H\) no depende explícitamente de \(t\)), la acción se escribe
+\begin{equation}
+S = S_0(q_1,\dots,q_s)\;-\;E\,t
+\tag{47.5}
+\end{equation}
+y la ecuación (47.1) pasa a
+\begin{equation}
+H\bigl(q_1,\dots,q_s;\,\tfrac{\partial S_0}{\partial q_1},\dots,\tfrac{\partial S_0}{\partial q_s}\bigr)
+=E.
+\tag{47.6}
+\end{equation}
+
+\section*{\S\,48. Separación de variables}
+\section*{\S\,48. Separación de variables}
+
+\noindent En este caso se busca una solución en la forma de una suma
+\begin{equation}
+S = S'(q_{1},t) \;+\; S_{1}(q_{1})
+\tag{48.2}
+\end{equation}
+que sustituida en la ecuación (48.1) da
+\begin{equation}
+\phi\!\bigl(q_{1},t,\tfrac{\partial S'}{\partial q_{1}},
+\tfrac{\partial S'}{\partial t};\,\tfrac{dS_{1}}{dq_{1}}\bigr)
+=0.
+\tag{48.3}
+\end{equation}
+Supongamos que ha sido hallada la solución (48.2). Al sustituirla en (48.3), ésta se convierte en una identidad para todo \(q_{1}\). Para que así sea, deben cumplirse las dos ecuaciones
+\begin{align}
+\phi\!\bigl(q_{1},\tfrac{dS_{1}}{dq_{1}}\bigr)&=\alpha_{1},
+\tag{48.4}\\
+\phi\!\bigl(q_{1},t,\tfrac{\partial S'}{\partial q_{1}},
+\tfrac{\partial S'}{\partial t};\alpha_{1}\bigr)&=0,
+\tag{48.5}
+\end{align}
+donde \(\alpha_{1}\) es constante arbitraria. La primera de ellas permite obtener \(S_{1}(q_{1})\) por simple integración; la segunda es una EDP en menos variables.
+
+Si así se separan sucesivamente las \(s\) coordenadas y el tiempo, la integral completa de la ecuación de Hamilton–Jacobi se reduce a cuadraturas. Para un sistema conservativo, basta separar las \(s\) coordenadas en la ecuación (47.6) y se obtiene
+\begin{equation}
+S \;=\;\sum_{k=1}^{s}S_{k}\bigl(q_{k};\alpha_{1},\dots,\alpha_{s}\bigr)\;-\;E\,t
+\tag{48.6}
+\end{equation}
+donde cada \(S_{k}\) depende sólo de \(q_{k}\), y \(E\) se determina al sustituir \(S\) en (47.6).
+
+Un caso particular es la separación de una variable cíclica \(q_{j}\). Entonces  
+\(\phi(q_{j},\partial S/\partial q_{j})=\partial S/\partial q_{j}\)  
+y de (48.4) se obtiene  
+\begin{equation}
+S_{j}=\alpha_{j}\,q_{j},
+\tag{48.7}
+\end{equation}
+siendo \(\alpha_{j}=p_{j}\) constante. Obsérvese que el término \(-E\,t\) en (48.6) equivale a la separación de la variable cíclica \(t\).
+
+El método de separación engloba así tanto el uso de variables cíclicas como los casos en que, aun sin serlo, pueden separarse las coordenadas. A continuación, un ejemplo clásico:
+
+\paragraph{1. Coordenadas esféricas.}
+En \((r,\theta,\varphi)\) la hamiltoniana es
+\[
+H=\frac{1}{2m}\Bigl(p_{r}^{2}+\frac{p_{\theta}^{2}}{r^{2}}
++\frac{p_{\varphi}^{2}}{r^{2}\sin^{2}\theta}\Bigr)
++U(r,\theta,\varphi),
+\]
+y puede separarse si
+\[
+U(r,\theta,\varphi)=a(r)+\frac{b(\theta)}{r^{2}}
++\frac{c(\varphi)}{r^{2}\sin^{2}\theta}.
+\]
+Físicamente basta tomar
+\begin{equation}
+U(r,\theta)=a(r)+\frac{b(\theta)}{r^{2}}\,.
+\tag{48.8}
+\end{equation}
+La ecuación de Hamilton–Jacobi para \(S_{0}(r,\theta,\varphi)\) es
+\[
+\frac{1}{2m}\Bigl(\frac{\partial S_{0}}{\partial r}\Bigr)^{2}
++a(r)
++\frac{1}{2m\,r^{2}}\Bigl(\frac{\partial S_{0}}{\partial\theta}\Bigr)^{2}
++\frac{1}{2m\,r^{2}\sin^{2}\theta}\Bigl(\frac{\partial S_{0}}{\partial\varphi}\Bigr)^{2}
+=E.
+\]
+Como \(\varphi\) es cíclica, buscamos
+\[
+S_{0}=p_{\varphi}\,\varphi+S_{\theta}(\theta)+S_{r}(r),
+\]
+y obtenemos las ecuaciones separadas
+\[
+\Bigl(\frac{dS_{r}}{dr}\Bigr)^{2}
+=2m\bigl[E-a(r)\bigr]-\beta,
+\quad
+\Bigl(\frac{dS_{\theta}}{d\theta}\Bigr)^{2}
+=\beta-2m\,b(\theta)-\frac{p_{\varphi}^{2}}{\sin^{2}\theta},
+\]
+donde \(\beta\) es constante de separación. Su integración da finalmente
+\begin{equation}
+S=-E\,t
++ p_{\varphi}\,\varphi
++\int\sqrt{2m\bigl[E-a(r)\bigr]-\beta}\,dr
++\int\sqrt{\beta-2m\,b(\theta)-\frac{p_{\varphi}^{2}}{\sin^{2}\theta}}\,
+d\theta.
+\tag{48.9}
+\end{equation}
+Aquí las constantes libres son \(p_{\varphi}\) y \(\beta\); derivando respecto a ellas y fijando el resultado como nuevas constantes, se obtiene la solución general del movimiento.
+\subsection*{2. Coordenadas parabólicas}
+
+Se pasa de las coordenadas cilíndricas \((\rho,\varphi,z)\) a las parabólicas \(\xi,\eta,\varphi\) mediante las fórmulas:
+\begin{equation}
+z = \xi(\xi - \eta),\quad
+\rho = \sqrt{\xi\eta}
+\tag{48.10}
+\end{equation}
+Las coordenadas \(\xi\) y \(\eta\) pueden tomar valores de \(0\) a \(\infty\); las superficies \(\xi=\text{cte}\) y \(\eta=\text{cte}\) son dos familias de paraboloides de revolución (eje de simetría \(z\)). De (48.10) sigue
+\begin{equation}
+r=\sqrt{z^2+\rho^2}=\xi+\eta,
+\tag{48.11}
+\end{equation}
+de donde
+\begin{equation}
+\xi = r+z,\quad
+\eta = r - z.
+\tag{48.12}
+\end{equation}
+
+Derivando (48.10) respecto al tiempo y sustituyendo en
+\[
+L = \tfrac12 m\bigl(\dot\rho^2 + \rho^2\dot\varphi^2 + \dot z^2\bigr)-U(\rho,\varphi,z),
+\]
+se obtiene
+\begin{equation}
+L = \tfrac12 m\bigl((\xi+\eta)(\dot\xi^2+\dot\eta^2)+\xi\eta\,\dot\varphi^2\bigr)-U(\xi,\eta,\varphi).
+\tag{48.13}
+\end{equation}
+Los ímpetus son
+\[
+p_\xi = m(\xi+\eta)\dot\xi,\quad
+p_\eta = m(\xi+\eta)\dot\eta,\quad
+p_\varphi = m\,\xi\eta\,\dot\varphi,
+\]
+y la hamiltoniana resulta
+\begin{equation}
+H = \frac{p_\xi^2+p_\eta^2}{2m(\xi+\eta)}
++\frac{p_\varphi^2}{2m\,\xi\eta}
++U(\xi,\eta,\varphi).
+\tag{48.14}
+\end{equation}
+
+Los casos de interés para separación de variables aparecen con un potencial de la forma
+\begin{equation}
+U(\xi,\eta)=\frac{a(\xi)+b(\eta)}{\xi+\eta}.
+\tag{48.15}
+\end{equation}
+La ecuación de Hamilton–Jacobi
+\[
+\frac{1}{2m}\Bigl(\frac{(\partial S/\partial\xi)^2+(\partial S/\partial\eta)^2}{\xi+\eta}
++\frac{1}{\xi\eta}\bigl(\partial S/\partial\varphi\bigr)^2\Bigr)
++\frac{a(\xi)+b(\eta)}{\xi+\eta}
+=E
+\]
+con \(\partial S/\partial\varphi=p_\varphi\) cíclica. Multiplicando por \(2m(\xi+\eta)\) y reagrupando:
+\[
+2\xi\Bigl(\frac{\partial S}{\partial\xi}\Bigr)^2 + m\,a(\xi)-mE\,\xi + \frac{p_\varphi^2}{\xi}
+\;+\;
+2\eta\Bigl(\frac{\partial S}{\partial\eta}\Bigr)^2 + m\,b(\eta)-mE\,\eta + \frac{p_\varphi^2}{\eta}
+=0.
+\]
+Al separar las variables quedan dos ecuaciones
+\[
+2\xi\Bigl(\frac{dS_\xi}{d\xi}\Bigr)^2 + m\,a(\xi)-mE\,\xi + \frac{p_\varphi^2}{\xi} = \beta,
+\quad
+2\eta\Bigl(\frac{dS_\eta}{d\eta}\Bigr)^2 + m\,b(\eta)-mE\,\eta + \frac{p_\varphi^2}{\eta} = -\beta.
+\]
+Su integración da finalmente
+\begin{equation}
+S = -E\,t + p_\varphi\,\varphi
++\int \sqrt{\frac{\beta - m\,a(\xi) + mE\,\xi - \tfrac{p_\varphi^2}{\xi}}{2\,\xi}}\;d\xi
++\int \sqrt{\frac{-\beta - m\,b(\eta) + mE\,\eta - \tfrac{p_\varphi^2}{\eta}}{2\,\eta}}\;d\eta.
+\tag{48.16}
+\end{equation}
+\noindent La hamiltoniana es
+\begin{equation}
+H = \frac{1}{2m\sigma^{2}(\xi^{2}-\eta^{2})}
+\Bigl[
+(\xi^{2}-1)\,p_{\xi}^{2} + (1-\eta^{2})\,p_{\eta}^{2}
++ \Bigl(\frac{1}{\xi^{2}-1} + \frac{1}{1-\eta^{2}}\Bigr)\,p_{\varphi}^{2}
+\Bigr]
++ U(\xi,\eta,\varphi)
+\tag{48.20}
+\end{equation}
+
+\noindent Los casos físicamente interesantes de separación de variables corresponden a un potencial de la forma
+\begin{equation}
+U(\xi,\eta)
+= \frac{a(\xi)+b(\eta)}{\xi^{2}-\eta^{2}}
+= \frac{\sigma^{2}}{\xi^{2}-\eta^{2}}
+\Bigl[
+a\!\bigl(\tfrac{\xi+\eta}{2\sigma}\bigr)
++ b\!\bigl(\tfrac{\xi-\eta}{2\sigma}\bigr)
+\Bigr]
+\tag{48.21}
+\end{equation}
+
+\noindent De este modo, la separación de variables en la ecuación de Hamilton–Jacobi conduce a
+\begin{equation}
+S = -E\,t + p_{\varphi}\,\varphi
++ \int 
+\sqrt{
+\frac{2m\sigma^{2}E + \beta - 2m\sigma^{2}a(\xi)}{\xi^{2}-1}
+- \frac{p_{\varphi}^{2}}{(\xi^{2}-1)^{2}}
+}
+\,d\xi
++ \int 
+\sqrt{
+\frac{2m\sigma^{2}E - \beta + 2m\sigma^{2}b(\eta)}{1-\eta^{2}}
+- \frac{p_{\varphi}^{2}}{(1-\eta^{2})^{2}}
+}
+\,d\eta.
+\tag{48.22}
+\end{equation}
+
+\paragraph*{Problemas}
+
+1. Hallar una integral completa de la ecuación de Hamilton–Jacobi para el movimiento de una partícula en un campo  
+\[
+U = -\frac{\alpha}{r}\;-\;F\,z
+\]
+(superposición de un campo coulombiano y de un campo uniforme).\noindent La hamiltoniana es
+\begin{equation}
+H = \frac{1}{2m\sigma^{2}(\xi^{2}-\eta^{2})}
+\Bigl[
+(\xi^{2}-1)\,p_{\xi}^{2} + (1-\eta^{2})\,p_{\eta}^{2}
++ \Bigl(\frac{1}{\xi^{2}-1} + \frac{1}{1-\eta^{2}}\Bigr)\,p_{\varphi}^{2}
+\Bigr]
++ U(\xi,\eta,\varphi)
+\tag{48.20}
+\end{equation}
+
+\noindent Los casos físicamente interesantes de separación de variables corresponden a un potencial de la forma
+\begin{equation}
+U(\xi,\eta)
+= \frac{a(\xi)+b(\eta)}{\xi^{2}-\eta^{2}}
+= \frac{\sigma^{2}}{\xi^{2}-\eta^{2}}
+\Bigl[
+a\!\bigl(\tfrac{\xi+\eta}{2\sigma}\bigr)
++ b\!\bigl(\tfrac{\xi-\eta}{2\sigma}\bigr)
+\Bigr]
+\tag{48.21}
+\end{equation}
+
+\noindent De este modo, la separación de variables en la ecuación de Hamilton–Jacobi conduce a
+\begin{equation}
+S = -E\,t + p_{\varphi}\,\varphi
++ \int 
+\sqrt{
+\frac{2m\sigma^{2}E + \beta - 2m\sigma^{2}a(\xi)}{\xi^{2}-1}
+- \frac{p_{\varphi}^{2}}{(\xi^{2}-1)^{2}}
+}
+\,d\xi
++ \int 
+\sqrt{
+\frac{2m\sigma^{2}E - \beta + 2m\sigma^{2}b(\eta)}{1-\eta^{2}}
+- \frac{p_{\varphi}^{2}}{(1-\eta^{2})^{2}}
+}
+\,d\eta.
+\tag{48.22}
+\end{equation}
+
+\paragraph*{Problemas}
+
+1. Hallar una integral completa de la ecuación de Hamilton–Jacobi para el movimiento de una partícula en un campo  
+\[
+U = -\frac{\alpha}{r}\;-\;F\,z
+\]
+(superposición de un campo coulombiano y de un campo uniforme).
+
+\section*{\S\,49. Invariantes adiabáticos}
+
+\noindent Sea \(H(p,q;\lambda)\) la hamiltoniana del sistema que depende del parámetro \(\lambda\). De acuerdo con (40.5), la derivada total de la energía con respecto al tiempo es
+\[
+\frac{dE}{dt}
+=
+\frac{\partial H}{\partial t}
+=
+\frac{\partial H}{\partial \lambda}\,\frac{d\lambda}{dt}.
+\]
+Tomemos el valor medio de esta ecuación durante un período del movimiento; dado que \(\lambda\) (y por consiguiente \(\dot\lambda\)) varía lentamente, no es necesario promediar \(\dot\lambda\):
+\[
+\frac{d\overline E}{dt}
+=
+\frac{d\lambda}{dt}\Bigl\langle\frac{\partial H}{\partial \lambda}\Bigr\rangle.
+\]
+En la función \(\partial H/\partial\lambda\) que se promedia podemos considerar como variables únicamente \(p\) y \(q\), es decir, como si el movimiento tuviese lugar con \(\lambda\) constante.
+
+Puesto que \(\dot q=\partial H/\partial p\), se tiene
+\[
+dt=\frac{dq}{\dot q}
+=\frac{dq}{\partial H/\partial p},
+\]
+y el período puede expresarse como
+\[
+T=\int_{0}^{T}dt
+=\oint\frac{dq}{\partial H/\partial p}.
+\]
+Por tanto,
+\begin{equation}
+\frac{d\overline E}{dt}
+=
+\frac{d\lambda}{dt}\,
+\frac{\displaystyle\oint\frac{\partial H}{\partial\lambda}\,dq}
+     {\displaystyle\oint\frac{\partial H}{\partial p}\,dq}
+\tag{49.2}
+\end{equation}
+
+\noindent A lo largo de la trayectoria, \(H=E\) es constante, y \(p=p(q;E,\lambda)\). Derivando \(H(p,q;\lambda)=E\) respecto de \(\lambda\) se obtiene
+\[
+\frac{\partial H}{\partial \lambda}
++
+\frac{\partial H}{\partial p}\,\frac{\partial p}{\partial \lambda}
+=0.
+\]
+Sustituyendo en el numerador de (49.2) y escribiendo el denominador como \(\oint(\partial p/\partial E)\,dq\), resulta
+\[
+\frac{d\overline E}{dt}
+=
+\frac{d\lambda}{dt}\,
+\frac{-\displaystyle\oint\frac{\partial H}{\partial p}\,
+                  \frac{\partial p}{\partial \lambda}\,dq}
+     {\displaystyle\oint\frac{\partial p}{\partial E}\,dq},
+\]
+o equivalentemente
+\[
+\oint\Bigl(\frac{\partial p}{\partial E}\,\frac{d\overline E}{dt}
+          -\frac{\partial p}{\partial \lambda}\,\frac{d\lambda}{dt}\Bigr)\,dq
+=0.
+\]
+Finalmente, esta igualdad puede escribirse
+\begin{equation}
+\frac{dI}{dt}=0,
+\tag{49.4}
+\end{equation}
+siendo
+\begin{equation}
+I=\frac{1}{2\pi}\oint p\,dq.
+\tag{49.5}
+\end{equation}
+La magnitud \(I\) permanece constante cuando varía lentamente \(\lambda\), por lo que se denomina invariante adiabático. Además,
+\begin{equation}
+2\pi\frac{\partial I}{\partial E}
+=\oint\frac{\partial p}{\partial E}\,dq
+=T.
+\tag{49.6}
+\end{equation}
+% Transcripción a LaTeX de §49 y §50 con numeración original
+
+\section*{Invariante adiabático para un oscilador lineal}
+
+Definimos
+\[
+I = \frac{1}{2\pi}\oint p\,dq.
+\]
+Como ejemplo, determinemos el invariante adiabático para un oscilador lineal. Su hamiltoniana es
+\[
+H = \frac{p^2}{2m} + \frac{1}{2}\,m\omega^2 q^2.
+\]
+Siendo \(\omega\) la frecuencia propia del oscilador. La ecuación de la trayectoria física está dada por la ley de conservación de la energía \(H(p,q)=E\); es una elipse de semiejes \(\sqrt{2mE}\) y \(\sqrt{2E/(m\omega^2)}\), y su área, dividida por \(2\pi\), es
+\[
+I = \frac{E}{\omega}
+\tag{49.7}
+\]
+La invariancia adiabática de esta magnitud significa que, cuando los parámetros del oscilador varían lentamente, la energía es proporcional a la frecuencia. Las ecuaciones del movimiento de un sistema cerrado con parámetros constantes pueden volver a formularse en función de \(I\). Efectuemos una transformación canónica de las variables \(p,q\), tomando \(I\) como nueva “impulsa”; la función generatriz es la acción abreviada \(S_0\), expresada como función de \(q\) e \(I\). Puesto que \(S_0\) está definida para una energía dada del sistema, y en un sistema cerrado \(I\) sólo es función de la energía, \(S_0\) puede escribirse también como una función \(S(q,I)\). La derivada parcial \(\bigl(\partial S_0/\partial q\bigr)_E\) coincide con la derivada \(\bigl(\partial S/\partial q\bigr)_I\). En consecuencia,
+\[
+p = \frac{\partial S_0(q,E)}{\partial q}
+  = \frac{\partial S(q,I)}{\partial q}
+\tag{49.8}
+\]
+lo que corresponde a la primera de las fórmulas para una transformación canónica. La segunda nos da la nueva “coordenada” que designamos por \(\omega\):
+\[
+\omega = \frac{\partial S_0(q,E)}{\partial E}
+        = \frac{\partial S(q,I)}{\partial I}
+\tag{49.9}
+\]
+Las variables \(I\) y \(\omega\) se llaman variables canónicas: \(I\) es la variable acción y \(\omega\) la variable angular.
+
+Puesto que la función generatriz \(S(q,I)\) no depende explícitamente del tiempo, la nueva hamiltoniana \(H'\) coincide con la antigua \(H\) expresada en las nuevas variables. En otras palabras, \(H'\) representa la energía \(E(I)\) en función de la acción. Así, las ecuaciones de Hamilton son
+\[
+\dot I = 0,\quad
+\dot \omega = \frac{dE}{dI}
+\tag{49.10}
+\]
+La primera da \(I=\mathrm{cte.}\). De la segunda se deduce que la variable angular es lineal en \(t\):
+\[
+\omega = \frac{dE}{dI}\,t + \mathrm{cte.}
+\tag{49.11}
+\]
+La acción \(S(q,I,t)\) es multiforme en las coordenadas. Tras cada período aumenta en
+\[
+\Delta S_0 = 2\pi I
+\tag{49.12}
+\]
+y, al mismo tiempo, la variable angular se incrementa en
+\[
+\Delta\omega
+= \omega\,\Delta\bigl(\partial S_0/\partial I\bigr)
+= \Delta\bigl(\Delta S_0/\Delta I\bigr)
+= 2\pi
+\tag{49.13}
+\]
+Cualquier función uniforme \(F(p,q)\) expresada en variables canónicas es periódica en \(\omega\) de período \(2\pi\).
+
+\section*{§50 Propiedades generales del movimiento en el espacio}
+
+Consideremos un sistema con varios grados de libertad y movimiento finito en cada coordenada. Si el problema admite separación completa por Hamilton–Jacobi, la acción reducida se descompone:
+\[
+S_0 = \sum_i S_i(q_i)
+\tag{50.1}
+\]
+cada término depende de una sola coordenada. Los ímpetus generalizados son
+\[
+p_i = \frac{\partial S_0}{\partial q_i}
+    = \frac{dS_i}{dq_i}.
+\]
+% Continuación de §50
+
+Estas funciones no son uniformes. Como el movimiento del sistema es finito, cada coordenada sólo puede describir un intervalo finito, y cuando las \(q_i\) varían “ida y vuelta” en ese intervalo, la acción aumenta en
+\[
+\Delta S_i = \Delta S_{0,i} = 2\pi I_i
+\tag{50.3}
+\]
+siendo
+\[
+I_i = \frac{1}{2\pi}\oint p_i\,dq_i
+\tag{50.4}
+\]
+extendida la integral a la mencionada variación de \(q_i\).
+
+Realicemos ahora una transformación canónica análoga a la considerada en §49 para el caso de un solo grado de libertad. Las nuevas variables son las variables de acción \(I_i\) y las variables angulares
+\[
+w_i = \frac{\partial S(q,I)}{\partial I_i}
+\tag{50.5}
+\]
+donde la función generatriz \(S(q,I)\) es la acción abreviada expresada en función de las \(q_i\) y los \(I_i\). Las ecuaciones del movimiento en estas variables dan
+\[
+\dot I_i = 0,\quad
+\dot w_i = \frac{\partial E(I)}{\partial I_i}
+\]
+luego,
+\[
+I_i = \text{cte.}
+\tag{50.6}
+\]
+\[
+w_i = \frac{\partial E(I)}{\partial I_i}\,t + \text{cte.}
+\tag{50.7}
+\]
+También encontramos, análogamente a (49.13), que una variación completa (“ida y vuelta”) de la coordenada \(q_i\) corresponde a un cambio de \(2\pi\) en \(w_i\):
+\[
+\Delta w_i = 2\pi
+\tag{50.8}
+\]
+
+De aquí se deduce que cualquier función uniforme \(F(p,q)\) del estado del sistema, cuando se expresa en variables canónicas, es una función periódica de las variables angulares de período \(2\pi\) respecto de cada una de ellas. Puede, por lo tanto, ser desarrollada en serie múltiple de Fourier
+\[
+F = \sum_{l_1=-\infty}^{\infty}\cdots\sum_{l_n=-\infty}^{\infty}
+    A_{l_1,\dots,l_n}(I)\,\exp\bigl[i(l_1w_1+\dots+l_nw_n)\bigr]
+\tag{50.9}
+\]
+(donde \(l_1,\dots,l_n\) son números enteros). Sustituyendo las variables angulares por sus expresiones en función del tiempo se obtiene
+\[
+F = \sum_{l_1,\dots,l_n}
+    A_{l_1,\dots,l_n}(I)\,
+    \exp\!\Bigl[i\bigl(l_1\dot w_1+\dots+l_n\dot w_n\bigr)t\Bigr]
+  = \sum_{l_1,\dots,l_n}
+    A_{l_1,\dots,l_n}(I)\,
+    \exp\!\Bigl[i(l_1\partial E/\partial I_1+\dots+l_n\partial E/\partial I_n)\,t\Bigr]
+\tag{50.10}
+\]
+Cada término de esta suma es una función periódica del tiempo de frecuencia
+\[
+\omega_{l} = \bigl|l_1\partial E/\partial I_1+\dots+l_n\partial E/\partial I_n\bigr|
+\tag{50.11}
+\]
+Como en general estas frecuencias no son conmensurables, la suma no es periódica estricta, ni lo son las coordenadas \(q\) ni los ímpetus \(p\). El sistema es en general casi periódico (condicionalmente periódico).
+
+En casos particulares, si dos (o más) de las frecuencias fundamentales
+\(\omega_i=\partial E/\partial I_i\)
+son conmensurables para valores arbitrarios de \(I\), hablamos de degeneración. Si las \(n\) frecuencias son conmensurables el movimiento es completamente degenerado y las trayectorias son cerradas. La existencia de degeneración implica una reducción del número de magnitudes independientes \(I_i\). Por ejemplo, si
+\[
+m_i\,\frac{\partial E}{\partial I_i}
+  = m_j\,\frac{\partial E}{\partial I_j},
+\tag{50.12}
+\]
+con \(m_i,m_j\in\mathbb{Z}\), entonces hay sólo \(n-1\) acciones independientes.
+% Continuación de §50
+
+Donde \(n_1\) y \(n_2\) son números enteros, se deduce que \(I_1\) e \(I_2\) sólo aparecen en la energía en forma de la suma \(n_1I_1 + n_2I_2\).
+
+Una particularidad muy importante del movimiento degenerado es el aumento del número de integrales uniformes respecto al caso no degenerado (con igual número de grados de libertad). En éste, de las \(n-1\) integrales sólo \(s\) son uniformes —por ejemplo, las magnitudes \(I_\nu\)— y las \(s-1\) restantes pueden escribirse como las diferencias
+\[
+\omega_{s2}\,\frac{\partial E}{\partial I_1}
+- \omega_{s1}\,\frac{\partial E}{\partial I_2}
+\tag{50.13}
+\]
+La constancia de estas cantidades se sigue de (50.7), pero no son uniformes porque las variables angulares no lo son.
+
+En los casos de degeneración, la situación cambia. Según (50.12), aunque la combinación
+\[
+\omega_{2}l_2 \;=\;\omega_{2}l_1
+\tag{50.14}
+\]
+no sea uniforme, su no uniformidad sólo consiste en sumar un múltiplo arbitrario de \(2\pi\). Basta entonces tomar una función trigonométrica de dicha magnitud para obtener una nueva integral uniforme.
+
+Como ejemplo, en el campo \(U=-e/r\) aparece, además de las dos integrales usuales (momento angular \(M\) y energía \(E\)), una nueva integral uniforme característica de este potencial central.
+
+Si ahora introducimos un parámetro \(\lambda\) y hacemos que la función generatriz \(S(q,I;\lambda)\) dependa de \(\lambda\) (y, si \(\lambda=\lambda(t)\), explícitamente del tiempo), la nueva hamiltoniana
+\[
+H' \;=\;E(I)\;+\;\dot\lambda\,\Lambda,
+\qquad
+\Lambda = \frac{\partial S}{\partial \lambda}
+\]
+no coincide con \(H\). De las ecuaciones de Hamilton resulta
+\[
+\dot I_i \;=\; -\frac{\partial H'}{\partial w_i}
+\;=\; -\frac{\partial\Lambda}{\partial w_i}\,\dot\lambda.
+\tag{50.15}
+\]
+Si tomamos el valor medio sobre muchos períodos fundamentales, \(\langle\partial\Lambda/\partial w_i\rangle=0\) y, por tanto, \(\dot I_i=0\). Esto demuestra la invariancia adiabática de las \(I_i\).
+
+Con esto concluimos las propiedades generales del movimiento casi periódico en sistemas finitos de \(s\) grados de libertad.````% Continuación de §50
+
+Donde \(n_1\) y \(n_2\) son números enteros, se deduce que \(I_1\) e \(I_2\) sólo aparecen en la energía en forma de la suma \(n_1I_1 + n_2I_2\).
+
+Una particularidad muy importante del movimiento degenerado es el aumento del número de integrales uniformes respecto al caso no degenerado (con igual número de grados de libertad). En éste, de las \(n-1\) integrales sólo \(s\) son uniformes —por ejemplo, las magnitudes \(I_\nu\)— y las \(s-1\) restantes pueden escribirse como las diferencias
+\[
+\omega_{s2}\,\frac{\partial E}{\partial I_1}
+- \omega_{s1}\,\frac{\partial E}{\partial I_2}
+\tag{50.13}
+\]
+La constancia de estas cantidades se sigue de (50.7), pero no son uniformes porque las variables angulares no lo son.
+
+En los casos de degeneración, la situación cambia. Según (50.12), aunque la combinación
+\[
+\omega_{2}l_2 \;=\;\omega_{2}l_1
+\tag{50.14}
+\]
+no sea uniforme, su no uniformidad sólo consiste en sumar un múltiplo arbitrario de \(2\pi\). Basta entonces tomar una función trigonométrica de dicha magnitud para obtener una nueva integral uniforme.
+
+Como ejemplo, en el campo \(U=-e/r\) aparece, además de las dos integrales usuales (momento angular \(M\) y energía \(E\)), una nueva integral uniforme característica de este potencial central.
+
+Si ahora introducimos un parámetro \(\lambda\) y hacemos que la función generatriz \(S(q,I;\lambda)\) dependa de \(\lambda\) (y, si \(\lambda=\lambda(t)\), explícitamente del tiempo), la nueva hamiltoniana
+\[
+H' \;=\;E(I)\;+\;\dot\lambda\,\Lambda,
+\qquad
+\Lambda = \frac{\partial S}{\partial \lambda}
+\]
+no coincide con \(H\). De las ecuaciones de Hamilton resulta
+\[
+\dot I_i \;=\; -\frac{\partial H'}{\partial w_i}
+\;=\; -\frac{\partial\Lambda}{\partial w_i}\,\dot\lambda.
+\tag{50.15}
+\]
+Si tomamos el valor medio sobre muchos períodos fundamentales, \(\langle\partial\Lambda/\partial w_i\rangle=0\) y, por tanto, \(\dot I_i=0\). Esto demuestra la invariancia adiabática de las \(I_i\).
+
+Con esto concluimos las propiedades generales del movimiento casi periódico en sistemas finitos de \(s\) grados de libertad.
+
+\subsection*{Problema}
+
+Calcular las variables acción para un movimiento elíptico en un campo \(U=-\alpha/r\).
+
+Solución. En coordenadas polares \((r,\varphi)\) en el plano del movimiento se tiene
+
+\[
+I_{\varphi}
+= \frac{1}{2\pi}\oint p_{\varphi}\,d\varphi
+= M
+\tag{50.16}
+\]
+
+\[
+I_{r}
+= \frac{1}{2\pi}\oint p_{r}\,dr
+= \frac{1}{\pi}\int_{r_{\min}}^{r_{\max}}
+    \sqrt{2m\Bigl(E+\frac{\alpha}{r}\Bigr)-\frac{M^{2}}{r^{2}}}\;dr
+= -M + \alpha\sqrt{\frac{m}{2E}}
+\tag{50.17}
+\]
+
+De donde resulta que la energía expresada en función de las variables acción es
+
+\[
+E = -\frac{m\,\alpha^{2}}{2\,(I_{r}+I_{\varphi})^{2}}
+\tag{50.18}
+\]
+
+Depende solamente de la suma \(I = I_{r}+I_{\varphi}\), lo que significa que el movimiento es degenerado: las dos frecuencias fundamentales (respecto a \(r\) y \(\varphi\)) coinciden.
+
+Los parámetros \(\rho\) y \(e\) de la órbita (véase (15.4)) se expresan en función de \(I_{r}\) e \(I_{\varphi}\) por
+
+\[
+\rho = \frac{I_{\varphi}^{2}}{m\,\alpha},
+\quad
+e^{2} = 1 - \frac{I_{\varphi}}{I_{r}+I_{\varphi}}
+\tag{50.19}
+\]
+
+Como consecuencia de la invariancia adiabática de \(I_{r}\) e \(I_{\varphi}\), la excentricidad de la órbita permanece constante cuando \(\alpha\) o \(m\) varían lentamente, y sus dimensiones varían en proporción inversa a \(m\) y \(\alpha\).
+
+\subsection*{Problemas generales}
+\begin{enumerate}
+  \item Demuestre la identidad de Jacobi (42.14).
+  \item Use la identidad de Jacobi y otras propiedades de los corchetes de Poisson para probar que si \(p_y\) y \(l_z\) son constantes, también lo es \(p_x\); y que si \(l_x\) y \(l_y\) son constantes, también lo es \(l_z\).
+  \item Deduza la fórmula
+    \[
+      \{f,\;l_i\} \;=\;\hat u_i\times f,
+    \]
+    donde \(l_i\) (para \(i=x,y,z\)) son las componentes del momento angular y \(f\) una variable dinámica vectorial.
+  \item Para un vector constante \(\mathbf b\) y las componentes \(r_i,p_i,l_i\) de posición, momento y momento angular, calcule
+    \[
+      \{\mathbf l,\;\mathbf r\cdot\mathbf p\},\quad
+      \{\mathbf p,\;r^n\},\quad
+      \{\mathbf p,\;(\mathbf b\cdot\mathbf r)^2\}.
+    \]
+  \item Considere el vector de Laplace–Runge–Lenz
+    \[
+      \mathbf A = \mathbf l\times\mathbf v \;+\;\alpha\,\frac{\mathbf r}{r},
+    \]
+    constante de movimiento del problema de Kepler. Resuelva el problema 10.26 de Serbo–Kotkin relativo a este vector.
+  \item Considere una partícula con coordenadas \(\mathbf r=(x,y,z)\) en un sistema de referencia espacial. Halle la ecuación de Hamilton–Jacobi en un sistema de coordenadas rotante alrededor del eje \(z\).
+  \item Halle y resuelva la ecuación de Hamilton–Jacobi para un oscilador armónico tridimensional con frecuencias \(\omega_x,\omega_y,\omega_z\) diferentes.
+  \item Halle y resuelva la ecuación de Hamilton–Jacobi para un oscilador armónico tridimensional en coordenadas esféricas. Exprese la solución \(r(t)\), \(\theta(t)\), \(\varphi(t)\) y los momentos conjugados usando variables acción–ángulo.
+  \item Calcule la acción como función de las coordenadas para una partícula libre en tres dimensiones. Compruebe que coincide con la función generatriz de la transformación canónica de evolución temporal y escriba dicha transformación.
+  \item Calcule la acción para una partícula en caída libre como función de las coordenadas. Compruebe que coincide con el generador de la transformación canónica de evolución temporal e implemente dicha transformación.
+  \item Considere el movimiento de “tiro parabólico” desde el suelo y desde un ascensor que se mueve hacia arriba con aceleración \(g\). Realice la transformación de coordenadas entre ambos sistemas y halle los hamiltonianos correspondientes.
+  \item Considere un sistema de fuerzas centrales de su elección. Resuelva la ecuación de Hamilton–Jacobi y halle la transformación canónica generada.
+  \item Realice los detalles del problema 2 de la sección 40.
+  \item Realice los detalles del problema de la sección 50.
+  \item ¿A qué velocidad debe moverse un observador hacia una estrella para que la mitad de la luz emitida esté concentrada en un cono de ángulo \(0.01\)\,rad? Puede aproximarse \(\cos\theta\approx1-\theta^2/2\).
+  \item Considere el lagrangiano
+    \[
+      L = -mc^2\sqrt{1-\frac{v^2}{c^2}} \;-\; \mathbf a\cdot\mathbf v,
+    \]
+    con \(\mathbf a\) constante. Halle el hamiltoniano y la ecuación de Hamilton–Jacobi.
+  \item La ecuación de Schrödinger para una partícula libre en una dimensión es
+    \[
+      -\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} \;=\; E\,\psi.
+    \]
+    Se acostumbra escribir \(E=\hbar^2k^2/(2m)\). Como cualquier función compleja, \(\psi\) se puede escribir
+    \[
+      \psi(x) = \exp\!\bigl(i\,\Sigma(x)/\hbar\bigr),
+    \]
+    donde \(\Sigma\) es real. Suponiendo que el problema admite considerar que \(\hbar\) es “pequeña”, expanda \(\Sigma\) en potencias de \(\hbar\):
+    \[
+      \Sigma = \Sigma_0 + \frac{\hbar}{i}\,\Sigma_1 + \Bigl(\frac{\hbar}{i}\Bigr)^2 \Sigma_2 + \cdots.
+    \]
+    Muestre que el término de orden cero, \(\Sigma_0\), satisface la ecuación de Hamilton–Jacobi. Resuelva dicha ecuación y obtenga la función de onda \(\psi\) en esta aproximación, comprobando que describe una “onda plana”.
+  \item Considere un sistema formado por \(N\) partículas, de masas \(m_i\), cuyas posiciones y velocidades son \(\mathbf{r}_i\) y \(\mathbf{v}_i\), para \(i=1,2,\dots,N\). Defina un conjunto \(q=\{q_1,q_2,\dots,q_{3N}\}\) de \(3N\) coordenadas generalizadas por
+    \[
+      q_1 = x_1\sqrt{m_1},\quad
+      q_2 = y_1\sqrt{m_1},\quad
+      q_3 = z_1\sqrt{m_1},\quad
+      q_4 = x_2\sqrt{m_2},\;\dots,\;
+      q_{3N} = z_N\sqrt{m_N}.
+    \]
+    Defina la distancia infinitesimal en el espacio de configuración \(3N\)-dimensional como
+    \[
+      ds^2 = \sum_{i=1}^{3N} dq_i^2.
+    \]
+    Demuestre que la acción de Hamilton (ecuación 44.4) está dada por
+    \[
+      S_0 \;=\; \int \sqrt{2T}\,ds,
+    \]
+    donde \(T\) es la energía cinética del sistema de partículas.
+  \item Escriba la acción del campo electromagnético
+    \[
+      S_F = -\frac{1}{16\pi c}\int F_{ik}F^{ik}\,d\Omega,
+    \]
+    y, de \(\delta S_F=0\), deduzca el segundo par de ecuaciones de Maxwell en ausencia de cargas y corrientes.
+  \item Considere una esfera de acero que rebota elásticamente entre dos paredes verticales paralelas sin fricción. Evalúe numéricamente la variable de acción y exprese el resultado en unidades de \(\hbar\), dado \(\hbar=1.05\times10^{-34}\,\mathrm{J\,s}\). Discuta la extensión a un régimen no clásico.
+  \item Considere una esfera de acero que salta sobre una placa horizontal sin fricción. Evalúe numéricamente la variable de acción y exprese el resultado en unidades de \(\hbar\). Discuta la adaptación no clásica.
+  \item Demuestre
+    \[
+      \{\mathbf{p},\,l^2\} \;=\; 2\,\mathbf{l}\times\mathbf{p},
+    \]
+    donde
+    \[
+      l^2 = l_x^2 + l_y^2 + l_z^2
+    \]
+    es la magnitud al cuadrado del momento angular de una partícula, 
+    \(\mathbf{p}\) es el momento y \(\{\cdot,\cdot\}\) denota el corchete de Poisson.
+  \item Considere el conjunto de todas las transformaciones canónicas. Suponga que están 
+    definidas mediante funciones generatrices del tipo \(F\). Es decir,
+    \[
+      F_1(q,Q,t)\;\text{define la TC}\;(q,p)\to(Q,P), 
+      \quad
+      F_2(Q,\bar Q,t)\;\text{define la TC}\;(Q,P)\to(\bar Q,\bar P), 
+    \]
+    \[
+      F_3(\bar Q,\bar{\bar Q},t)\;\text{define la TC}\;(\bar Q,\bar P)\to(\bar{\bar Q},\bar{\bar P}), 
+      \;\dots
+    \]
+    Demuestre que ese conjunto tiene las propiedades de un grupo:
+    \begin{enumerate}
+      \item[(a)] Ley de composición interna: la realización sucesiva de dos TC equivale a una TC.
+      \item[(b)] Existe la TC identidad (encuéntrela).
+      \item[(c)] Cada TC tiene una TC inversa (encuéntrela).
+      \item[(d)] Se cumple la propiedad asociativa.
+    \end{enumerate}
+
+  \item Calcule la acción para una partícula en caída libre como función de las coordenadas. 
+    Compruebe que coincide con el generador de la transformación canónica de evolución temporal 
+    e implemente dicha transformación.
+\end{enumerate}
+
 
 \section{Teoría Clásica de Campos}
 \subsection{Ejercicio 1: Campo Escalar}
