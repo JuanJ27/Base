@@ -1,0 +1,607 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{braket}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{bookmark}
+\usepackage[left=2cm,right=2cm,top=2cm,bottom=2cm]{geometry}
+
+\title{Unidad 3: Momento Angular, Rotaciones y Rotadores Rígidos}
+\author{Juan Montoya}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\section*{Resumen de conceptos clave}
+\begin{itemize}
+	\item \textbf{Operadores de momento angular:} Los componentes $J_x,J_y,J_z$ cumplen
+	$[J_i,J_j]=i\hbar\,\varepsilon_{ijk}J_k$ y $\mathbf{J}^2=J_x^2+J_y^2+J_z^2$ conmuta con cada $J_i$.
+	Los autoestados simultáneos de $\mathbf{J}^2$ y $J_z$ se denotan $\ket{j,m}$, con
+	autovalores $\hbar^2 j(j+1)$ y $\hbar m$ ($m=-j,\dots,j$).
+
+	\item \textbf{Rotador rígido simétrico:} Para un tope simétrico con momentos de inercia $I_\perp=I_1=I_2$ e $I_3$,
+	el Hamiltoniano puede escribirse $H=\dfrac{\mathbf{J}^2}{2I_\perp}+\Big(\dfrac{1}{2I_3}-\dfrac{1}{2I_\perp}\Big)J_3^2$.
+	Los autoestados pueden elegirse comunes a $\mathbf{J}^2$ y $J_3$ (eje intrínseco), y presentan degeneraciones características.
+	En el caso esférico ($I_\perp=I_3$) los niveles dependen solo de $j$ y tienen degeneración $(2j+1)$.
+
+	\item \textbf{Generadores de rotaciones:} En 3D, una rotación finita $R_{\mathbf{u}}(\theta)$ es generada por los
+	operadores $L_i$ (clásico) o $J_i$ (cuántico). Para una rotación infinitesimal, $\mathbf{r}\mapsto \mathbf{r}+\theta\,\mathbf{u}\times\mathbf{r}$,
+	y en cuántica $U(\theta)=e^{-\tfrac{i}{\hbar}\,\theta\,\mathbf{u}\cdot\mathbf{J}}$.
+
+	\item \textbf{Operadores unitarios y transformaciones:} Dado un observable $A$ y $U(\alpha)=e^{-\tfrac{i}{\hbar}\alpha A}$, la transformación de un operador $X$ es $\tilde X=U X U^{\dagger}$.
+	Los conmutadores $[A,J_\pm]$ controlan cómo se transforman los operadores de escalera $J_\pm=J_x\pm iJ_y$.
+
+	\item \textbf{Relaciones de incertidumbre para $\mathbf{J}$:} Se verifica $\Delta J_x\,\Delta J_y\ge \tfrac{\hbar}{2}|\langle J_z\rangle|$ y sus permutaciones cíclicas.
+	Estados de mínima suma de varianzas pueden caracterizarse con condiciones sobre $J_\pm$.
+
+	\item \textbf{Estados cuasi–clásicos y límite clásico:} Para $j\gg 1$ y estados apropiados, las distribuciones de $m$ se aguzan
+	alrededor del valor más probable y se recupera el comportamiento clásico (p.ej., precesión y dispersión angular pequeña).
+
+	\item \textbf{Oscilador 3D y momento angular:} En productos de estados cuasi–clásicos 1D, los promedios y varianzas de $\mathbf{L}=\mathbf{R}\times\mathbf{P}$
+	se pueden ajustar para saturar cotas de incertidumbre y la distribución de resultados de $L^2$ puede ser de tipo Poisson.
+\end{itemize}
+
+\section*{Ejercicios y ejemplos transcritos}
+
+\subsection*{Ejercicio 4. Rotador rígido simétrico}
+Considera una molécula formada por átomos no alineados cuyas distancias relativas se suponen invariantes (rotador rígido). \(\mathbf{J}\) es la suma de los momentos angulares de los átomos con respecto al centro de masa de la molécula, situado en un punto fijo; los ejes constituyen un triedro ortonormal fijo. Los tres ejes principales de inercia del sistema se denotan por $1,2,3$, suponiendo que el elipsoide de inercia es un elipsoide de revolución alrededor de $3$ (rotador simétrico).
+
+La energía rotacional de la molécula es
+\[
+H=\tfrac{1}{2I_1}J_1^2+\tfrac{1}{2I_2}J_2^2+\tfrac{1}{2I_3}J_3^2,
+\]
+siendo $J_i$ las componentes de \(\mathbf{J}\) sobre los versores $\mathbf{w}_i$ de los ejes móviles $1,2,3$ ligados a la molécula, e $I_i$ los momentos de inercia correspondientes. Se tiene además
+\[
+J_x^2+J_y^2+J_z^2=J_1^2+J_2^2+J_3^2=\mathbf{J}^2.
+\]
+
+\begin{enumerate}
+	\item Deriva las relaciones de conmutación de $J_1,J_2,J_3$ a partir de los resultados estándar para \(\mathbf{J}\).
+	\item Introducimos los operadores $J_i'=J\cdot \mathbf{w}_i$. Usando los argumentos generales del Capítulo VI, muestra que existen autovectores comunes a $\mathbf{J}^2$ y $J_3'$ con autovalores $\hbar^2j(j+1)$ y $\hbar k$, con $k=-j,\dots,j$.
+	\item Expresa el Hamiltoniano del rotador en términos de $\mathbf{J}^2$ y $J_3'^2$. Encuentra sus autovalores.
+	\item Muestra que pueden hallarse autoestados comunes de $\mathbf{J}^2$, $J_z$ y $J_3'$, a denotarse $\ket{j,m,k}$ [con autovalores $\hbar^2j(j+1)$, $\hbar m$, $\hbar k$]. Prueba que estos estados también son autoestados de $H$.
+	\item Calcula los conmutadores de $J_\pm=J_x\pm iJ_y$ y $K_\pm$ con $\mathbf{J}^2$, $J_z$, $J_3'$. Deduce su acción sobre $\ket{j,m,k}$. Muestra que los autovalores de $H$ son al menos $2(2j+1)$–plemente degenerados si $I_\perp\ne I_3$, y $(2j+1)$–plemente degenerados si $I_\perp=I_3$.
+	\item Traza el diagrama de niveles del rotador rígido ($j$ entero pues \(\mathbf{J}\) es suma de momentos orbitales; cf. Cap. X). ¿Qué ocurre para $I_\perp=I_3$ (rotador esférico)?
+\end{enumerate}
+
+\subsection*{Ejercicio 5. Proyección angular y armónicos esféricos}
+Un sistema cuyo espacio de estados es $\mathcal{H}_r$ tiene función de onda
+\[
+\psi(\mathbf{r})=\mathcal{N}\,(\alpha x+\beta y+\gamma z)\,e^{-r^2/2},
+\]
+con $\alpha$ real dada y $\mathcal{N}$ constante de normalización.
+
+Se miden $L_z$ y $L^2$: ¿cuáles son las probabilidades de obtener $m=0$ y $\hbar^2\,\ell(\ell+1)=2\hbar^2$? Recuerda que
+\[
+Y_1^{0}(\theta,\varphi)=\sqrt{\tfrac{3}{4\pi}}\,\cos\theta,
+\]
+y que
+\[
+Y_1^{1}(\theta,\varphi)=-\sqrt{\tfrac{3}{8\pi}}\,\sin\theta\,e^{i\varphi}.
+\]
+Usando además este último hecho, ¿es posible predecir directamente las probabilidades de todos los posibles resultados de medidas de $L^2$ y $L_z$ en el sistema con función de onda $\psi(\mathbf{r})$?
+
+\subsection*{Ejercicio 6. Sistema con $\ell=1$ y campo de gradiente}
+Considera un sistema de momento angular $\ell=1$. Una base de su espacio de estados está formada por los tres autovectores de $L_z$: $\ket{+1},\ket{0},\ket{-1}$, con autovalores $+\hbar,0,-\hbar$, que satisfacen
+\[
+L^2=\hbar^2\,\ell(\ell+1)=2\hbar^2,\qquad L_+\ket{-1}=\hbar\sqrt{2}\,\ket{0},\quad L_-\ket{+1}=\hbar\sqrt{2}\,\ket{0},\quad L_\pm\ket{0}=\hbar\sqrt{2}\,\ket{\pm1}.
+\]
+El sistema, con momento cuadrupolar eléctrico, se coloca en un gradiente de campo eléctrico, de modo que su Hamiltoniano es
+\[
+H=\frac{\omega_0}{\hbar}\,(L_\xi^2-L_\eta^2),
+\]
+donde $L_\xi$ y $L_\eta$ son las componentes de $\mathbf{L}$ a lo largo de dos direcciones $\xi,\eta$ en el plano que forman ángulos de $45^\circ$ con $Ox$ y $Oy$; $\omega_0$ es real.
+
+\begin{enumerate}
+	\item Escribe la matriz que representa $H$ en la base $\{\ket{+1},\ket{0},\ket{-1}\}$. ¿Cuáles son los estados estacionarios y sus energías? (Denótalos $\ket{\psi_1},\ket{\psi_2},\ket{\psi_3}$ en orden de energías decrecientes.)
+	\item En $t=0$, el sistema está en
+	\[
+	\ket{\psi(0)}=\tfrac{1}{\sqrt{2}}\,[\ket{+1}+\ket{-1}].
+	\]
+	¿Cuál es $\ket{\psi(t)}$? En $t$, se mide $L_z$: ¿cuáles son las probabilidades de los distintos resultados?
+	\item Calcula $\langle L_x\rangle(t)$, $\langle L_y\rangle(t)$ y $\langle L_z\rangle(t)$. ¿Qué movimiento realiza el vector $\langle\mathbf{L}\rangle$?
+	\item En $t$, se mide $L^2$.
+	\begin{enumerate}
+		\item ¿Existen instantes en los que solo un resultado es posible?
+		\item Si la medición arroja $2\hbar^2$, ¿cuál es el estado inmediatamente después? Indica, sin cálculo, su evolución posterior.
+	\end{enumerate}
+\end{enumerate}
+
+\subsection*{Ejercicio 7. Rotaciones en $\mathbb{R}^3$ y generadores}
+Considera rotaciones en el espacio tridimensional ordinario, denotadas $R_{\mathbf{u}}(\theta)$, donde $\mathbf{u}$ es el versor del eje y $\theta$ el ángulo. Si $M'$ es la imagen de $M$ bajo una rotación infinitesimal de ángulo $\delta\theta$, muestra que
+\[
+\overrightarrow{OM'}=\overrightarrow{OM}+\delta\theta\,\mathbf{u}\times\overrightarrow{OM}.
+\]
+Si $\overrightarrow{OM}$ está representado por el vector columna $\mathbf{r}$, ¿cuál es la matriz asociada a $R_{\mathbf{u}}(\theta)$? Deducir de ella las matrices que representan las componentes del operador $\mathcal{R}$ definido por
+\[
+R_{\mathbf{u}}(\delta\theta)=\mathbb{I}+\delta\theta\,\mathbf{u}\cdot\mathcal{R}.
+\]
+Calcula los conmutadores $[\mathcal{R}_x,\mathcal{R}_y]$, $[\mathcal{R}_y,\mathcal{R}_z]$, $[\mathcal{R}_z,\mathcal{R}_x]$. ¿Cuáles son los análogos cuánticos de estas relaciones puramente geométricas? Partiendo de la matriz que representa $\mathcal{R}_z$, calcula la que representa $e^{\theta\mathcal{R}_z}$; muestra que $R_z(\theta)=e^{\theta\mathcal{R}_z}$. ¿Cuál es el análogo de esta relación en mecánica cuántica?
+
+\subsection*{Ejercicio 8. Observable que conmuta con $\mathbf{L}$ y operador unitario}
+Sea una partícula en 3D, con vector de estado $\ket{\psi}$ y función de onda $\psi(\mathbf{r})=\braket{\mathbf{r}|\psi}$. Sea $A$ un observable que conmuta con $\mathbf{L}=\mathbf{R}\times\mathbf{P}$, momento angular orbital de la partícula. Asumiendo que $A$, $L^2$ y $L_z$ forman un C.C.C.O. en $\mathcal{H}_r$, llamemos $\ket{a;\ell,m}$ a sus autokets comunes, con autovalores $a$ (índice discreto), $\hbar^2\ell(\ell+1)$ y $\hbar m$.
+
+Sea $U(\alpha)$ el operador unitario
+\[
+U(\alpha)=e^{-\tfrac{i}{\hbar}\alpha A},
+\]
+con $\alpha$ real adimensional. Para un operador arbitrario $X$, llamamos $\tilde X$ al transformado por $U(\alpha)$: $\tilde X=U(\alpha) X U^{\dagger}(\alpha)$. Definimos $L_+=L_x+iL_y$ y $L_-=L_x-iL_y$.
+
+\begin{enumerate}
+	\item Calcula $\tilde L_+$ y muestra que $L_+$ y $\tilde L_+$ son proporcionales; halla la constante de proporcionalidad. Lo mismo para $L_-$ y $\tilde L_-$.
+	\item Expresa $\tilde L_x,\tilde L_y,\tilde L_z$ en términos de $L_x,L_y,L_z$. ¿Qué transformación geométrica se asocia a la transformación de $\mathbf{L}$ en $\tilde{\mathbf{L}}$?
+	\item Calcula los conmutadores $[A,L_+]$ y $[A,L_-]$. Muestra que los kets $\ket{a;\ell,m\!\pm\!1}$ y $\ket{a;\ell,m}$ son autovectores de $A$ y calcula sus autovalores.
+	\item ¿Qué relación debe existir entre $m$ y $m'$ para que el elemento de matriz $\braket{a;\ell,m'|L_+|a;\ell,m}$ sea no nulo? ¿Y para $L_-$?
+	\item Comparando los elementos de matriz de $\tilde L_\pm$ con los de $L_\pm$, calcula $\tilde L_x,\tilde L_y,\tilde L_z$ en términos de $L_x,L_y,L_z$. Da una interpretación geométrica.
+\end{enumerate}
+
+\subsection*{Ejercicio 9. Estados de mínima incertidumbre para $\mathbf{L}$}
+Considera un sistema físico de momento angular fijo $\ell$, con espacio de estados $\mathcal{H}_\ell$ y vector de estado $\ket{\psi}$; su momento angular orbital es $\mathbf{L}$. Suponemos que una base de $\mathcal{H}_\ell$ está compuesta por $2\ell+1$ autovectores de $(L^2,L_z)$, asociados a funciones de onda $Y_\ell^{m}(\theta,\varphi)$. Denotamos $\langle\mathbf{L}\rangle$ al valor medio de $\mathbf{L}$.
+
+Primero, supón que $\langle L_x\rangle=\langle L_y\rangle=0$.
+\begin{enumerate}
+	\item Entre todos los estados, ¿cuáles minimizan $(\Delta L_x)^2+(\Delta L_y)^2+(\Delta L_z)^2$? Muestra que, para esos estados, la desviación cuadrática media $\Delta L_u$ de la componente de $\mathbf{L}$ a lo largo de un eje que forma un ángulo $\theta$ con $Oz$ es
+	\[
+	\Delta L_u=\tfrac{\hbar}{\sqrt{2}}\,\sin\theta.
+	\]
+	\item Ahora supón que $\langle\mathbf{L}\rangle$ tiene dirección arbitraria. Denotemos por $(x',y',z')$ un triedro con $Oz'$ dirigido a lo largo de $\langle\mathbf{L}\rangle$, con $Ox'$ en el plano $(Oz,Oz')$.
+	\begin{enumerate}
+		\item Muestra que el estado $\ket{\psi_0}$ que minimiza $(\Delta L_x)^2+(\Delta L_y)^2+(\Delta L_z)^2$ cumple
+		\[
+		(L_{x'}+iL_{y'})\ket{\psi_0}=0,\qquad L_{z'}\ket{\psi_0}=\hbar\ell\,\ket{\psi_0}.
+		\]
+		\item Sean $\theta_0$ el ángulo entre $Oz$ y $Oz'$, y $\varphi_0$ el ángulo entre $Ox$ y $Ox'$. Prueba las relaciones
+		\[
+		L_+=\cos^2\tfrac{\theta_0}{2}\,e^{-i\varphi_0}\,L_{+'}+\sin^2\tfrac{\theta_0}{2}\,e^{i\varphi_0}\,L_{-'}+\sin\theta_0\,L_{z'},
+		\]
+		\[
+		L_z=\sin\tfrac{\theta_0}{2}\cos\tfrac{\theta_0}{2}\,e^{-i\varphi_0}\,L_{+'}+\sin\tfrac{\theta_0}{2}\cos\tfrac{\theta_0}{2}\,e^{i\varphi_0}\,L_{-'}+\cos\theta_0\,L_{z'}.
+		\]
+		Si definimos $\displaystyle e^{i\gamma_0}=\frac{\cos\tfrac{\theta_0}{2}}{\sin\tfrac{\theta_0}{2}}e^{-i\varphi_0}$, muestra que
+		\[
+		L_+\ket{\psi_0}=\tan\tfrac{\theta_0}{2}\,e^{-i\varphi_0}\,\hbar\sqrt{(\ell+m+1)(\ell-m)}\,\ket{\ell,m+1},\quad m=\ell-1.
+		\]
+		Expresa $\ket{\psi_0}$ en términos de $\ell,\theta_0,\varphi_0$ y $\gamma_0$.
+		\item Para calcular la función de onda, muestra que la asociada a $\ket{\psi_0}$ es $\psi_0(\theta,\varphi)=\mathcal{D}^{\,\ell}_{\ell,m}(\alpha,\beta,\gamma)\,Y_\ell^m(\theta,\varphi)$, donde $\mathcal{D}$ es una matriz de Wigner (cf. Cap. VI). Sustituyendo $L_\pm$ y $L_z$ por sus expresiones en términos de $(x',y',z')$, halla un coeficiente explícito y la relación
+		\[
+		|\braket{\ell,m|\psi_0}|^2=\binom{2\ell}{\ell+m}\Big(\sin\tfrac{\theta_0}{2}\Big)^{2(\ell+m)}\Big(\cos\tfrac{\theta_0}{2}\Big)^{2(\ell-m)}.
+		\]
+		\item Con el sistema en $\ket{\psi_0}$, se mide $L_z$. ¿Cuáles son las probabilidades de los distintos resultados? ¿Cuál es el resultado más probable? Muestra que, si $\ell\gg 1$, los resultados corresponden al límite clásico.
+	\end{enumerate}
+\end{enumerate}
+
+\subsection*{Ejercicio 10. Desigualdades de incertidumbre para $\mathbf{J}$}
+Sea $\mathbf{J}$ el operador momento angular de un sistema físico arbitrario con vector de estado $\ket{\psi}$. ¿Pueden hallarse estados para los cuales las desviaciones típicas $\Delta J_x,\Delta J_y,\Delta J_z$ sean simultáneamente nulas?
+
+Prueba la relación
+\[
+\Delta J_x\,\Delta J_y\ge \tfrac{\hbar}{2}|\langle J_z\rangle|
+\]
+y las obtenidas por permutación cíclica de $x,y,z$. Sea $\langle\mathbf{J}\rangle$ el valor medio del momento angular del sistema, y supón que los ejes se eligen de modo que $\langle J_x\rangle=\langle J_y\rangle=0$. Muestra que
+\[
+(\Delta J_x)^2+(\Delta J_y)^2\ge \hbar\,|\langle J_z\rangle|.
+\]
+Muestra que ambas desigualdades se saturan si y solo si $J_+\ket{\psi}=0$ o $J_z\ket{\psi}=0$.
+
+Considera ahora una partícula sin espín, para la cual $\mathbf{J}=\mathbf{L}=\mathbf{R}\times\mathbf{P}$. Muestra que no es posible tener simultáneamente $\Delta J_x\,\Delta J_y=\hbar/2$ y $(\Delta J_x)^2+(\Delta J_y)^2=\hbar$ a menos que la función de onda sea de la forma
+\[
+\psi(\theta,\varphi)=f(\theta)\,\sin\theta\,e^{i\varphi}.
+\]
+
+\subsection*{Ejercicio 11. Oscilador armónico 3D y $\mathbf{L}$}
+Considera un oscilador armónico tridimensional, con vector de estado
+\[
+\ket{\Psi}=\ket{\alpha}_x\otimes\ket{\beta}_y\otimes\ket{\gamma}_z,
+\]
+donde $\ket{\alpha},\ket{\beta},\ket{\gamma}$ son estados cuasi–clásicos (cf. Complemento GV) de osciladores 1D a lo largo de $x,y,z$, respectivamente. Sea $\mathbf{L}=\mathbf{R}\times\mathbf{P}$ el momento angular orbital del oscilador 3D.
+
+Prueba que
+\[
+\langle L_z\rangle=\hbar\,\mathrm{Im}(\alpha\beta^*)\,,\qquad \Delta L_z=\tfrac{\hbar}{\sqrt{2}}\,\sqrt{1+2|\alpha|^2+2|\beta|^2},
+\]
+y expresiones análogas para las componentes a lo largo de $x$ e $y$.
+
+Supón ahora que $\langle L_x\rangle=\langle L_y\rangle=0$ y $\langle L_z\rangle=\hbar\,\ell_0$ con $\ell_0>0$. Muestra que debe ser $\gamma=0$. Fijado $\|\alpha\|$, muestra que, para minimizar $\Delta L_x+\Delta L_y$, se debe elegir
+\[
+\alpha=\beta=\tfrac{\rho}{\sqrt{2}}\,e^{i\phi_0}
+\]
+(con $\phi_0$ real arbitrario). ¿Toman $\Delta L_x\,\Delta L_y$ y $(\Delta L_x)^2+(\Delta L_y)^2$ valores mínimos compatibles con las desigualdades del ejercicio anterior?
+
+Muestra que el estado de un sistema que satisface las condiciones precedentes es necesariamente de la forma
+\[
+\ket{\Psi}=\sum_{n_x,n_y=0}^{\infty}c_{n_xn_y0}\,\ket{n_x}\otimes\ket{n_y}\otimes\ket{0},
+\]
+con
+\[
+\;c_{n_xn_y0}=\frac{(\alpha+ i\beta)^{n_x}}{\sqrt{n_x!}}\,\frac{(\alpha- i\beta)^{n_y}}{\sqrt{n_y!}}\,e^{-(|\alpha|^2+|\beta|^2)/2},\qquad \alpha=\tfrac{\rho}{\sqrt{2}}e^{i\phi_0}.
+\]
+Usando resultados del Complemento GV y del §4 del Complemento DVI, muestra que la dependencia angular de $\Psi$ para $n_z=0$ es $(\sin\theta\,e^{i\varphi})^{\ell}$.
+
+Si se mide $L^2$ sobre un sistema en el estado $\ket{\Psi}$, muestra que las probabilidades de los posibles resultados siguen una distribución de Poisson. ¿Qué resultados pueden obtenerse en una medición de $L_z$ que sigue a una medición de $L^2$ con resultado $\hbar^2\ell(\ell+1)$?
+
+\vspace{6pt}
+\noindent\textbf{Nota sobre la bibliografía del Ejercicio 4:} Landau y Lifshitz (1.19), §101; Ter Haar (1.23), §§8.13 y 8.14.
+
+\section*{Complemento FVII: Acoplamiento vibración–rotación en diatómicas}
+Las transiciones rotacionales puras de una molécula diatómica no son estrictamente equiespaciadas: la separación entre líneas disminuye con el número cuántico rotacional $J$. Esto refleja el \emph{acoplamiento vibración–rotación}.
+
+Agrupando los términos rotacionales y sustituyendo el parámetro rotacional por su dependencia vibracional, se obtiene una energía vibro–rotacional del tipo
+\[
+E_{vJ}=\hbar\omega_e\Big(v+\tfrac12\Big)\;+\;B_e\,J(J+1)\;-\;\alpha_e\,\Big(v+\tfrac12\Big)\,J(J+1)\; +\;\cdots\tag{53}
+\]
+lo que puede reescribirse como
+\[
+E_{vJ}=\hbar\omega_e\Big(v+\tfrac12\Big)\; +\; B_v\,J(J+1),\tag{54}
+\]
+con un \emph{constante rotacional efectivo}
+\[
+B_v= B_e-\alpha_e\Big(v+\tfrac12\Big).\tag{55}
+\]
+Interpretación clásica: $B\propto \langle 1/R^2\rangle$ [cf. fórmula (16)]. Al vibrar la molécula, $R$ varía y, dado que $\omega_{\text{vib}}\gg \omega_{\text{rot}}$, tiene sentido un promedio temporal de $1/R^2$ sobre muchos periodos vibracionales. Dos efectos compiten:
+\begin{itemize}
+	\item \textbf{Anharmonicidad del potencial} $V(R)$: por la asimetría (la molécula \emph{pasa más tiempo} en $R>R_e$ que en $R<R_e$), $\langle 1/R^2\rangle$ disminuye con la amplitud de vibración (con $v$); esto \emph{reduce} $B_v$ y hace $\alpha_e>0$.
+	\item \textbf{Convexidad}: aun si el movimiento fuese simétrico, $\langle 1/R^2\rangle\neq 1/\langle R^2\rangle$; de hecho, por convexidad $\langle 1/R^2\rangle\ge 1/\langle R^2\rangle$.
+\end{itemize}
+En general domina el término anharmónico, por lo que $B_v$ decrece con $v$.
+
+	extbf{Comentarios.}
+\begin{itemize}
+	\item El acoplamiento vibro–rotacional existe incluso para $v=0$: $\,B_0= B_e-\tfrac12\alpha_e$ [cf. (57)], consecuencia de la extensión finita $\Delta R$ del estado fundamental vibracional.
+	\item Experimentalmente, si $\alpha_e>0$ la estructura rotacional es ligeramente más compacta en estados vibracionales altos que en los bajos; las ramas $P$ y $R$ se ven afectadas de modo diferente y las líneas dejan de ser equidistantes (en promedio, más próximas en $R$ que en $P$).
+\end{itemize}
+
+	extbf{Expansión típica de niveles vibro–rotacionales.} Truncando a bajos órdenes (parámetros de Dunham),
+\[
+E_{vJ}= D_0\; +\; \hbar\omega_e\Big(v+\tfrac12\Big)\; -\; \hbar\omega_e x_e\Big(v+\tfrac12\Big)^2\; +\; B_e J(J+1)\; -\; \alpha_e\Big(v+\tfrac12\Big)J(J+1)\; -\; D_e\,[J(J+1)]^2\; +\; \cdots\tag{58}
+\]
+con: $D_0$ energía de disociación; $\omega_e$ frecuencia vibracional; $B_e$ constante rotacional; $x_e,\,\alpha_e,\,D_e$ constantes adimensionales de anharmonicidad y acoplamiento [cf. (40), (46), (52)].
+
+\section*{Complemento GVII: Ejercicios}
+
+\subsection*{Ejercicio 1. Partícula en potencial con simetría cilíndrica}
+Sean $(\rho,\varphi,z)$ coordenadas cilíndricas de una partícula sin espín ($x=\rho\cos\varphi,\;y=\rho\sin\varphi$, $\rho\ge0$, $0\le\varphi<2\pi$). Supón que la energía potencial $V$ depende solo de $\rho$ y $z$ (no de $\varphi$). Recuerda que
+\[
+\nabla^2=\frac{\partial^2}{\partial \rho^2}+\frac{1}{\rho}\frac{\partial}{\partial \rho}+\frac{1}{\rho^2}\frac{\partial^2}{\partial \varphi^2}+\frac{\partial^2}{\partial z^2}.
+\]
+
+\begin{enumerate}
+	\item Escribe, en coordenadas cilíndricas, el operador diferencial del Hamiltoniano $H= -\tfrac{\hbar^2}{2m}\nabla^2+V(\rho,z)$. Muestra que $H$ conmuta con $P_z$ y con $L_z$. Concluye que los autoestados estacionarios pueden escribirse como
+	\[
+	\psi_{m,k}(\rho,\varphi,z)= R_{m,k}(\rho)\;e^{i m\varphi}\;e^{i k z},
+	\]
+	indicando los posibles valores de $m\in\mathbb{Z}$ y $k\in\mathbb{R}$.
+	\item Escribe la ecuación de autovalores de $H$ en coordenadas cilíndricas y deduce la ecuación diferencial radial para $R_{m,k}(\rho)$.
+	\item Sea $\Sigma$ el operador que, en representación $\mathbf{r}$, actúa como $\varphi\mapsto-\varphi$ (reflexión respecto del plano $Ox$). ¿Conmuta $\Sigma$ con $H$? Muestra que $\Sigma$ anticommuta con $L_z$ y que, en consecuencia, si $\psi$ es autovector de $L_z$ con $m\ne0$, entonces $\Sigma\psi$ lo es con autovalor $-m$. ¿Qué concluyes sobre la degeneración de niveles? ¿Podía predecirse directamente a partir de la ecuación radial (dependencia en $m^2$)?
+\end{enumerate}
+
+\subsection*{Ejercicio 2. Oscilador 3D en campo magnético uniforme}
+Objetivo: estudiar un sistema simple donde el efecto de un campo magnético uniforme puede calcularse exactamente y comparar términos “paramagnético” y “diamagnético”. También se detalla la modificación del estado fundamental.
+
+Considera una partícula de masa $m$ con
+\[
+H_0=\frac{\mathbf{P}^2}{2m}+\tfrac12 m\omega_0^2\,\mathbf{R}^2
+\]
+(oscilador armónico tridimensional isotrópico), con $\omega_0>0$ fija.
+\begin{enumerate}
+	\item Halla los niveles de energía de $H_0$ y sus degeneraciones. ¿Es posible construir una base de autovectores comunes de $H_0$, $L^2$ y $L_z$?
+	\item Ahora, la partícula de carga $q$ se coloca en un campo magnético uniforme $\mathbf{B}\parallel Oz$. Definimos $\omega_c=\dfrac{qB}{m}$ y usamos el calibre simétrico $\mathbf{A}=\tfrac12\,\mathbf{B}\times\mathbf{r}$. El Hamiltoniano es
+	\[
+	H=\frac{1}{2m}\big(\mathbf{P}-q\mathbf{A}\big)^2+\tfrac12 m\omega_0^2\,\mathbf{R}^2
+	= H_0\; -\;\frac{qB}{2m}\,L_z\; +\;\frac{q^2B^2}{8m}\,\rho^2\;\equiv\;H_0+H_1(B),
+	\]
+	donde el término lineal en $B$ es \emph{paramagnético} ($\propto -\tfrac{\omega_c}{2}L_z$) y el cuadrático es \emph{diamagnético} ($\propto \omega_c^2\,\rho^2$). Muestra que los nuevos estados estacionarios y sus degeneraciones pueden determinarse exactamente (desacople en $z$ y reducción a dos osciladores en el plano con frecuencias efectivas $\sqrt{\omega_0^2+(\omega_c/2)^2}\,\pm\,\omega_c/2$).
+	\item Si $\omega_c\ll\omega_0$, muestra que el efecto diamagnético es despreciable frente al paramagnético.
+	\item Considera el primer nivel excitado (energías que tienden a $\tfrac{5}{2}\hbar\omega_0$ cuando $B\to 0$). A primer orden en $B$, ¿cuáles son los niveles (efecto Zeeman del oscilador 3D) y sus degeneraciones? Misma pregunta para el segundo nivel excitado.
+	\item Considera el estado fundamental. ¿Cómo varía su energía con $B$ (efecto diamagnético)? Calcula su susceptibilidad magnética. ¿Es el fundamental, en presencia de $\mathbf{B}$, autovector de $L^2$? ¿de $L_x$ o $L_y$? Da la forma de su función de onda y la corriente de probabilidad correspondiente. Muestra que el efecto del campo es comprimir la función de onda en el plano transversal por un factor $\big[1+(\tfrac{\omega_c}{2\omega_0})^2\big]^{1/4}$ e inducir una corriente azimutal.
+\end{enumerate}
+
+\section*{Examen parcial — Transcripción literal}
+
+material, excepto su hoja de notas. El examen dura 4 horas y debe estar correctamente escrito y argumentado. No se pueden hacer preguntas, la comprensión de las mismas hace parte de su evaluación.
+
+\subsection*{1. (12 puntos). Conceptos}
+Elija tres (3) parejas de conceptos dada a continuación y discuta sus diferencias o semejanzas (al menos dos).
+\begin{itemize}
+  \item Estado cuántico y función de onda.
+  \item Desigualdad de Robertson–Schrödinger (Relación de incertidumbre) y relación de incertidumbre energía–tiempo.
+  \item Medición proyectiva y valor esperado de un observable.
+  \item Momentum angular orbital y espín.
+\end{itemize}
+
+\subsection*{2. (10 puntos). Momentum Angular Orbital y Simetría Esférica}
+Elija uno (1) de los siguientes ejercicios:
+\begin{enumerate}
+  \item[(a)] Demuestre que los operadores de MA: $\hat L^2$ y $\hat L_z$, conmutan con el hamiltoniano de un sistema sometido a una interacción central. Hint: Hay varios caminos pero uno de los más eficaces es mostrar que $\big[\hat L_i,\hat p^2\big]=0$ y $\big[\hat L_i,\hat x^2\big]=0$, y a partir de aquí argumentar la respuesta al problema.
+  \item[(b)] Aplicando el operador $\hat L^2$ en su representación de posición, verifique que $Y_{2,0}$ es una autofunción con autovalor $6\hbar^2$.
+\end{enumerate}
+
+\subsection*{3. (8 puntos). Degeneración para el átomo de H}
+Calcule la degeneración de un nivel de energía $E_n$ del átomo de Hidrógeno. Considere el espín del electrón.
+
+\subsection*{4. (24 puntos). Ión Atómico y MA}
+El hamiltoniano de un ión atómico en un cristal puede escribirse como:
+\[
+\hat H = a\big(\hat L_x^2+\hat L_y^2\big)+b\,\hat L_z,
+\]
+donde $a$ y $b$ son constantes reales con las unidades adecuadas. Considere que el ión tiene momentum angular $l=1$ y no considere el espín.
+\begin{enumerate}
+  \item[(a)] 8 pt. Escriba la forma matricial del Hamiltoniano en la base $\ket{l,m}$, donde $\ket{l,m}$ son los autoestados usuales de MA. Note que es una matriz $3\times 3$.
+  \item[(b)] 8 pt. Determine los autoestados y autovalores de energía del ión.
+  \item[(c)] 8 pt. Considere que el ión se prepara en el estado inicial
+  \[
+  \ket{\psi(0)}=\tfrac{3}{5}\ket{1,0}+\tfrac{4i}{5}\ket{1,1}.
+  \]
+  Calcule la evolución temporal $\ket{\psi(t)}$ usando como condición inicial el anterior estado.
+\end{enumerate}
+
+\subsection*{5. (26 puntos). Estados coherentes del Oscilador Armónico}
+Considere un oscilador armónico cuántico unidimensional de masa $m$ y frecuencia $\omega$. Los autoestados del operador escalera $a$ son los llamados estados coherentes del OA que están dados por una superposición de autoestados de número $\{\ket{n}\}$, de la forma:
+\[
+\ket{\alpha}=e^{-|\alpha|^2/2}\sum_{n=0}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\ket{n},
+\]
+donde $\alpha\in\mathbb{C}$ es un número complejo arbitrario.
+\begin{enumerate}
+  \item[(a)] 8 pt. Demuestre que el estado coherente $\ket{\alpha}$ es un autoestado normalizado de $a$ con autovalor $\alpha$, i.e. $a\ket{\alpha}=\alpha\ket{\alpha}$.
+  \item[(b)] 8 pt. Calcule el valor esperado del operador número y de la energía del OA para este estado coherente $\ket{\alpha}$.
+  \item[(c)] 10 pt. Calcule los valores esperados $\langle \hat x\rangle$, $\langle \hat x^2\rangle$, $\langle \hat p\rangle$ y $\langle \hat p^2\rangle$ y demuestre que los estados coherentes satisfacen la igualdad en la relación de Robertson–Schrödinger: $\Delta x\,\Delta p=\hbar/2$, i.e. los estados coherentes minimizan las fluctuaciones cuánticas (de aquí el nombre e importancia de los estados coherentes).
+\end{enumerate}
+
+\subsection*{6. (20 puntos). Estados del átomo de H $\ket{n,l,m}$}
+Un átomo de Hidrógeno se prepara inicialmente en el estado de superposición:
+\[
+\ket{\psi}=\frac{1}{\sqrt{14}}\ket{2,1,1}-\frac{2}{\sqrt{14}}\ket{3,2,-1}+\frac{3i}{\sqrt{14}}\ket{4,2,2}.
+\]
+\begin{enumerate}
+  \item[(a)] 5 pt. ¿Cuáles son los posibles resultados de una medición de la energía y con qué probabilidades ocurrirían? Calcule el valor esperado de la energía.
+  \item[(b)] 5 pt. ¿Cuáles son los posibles resultados de una medición de $\hat L^2$ y con qué probabilidades ocurrirían? Calcule el valor esperado de $\hat L^2$.
+  \item[(c)] 5 pt. ¿Cuáles son los posibles resultados de una medición de $\hat L_z$ y con qué probabilidades ocurrirían? Calcule el valor esperado de $\hat L_z$.
+  \item[(d)] 5 pt. Determine el estado evolucionado en el tiempo. ¿Cuál de las respuestas anteriores depende del tiempo?
+\end{enumerate}
+
+\section*{Soluciones del Examen parcial}
+
+\subsection*{1. (12 puntos). Conceptos}
+Compare y contraste (se incluyen las cuatro parejas para completitud):
+\begin{itemize}
+  \item \textbf{Estado cuántico vs función de onda.} Un estado puro es un ket $\ket{\psi}$ (o un operador densidad $\rho$) en un espacio de Hilbert; la función de onda $\psi(\mathbf{r})=\braket{\mathbf{r}|\psi}$ es la \emph{representación} del mismo estado en la base de posición (cambia de forma al cambiar de base). El ket está definido salvo una fase global y contiene toda la información física; una función de onda no normalizable no describe un estado físico.
+  \item \textbf{Robertson–Schrödinger vs energía–tiempo.} Para dos observables $A,B$,
+  \[
+  \Delta A^2\,\Delta B^2\ge \Big(\tfrac{1}{2i}\langle[A,B]\rangle\Big)^2+\Big(\tfrac{1}{2}\langle\{\Delta A,\Delta B\}\rangle\Big)^2.
+  \]
+  La “incertidumbre energía–tiempo” no surge de un operador tiempo (no existe como observable universal), sino de cotas a la velocidad de cambio del estado: p.ej. Mandelstam–Tamm $\Delta E\,\Delta t\ge \hbar/2$, donde $\Delta t$ caracteriza la escala temporal de evolución de un observable o del estado.
+  \item \textbf{Medición proyectiva vs valor esperado.} Una medición proyectiva de $A$ da un autovalor $a$ con probabilidad $p(a)=\|\Pi_a\ket{\psi}\|^2$ y el estado colapsa a $\Pi_a\ket{\psi}/\sqrt{p(a)}$. El valor esperado $\langle A\rangle=\bra{\psi}A\ket{\psi}=\mathrm{Tr}(\rho A)$ es un promedio estadístico y no tiene por qué coincidir con un resultado de una sola medición.
+  \item \textbf{Momento angular orbital vs espín.} $\,\mathbf{L}=\mathbf{R}\times\mathbf{P}$ es \emph{extrínseco} (entero $l=0,1,\dots$) y está ligado a rotaciones espaciales; el espín $\mathbf{S}$ es \emph{intrínseco} (puede ser semientero) y no tiene análogo clásico. Ambos satisfacen el álgebra $[J_i,J_j]=i\hbar\,\varepsilon_{ijk}J_k$ y se acoplan por suma de momentos angulares.
+\end{itemize}
+
+\subsection*{2. (10 puntos). MA orbital y simetría esférica}
+\begin{enumerate}
+  \item[(a)] Para $H=\tfrac{\mathbf{P}^2}{2m}+V(r)$, usando $[L_i,x_j]=i\hbar\,\varepsilon_{ijk}x_k$ y $[L_i,p_j]=i\hbar\,\varepsilon_{ijk}p_k$ se obtiene $[L_i,\mathbf{X}^2]=0$ y $[L_i,\mathbf{P}^2]=0$. Entonces $[L_i,H]=0$, por lo que $[L^2,H]=0$ y $[L_z,H]=0$. Concluye que se pueden elegir autoestados comunes de $H$, $L^2$ y $L_z$.
+  \item[(b)] En representación de ángulos,
+  \[
+  L^2=-\hbar^2\!\left[\frac{1}{\sin\theta}\frac{\partial}{\partial \theta}\!\left(\sin\theta\,\frac{\partial}{\partial \theta}\right)+\frac{1}{\sin^2\theta}\frac{\partial^2}{\partial \varphi^2}\right].
+  \]
+  Los armónicos esféricos satisfacen $L^2Y_\ell^m=\hbar^2\ell(\ell\!+\!1)Y_\ell^m$, así que $L^2 Y_{2,0}=6\hbar^2\,Y_{2,0}$.
+\end{enumerate}
+
+\subsection*{3. (8 puntos). Degeneración en H}
+En el átomo de H (sin estructura fina/Zeeman), $E_n$ depende sólo de $n$. Para cada $n$ hay $n^2$ estados espaciales $\sum_{\ell=0}^{n-1}(2\ell+1)=n^2$. Incluyendo el espín del electrón ($2$ posibilidades), la degeneración es
+\[
+g_n=2\,n^2.
+\]
+
+\subsection*{4. (24 puntos). Ión atómico y MA ($l=1$)}
+\[
+\hat H=a(\hat L_x^2+\hat L_y^2)+b\,\hat L_z=a\big(L^2-L_z^2\big)+b\,L_z.
+\]
+En la base $\{\ket{1,1},\ket{1,0},\ket{1,-1}\}$, $L_z\ket{1,m}=\hbar m\ket{1,m}$ y $L^2=2\hbar^2$.
+\begin{enumerate}
+  \item[(a)] Matriz (ya diagonal):
+  \[
+  [H]=\mathrm{diag}\big(a\hbar^2+b\hbar,\;\;2a\hbar^2,\;\;a\hbar^2-b\hbar\big).
+  \]
+  \item[(b)] Autoestados: $\ket{1,1}$, $\ket{1,0}$, $\ket{1,-1}$ con energías
+  \[
+  E_{+1}=a\hbar^2+b\hbar,\quad E_{0}=2a\hbar^2,\quad E_{-1}=a\hbar^2-b\hbar.
+  \]
+  \item[(c)] Con
+  $\ket{\psi(0)}=\tfrac{3}{5}\ket{1,0}+\tfrac{4i}{5}\ket{1,1}$,
+  la evolución es
+  \[
+  \ket{\psi(t)}=\tfrac{3}{5}e^{-iE_0 t/\hbar}\ket{1,0}+\tfrac{4i}{5}e^{-iE_{+1} t/\hbar}\ket{1,1}.
+  \]
+  Un desfase global puede omitirse si se desea.
+\end{enumerate}
+
+\subsection*{5. (26 puntos). Estados coherentes del OA}
+Sea $H=\hbar\omega\big(a^\dagger a+\tfrac{1}{2}\big)$, $N=a^\dagger a$.
+\begin{enumerate}
+  \item[(a)] Con $\ket{\alpha}=e^{-|\alpha|^2/2}\sum_{n\ge0}\dfrac{\alpha^n}{\sqrt{n!}}\ket{n}$,
+  \[
+  a\ket{\alpha}=e^{-|\alpha|^2/2}\sum_{n\ge1}\frac{\alpha^n}{\sqrt{n!}}\sqrt{n}\ket{n-1}=\alpha\ket{\alpha}.
+  \]
+  Normalización: $\braket{\alpha|\alpha}=e^{-|\alpha|^2}\sum_{n}\dfrac{|\alpha|^{2n}}{n!}=1$.
+  \item[(b)] $\langle N\rangle=|\alpha|^2$, $\;\langle H\rangle=\hbar\omega\big(|\alpha|^2+\tfrac12\big)$.
+  \item[(c)] Con
+  $x=\sqrt{\tfrac{\hbar}{2m\omega}}\,(a+a^\dagger)$,
+  $p=i\sqrt{\tfrac{\hbar m\omega}{2}}\,(a^\dagger-a)$,
+  se tiene
+  \[
+  \langle x\rangle=\sqrt{\tfrac{2\hbar}{m\omega}}\;\mathrm{Re}\,\alpha,\quad
+  \langle p\rangle=\sqrt{2\hbar m\omega}\;\mathrm{Im}\,\alpha,
+  \]
+  \[
+  \Delta x^2=\tfrac{\hbar}{2m\omega},\qquad \Delta p^2=\tfrac{\hbar m\omega}{2},\qquad
+  \Delta x\,\Delta p=\tfrac{\hbar}{2}.
+  \]
+  Además $\langle x^2\rangle=\langle x\rangle^2+\tfrac{\hbar}{2m\omega}$ y $\langle p^2\rangle=\langle p\rangle^2+\tfrac{\hbar m\omega}{2}$.
+\end{enumerate}
+
+\subsection*{6. (20 puntos). Estados del átomo de H}
+Estado inicial
+$\ket{\psi}=\tfrac{1}{\sqrt{14}}\ket{2,1,1}-\tfrac{2}{\sqrt{14}}\ket{3,2,-1}+\tfrac{3i}{\sqrt{14}}\ket{4,2,2}$.
+\begin{enumerate}
+  \item[(a)] Los posibles resultados de energía son $E_n$ con $n=2,3,4$, con probabilidades $1/14$, $4/14$, $9/14$. Valor esperado usando $E_n=-\mathrm{Ry}/n^2$:
+  \[
+  \langle H\rangle=-\mathrm{Ry}\left(\frac{1}{56}+\frac{2}{63}+\frac{9}{224}\right)=-\mathrm{Ry}\,\frac{181}{2016}.
+  \]
+  \item[(b)] Para $L^2=\hbar^2\ell(\ell+1)$: $\ell=1$ con prob. $1/14$ y $\ell=2$ con prob. $13/14$. Entonces
+  \[
+  \langle L^2\rangle=\frac{1}0{14}(2\hbar^2)+\frac{13}{14}(6\hbar^2)=\frac{40}{7}\hbar^2.
+  \]
+  \item[(c)] Para $L_z=\hbar m$: $m=1$ (prob. $1/14$), $m=-1$ (prob. $4/14$), $m=2$ (prob. $9/14$). Así,
+  \[
+  \langle L_z\rangle=\hbar\left(\frac{1}{14}-\frac{4}{14}+\frac{18}{14}\right)=\frac{15}{14}\hbar.
+  \]
+  \item[(d)] La evolución temporal (ignorando estructura fina) depende sólo de $n$:
+  \[
+  \ket{\psi(t)}=\tfrac{1}{\sqrt{14}}e^{-iE_2 t/\hbar}\ket{2,1,1}-\tfrac{2}{\sqrt{14}}e^{-iE_3 t/\hbar}\ket{3,2,-1}+\tfrac{3i}{\sqrt{14}}e^{-iE_4 t/\hbar}\ket{4,2,2}.
+  \]
+  Las probabilidades y los valores esperados de (a)--(c) son constantes en el tiempo porque $[H,L^2]=[H,L_z]=0$. Sólo el estado (fase relativa) depende de $t$.
+\end{enumerate}
+
+\subsection*{Ejercicio 6. Sistema con \(\ell=1\) y gradiente eléctrico}
+Considera un sistema de momento angular \(\ell=1\). Una base de su espacio de estados está formada por los tres autovectores de \(L_z\): \(\ket{+1},\ket{0},\ket{-1}\), con autovalores \(\hbar\), \(0\) y \(-\hbar\), que satisfacen
+\[
+L_\pm\ket{m} = \hbar\sqrt{2}\,\ket{m\pm1},\qquad
+L_+\ket{+1} = 0,\quad L_-\ket{-1} = 0.
+\]
+El sistema, con momento cuadrupolar eléctrico, se coloca en un gradiente de campo de modo que el Hamiltoniano es
+\[
+H = \frac{\omega_0}{\hbar}\,\bigl(L_u^2 - L_v^2\bigr),
+\]
+donde \(L_u\) y \(L_v\) son las componentes de \(\mathbf{L}\) en dos direcciones del plano \(xOz\) que forman ángulos de \(45^\circ\) con los ejes \(Ox\) y \(Oz\), y \(\omega_0\in\mathbb{R}\).
+
+\begin{enumerate}
+  \item Escribe la matriz que representa \(H\) en la base \(\{\ket{+1},\ket{0},\ket{-1}\}\).  
+        ¿Cuáles son los estados estacionarios \(\ket{E_1},\ket{E_2},\ket{E_3}\) y sus energías, en orden de mayor a menor?
+  \item En \(t=0\), el sistema está en
+        \[
+          \ket{\psi(0)} 
+          = \frac{1}{\sqrt{2}}\bigl[\ket{+1} - \ket{-1}\bigr].
+        \]
+        ¿Cuál es \(\ket{\psi(t)}\)? A tiempo \(t\), se mide \(L_z\): ¿con qué probabilidades se obtiene \(\hbar\), \(0\) o \(-\hbar\)?
+  \item Calcula \(\langle L_x\rangle(t)\), \(\langle L_y\rangle(t)\) y \(\langle L_z\rangle(t)\).  
+        Describe el movimiento del vector \(\langle\mathbf{L}\rangle\).
+  \item A tiempo \(t\), se mide \(L_z^2\).
+    \begin{enumerate}
+      \item ¿Existen instantes en los que solo un resultado sea posible?
+      \item Si la medida arroja \(\hbar^2\), ¿qué estado queda inmediatamente después y cuál será su evolución posterior?
+    \end{enumerate}
+\end{enumerate}
+
+\subsection*{Ejercicio 10. Incertidumbres y desigualdades para el momento angular}
+Sea \(\mathbf{J}\) el operador de momento angular de un sistema físico arbitrario con vector de estado \(\ket{\psi}\).
+\begin{enumerate}
+  \item ¿Existen estados tales que \(\Delta J_x\), \(\Delta J_y\) y \(\Delta J_z\) sean simultáneamente cero?
+  \item Demuestra la relación
+  \[
+    \Delta J_x\,\Delta J_y \ge \frac{\hbar}{2}\bigl|\langle J_z\rangle\bigr|
+  \]
+  y las obtenidas por permutación cíclica de \(x,y,z\). Suponiendo \(\langle J_x\rangle=\langle J_y\rangle=0\), muestra que
+  \[
+    (\Delta J_x)^2+(\Delta J_y)^2 \ge \hbar\,\bigl|\langle J_z\rangle\bigr|.
+  \]
+  \item Muestra que ambas desigualdades se convierten en igualdades si y sólo si
+  \[
+    J_+\ket{\psi}=0 \quad\text{o}\quad J_-\ket{\psi}=0.
+  \]
+  \item Para una partícula sin espín (\(\mathbf{J}=\mathbf{L}=\mathbf{R}\times\mathbf{P}\)), demuestra que no es posible tener simultáneamente
+  \[
+    \Delta L_x\,\Delta L_y = \frac{\hbar}{2}\bigl|\langle L_z\rangle\bigr|
+    \quad\text{y}\quad
+    (\Delta L_x)^2+(\Delta L_y)^2 = \hbar\,\bigl|\langle L_z\rangle\bigr|
+  \]
+  a menos que la función de onda sea de la forma
+  \[
+    \psi(r,\theta,\varphi) = F\bigl(r,\sin\theta\,e^{\pm i\varphi}\bigr).
+  \]
+\end{enumerate}
+
+\subsection*{Ejercicio 1. Partícula en potencial cilíndricamente simétrico}
+Sean \((\rho,\varphi,z)\) las coordenadas cilíndricas de una partícula sin espín
+\(\bigl(x=\rho\cos\varphi,\;y=\rho\sin\varphi,\;\rho\ge0,\;0\le\varphi<2\pi\bigr)\).
+Supóngase que su energía potencial \(V\) depende únicamente de \(\rho\) y \(z\) (no de \(\varphi\)).  
+Recuerde que
+\[
+\nabla^2 = \frac{\partial^2}{\partial \rho^2}
++ \frac{1}{\rho}\frac{\partial}{\partial \rho}
++ \frac{1}{\rho^2}\frac{\partial^2}{\partial \varphi^2}
++ \frac{\partial^2}{\partial z^2}.
+\]
+\begin{enumerate}
+  \item Escriba, en coordenadas cilíndricas, el operador diferencial del Hamiltoniano.
+  Demuestre que \([H,L_z]=0\) y \([H,P_z]=0\). Concluya que los autoestados estacionarios pueden
+  escribirse como
+  \[
+    \psi_{m,k}(\rho,\varphi,z) = f_{m,k}(\rho)\,e^{im\varphi}\,e^{ikz},
+  \]
+  indicando los posibles valores \(m\in\mathbb{Z}\) y \(k\in\mathbb{R}\).
+  
+  \item Escriba, en coordenadas cilíndricas, la ecuación de autovalores de \(H\) y derive
+  la ecuación diferencial que satisface \(f_{m,k}(\rho)\).
+  
+  \item Sea \(\Sigma\) el operador que, en la representación \(\ket{\mathbf{r}}\), actúa como
+  \((\rho,\varphi,z)\mapsto(\rho,-\varphi,z)\) (reflexión respecto al plano \(xOz\)).  
+  ¿Conmuta \(\Sigma\) con \(H\)? Demuestre que \(\Sigma L_z\) anticommuta y, en consecuencia, si \(\Sigma_{\phi_n,m,k}\) es autovector de \(L_z\) con autovalor ?.  
+  ¿Qué concluye sobre la degeneración de los niveles de energía? ¿Podría predecirse esto
+  directamente de la ecuación diferencial obtenida en el apartado anterior (2)?
+\end{enumerate}
+
+\subsection*{Ejercicio 2. Oscilador armónico tridimensional en campo magnético uniforme}
+Estudiar un sistema sencillo en el que el efecto de un campo magnético uniforme se puede calcular exactamente, comparando los términos “paramagnético” y “diamagnético” y analizando la modificación del estado fundamental.
+
+Consideremos una partícula de masa \(m\) cuyo Hamiltoniano libre es
+\[
+  H_0 \;=\; \frac{\mathbf{P}^2}{2m} \;+\; \frac{1}{2}\,m\omega_0^2\,\mathbf{R}^2,
+  \quad \omega_0>0\text{ constante},
+\]
+correspondiente al oscilador armónico tridimensional isotrópico.
+
+\begin{enumerate}
+  \item[a)] Halla los niveles de energía de \(H_0\) y sus degeneraciones. ¿Es posible construir una base de autoestados comunes a \(H_0\), \(L^2\) y \(L_z\)?
+  
+  \item[b)] Ahora, colocamos la partícula de carga \(q\) en un campo magnético uniforme \(\mathbf B\parallel Oz\). Definimos
+  \[
+    \omega_L = \frac{qB}{m},
+    \qquad
+    \mathbf A = \frac{1}{2}\,\mathbf B\times\mathbf r
+    \quad\text{(calibre simétrico)}.
+  \]
+  El Hamiltoniano total es
+  \[
+    H = \frac{1}{2m}\bigl(\mathbf P - q\,\mathbf A\bigr)^2
+        + \tfrac12\,m\omega_0^2\,\mathbf R^2
+      = H_0 \;-\;\frac{qB}{2m}\,L_z
+        \;+\;\frac{q^2B^2}{8m}\,\rho^2
+      \equiv H_0 + H_1(B),
+  \]
+  donde el término lineal en \(B\) es \emph{paramagnético}
+  \(\propto -\tfrac{\omega_L}{2}L_z\) y el cuadrático es \emph{diamagnético}
+  \(\propto \omega_L^2\,\rho^2\).  
+  Muestra que los nuevos autoestados y sus degeneraciones se obtienen exactamente.
+  
+  \item[c)] Demuestra que, si \(\omega_L\ll \omega_0\), el efecto diamagnético es
+  despreciable frente al paramagnético.
+
+  \item[d)] Considera el primer nivel excitado del oscilador (energía límite
+  \(\tfrac{5}{2}\hbar\omega_0\) para \(B\to0\)). A primer orden en
+  \(\omega_L/\omega_0\), ¿cuáles son los niveles en presencia del campo
+  \(\mathbf B\) (efecto Zeeman) y sus degeneraciones? Repite el análisis
+  para el segundo nivel excitado.
+
+  \item[e)] Ahora considera el estado fundamental.  
+  \begin{itemize}
+    \item ¿Cómo varía su energía con \(\omega_L\) (efecto diamagnético)?
+    \item Calcula la susceptibilidad magnética \(\chi\).
+    \item En presencia de \(\mathbf B\), ¿es el estado fundamental autovector de \(L^2\)? ¿de \(L_z\)? ¿de \(L_x\)?
+    \item Da la forma de su función de onda y la corriente de probabilidad asociada.
+    \item Muestra que el campo comprime la función de onda en el plano transversal
+    por un factor \(\bigl[1+(\tfrac{\omega_L}{\omega_0})^2\bigr]^{1/4}\)
+    e induce una corriente azimutal.
+  \end{itemize}
+\end{enumerate}
+
+\end{document}

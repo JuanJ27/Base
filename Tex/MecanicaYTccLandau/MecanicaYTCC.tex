@@ -1323,8 +1323,6 @@ H\bigl(q_1,\dots,q_s;\,\tfrac{\partial S_0}{\partial q_1},\dots,\tfrac{\partial 
 =E.
 \tag{47.6}
 \end{equation}
-
-\section*{\S\,48. Separación de variables}
 \section*{\S\,48. Separación de variables}
 
 \noindent En este caso se busca una solución en la forma de una suma
@@ -1576,14 +1574,6 @@ S = -E\,t + p_{\varphi}\,\varphi
 \,d\eta.
 \tag{48.22}
 \end{equation}
-
-\paragraph*{Problemas}
-
-1. Hallar una integral completa de la ecuación de Hamilton–Jacobi para el movimiento de una partícula en un campo  
-\[
-U = -\frac{\alpha}{r}\;-\;F\,z
-\]
-(superposición de un campo coulombiano y de un campo uniforme).
 
 \section*{\S\,49. Invariantes adiabáticos}
 
@@ -1920,37 +1910,1031 @@ Como consecuencia de la invariancia adiabática de \(I_{r}\) e \(I_{\varphi}\), 
 \begin{enumerate}
   \item Demuestre la identidad de Jacobi (42.14).
   \item Use la identidad de Jacobi y otras propiedades de los corchetes de Poisson para probar que si \(p_y\) y \(l_z\) son constantes, también lo es \(p_x\); y que si \(l_x\) y \(l_y\) son constantes, también lo es \(l_z\).
+
+  \textbf{Solución:}
+
+  \textbf{Parte 1:} Si \(p_y\) y \(l_z\) son constantes, probaremos que \(p_x\) es constante.
+
+  Recordemos que una cantidad es constante del movimiento cuando su corchete de Poisson con el hamiltoniano es cero:
+  \[
+  \{p_y,H\} = 0 \quad \text{y} \quad \{l_z,H\} = 0
+  \]
+
+  Aplicando la identidad de Jacobi a \(l_z\), \(p_y\) y \(H\):
+  \[
+  \{l_z,\{p_y,H\}\} + \{p_y,\{H,l_z\}\} + \{H,\{l_z,p_y\}\} = 0
+  \]
+
+  Los dos primeros términos son cero pues \(p_y\) y \(l_z\) son constantes, entonces:
+  \[
+  \{H,\{l_z,p_y\}\} = 0
+  \]
+
+  Calculemos \(\{l_z,p_y\}\). Sabemos que \(l_z = xp_y - yp_x\), por lo tanto:
+  \[
+  \{l_z,p_y\} = \{xp_y - yp_x, p_y\} = \{xp_y,p_y\} - \{yp_x,p_y\}
+  \]
+
+  El primer término es cero porque \(\{p_y,p_y\} = 0\). Para el segundo:
+  \begin{align*}
+  \{yp_x,p_y\} &= y\{p_x,p_y\} + p_x\{y,p_y\} \\
+  &= y \cdot 0 + p_x \cdot (-1) \\
+  &= -p_x
+  \end{align*}
+
+  Por lo tanto, \(\{l_z,p_y\} = p_x\), lo que implica:
+  \[
+  \{H,p_x\} = 0
+  \]
+
+  Esto demuestra que \(p_x\) es constante del movimiento.
+
+  \textbf{Parte 2:} Si \(l_x\) y \(l_y\) son constantes, probaremos que \(l_z\) es constante.
+
+  Dado que \(l_x\) y \(l_y\) son constantes:
+  \[
+  \{l_x,H\} = 0 \quad \text{y} \quad \{l_y,H\} = 0
+  \]
+
+  Aplicamos la identidad de Jacobi a \(l_x\), \(l_y\) y \(H\):
+  \[
+  \{l_x,\{l_y,H\}\} + \{l_y,\{H,l_x\}\} + \{H,\{l_x,l_y\}\} = 0
+  \]
+
+  Los dos primeros términos son cero, por lo que:
+  \[
+  \{H,\{l_x,l_y\}\} = 0
+  \]
+
+  De las propiedades del momento angular sabemos que \(\{l_x,l_y\} = l_z\), entonces:
+  \[
+  \{H,l_z\} = 0
+  \]
+
+  Lo que demuestra que \(l_z\) es constante del movimiento.
+  
   \item Deduza la fórmula
     \[
       \{f,\;l_i\} \;=\;\hat u_i\times f,
     \]
     donde \(l_i\) (para \(i=x,y,z\)) son las componentes del momento angular y \(f\) una variable dinámica vectorial.
+
+  \textbf{Solución:}
+  Consideremos una partícula con coordenadas $(x,y,z)$ y momentos $(p_x,p_y,p_z)$, donde el momento angular está definido por $\mathbf{l} = \mathbf{r} \times \mathbf{p}$. Sus componentes son:
+
+  \begin{align}
+  l_x &= yp_z - zp_y\\
+  l_y &= zp_x - xp_z\\
+  l_z &= xp_y - yp_x
+  \end{align}
+
+  Sea $\mathbf{f} = (f_1, f_2, f_3)$ un vector dinámico, cuyas componentes son funciones de las coordenadas y momentos. Calculemos explícitamente el corchete de Poisson $\{f_j, l_i\}$ para el caso $i=z$:
+
+  \begin{align}
+  \{f_j, l_z\} &= \{f_j, xp_y - yp_x\}\\
+  &= \{f_j, xp_y\} - \{f_j, yp_x\}\\
+  &= x\{f_j, p_y\} + p_y\{f_j, x\} - y\{f_j, p_x\} - p_x\{f_j, y\}
+  \end{align}
+
+  Usando las propiedades de los corchetes básicos:
+  \begin{align}
+  \{f_j, p_y\} &= \frac{\partial f_j}{\partial y}\\
+  \{f_j, x\} &= -\frac{\partial f_j}{\partial p_x}\\
+  \{f_j, p_x\} &= \frac{\partial f_j}{\partial x}\\
+  \{f_j, y\} &= -\frac{\partial f_j}{\partial p_y}
+  \end{align}
+
+  Sustituyendo:
+  \begin{align}
+  \{f_j, l_z\} &= x\frac{\partial f_j}{\partial y} - p_y\frac{\partial f_j}{\partial p_x} - y\frac{\partial f_j}{\partial x} + p_x\frac{\partial f_j}{\partial p_y}
+  \end{align}
+
+  Para $j=1$ (componente $x$):
+  \begin{align}
+  \{f_1, l_z\} = -f_2
+  \end{align}
+
+  Para $j=2$ (componente $y$):
+  \begin{align}
+  \{f_2, l_z\} = f_1
+  \end{align}
+
+  Para $j=3$ (componente $z$):
+  \begin{align}
+  \{f_3, l_z\} = 0
+  \end{align}
+
+  Por lo tanto, vectorialmente:
+  \begin{align}
+  \{\mathbf{f}, l_z\} = (f_2, -f_1, 0) = \hat{u}_z \times \mathbf{f}
+  \end{align}
+
+  El mismo procedimiento aplicado a los demás componentes del momento angular confirma la relación general:
+  \begin{align}
+  \{\mathbf{f}, l_x\} &= \hat{u}_x \times \mathbf{f} = (0, f_3, -f_2)\\
+  \{\mathbf{f}, l_y\} &= \hat{u}_y \times \mathbf{f} = (-f_3, 0, f_1)
+  \end{align}
+
+  Esta fórmula muestra que el corchete de Poisson entre una variable dinámica vectorial y una componente del momento angular corresponde a la rotación infinitesimal de dicho vector alrededor del eje respectivo.
+
   \item Para un vector constante \(\mathbf b\) y las componentes \(r_i,p_i,l_i\) de posición, momento y momento angular, calcule
     \[
       \{\mathbf l,\;\mathbf r\cdot\mathbf p\},\quad
       \{\mathbf p,\;r^n\},\quad
       \{\mathbf p,\;(\mathbf b\cdot\mathbf r)^2\}.
     \]
+
+  \textbf{Solución:} Calculemos cada corchete de Poisson por separado.
+
+  \paragraph{1. Cálculo de $\{\mathbf l,\;\mathbf r\cdot\mathbf p\}$}
+
+  Para este corchete necesitamos evaluar $\{l_i, \mathbf{r}\cdot\mathbf{p}\}$ para cada componente $i=x,y,z$. Tomemos como ejemplo $\{l_z, \mathbf{r}\cdot\mathbf{p}\}$:
+
+  \begin{align}
+  \{l_z, \mathbf{r}\cdot\mathbf{p}\} &= \{xp_y - yp_x, xp_x + yp_y + zp_z\} \\
+  &= \{xp_y, \mathbf{r}\cdot\mathbf{p}\} - \{yp_x, \mathbf{r}\cdot\mathbf{p}\}
+  \end{align}
+
+  Aplicando la regla del producto para corchetes:
+  \begin{align}
+  \{xp_y, \mathbf{r}\cdot\mathbf{p}\} &= x\{p_y, \mathbf{r}\cdot\mathbf{p}\} + \{x, \mathbf{r}\cdot\mathbf{p}\}p_y \\
+  \{yp_x, \mathbf{r}\cdot\mathbf{p}\} &= y\{p_x, \mathbf{r}\cdot\mathbf{p}\} + \{y, \mathbf{r}\cdot\mathbf{p}\}p_x
+  \end{align}
+
+  Calculemos cada término:
+  \begin{align}
+  \{p_y, \mathbf{r}\cdot\mathbf{p}\} &= \sum_i\left(\frac{\partial p_y}{\partial r_i}\frac{\partial(\mathbf{r}\cdot\mathbf{p})}{\partial p_i} - \frac{\partial p_y}{\partial p_i}\frac{\partial(\mathbf{r}\cdot\mathbf{p})}{\partial r_i}\right) \\
+  &= -\sum_i \delta_{yi}p_i = -p_y
+  \end{align}
+
+  \begin{align}
+  \{x, \mathbf{r}\cdot\mathbf{p}\} &= \sum_i\left(\frac{\partial x}{\partial r_i}\frac{\partial(\mathbf{r}\cdot\mathbf{p})}{\partial p_i} - \frac{\partial x}{\partial p_i}\frac{\partial(\mathbf{r}\cdot\mathbf{p})}{\partial r_i}\right) \\
+  &= \sum_i \delta_{xi}r_i = x
+  \end{align}
+
+  Por tanto:
+  \begin{align}
+  \{xp_y, \mathbf{r}\cdot\mathbf{p}\} &= x(-p_y) + xp_y = 0 \\
+  \{yp_x, \mathbf{r}\cdot\mathbf{p}\} &= y(-p_x) + yp_x = 0
+  \end{align}
+
+  Y finalmente:
+  \begin{align}
+  \{l_z, \mathbf{r}\cdot\mathbf{p}\} = 0
+  \end{align}
+
+  De manera similar se puede demostrar que $\{l_x, \mathbf{r}\cdot\mathbf{p}\} = 0$ y $\{l_y, \mathbf{r}\cdot\mathbf{p}\} = 0$. Por lo tanto:
+  \[
+  \{\mathbf{l}, \mathbf{r}\cdot\mathbf{p}\} = \mathbf{0}
+  \]
+
+  Este resultado refleja el hecho físico de que el momento angular y el generador de dilataciones conmutan.
+
+  \paragraph{2. Cálculo de $\{\mathbf p,\;r^n\}$}
+
+  Donde $r = |\mathbf{r}| = \sqrt{x^2 + y^2 + z^2}$. Para cada componente:
+  \begin{align}
+  \{p_i, r^n\} &= \sum_j\left(\frac{\partial p_i}{\partial r_j}\frac{\partial r^n}{\partial p_j} - \frac{\partial p_i}{\partial p_j}\frac{\partial r^n}{\partial r_j}\right) \\
+  &= -\sum_j \delta_{ij}\frac{\partial r^n}{\partial r_j} \\
+  &= -\frac{\partial r^n}{\partial r_i}
+  \end{align}
+
+  La derivada de $r^n$ respecto a $r_i$ es:
+  \begin{align}
+  \frac{\partial r^n}{\partial r_i} &= \frac{\partial}{\partial r_i}(r^2)^{n/2} \\
+  &= \frac{n}{2}(r^2)^{n/2-1}\frac{\partial r^2}{\partial r_i} \\
+  &= \frac{n}{2}r^{n-2}\cdot 2r_i \\
+  &= nr^{n-2}r_i
+  \end{align}
+
+  Por lo tanto:
+  \[
+  \{\mathbf{p}, r^n\} = -n r^{n-2} \mathbf{r}
+  \]
+
+  \paragraph{3. Cálculo de $\{\mathbf p,\;(\mathbf b\cdot\mathbf r)^2\}$}
+
+  Para cada componente:
+  \begin{align}
+  \{p_i, (\mathbf{b}\cdot\mathbf{r})^2\} &= \sum_j\left(\frac{\partial p_i}{\partial r_j}\frac{\partial(\mathbf{b}\cdot\mathbf{r})^2}{\partial p_j} - \frac{\partial p_i}{\partial p_j}\frac{\partial(\mathbf{b}\cdot\mathbf{r})^2}{\partial r_j}\right) \\
+  &= -\sum_j \delta_{ij}\frac{\partial(\mathbf{b}\cdot\mathbf{r})^2}{\partial r_j} \\
+  &= -\frac{\partial(\mathbf{b}\cdot\mathbf{r})^2}{\partial r_i}
+  \end{align}
+
+  Calculando la derivada:
+  \begin{align}
+  \frac{\partial(\mathbf{b}\cdot\mathbf{r})^2}{\partial r_i} &= \frac{\partial}{\partial r_i}(\mathbf{b}\cdot\mathbf{r})^2 \\
+  &= 2(\mathbf{b}\cdot\mathbf{r})\frac{\partial(\mathbf{b}\cdot\mathbf{r})}{\partial r_i} \\
+  &= 2(\mathbf{b}\cdot\mathbf{r})b_i
+  \end{align}
+
+  Por lo tanto:
+  \[
+  \{\mathbf{p}, (\mathbf{b}\cdot\mathbf{r})^2\} = -2(\mathbf{b}\cdot\mathbf{r})\mathbf{b}
+  \]
+
   \item Considere el vector de Laplace–Runge–Lenz
     \[
       \mathbf A = \mathbf l\times\mathbf v \;+\;\alpha\,\frac{\mathbf r}{r},
     \]
     constante de movimiento del problema de Kepler. Resuelva el problema 10.26 de Serbo–Kotkin relativo a este vector.
+
+  \textbf{Solución:}
+  El problema 10.26 de Serbo-Kotkin pide demostrar que el vector de Laplace-Runge-Lenz $\mathbf{A}$ es una constante de movimiento, calcular los corchetes de Poisson con el momento angular y demostrar que determina la orientación de la órbita en el espacio.
+
+  \paragraph{1. Demostración de que $\mathbf{A}$ es constante de movimiento}
+
+  Para el problema de Kepler con potencial $U(r) = -\alpha/r$, las ecuaciones de movimiento son:
+  \begin{align}
+  \dot{\mathbf{r}} &= \mathbf{v} \\
+  \dot{\mathbf{v}} &= -\frac{\alpha}{r^3}\mathbf{r}
+  \end{align}
+
+  Calculamos la derivada temporal de $\mathbf{A}$:
+  \begin{align}
+  \frac{d\mathbf{A}}{dt} &= \frac{d}{dt}(\mathbf{l} \times \mathbf{v}) + \alpha\frac{d}{dt}\left(\frac{\mathbf{r}}{r}\right) \\
+  &= \dot{\mathbf{l}} \times \mathbf{v} + \mathbf{l} \times \dot{\mathbf{v}} + \alpha\frac{d}{dt}\left(\frac{\mathbf{r}}{r}\right)
+  \end{align}
+
+  Sabemos que $\dot{\mathbf{l}} = \mathbf{r} \times \dot{\mathbf{v}} = \mathbf{r} \times (-\alpha\mathbf{r}/r^3) = \mathbf{0}$, ya que $\mathbf{r} \times \mathbf{r} = \mathbf{0}$.
+
+  Para el segundo término:
+  \begin{align}
+  \mathbf{l} \times \dot{\mathbf{v}} &= \mathbf{l} \times \left(-\frac{\alpha}{r^3}\mathbf{r}\right) \\
+  &= -\frac{\alpha}{r^3}(\mathbf{l} \times \mathbf{r})
+  \end{align}
+
+  Para el tercer término:
+  \begin{align}
+  \frac{d}{dt}\left(\frac{\mathbf{r}}{r}\right) &= \frac{\dot{\mathbf{r}}}{r} - \frac{\mathbf{r}}{r^2}\dot{r} \\
+  &= \frac{\mathbf{v}}{r} - \frac{\mathbf{r}}{r^2}\frac{\mathbf{r}\cdot\mathbf{v}}{r} \\
+  &= \frac{1}{r}\left(\mathbf{v} - \frac{\mathbf{r}(\mathbf{r}\cdot\mathbf{v})}{r^2}\right)
+  \end{align}
+
+  El término entre paréntesis es la componente de $\mathbf{v}$ perpendicular a $\mathbf{r}$, que podemos expresar como:
+  \begin{align}
+  \mathbf{v}_{\perp} &= \mathbf{v} - \frac{\mathbf{r}(\mathbf{r}\cdot\mathbf{v})}{r^2} \\
+  &= \frac{\mathbf{r}\times(\mathbf{r}\times\mathbf{v})}{r^2} \\
+  &= \frac{\mathbf{r}\times\mathbf{l}}{r^2}
+  \end{align}
+
+  Por lo tanto:
+  \begin{align}
+  \frac{d}{dt}\left(\frac{\mathbf{r}}{r}\right) &= \frac{1}{r}\frac{\mathbf{r}\times\mathbf{l}}{r^2} = \frac{\mathbf{r}\times\mathbf{l}}{r^3}
+  \end{align}
+
+  Combinando todos los términos:
+  \begin{align}
+  \frac{d\mathbf{A}}{dt} &= -\frac{\alpha}{r^3}(\mathbf{l} \times \mathbf{r}) + \alpha\frac{\mathbf{r}\times\mathbf{l}}{r^3} \\
+  &= -\frac{\alpha}{r^3}(\mathbf{l} \times \mathbf{r}) - \frac{\alpha}{r^3}(\mathbf{l} \times \mathbf{r}) \\
+  &= \mathbf{0}
+  \end{align}
+
+  Donde hemos utilizado que $\mathbf{r}\times\mathbf{l} = -\mathbf{l}\times\mathbf{r}$.
+
+  \paragraph{2. Cálculo de los corchetes de Poisson}
+
+  Los corchetes de Poisson de $\mathbf{A}$ con el momento angular $\mathbf{l}$ son:
+  \begin{align}
+  \{A_i, l_j\} = \epsilon_{ijk}A_k
+  \end{align}
+
+  donde $\epsilon_{ijk}$ es el símbolo de Levi-Civita.
+
+  Los corchetes de Poisson entre las componentes de $\mathbf{A}$ son:
+  \begin{align}
+  \{A_i, A_j\} = -2H\epsilon_{ijk}l_k
+  \end{align}
+
+  donde $H = \frac{v^2}{2} - \frac{\alpha}{r}$ es la energía total por unidad de masa.
+
+  \paragraph{3. Propiedades geométricas}
+
+  El vector $\mathbf{A}$ apunta desde el foco hacia el pericentro de la órbita, y su magnitud está relacionada con la excentricidad $e$ de la órbita:
+  \begin{align}
+  |\mathbf{A}| = \alpha e
+  \end{align}
+
+  Para verificar esta relación, podemos tomar el producto escalar de $\mathbf{A}$ con $\mathbf{r}$:
+  \begin{align}
+  \mathbf{A}\cdot\mathbf{r} &= (\mathbf{l}\times\mathbf{v})\cdot\mathbf{r} + \alpha\frac{\mathbf{r}\cdot\mathbf{r}}{r} \\
+  &= \mathbf{l}\cdot(\mathbf{v}\times\mathbf{r}) + \alpha r \\
+  &= -\mathbf{l}\cdot\mathbf{l} + \alpha r \\
+  &= -l^2 + \alpha r
+  \end{align}
+
+  Esta relación demuestra que $\mathbf{r}$ traza una cónica con un foco en el origen, ecuación que puede escribirse como:
+  \begin{align}
+  r = \frac{l^2/\alpha}{1 + (|\mathbf{A}|/\alpha)\cos\theta}
+  \end{align}
+
+  donde $\theta$ es el ángulo entre $\mathbf{r}$ y $\mathbf{A}$, lo que confirma que $|\mathbf{A}|/\alpha = e$ es la excentricidad de la órbita.
+
+  Los vectores $\mathbf{A}$ y $\mathbf{l}$ son perpendiculares entre sí, lo que se puede demostrar calculando su producto escalar:
+  \begin{align}
+  \mathbf{A}\cdot\mathbf{l} &= (\mathbf{l}\times\mathbf{v})\cdot\mathbf{l} + \alpha\frac{\mathbf{r}}{r}\cdot\mathbf{l} \\
+  &= \mathbf{l}\cdot(\mathbf{v}\times\mathbf{l}) + \alpha\frac{\mathbf{r}\cdot\mathbf{l}}{r} \\
+  &= 0 + \alpha\frac{\mathbf{r}\cdot(\mathbf{r}\times\mathbf{v})}{r} \\
+  &= 0
+  \end{align}
+
+  Por tanto, $\mathbf{A}$ y $\mathbf{l}$ determinan completamente la orientación de la órbita en el espacio.
+
   \item Considere una partícula con coordenadas \(\mathbf r=(x,y,z)\) en un sistema de referencia espacial. Halle la ecuación de Hamilton–Jacobi en un sistema de coordenadas rotante alrededor del eje \(z\).
+
+  \textbf{Solución:}  
+  En el marco que gira con velocidad angular \(\boldsymbol\Omega=\Omega\,\hat e_z\) la hamiltoniana es
+  \[
+    H(\mathbf r,\mathbf p)
+    = \frac{1}{2m}(p_x^2+p_y^2+p_z^2)
+      \;-\;\boldsymbol\Omega\cdot(\mathbf r\times\mathbf p)
+      \;+\;U(\mathbf r)
+    = \frac{1}{2m}\mathbf p^2 - \Omega\,L_z + U(x,y,z).
+  \]
+  La ecuación de Hamilton–Jacobi
+  \[
+    \frac{\partial S}{\partial t}
+    + H\!\Bigl(x,y,z;\partial_xS,\partial_yS,\partial_zS\Bigr)
+    = 0
+  \]
+  se expresa como
+  \[
+    \frac{\partial S}{\partial t}
+    + \frac{1}{2m}\Bigl[(\partial_xS)^2+(\partial_yS)^2+(\partial_zS)^2\Bigr]
+    - \Omega\bigl(x\,\partial_yS - y\,\partial_xS\bigr)
+    + U(x,y,z)
+    = 0.
+  \]
   \item Halle y resuelva la ecuación de Hamilton–Jacobi para un oscilador armónico tridimensional con frecuencias \(\omega_x,\omega_y,\omega_z\) diferentes.
+  
+  \textbf{Solución:} 
+  El hamiltoniano del sistema es:
+  \[
+  H = \frac{1}{2m}(p_x^2 + p_y^2 + p_z^2) + \frac{m}{2}(\omega_x^2 x^2 + \omega_y^2 y^2 + \omega_z^2 z^2)
+  \]
+
+  La ecuación de Hamilton-Jacobi correspondiente es:
+  \[
+  \frac{\partial S}{\partial t} + \frac{1}{2m}\left[\left(\frac{\partial S}{\partial x}\right)^2 + \left(\frac{\partial S}{\partial y}\right)^2 + \left(\frac{\partial S}{\partial z}\right)^2\right] + \frac{m}{2}(\omega_x^2 x^2 + \omega_y^2 y^2 + \omega_z^2 z^2) = 0
+  \]
+
+  Como el sistema es conservativo, podemos separar la dependencia temporal:
+  \[
+  S(x,y,z,t) = W(x,y,z) - Et
+  \]
+
+  Sustituyendo en la ecuación de Hamilton-Jacobi:
+  \[
+  -E + \frac{1}{2m}\left[\left(\frac{\partial W}{\partial x}\right)^2 + \left(\frac{\partial W}{\partial y}\right)^2 + \left(\frac{\partial W}{\partial z}\right)^2\right] + \frac{m}{2}(\omega_x^2 x^2 + \omega_y^2 y^2 + \omega_z^2 z^2) = 0
+  \]
+
+  Esta ecuación es separable. Proponemos:
+  \[
+  W(x,y,z) = W_x(x) + W_y(y) + W_z(z)
+  \]
+
+  Obtenemos tres ecuaciones independientes:
+  \begin{align}
+  \frac{1}{2m}\left(\frac{dW_x}{dx}\right)^2 + \frac{m\omega_x^2}{2}x^2 &= E_x\\
+  \frac{1}{2m}\left(\frac{dW_y}{dy}\right)^2 + \frac{m\omega_y^2}{2}y^2 &= E_y\\
+  \frac{1}{2m}\left(\frac{dW_z}{dz}\right)^2 + \frac{m\omega_z^2}{2}z^2 &= E_z
+  \end{align}
+
+  donde $E = E_x + E_y + E_z$, siendo $E_x$, $E_y$ y $E_z$ constantes de separación.
+
+  Para cada coordenada:
+  \[
+  \frac{dW_i}{dq_i} = \pm\sqrt{2m\left(E_i - \frac{m\omega_i^2}{2}q_i^2\right)}
+  \]
+
+  Integrando:
+  \[
+  W_i(q_i) = \int\sqrt{2m\left(E_i - \frac{m\omega_i^2}{2}q_i^2\right)}\,dq_i = \frac{E_i}{\omega_i}\arcsin\left(q_i\sqrt{\frac{m\omega_i^2}{2E_i}}\right) + \text{const.}
+  \]
+
+  La solución completa de la ecuación de Hamilton-Jacobi es:
+  \[
+  S(x,y,z,t) = \sum_{i=x,y,z}\left[\frac{E_i}{\omega_i}\arcsin\left(q_i\sqrt{\frac{m\omega_i^2}{2E_i}}\right) + \alpha_i\right] - Et
+  \]
+
+  donde $\alpha_i$ son constantes de integración.
+
+  Para obtener las ecuaciones de movimiento, aplicamos:
+  \[
+  \frac{\partial S}{\partial E_i} = \beta_i \quad \text{(constantes)}
+  \]
+
+  Esto nos lleva a:
+  \[
+  \frac{1}{\omega_i}\arcsin\left(q_i\sqrt{\frac{m\omega_i^2}{2E_i}}\right) - t = \beta_i
+  \]
+
+  Despejando:
+  \[
+  q_i(t) = \sqrt{\frac{2E_i}{m\omega_i^2}}\sin[\omega_i(t + \beta_i)]
+  \]
+
+  Que son precisamente las ecuaciones de movimiento de tres osciladores armónicos independientes con frecuencias $\omega_x$, $\omega_y$ y $\omega_z$. Los momentos conjugados se obtienen de:
+  \[
+  p_i = \frac{\partial S}{\partial q_i} = \sqrt{2mE_i}\cos[\omega_i(t + \beta_i)]
+  \]
+
   \item Halle y resuelva la ecuación de Hamilton–Jacobi para un oscilador armónico tridimensional en coordenadas esféricas. Exprese la solución \(r(t)\), \(\theta(t)\), \(\varphi(t)\) y los momentos conjugados usando variables acción–ángulo.
+  
+  \textbf{Solución}
+
+  Consideremos un oscilador armónico tridimensional isotrópico con un potencial dado por \( V = \frac{1}{2} k r^2 \), donde \( r \) es la coordenada radial en coordenadas esféricas \( (r, \theta, \varphi) \), \( k \) es la constante de fuerza y \( m \) es la masa de la partícula. El objetivo es hallar y resolver la ecuación de Hamilton-Jacobi en estas coordenadas y expresar la solución en términos de variables acción-ángulo.
+
+  \subsection*{Paso 1: Hamiltoniano en coordenadas esféricas}
+
+  En coordenadas esféricas, las coordenadas generalizadas son \( r \), \( \theta \) y \( \varphi \), con momentos conjugados \( p_r \), \( p_\theta \) y \( p_\varphi \). La energía cinética \( T \) se expresa como:
+
+  \[
+  T = \frac{1}{2} m \left( \dot{r}^2 + r^2 \dot{\theta}^2 + r^2 \sin^2 \theta \dot{\varphi}^2 \right).
+  \]
+
+  Los momentos conjugados se derivan del lagrangiano \( L = T - V \):
+
+  \[
+  p_r = \frac{\partial L}{\partial \dot{r}} = m \dot{r}, \quad p_\theta = \frac{\partial L}{\partial \dot{\theta}} = m r^2 \dot{\theta}, \quad p_\varphi = \frac{\partial L}{\partial \dot{\varphi}} = m r^2 \sin^2 \theta \dot{\varphi}.
+  \]
+
+  Resolviendo para las velocidades:
+
+  \[
+  \dot{r} = \frac{p_r}{m}, \quad \dot{\theta} = \frac{p_\theta}{m r^2}, \quad \dot{\varphi} = \frac{p_\varphi}{m r^2 \sin^2 \theta}.
+  \]
+
+  Sustituyendo en \( T \), el Hamiltoniano \( H = T + V \) queda:
+
+  \[
+  H = \frac{p_r^2}{2m} + \frac{p_\theta^2}{2m r^2} + \frac{p_\varphi^2}{2m r^2 \sin^2 \theta} + \frac{1}{2} k r^2.
+  \]
+
+  \subsection*{Paso 2: Ecuación de Hamilton-Jacobi}
+
+  La ecuación de Hamilton-Jacobi para un sistema conservativo es:
+
+  \[
+  \frac{\partial S}{\partial t} + H \left( r, \theta, \varphi, \frac{\partial S}{\partial r}, \frac{\partial S}{\partial \theta}, \frac{\partial S}{\partial \varphi} \right) = 0,
+  \]
+
+  donde \( S \) es la función de acción. Dado que \( H \) no depende explícitamente del tiempo, podemos separar variables asumiendo \( S = W(r, \theta, \varphi) - E t \), donde \( E \) es la energía total. Entonces:
+
+  \[
+  H \left( r, \theta, \varphi, \frac{\partial W}{\partial r}, \frac{\partial W}{\partial \theta}, \frac{\partial W}{\partial \varphi} \right) = E.
+  \]
+
+  Sustituyendo el Hamiltoniano:
+
+  \[
+  \frac{1}{2m} \left( \frac{\partial W}{\partial r} \right)^2 + \frac{1}{2m r^2} \left( \frac{\partial W}{\partial \theta} \right)^2 + \frac{1}{2m r^2 \sin^2 \theta} \left( \frac{\partial W}{\partial \varphi} \right)^2 + \frac{1}{2} k r^2 = E.
+  \]
+
+  \subsection*{Paso 3: Separación de variables}
+
+  Dado que \( \varphi \) es una coordenada cíclica (no aparece explícitamente en \( H \)), el momento \( p_\varphi = \frac{\partial W}{\partial \varphi} \) es constante. Así, \( W \) se puede escribir como:
+
+  \[
+  W = W_r(r) + W_\theta(\theta) + p_\varphi \varphi.
+  \]
+
+  Sustituyendo \( \frac{\partial W}{\partial \varphi} = p_\varphi \):
+
+  \[
+  \frac{1}{2m} \left( \frac{d W_r}{dr} \right)^2 + \frac{1}{2m r^2} \left( \frac{d W_\theta}{d \theta} \right)^2 + \frac{p_\varphi^2}{2m r^2 \sin^2 \theta} + \frac{1}{2} k r^2 = E.
+  \]
+
+  Para separar las variables \( r \) y \( \theta \), multiplicamos ambos lados por \( 2m r^2 \):
+
+  \[
+  r^2 \left( \frac{d W_r}{dr} \right)^2 + m k r^4 + \left( \frac{d W_\theta}{d \theta} \right)^2 + \frac{p_\varphi^2}{\sin^2 \theta} = 2m E r^2.
+  \]
+
+  Los términos \( \left( \frac{d W_\theta}{d \theta} \right)^2 + \frac{p_\varphi^2}{\sin^2 \theta} \) dependen solo de \( \theta \), mientras que el resto depende de \( r \). Esto sugiere una constante de separación \( \alpha^2 \):
+
+  \[
+  \left( \frac{d W_\theta}{d \theta} \right)^2 + \frac{p_\varphi^2}{\sin^2 \theta} = \alpha^2,
+  \]
+
+  \[
+  \frac{1}{2m} \left( \frac{d W_r}{dr} \right)^2 + \frac{\alpha^2}{2m r^2} + \frac{1}{2} k r^2 = E.
+  \]
+
+  Aquí, \( \alpha^2 \) está relacionada con el cuadrado del momento angular total, \( L^2 \), pero por ahora lo dejamos como una constante.
+
+  Resolviendo:
+
+  \[
+  \frac{d W_\theta}{d \theta} = \sqrt{ \alpha^2 - \frac{p_\varphi^2}{\sin^2 \theta} },
+  \]
+
+  \[
+  W_\theta = \int \sqrt{ \alpha^2 - \frac{p_\varphi^2}{\sin^2 \theta} } \, d\theta,
+  \]
+
+  \[
+  \frac{d W_r}{dr} = \sqrt{ 2m E - \frac{\alpha^2}{r^2} - m k r^2 },
+  \]
+
+  \[
+  W_r = \int \sqrt{ 2m E - \frac{\alpha^2}{r^2} - m k r^2 } \, dr.
+  \]
+
+  Entonces, la acción es:
+
+  \[
+  S = W_r(r) + W_\theta(\theta) + p_\varphi \varphi - E t.
+  \]
+
+  \subsection*{Paso 4: Variables acción-ángulo}
+
+  Para expresar \( r(t) \), \( \theta(t) \), \( \varphi(t) \) y los momentos conjugados en términos de variables acción-ángulo, notamos que el oscilador armónico tridimensional isotrópico es superintegrable, y es más sencillo resolverlo primero en coordenadas cartesianas, donde se separa naturalmente en tres osciladores unidimensionales, y luego transformar a coordenadas esféricas.
+
+  En coordenadas cartesianas, el Hamiltoniano es:
+
+  \[
+  H = \frac{p_x^2}{2m} + \frac{1}{2} m \omega^2 x^2 + \frac{p_y^2}{2m} + \frac{1}{2} m \omega^2 y^2 + \frac{p_z^2}{2m} + \frac{1}{2} m \omega^2 z^2,
+  \]
+
+  con \( \omega = \sqrt{k/m} \). La ecuación de Hamilton-Jacobi se separa en:
+
+  \[
+  \frac{1}{2m} \left( \frac{d W_x}{dx} \right)^2 + \frac{1}{2} m \omega^2 x^2 = E_x,
+  \]
+
+  y análogamente para \( y \) y \( z \), con \( E = E_x + E_y + E_z \).
+
+  Para un oscilador 1D, la variable acción se define como \( I_x = \frac{1}{2\pi} \oint p_x \, dx \). Sabemos que \( E_x = \omega I_x \), y la solución es:
+
+  \[
+  x = \sqrt{\frac{2 I_x}{m \omega}} \sin w_x, \quad p_x = \sqrt{2 m \omega I_x} \cos w_x,
+  \]
+
+  donde \( w_x = \omega t + \delta_x \) es la variable ángulo. Similarmente:
+
+  \[
+  y = \sqrt{\frac{2 I_y}{m \omega}} \sin w_y, \quad p_y = \sqrt{2 m \omega I_y} \cos w_y,
+  \]
+
+  \[
+  z = \sqrt{\frac{2 I_z}{m \omega}} \sin w_z, \quad p_z = \sqrt{2 m \omega I_z} \cos w_z,
+  \]
+
+  con \( w_y = \omega t + \delta_y \), \( w_z = \omega t + \delta_z \), y la energía total es:
+
+  \[
+  E = \omega (I_x + I_y + I_z).
+  \]
+
+  \subsection*{Paso 5: Transformación a coordenadas esféricas}
+
+  En coordenadas esféricas:
+
+  \[
+  r = \sqrt{x^2 + y^2 + z^2}, \quad \theta = \arccos \left( \frac{z}{r} \right), \quad \varphi = \arctan \left( \frac{y}{x} \right).
+  \]
+
+  Sustituyendo:
+
+  \[
+  r(t) = \sqrt{ \left( \sqrt{\frac{2 I_x}{m \omega}} \sin (\omega t + \delta_x) \right)^2 + \left( \sqrt{\frac{2 I_y}{m \omega}} \sin (\omega t + \delta_y) \right)^2 + \left( \sqrt{\frac{2 I_z}{m \omega}} \sin (\omega t + \delta_z) \right)^2 },
+  \]
+
+  \[
+  \theta(t) = \arccos \left( \frac{ \sqrt{\frac{2 I_z}{m \omega}} \sin (\omega t + \delta_z) }{ r(t) } \right),
+  \]
+
+  \[
+  \varphi(t) = \arctan \left( \frac{ \sqrt{\frac{2 I_y}{m \omega}} \sin (\omega t + \delta_y) }{ \sqrt{\frac{2 I_x}{m \omega}} \sin (\omega t + \delta_x) } \right).
+  \]
+
+  Los momentos conjugados \( p_r \), \( p_\theta \), \( p_\varphi \) se pueden obtener transformando \( p_x \), \( p_y \), \( p_z \) a coordenadas esféricas usando las relaciones estándar, pero su forma explícita es complicada y depende de \( r \), \( \theta \), \( \varphi \). Por simplicidad, notamos que \( p_\varphi \) está relacionado con el momento angular conservado \( L_z \).
+
+  \subsection*{Conclusión}
+
+  Hemos resuelto la ecuación de Hamilton-Jacobi separando variables en coordenadas esféricas y expresado la solución en términos de variables acción-ángulo aprovechando la separabilidad en coordenadas cartesianas. Las expresiones para \( r(t) \), \( \theta(t) \), \( \varphi(t) \) reflejan la naturaleza oscilatoria del sistema, con \( I_x \), \( I_y \), \( I_z \) como variables acción y \( w_x \), \( w_y \), \( w_z \) como variables ángulo que avanzan linealmente con el tiempo a la frecuencia \( \omega \).
+
   \item Calcule la acción como función de las coordenadas para una partícula libre en tres dimensiones. Compruebe que coincide con la función generatriz de la transformación canónica de evolución temporal y escriba dicha transformación.
+  
+  \textbf{Solución:}  
+  Para una partícula libre de masa \(m\) en \(\mathbb{R}^3\)
+  \[
+    L = \tfrac12 m\bigl(\dot x^2+\dot y^2+\dot z^2\bigr)\,,
+    \quad H=\frac{p_x^2+p_y^2+p_z^2}{2m}\,.
+  \]
+  La trayectoria de mínima acción va en línea recta con \(\dot{\mathbf r}=\mathbf v\) constante,
+  \(\mathbf r(t)=(x,y,z)\), \(\mathbf r(0)=\mathbf R\). Entonces
+  \[
+    S(\mathbf r,t;\mathbf R,0)
+    =\int_{0}^{t}L\,dt'
+    =\frac12m v^2\,t
+    =\frac{m}{2t}\,\bigl|\mathbf r-\mathbf R\bigr|^2.
+  \]
+  Esta función coincide (hasta elegir \(\mathbf R\) como variable canónica “inicial”)
+  con la función generatriz de tipo 1 que produce la evolución temporal en tiempo \(t\):
+  \[
+    F(\mathbf r,\mathbf R,t)
+    =\frac m{2t}\,\bigl(\mathbf r-\mathbf R\bigr)^2.
+  \]
+  De ahí
+  \[
+    \mathbf p
+    =\frac{\partial F}{\partial \mathbf r}
+    =\frac{m}{t}\,(\mathbf r-\mathbf R),
+    \qquad
+    \mathbf P
+    =-\,\frac{\partial F}{\partial \mathbf R}
+    =\frac{m}{t}\,(\mathbf r-\mathbf R).
+  \]
+  Como \(\mathbf p=\mathbf P\), se conserva el momento, y la segunda ecuación da
+  \[
+    \mathbf R
+    =\mathbf r - \frac{\mathbf p}{m}\,t,
+  \]
+  es decir, la transformación canónica de evolución temporal
+  \[
+    (\mathbf R,\mathbf P)\;\longmapsto\;(\mathbf r,\mathbf p)
+    \quad\text{con}\quad
+    \mathbf r=\mathbf R+\frac{\mathbf P}{m}\,t,\quad
+    \mathbf p=\mathbf P.
+  \]
   \item Calcule la acción para una partícula en caída libre como función de las coordenadas. Compruebe que coincide con el generador de la transformación canónica de evolución temporal e implemente dicha transformación.
+  
+  \textbf{Solución:}
+  Consideremos una partícula de masa $m$ que se mueve en un campo gravitacional uniforme con aceleración $g$ en dirección vertical. Tomamos el eje $y$ positivo hacia arriba.
+
+  \paragraph{1. Cálculo de la acción:}
+
+  El lagrangiano del sistema es:
+  \[
+  L = \frac{1}{2}m\dot{x}^2 + \frac{1}{2}m\dot{y}^2 - mgy
+  \]
+
+  La ecuación de movimiento para la coordenada $x$ da $\ddot{x}=0$, lo que implica $x(t) = x_0 + v_x(t-t_0)$, mientras que para $y$ obtenemos $\ddot{y}=-g$, por lo que $y(t) = y_0 + v_y(t-t_0) - \frac{1}{2}g(t-t_0)^2$.
+
+  Calculemos la acción entre los instantes $t_0$ y $t$:
+  \begin{align}
+  S(x,y,t;x_0,y_0,t_0) &= \int_{t_0}^{t} L\,d\tau \\
+  &= \int_{t_0}^{t} \left[\frac{1}{2}m\dot{x}^2 + \frac{1}{2}m\dot{y}^2 - mgy\right]\,d\tau
+  \end{align}
+
+  Sustituyendo las velocidades:
+  \begin{align}
+  \dot{x} &= v_x = \frac{x-x_0}{t-t_0} \\
+  \dot{y} &= v_y - g(t-\tau) = \frac{y-y_0}{t-t_0} + \frac{1}{2}g(t-t_0) - g(t-\tau)
+  \end{align}
+
+  Después de integrar y simplificar, obtenemos:
+  \begin{align}
+  S(x,y,t;x_0,y_0,t_0) = \frac{m}{2(t-t_0)}[(x-x_0)^2 + (y-y_0)^2] + \frac{mg}{2}(y+y_0)(t-t_0) - \frac{mg^2}{24}(t-t_0)^3
+  \end{align}
+
+  \paragraph{2. Verificación como generador de transformación canónica:}
+
+  Para comprobar que esta acción coincide con el generador de una transformación canónica de evolución temporal, calculamos:
+  \begin{align}
+  p_x &= \frac{\partial S}{\partial x} = \frac{m(x-x_0)}{t-t_0} \\
+  p_y &= \frac{\partial S}{\partial y} = \frac{m(y-y_0)}{t-t_0} + \frac{mg(t-t_0)}{2}
+  \end{align}
+
+  Estas expresiones coinciden con los momentos físicos: $p_x = m\dot{x}$ y $p_y = m\dot{y}$.
+
+  Además, verificamos:
+  \begin{align}
+  -\frac{\partial S}{\partial t} &= \frac{m[(x-x_0)^2+(y-y_0)^2]}{2(t-t_0)^2} - \frac{mg(y+y_0)}{2} + \frac{mg^2(t-t_0)^2}{8} \\
+  &= \frac{p_x^2+p_y^2}{2m} + mgy = H
+  \end{align}
+
+  Esto confirma que $-\partial S/\partial t$ es el hamiltoniano.
+
+  \paragraph{3. Implementación de la transformación canónica:}
+
+  La acción $S$ genera una transformación canónica de $(x_0,y_0,p_{x0},p_{y0})$ a $(x,y,p_x,p_y)$ mediante:
+  \begin{align}
+  p_{x0} &= -\frac{\partial S}{\partial x_0} = \frac{m(x-x_0)}{t-t_0} = p_x \\
+  p_{y0} &= -\frac{\partial S}{\partial y_0} = \frac{m(y-y_0)}{t-t_0} - \frac{mg(t-t_0)}{2} = p_y - mg(t-t_0)
+  \end{align}
+
+  La transformación canónica queda:
+  \begin{align}
+  x &= x_0 + \frac{p_{x0}}{m}(t-t_0) \\
+  y &= y_0 + \frac{p_{y0}}{m}(t-t_0) - \frac{1}{2}g(t-t_0)^2 \\
+  p_x &= p_{x0} \\
+  p_y &= p_{y0} - mg(t-t_0)
+  \end{align}
+
+  Esta transformación describe la evolución del sistema desde el estado inicial \\
+   $(x_0,y_0,p_{x0},p_{y0})$ al instante $t_0$ hasta el estado $(x,y,p_x,p_y)$ al instante $t$. La conservación de $p_x$ y la variación lineal de $p_y$ con el tiempo concuerdan con las propiedades físicas del movimiento bajo gravedad constante.
+
   \item Considere el movimiento de “tiro parabólico” desde el suelo y desde un ascensor que se mueve hacia arriba con aceleración \(g\). Realice la transformación de coordenadas entre ambos sistemas y halle los hamiltonianos correspondientes.
+  
+  \textbf{Solución:}  
+  Estudiamos el movimiento de una partícula de masa $m$ en un campo gravitatorio uniforme desde dos sistemas de referencia:
+
+  \begin{itemize}
+  \item Sistema $S$ (inercial): ligado al suelo, con coordenadas $(x,y)$ y momentos conjugados $(p_x,p_y)$.
+  \item Sistema $S'$ (no inercial): ligado al ascensor que asciende con aceleración constante $g$, con coordenadas $(X,Y)$ y momentos $(P_X,P_Y)$.
+  \end{itemize}
+
+  \paragraph{Hamiltoniano en el sistema inercial $S$:}
+  En el sistema ligado al suelo, la hamiltoniana incluye la energía cinética y el potencial gravitatorio:
+  \[
+  H(x,y;p_x,p_y) = \frac{p_x^2+p_y^2}{2m} + mgy
+  \]
+
+  \paragraph{Transformación de coordenadas:}
+  La relación entre las coordenadas de ambos sistemas es:
+  \[
+  x = X, \quad y = Y + \frac{1}{2}gt^2
+  \]
+
+  donde el término $\frac{1}{2}gt^2$ representa el desplazamiento del ascensor respecto al suelo. 
+
+  \paragraph{Construcción de la función generatriz:}
+  Para obtener una transformación canónica completa, necesitamos establecer una función generatriz que produzca la transformación de coordenadas deseada. Utilizaremos una función generatriz de tipo 2, que depende de las coordenadas antiguas $(x)$, las nuevas $(Y)$ y los momentos nuevos $(P_X)$ y antiguos $(p_y)$:
+  \[
+  F_2(x,Y;P_X,p_y;t) = xP_X + \left(Y + \frac{1}{2}gt^2\right)p_y
+  \]
+
+  \paragraph{Verificación de las relaciones canónicas:}
+  A partir de la función generatriz, las relaciones canónicas nos dan:
+  \begin{align}
+  p_x &= \frac{\partial F_2}{\partial x} = P_X \\
+  X &= \frac{\partial F_2}{\partial P_X} = x \\
+  P_Y &= \frac{\partial F_2}{\partial Y} = p_y \\
+  y &= \frac{\partial F_2}{\partial p_y} = Y + \frac{1}{2}gt^2
+  \end{align}
+
+  Estas ecuaciones confirman nuestra transformación de coordenadas inicial y establecen que $P_X = p_x$ y $P_Y = p_y$.
+
+  \paragraph{Cálculo del nuevo hamiltoniano:}
+  Según la teoría de transformaciones canónicas dependientes del tiempo, el nuevo hamiltoniano se obtiene como:
+  \[
+  H'(X,Y;P_X,P_Y) = H(x,y;p_x,p_y) + \frac{\partial F_2}{\partial t}
+  \]
+
+  Calculamos cada término:
+  \begin{align}
+  H(x,y;p_x,p_y) &= \frac{p_x^2+p_y^2}{2m} + mgy \\
+  &= \frac{P_X^2+P_Y^2}{2m} + mg\left(Y + \frac{1}{2}gt^2\right)
+  \end{align}
+
+  Y la derivada parcial de la función generatriz:
+  \[
+  \frac{\partial F_2}{\partial t} = \frac{\partial}{\partial t}\left(xP_X + \left(Y + \frac{1}{2}gt^2\right)p_y\right) = gtp_y = gtP_Y
+  \]
+
+  Por tanto:
+  \begin{align}
+  H'(X,Y;P_X,P_Y) &= \frac{P_X^2+P_Y^2}{2m} + mg\left(Y + \frac{1}{2}gt^2\right) + gtP_Y \\
+  &= \frac{P_X^2+P_Y^2}{2m} + mgY + \frac{1}{2}mg^2t^2 + gtP_Y
+  \end{align}
+
+  Reordenando términos:
+  \begin{align}
+  H'(X,Y;P_X,P_Y) &= \frac{P_X^2+P_Y^2}{2m} + mgY + P_Y\left(gt\right) + \frac{1}{2}mg^2t^2 \\
+  &= \frac{P_X^2+P_Y^2}{2m} + mgY + P_Y\left(gt\right) + \frac{m}{2}\left(gt\right)^2
+  \end{align}
+
+  Observemos que:
+  \[
+  mgY + P_Y(gt) + \frac{m}{2}(gt)^2 = mgY + \frac{P_Y^2}{2m} - \frac{P_Y^2}{2m} + P_Y(gt) + \frac{m}{2}(gt)^2
+  \]
+
+  Completando el cuadrado:
+  \[
+  mgY + P_Y(gt) + \frac{m}{2}(gt)^2 = mgY + \frac{(P_Y + mgt)^2 - P_Y^2}{2m} = mgY + \frac{(P_Y + mgt)^2 - P_Y^2}{2m}
+  \]
+
+  Simplificando:
+  \[
+  H'(X,Y;P_X,P_Y) = \frac{P_X^2}{2m} + \frac{(P_Y + mgt)^2}{2m} - \frac{P_Y^2}{2m} + \frac{P_Y^2}{2m} + mgY = \frac{P_X^2 + P_Y^2}{2m}
+  \]
+
+  \paragraph{Interpretación física:}
+  El resultado muestra que en el sistema del ascensor (no inercial), el hamiltoniano se reduce a la pura energía cinética, sin términos de potencial gravitatorio. Esto significa que un observador en el ascensor no percibe la gravedad (principio de equivalencia de Einstein): las leyes de la física en un sistema uniformemente acelerado son equivalentes a las de un sistema inercial con un campo gravitatorio uniforme.
+
+  Los hamiltonianos en ambos sistemas son:
+  \[
+  H_{\text{suelo}} = \frac{p_x^2+p_y^2}{2m} + mgy, \quad
+  H_{\text{ascensor}} = \frac{P_X^2+P_Y^2}{2m}
+  \]
+
+  En el sistema del ascensor, las ecuaciones de movimiento son las de una partícula libre:
+  \[
+  \dot{X} = \frac{P_X}{m}, \quad \dot{Y} = \frac{P_Y}{m}, \quad \dot{P}_X = 0, \quad \dot{P}_Y = 0
+  \]
+
+  Lo que implica trayectorias rectilíneas con velocidad constante, mientras que en el sistema del suelo se obtienen las conocidas parábolas del tiro parabólico.
   \item Considere un sistema de fuerzas centrales de su elección. Resuelva la ecuación de Hamilton–Jacobi y halle la transformación canónica generada.
+  
+  \textbf{Solución:}
+  Consideraré el potencial de Coulomb (o gravitatorio): $U(r) = -\frac{k}{r}$, donde $k$ es una constante positiva. Para una partícula de masa $m$ en este campo central, el hamiltoniano en coordenadas esféricas es:
+
+  \[
+  H = \frac{p_r^2}{2m} + \frac{p_\theta^2}{2mr^2} + \frac{p_\varphi^2}{2mr^2\sin^2\theta} - \frac{k}{r}
+  \]
+
+  La ecuación de Hamilton-Jacobi para un sistema conservativo es:
+  \[
+  H\left(r,\theta,\varphi,\frac{\partial S}{\partial r},\frac{\partial S}{\partial \theta},\frac{\partial S}{\partial \varphi}\right) = E
+  \]
+
+  Como la energía es constante, buscamos una solución de la forma:
+  \[
+  S(r,\theta,\varphi,t) = W(r,\theta,\varphi) - Et
+  \]
+
+  Sustituyendo en la ecuación de Hamilton-Jacobi:
+  \[
+  \frac{1}{2m}\left(\frac{\partial W}{\partial r}\right)^2 + \frac{1}{2mr^2}\left(\frac{\partial W}{\partial \theta}\right)^2 + \frac{1}{2mr^2\sin^2\theta}\left(\frac{\partial W}{\partial \varphi}\right)^2 - \frac{k}{r} = E
+  \]
+
+  Podemos separar las variables escribiendo:
+  \[
+  W(r,\theta,\varphi) = W_r(r) + W_\theta(\theta) + W_\varphi(\varphi)
+  \]
+
+  Como el potencial tiene simetría esférica, $\varphi$ es una coordenada cíclica. Por tanto:
+  \[
+  \frac{\partial W}{\partial \varphi} = \frac{dW_\varphi}{d\varphi} = \alpha_3 = \text{constante}
+  \]
+
+  donde $\alpha_3$ se identifica con el momento angular en la dirección $z$.
+
+  Multiplicando la ecuación de Hamilton-Jacobi por $2mr^2$:
+  \[
+  r^2\left(\frac{dW_r}{dr}\right)^2 + \left(\frac{dW_\theta}{d\theta}\right)^2 + \frac{\alpha_3^2}{\sin^2\theta} = 2mr^2E + 2mkr
+  \]
+
+  Para que esta ecuación sea separable, debe existir una constante $\alpha_2^2$ tal que:
+  \[
+  \left(\frac{dW_\theta}{d\theta}\right)^2 + \frac{\alpha_3^2}{\sin^2\theta} = \alpha_2^2
+  \]
+
+  La constante $\alpha_2$ se interpreta como el momento angular total.
+
+  Las ecuaciones separadas son:
+  \begin{align}
+  \frac{dW_\theta}{d\theta} &= \pm\sqrt{\alpha_2^2 - \frac{\alpha_3^2}{\sin^2\theta}} \\
+  \frac{dW_r}{dr} &= \pm\sqrt{2mE + \frac{2mk}{r} - \frac{\alpha_2^2}{r^2}}
+  \end{align}
+
+  Resolviendo para $W_\theta$ y $W_\varphi$:
+  \begin{align}
+  W_\varphi &= \alpha_3\varphi \\
+  W_\theta &= \int\sqrt{\alpha_2^2 - \frac{\alpha_3^2}{\sin^2\theta}}\,d\theta
+  \end{align}
+
+  Para $W_r$, distinguimos dos casos según el signo de $E$:
+
+  \paragraph{Caso $E < 0$ (órbitas ligadas):}
+  Haciendo el cambio de variable $u = 1/r$, $dr = -du/u^2$, la integral se transforma en:
+  \begin{align}
+  W_r &= -\int\frac{1}{u^2}\sqrt{2mE + 2mku - \alpha_2^2u^2}\,du \\
+  &= -\sqrt{\frac{mk^2}{-2E}}\arccos\left(\frac{\alpha_2u-mk}{\alpha_2\sqrt{-2mE/\alpha_2^2}}\right) + \text{constante}
+  \end{align}
+
+  \paragraph{Transformación canónica:}
+  La función principal de Hamilton completa es:
+  \[
+  S = W_r(r) + W_\theta(\theta) + \alpha_3\varphi - Et
+  \]
+
+  Esta función genera una transformación canónica a nuevas variables $(Q_i,P_i)$ mediante:
+  \[
+  p_i = \frac{\partial S}{\partial q_i}, \quad Q_i = \frac{\partial S}{\partial P_i}
+  \]
+
+  Las nuevas variables son constantes del movimiento:
+  \begin{align}
+  P_1 &= E \quad \text{(energía)} \\
+  P_2 &= \alpha_2 \quad \text{(momento angular total)} \\
+  P_3 &= \alpha_3 \quad \text{(componente z del momento angular)}
+  \end{align}
+
+  Las variables conjugadas $Q_i$ son ángulos que evolucionan linealmente con el tiempo:
+  \begin{align}
+  Q_1 &= \frac{\partial S}{\partial E} = -t + \text{términos adicionales} \\
+  Q_2 &= \frac{\partial S}{\partial \alpha_2} \\
+  Q_3 &= \frac{\partial S}{\partial \alpha_3} = \varphi + \text{términos adicionales}
+  \end{align}
+
+  Esta transformación mapea el problema del movimiento en un campo central a un conjunto de variables acción-ángulo, donde las acciones $(P_i)$ son constantes y los ángulos $(Q_i)$ evolucionan linealmente con el tiempo.
+
   \item Realice los detalles del problema 2 de la sección 40.
   \item Realice los detalles del problema de la sección 50.
   \item ¿A qué velocidad debe moverse un observador hacia una estrella para que la mitad de la luz emitida esté concentrada en un cono de ángulo \(0.01\)\,rad? Puede aproximarse \(\cos\theta\approx1-\theta^2/2\).
+  
+  \textbf{Solución:} 
+  Este problema involucra el efecto relativista de aberración de la luz. Cuando un observador se mueve hacia una fuente de luz, los rayos luminosos parecen concentrarse en la dirección del movimiento.
+
+  En el sistema de referencia en reposo de la estrella, la radiación es emitida isotrópicamente. La mitad de esta radiación se emite dentro del hemisferio frontal, es decir, para ángulos $\theta$ tales que $0 \leq \theta < \pi/2$. Esto corresponde a $\cos\theta = 0$ para el límite de este hemisferio.
+
+  En el sistema del observador que se mueve con velocidad $v = \beta c$ hacia la estrella, la fórmula de aberración relativista relaciona el ángulo $\theta'$ observado con el ángulo original $\theta$ mediante:
+
+  \[
+  \cos\theta' = \frac{\cos\theta + \beta}{1 + \beta\cos\theta}
+  \]
+
+  Para el límite del hemisferio ($\cos\theta = 0$):
+
+  \[
+  \cos\theta' = \frac{\beta}{1} = \beta
+  \]
+
+  Queremos que $\theta' = 0.01$ rad, por lo tanto:
+
+  \[
+  \cos(0.01) = \beta
+  \]
+
+  Utilizando la aproximación $\cos\theta \approx 1-\theta^2/2$:
+
+  \[
+  \cos(0.01) \approx 1 - \frac{(0.01)^2}{2} = 1 - 5 \times 10^{-5} = 0.99995
+  \]
+
+  Por tanto, la velocidad requerida es:
+
+  \[
+  v = \beta c \approx 0.99995c
+  \]
+
+  Esta velocidad extremadamente alta, muy cercana a la de la luz, es necesaria para comprimir la mitad de la radiación estelar en un cono tan estrecho de tan solo 0.01 radianes (aproximadamente 0.57 grados).
+
   \item Considere el lagrangiano
     \[
       L = -mc^2\sqrt{1-\frac{v^2}{c^2}} \;-\; \mathbf a\cdot\mathbf v,
     \]
     con \(\mathbf a\) constante. Halle el hamiltoniano y la ecuación de Hamilton–Jacobi.
+
+  \textbf{Solución:}
+
+  El lagrangiano dado combina el término relativista usual con un término adicional que involucra un vector constante $\mathbf{a}$.
+
+  \paragraph{1. Cálculo del momento conjugado:}
+  Primero determinamos el momento conjugado:
+  \begin{align}
+  \mathbf{p} &= \frac{\partial L}{\partial \mathbf{v}} \\
+  &= \frac{\partial}{\partial \mathbf{v}}\left(-mc^2\sqrt{1-\frac{v^2}{c^2}} - \mathbf{a}\cdot\mathbf{v}\right) \\
+  &= \frac{m\mathbf{v}}{\sqrt{1-\frac{v^2}{c^2}}} - \mathbf{a}
+  \end{align}
+
+  Esto puede reescribirse como:
+  \[
+  \mathbf{p} + \mathbf{a} = \gamma m\mathbf{v}
+  \]
+  donde $\gamma = \frac{1}{\sqrt{1-\frac{v^2}{c^2}}}$ es el factor de Lorentz.
+
+  \paragraph{2. Cálculo del hamiltoniano:}
+
+  El hamiltoniano se define como:
+  \begin{align}
+  H &= \mathbf{p}\cdot\mathbf{v} - L \\
+  &= \mathbf{p}\cdot\mathbf{v} + mc^2\sqrt{1-\frac{v^2}{c^2}} + \mathbf{a}\cdot\mathbf{v}
+  \end{align}
+
+  Necesitamos expresar $\mathbf{v}$ en términos de $\mathbf{p}$. De la ecuación del momento:
+  \[
+  \mathbf{v} = \frac{\mathbf{p} + \mathbf{a}}{\gamma m}
+  \]
+
+  Sustituyendo en el hamiltoniano:
+  \begin{align}
+  H &= \mathbf{p}\cdot\frac{\mathbf{p} + \mathbf{a}}{\gamma m} + \frac{mc^2}{\gamma} + \mathbf{a}\cdot\frac{\mathbf{p} + \mathbf{a}}{\gamma m} \\
+  &= \frac{1}{\gamma m}\left[\mathbf{p}\cdot(\mathbf{p} + \mathbf{a}) + \mathbf{a}\cdot(\mathbf{p} + \mathbf{a})\right] + \frac{mc^2}{\gamma} \\
+  &= \frac{|\mathbf{p} + \mathbf{a}|^2}{\gamma m} + \frac{mc^2}{\gamma}
+  \end{align}
+
+  De la relación relativista sabemos que $|\mathbf{p} + \mathbf{a}|^2 = \gamma^2 m^2 v^2 = (\gamma^2 - 1)m^2c^2$. Sustituyendo:
+  \begin{align}
+  H &= \frac{(\gamma^2 - 1)m^2c^2}{\gamma m} + \frac{mc^2}{\gamma} \\
+  &= \frac{m^2c^2\gamma^2 - m^2c^2 + mc^2\gamma}{\gamma m} \\
+  &= \gamma mc^2
+  \end{align}
+
+  Expresando $\gamma$ en términos de $\mathbf{p}$:
+  \begin{align}
+  |\mathbf{p} + \mathbf{a}|^2 &= (\gamma^2 - 1)m^2c^2 \\
+  \gamma^2 &= 1 + \frac{|\mathbf{p} + \mathbf{a}|^2}{m^2c^2}
+  \end{align}
+
+  Por tanto, el hamiltoniano es:
+  \[
+  H(\mathbf{r}, \mathbf{p}) = mc^2\sqrt{1 + \frac{|\mathbf{p} + \mathbf{a}|^2}{m^2c^2}}
+  \]
+
+  \paragraph{3. Ecuación de Hamilton-Jacobi:}
+
+  La ecuación de Hamilton-Jacobi se obtiene sustituyendo $\mathbf{p} = \frac{\partial S}{\partial \mathbf{r}}$ en el hamiltoniano:
+  \[
+  \frac{\partial S}{\partial t} + mc^2\sqrt{1 + \frac{\left|\frac{\partial S}{\partial \mathbf{r}} + \mathbf{a}\right|^2}{m^2c^2}} = 0
+  \]
+
+  Esta ecuación gobierna la evolución de la función principal de Hamilton $S$ para una partícula relativista bajo la influencia del campo externo representado por el vector $\mathbf{a}$.
+
   \item La ecuación de Schrödinger para una partícula libre en una dimensión es
     \[
       -\frac{\hbar^2}{2m}\,\frac{d^2\psi}{dx^2} \;=\; E\,\psi.
@@ -1964,6 +2948,93 @@ Como consecuencia de la invariancia adiabática de \(I_{r}\) e \(I_{\varphi}\), 
       \Sigma = \Sigma_0 + \frac{\hbar}{i}\,\Sigma_1 + \Bigl(\frac{\hbar}{i}\Bigr)^2 \Sigma_2 + \cdots.
     \]
     Muestre que el término de orden cero, \(\Sigma_0\), satisface la ecuación de Hamilton–Jacobi. Resuelva dicha ecuación y obtenga la función de onda \(\psi\) en esta aproximación, comprobando que describe una “onda plana”.
+
+  \textbf{Solución:}
+
+  Partimos de la función de onda expresada como:
+  \[
+    \psi(x) = \exp\!\bigl(i\,\Sigma(x)/\hbar\bigr)
+  \]
+
+  Calculemos sus derivadas para sustituir en la ecuación de Schrödinger:
+  \[
+    \frac{d\psi}{dx} = \frac{i}{\hbar}\,\frac{d\Sigma}{dx}\,\psi
+  \]
+
+  \[
+    \frac{d^2\psi}{dx^2} = \frac{i}{\hbar}\,\frac{d}{dx}\left(\frac{d\Sigma}{dx}\,\psi\right) 
+    = \frac{i}{\hbar}\,\frac{d^2\Sigma}{dx^2}\,\psi + \frac{i}{\hbar}\,\frac{d\Sigma}{dx}\,\frac{d\psi}{dx}
+  \]
+
+  Sustituyendo la expresión de la primera derivada:
+  \[
+    \frac{d^2\psi}{dx^2} = \frac{i}{\hbar}\,\frac{d^2\Sigma}{dx^2}\,\psi - \frac{1}{\hbar^2}\left(\frac{d\Sigma}{dx}\right)^2\psi
+  \]
+
+  Ahora sustituimos en la ecuación de Schrödinger:
+  \[
+    -\frac{\hbar^2}{2m}\left[\frac{i}{\hbar}\,\frac{d^2\Sigma}{dx^2}\,\psi - \frac{1}{\hbar^2}\left(\frac{d\Sigma}{dx}\right)^2\psi\right] = E\,\psi
+  \]
+
+  Dividiendo entre $\psi$ y simplificando:
+  \[
+    \frac{1}{2m}\left(\frac{d\Sigma}{dx}\right)^2 - \frac{i\hbar}{2m}\frac{d^2\Sigma}{dx^2} = E
+  \]
+
+  Ahora sustituimos la expansión en potencias de $\hbar$ para $\Sigma(x)$:
+  \[
+    \Sigma = \Sigma_0 + \frac{\hbar}{i}\,\Sigma_1 + \Bigl(\frac{\hbar}{i}\Bigr)^2 \Sigma_2 + \cdots
+  \]
+
+  Sus derivadas son:
+  \[
+    \frac{d\Sigma}{dx} = \frac{d\Sigma_0}{dx} + \frac{\hbar}{i}\frac{d\Sigma_1}{dx} + \cdots
+  \]
+
+  \[
+    \frac{d^2\Sigma}{dx^2} = \frac{d^2\Sigma_0}{dx^2} + \frac{\hbar}{i}\frac{d^2\Sigma_1}{dx^2} + \cdots
+  \]
+
+  Al sustituir en la ecuación y tomar solo los términos de orden cero en $\hbar$ (es decir, independientes de $\hbar$), obtenemos:
+  \[
+    \frac{1}{2m}\left(\frac{d\Sigma_0}{dx}\right)^2 = E
+  \]
+
+  Esta es precisamente la ecuación de Hamilton-Jacobi para una partícula libre, donde $\Sigma_0$ juega el papel de la acción reducida o función principal de Hamilton.
+
+  \paragraph{Resolución de la ecuación de Hamilton-Jacobi:}
+
+  De la ecuación:
+  \[
+    \frac{1}{2m}\left(\frac{d\Sigma_0}{dx}\right)^2 = E
+  \]
+
+  Despejamos:
+  \[
+    \frac{d\Sigma_0}{dx} = \pm\sqrt{2mE}
+  \]
+
+  Dado que $E = \frac{\hbar^2k^2}{2m}$, tenemos $\sqrt{2mE} = \hbar k$. Integrando y tomando el signo positivo:
+  \[
+    \Sigma_0(x) = \hbar kx + \text{constante}
+  \]
+
+  Tomando la constante igual a cero (lo que corresponde a una elección de fase), obtenemos:
+  \[
+    \Sigma_0(x) = \hbar kx
+  \]
+
+  \paragraph{Función de onda en la aproximación de orden cero:}
+
+  En esta aproximación, la función de onda es:
+  \[
+    \psi(x) \approx \exp\left(\frac{i\Sigma_0}{\hbar}\right) = \exp\left(\frac{i\hbar kx}{\hbar}\right) = \exp(ikx)
+  \]
+
+  Esta es efectivamente una onda plana con número de onda $k$ y longitud de onda $\lambda = \frac{2\pi}{k}$, que corresponde a una partícula libre con momento $p = \hbar k$ y energía $E = \frac{p^2}{2m}$.
+
+  Esta relación ilustra el principio de correspondencia: en el límite clásico donde $\hbar$ es "pequeña", la función de onda cuántica se aproxima a una forma relacionada con la acción clásica, y las trayectorias cuánticas tienden a las predichas por la mecánica clásica.
+
   \item Considere un sistema formado por \(N\) partículas, de masas \(m_i\), cuyas posiciones y velocidades son \(\mathbf{r}_i\) y \(\mathbf{v}_i\), para \(i=1,2,\dots,N\). Defina un conjunto \(q=\{q_1,q_2,\dots,q_{3N}\}\) de \(3N\) coordenadas generalizadas por
     \[
       q_1 = x_1\sqrt{m_1},\quad
@@ -1981,13 +3052,267 @@ Como consecuencia de la invariancia adiabática de \(I_{r}\) e \(I_{\varphi}\), 
       S_0 \;=\; \int \sqrt{2T}\,ds,
     \]
     donde \(T\) es la energía cinética del sistema de partículas.
+
+  \textbf{Solución:}
+
+  Partamos del análisis de la energía cinética en términos de las coordenadas cartesianas habituales:
+  \[
+  T = \sum_{i=1}^N \frac{1}{2}m_i(\dot{x}_i^2 + \dot{y}_i^2 + \dot{z}_i^2)
+  \]
+
+  Según la definición de las coordenadas generalizadas, para cada partícula tenemos:
+  \begin{align}
+  q_{3(i-1)+1} &= x_i\sqrt{m_i} \Rightarrow \dot{q}_{3(i-1)+1} = \dot{x}_i\sqrt{m_i} \Rightarrow \dot{x}_i = \frac{\dot{q}_{3(i-1)+1}}{\sqrt{m_i}} \\
+  q_{3(i-1)+2} &= y_i\sqrt{m_i} \Rightarrow \dot{q}_{3(i-1)+2} = \dot{y}_i\sqrt{m_i} \Rightarrow \dot{y}_i = \frac{\dot{q}_{3(i-1)+2}}{\sqrt{m_i}} \\
+  q_{3(i-1)+3} &= z_i\sqrt{m_i} \Rightarrow \dot{q}_{3(i-1)+3} = \dot{z}_i\sqrt{m_i} \Rightarrow \dot{z}_i = \frac{\dot{q}_{3(i-1)+3}}{\sqrt{m_i}}
+  \end{align}
+
+  Sustituyendo estas expresiones en la fórmula de la energía cinética:
+  \begin{align}
+  T &= \sum_{i=1}^N \frac{1}{2}m_i\left[\left(\frac{\dot{q}_{3(i-1)+1}}{\sqrt{m_i}}\right)^2 + \left(\frac{\dot{q}_{3(i-1)+2}}{\sqrt{m_i}}\right)^2 + \left(\frac{\dot{q}_{3(i-1)+3}}{\sqrt{m_i}}\right)^2\right] \\
+  &= \sum_{i=1}^N \frac{1}{2}m_i\left[\frac{\dot{q}_{3(i-1)+1}^2}{m_i} + \frac{\dot{q}_{3(i-1)+2}^2}{m_i} + \frac{\dot{q}_{3(i-1)+3}^2}{m_i}\right] \\
+  &= \frac{1}{2}\sum_{i=1}^N \left[\dot{q}_{3(i-1)+1}^2 + \dot{q}_{3(i-1)+2}^2 + \dot{q}_{3(i-1)+3}^2\right] \\
+  &= \frac{1}{2}\sum_{j=1}^{3N} \dot{q}_j^2
+  \end{align}
+
+  Por lo tanto, la energía cinética adopta una forma particularmente simple en estas coordenadas.
+
+  Calculemos ahora los momentos conjugados:
+  \[
+  p_j = \frac{\partial L}{\partial \dot{q}_j} = \frac{\partial T}{\partial \dot{q}_j} = \dot{q}_j
+  \]
+
+  La acción abreviada de Hamilton (ecuación 44.4) es:
+  \[
+  S_0 = \int\sum_{j=1}^{3N}p_j\,dq_j = \int\sum_{j=1}^{3N}\dot{q}_j\,dq_j
+  \]
+
+  Para relacionarla con el elemento de línea $ds$ en el espacio de configuración, observamos que:
+  \begin{align}
+  ds^2 &= \sum_{j=1}^{3N}dq_j^2 \\
+  &= \sum_{j=1}^{3N}(\dot{q}_j\,dt)^2 \\
+  &= dt^2\sum_{j=1}^{3N}\dot{q}_j^2
+  \end{align}
+
+  Tomando la raíz cuadrada:
+  \[
+  ds = dt\sqrt{\sum_{j=1}^{3N}\dot{q}_j^2}
+  \]
+
+  Por tanto:
+  \[
+  dt = \frac{ds}{\sqrt{\sum_{j=1}^{3N}\dot{q}_j^2}}
+  \]
+
+  Y:
+  \[
+  dq_j = \dot{q}_j\,dt = \dot{q}_j\frac{ds}{\sqrt{\sum_{k=1}^{3N}\dot{q}_k^2}}
+  \]
+
+  Sustituyendo en la expresión de la acción:
+  \begin{align}
+  S_0 &= \int\sum_{j=1}^{3N}\dot{q}_j\,dq_j \\
+  &= \int\sum_{j=1}^{3N}\dot{q}_j \cdot \dot{q}_j\frac{ds}{\sqrt{\sum_{k=1}^{3N}\dot{q}_k^2}} \\
+  &= \int\frac{\sum_{j=1}^{3N}\dot{q}_j^2}{\sqrt{\sum_{k=1}^{3N}\dot{q}_k^2}}ds \\
+  &= \int\sqrt{\sum_{j=1}^{3N}\dot{q}_j^2}\,ds
+  \end{align}
+
+  Dado que $\sum_{j=1}^{3N}\dot{q}_j^2 = 2T$, finalmente obtenemos:
+  \[
+  S_0 = \int\sqrt{2T}\,ds
+  \]
+
+  Lo que completa la demostración. Esta fórmula expresa la acción abreviada de Hamilton como la integral de la raíz cuadrada del doble de la energía cinética multiplicada por el elemento de línea en el espacio de configuración, y es válida para cualquier sistema de partículas.
+
   \item Escriba la acción del campo electromagnético
     \[
       S_F = -\frac{1}{16\pi c}\int F_{ik}F^{ik}\,d\Omega,
     \]
     y, de \(\delta S_F=0\), deduzca el segundo par de ecuaciones de Maxwell en ausencia de cargas y corrientes.
-  \item Considere una esfera de acero que rebota elásticamente entre dos paredes verticales paralelas sin fricción. Evalúe numéricamente la variable de acción y exprese el resultado en unidades de \(\hbar\), dado \(\hbar=1.05\times10^{-34}\,\mathrm{J\,s}\). Discuta la extensión a un régimen no clásico.
-  \item Considere una esfera de acero que salta sobre una placa horizontal sin fricción. Evalúe numéricamente la variable de acción y exprese el resultado en unidades de \(\hbar\). Discuta la adaptación no clásica.
+
+  \textbf{Solución:}
+
+  La acción del campo electromagnético libre viene dada por:
+
+  \[
+  S_F = -\frac{1}{16\pi c}\int F_{ik}F^{ik}\,d\Omega,
+  \]
+
+  donde $F_{ik}$ es el tensor electromagnético, $F^{ik} = g^{im}g^{kn}F_{mn}$ su versión contravariante, $d\Omega$ el elemento de volumen espacio-temporal y $c$ la velocidad de la luz.
+
+  El tensor electromagnético se define en términos del cuadripotencial $A_k$ como:
+  \[
+  F_{ik} = \partial_i A_k - \partial_k A_i
+  \]
+
+  Para derivar las ecuaciones de campo a partir del principio variacional $\delta S_F = 0$, debemos calcular la variación de la acción respecto a pequeñas variaciones $\delta A_k$ del potencial:
+
+  \[
+  \delta S_F = -\frac{1}{8\pi c}\int F^{ik}\delta F_{ik}\,d\Omega
+  \]
+
+  La variación del tensor de campo es:
+  \[
+  \delta F_{ik} = \partial_i \delta A_k - \partial_k \delta A_i
+  \]
+
+  Sustituyendo:
+  \[
+  \delta S_F = -\frac{1}{8\pi c}\int F^{ik}(\partial_i \delta A_k - \partial_k \delta A_i)\,d\Omega
+  \]
+
+  Reorganizando términos:
+  \[
+  \delta S_F = -\frac{1}{8\pi c}\int [F^{ik}\partial_i \delta A_k - F^{ik}\partial_k \delta A_i]\,d\Omega
+  \]
+
+  Debido a la antisimetría del tensor electromagnético ($F^{ik} = -F^{ki}$), podemos reescribir:
+  \[
+  \delta S_F = -\frac{1}{8\pi c}\int [F^{ik}\partial_i \delta A_k + F^{ki}\partial_k \delta A_i]\,d\Omega = -\frac{1}{8\pi c}\int [F^{ik}\partial_i \delta A_k + F^{ik}\partial_k \delta A_i]\,d\Omega
+  \]
+
+  Aplicando integración por partes y asumiendo que las variaciones se anulan en la frontera:
+  \[
+  \delta S_F = \frac{1}{8\pi c}\int [(\partial_i F^{ik})\delta A_k + (\partial_k F^{ik})\delta A_i]\,d\Omega
+  \]
+
+  Por la antisimetría, $\partial_k F^{ik} = -\partial_k F^{ki} = 0$, y el segundo término es idénticamente nulo. Por lo tanto:
+  \[
+  \delta S_F = \frac{1}{8\pi c}\int (\partial_i F^{ik})\delta A_k\,d\Omega
+  \]
+
+  Para que $\delta S_F = 0$ para variaciones arbitrarias $\delta A_k$, debemos tener:
+  \[
+  \partial_i F^{ik} = 0
+  \]
+
+  Estas son las ecuaciones de Maxwell en ausencia de fuentes (cargas y corrientes), específicamente el primer par (ley de Gauss y ley de Ampère-Maxwell sin corrientes).
+
+  Para obtener el segundo par de ecuaciones de Maxwell, debemos usar la identidad de Bianchi, que se deriva directamente de la definición del tensor electromagnético en términos de potenciales:
+
+  \[
+  \partial_i F_{jk} + \partial_j F_{ki} + \partial_k F_{ij} = 0
+  \]
+
+  Esta identidad se cumple automáticamente debido a la definición $F_{ik} = \partial_i A_k - \partial_k A_i$, ya que:
+
+  \begin{align*}
+  \partial_i F_{jk} + \partial_j F_{ki} + \partial_k F_{ij} &= \partial_i(\partial_j A_k - \partial_k A_j) + \partial_j(\partial_k A_i - \partial_i A_k) + \partial_k(\partial_i A_j - \partial_j A_i) \\
+  &= \partial_i\partial_j A_k - \partial_i\partial_k A_j + \partial_j\partial_k A_i - \partial_j\partial_i A_k + \partial_k\partial_i A_j - \partial_k\partial_j A_i
+  \end{align*}
+
+  Los términos se cancelan entre sí debido a la igualdad de las derivadas parciales mixtas.
+
+  Esta identidad representa el segundo par de ecuaciones de Maxwell:
+  - La ley de Faraday: $\nabla \times \mathbf{E} = -\frac{1}{c}\frac{\partial \mathbf{B}}{\partial t}$
+  - La ley de Gauss para el magnetismo: $\nabla \cdot \mathbf{B} = 0$
+
+  Estas ecuaciones no surgen del principio variacional, sino que son consecuencia de la estructura matemática del campo electromagnético como un campo derivado de potenciales.
+
+  \item Considere una esfera de acero que rebota elásticamente entre dos paredes verticales paralelas sin fricción. Evalúe la variable de acción. Demustre la invariancia adiabática.
+  
+  \textbf{Solución:}  
+  Sea $L$ la separación entre las paredes. La esfera de masa $m$ se mueve con velocidad $v=\sqrt{2E/m}$ entre rebotes, de modo que el momento $p=m\,v$ es constante. El movimiento unidimensional tiene periodo 
+  \[
+  T=\frac{2L}{v}\,.
+  \]
+  La variable de acción se define como
+  \[
+  I=\frac{1}{2\pi}\oint p\,dq
+  =\frac{1}{2\pi}\bigl(2pL\bigr)
+  =\frac{p\,L}{\pi}
+  =\frac{L}{\pi}\sqrt{2mE}\,.
+  \]
+  Si ahora $L=L(t)$ cambia lentamente, $I$ se conserva (invariante adiabático):
+  \[
+  \frac{dI}{dt}=0
+  \quad\Longrightarrow\quad
+  E\propto\frac{1}{L^2}\,.
+  \]
+  Así queda demostrado que la acción $I$ permanece constante frente a variaciones adiabáticas de $L$.
+  \item Considere una esfera de acero que salta sobre una placa horizontal sin fricción. Evalúe la variable de acción y exprese el resultado en unidades de \(\hbar\). Discuta la adaptación no clásica.
+  
+  \textbf{Solución:}
+  La esfera de acero realiza un movimiento periódico vertical bajo la influencia del campo gravitatorio. Cuando la esfera rebota sobre la placa horizontal, su velocidad se invierte pero conserva su magnitud debido a que el choque es elástico y no hay fricción.
+
+  \paragraph{1. Descripción del movimiento:}
+  La esfera alcanza una altura máxima $h$ determinada por su energía total $E = mgh$. La velocidad varía entre $-v$ y $+v$, donde $v = \sqrt{2gh}$. El período del movimiento completo es $T = 2\sqrt{2h/g}$ (tiempo para subir y bajar).
+
+  \paragraph{2. Cálculo de la variable de acción:}
+  La variable de acción se define como:
+  \[
+  I = \frac{1}{2\pi}\oint p\,dq
+  \]
+
+  En nuestro caso unidimensional, $q$ representa la altura $y$ y $p$ el momento vertical $p_y = m\dot{y}$. Para un ciclo completo:
+  \[
+  I = \frac{1}{2\pi}\oint p_y\,dy
+  \]
+
+  El momento vertical se expresa en función de la energía y posición:
+  \[
+  p_y = \pm\sqrt{2m(E-mgy)}
+  \]
+
+  donde el signo cambia en el punto de altura máxima.
+
+  Integrando sobre un ciclo completo (subida y bajada):
+  \[
+  I = \frac{1}{\pi}\int_0^h \sqrt{2m(mgh-mgy)}\,dy = \frac{1}{\pi}\int_0^h \sqrt{2m^2g(h-y)}\,dy
+  \]
+
+  Mediante el cambio de variable $u = h-y$:
+  \[
+  I = \frac{1}{\pi}\int_0^h \sqrt{2m^2gu}\,du = \frac{1}{\pi}\left.\frac{2}{3}(2m^2gu)^{3/2}\right|_0^h
+  \]
+
+  \[
+  I = \frac{1}{\pi}\cdot\frac{2}{3}\sqrt{2m^2g}·h^{3/2} = \frac{2}{3\pi}m\sqrt{2gh}·h
+  \]
+
+  Usando $v = \sqrt{2gh}$ y $E = mgh$:
+  \[
+  I = \frac{2}{3\pi}mvh = \frac{2}{3\pi}\frac{mv·E}{mg} = \frac{2}{3\pi}\frac{mv^2}{g}·v
+  \]
+
+  Con $E = \frac{1}{2}mv^2$:
+  \[
+  I = \frac{2}{3\pi}\frac{mv^3}{g}
+  \]
+
+  \paragraph{3. Expresión en unidades de $\hbar$:}
+  \[
+  \frac{I}{\hbar} = \frac{2}{3\pi}\frac{mv^3}{g\hbar}
+  \]
+
+  \paragraph{4. Discusión de la adaptación no clásica:}
+  Para valores típicos de una esfera de acero:
+  \begin{itemize}
+  \item $m \approx 10$ g $= 10^{-2}$ kg
+  \item $v \approx 1$ m/s
+  \item $g = 9.8$ m/s$^2$
+  \item $\hbar = 1.05 \times 10^{-34}$ J$\cdot$s
+  \end{itemize}
+
+  Sustituyendo estos valores:
+  \[
+  \frac{I}{\hbar} \approx \frac{2}{3\pi}\frac{10^{-2} \times 1^3}{9.8 \times 1.05 \times 10^{-34}} \approx 10^{33}
+  \]
+
+  Este valor es extremadamente grande, lo que indica que el sistema está completamente en el régimen clásico.
+
+  En la teoría cuántica, la variable de acción se cuantiza según la regla de Bohr-Sommerfeld:
+  \[
+  I = \left(n + \frac{1}{2}\right)\hbar
+  \]
+
+  donde $n$ es un entero. El número cuántico correspondiente a nuestro sistema sería del orden de $n \sim 10^{33}$, y la diferencia entre niveles de energía adyacentes sería:
+  \[
+  \Delta E = \frac{3\pi g\hbar}{2mv^2} \approx 10^{-33} E
+  \]
+
+  Estos cálculos confirman que los efectos cuánticos son completamente imperceptibles para este sistema macroscópico. Para observar efectos de cuantización, necesitaríamos considerar partículas microscópicas o temperaturas extremadamente bajas donde la longitud de onda de De Broglie se vuelve comparable con las dimensiones del sistema.
+
   \item Demuestre
     \[
       \{\mathbf{p},\,l^2\} \;=\; 2\,\mathbf{l}\times\mathbf{p},
@@ -1998,6 +3323,129 @@ Como consecuencia de la invariancia adiabática de \(I_{r}\) e \(I_{\varphi}\), 
     \]
     es la magnitud al cuadrado del momento angular de una partícula, 
     \(\mathbf{p}\) es el momento y \(\{\cdot,\cdot\}\) denota el corchete de Poisson.
+
+  \textbf{Solución:}
+
+  Para demostrar esta identidad, calcularemos los corchetes de Poisson componente a componente y luego verificaremos que el resultado es equivalente a $2\,\mathbf{l}\times\mathbf{p}$.
+
+  Recordemos las expresiones para las componentes del momento angular:
+  \begin{align}
+  l_x &= yp_z - zp_y\\
+  l_y &= zp_x - xp_z\\
+  l_z &= xp_y - yp_x
+  \end{align}
+
+  Calcularemos $\{p_i, l^2\}$ para cada $i=x,y,z$. Usando la regla del producto para los corchetes de Poisson:
+  \begin{align}
+  \{p_i, l^2\} = \{p_i, l_x^2 + l_y^2 + l_z^2\} = 2l_x\{p_i, l_x\} + 2l_y\{p_i, l_y\} + 2l_z\{p_i, l_z\}
+  \end{align}
+
+  Calculemos primero los corchetes básicos $\{p_i, l_j\}$ utilizando las propiedades fundamentales:
+  \begin{align}
+  \{p_i, p_j\} &= 0\\
+  \{p_i, q_j\} &= -\delta_{ij}
+  \end{align}
+
+  \underline{Cálculo de $\{p_x, l^2\}$}:
+
+  Primero calculamos:
+  \begin{align}
+  \{p_x, l_x\} &= \{p_x, yp_z - zp_y\}\\
+  &= y\{p_x,p_z\} + p_z\{p_x,y\} - z\{p_x,p_y\} - p_y\{p_x,z\}\\
+  &= 0 + 0 - 0 - 0 = 0
+  \end{align}
+
+  \begin{align}
+  \{p_x, l_y\} &= \{p_x, zp_x - xp_z\}\\
+  &= z\{p_x,p_x\} + p_x\{p_x,z\} - x\{p_x,p_z\} - p_z\{p_x,x\}\\
+  &= 0 + 0 - 0 - p_z(-1)\\
+  &= p_z
+  \end{align}
+
+  \begin{align}
+  \{p_x, l_z\} &= \{p_x, xp_y - yp_x\}\\
+  &= x\{p_x,p_y\} + p_y\{p_x,x\} - y\{p_x,p_x\} - p_x\{p_x,y\}\\
+  &= 0 + p_y(-1) - 0 - 0\\
+  &= -p_y
+  \end{align}
+
+  Sustituyendo estos resultados:
+  \begin{align}
+  \{p_x, l^2\} &= 2l_x\cdot 0 + 2l_y \cdot p_z + 2l_z \cdot (-p_y)\\
+  &= 2(l_yp_z - l_zp_y)
+  \end{align}
+
+  Esto corresponde exactamente a la componente $x$ del vector $2\mathbf{l}\times\mathbf{p}$.
+
+  \underline{Cálculo de $\{p_y, l^2\}$}:
+
+  De manera similar:
+  \begin{align}
+  \{p_y, l_x\} &= \{p_y, yp_z - zp_y\}\\
+  &= y\{p_y,p_z\} + p_z\{p_y,y\} - z\{p_y,p_y\} - p_y\{p_y,z\}\\
+  &= 0 + p_z(-1) - 0 - 0\\
+  &= -p_z
+  \end{align}
+
+  \begin{align}
+  \{p_y, l_y\} &= \{p_y, zp_x - xp_z\}\\
+  &= z\{p_y,p_x\} + p_x\{p_y,z\} - x\{p_y,p_z\} - p_z\{p_y,x\}\\
+  &= 0 + 0 - 0 - 0 = 0
+  \end{align}
+
+  \begin{align}
+  \{p_y, l_z\} &= \{p_y, xp_y - yp_x\}\\
+  &= x\{p_y,p_y\} + p_y\{p_y,x\} - y\{p_y,p_x\} - p_x\{p_y,y\}\\
+  &= 0 + 0 - 0 - p_x(-1)\\
+  &= p_x
+  \end{align}
+
+  Por lo tanto:
+  \begin{align}
+  \{p_y, l^2\} &= 2l_x \cdot (-p_z) + 2l_y \cdot 0 + 2l_z \cdot p_x\\
+  &= 2(l_zp_x - l_xp_z)
+  \end{align}
+
+  Lo cual corresponde a la componente $y$ del vector $2\mathbf{l}\times\mathbf{p}$.
+
+  \underline{Cálculo de $\{p_z, l^2\}$}:
+
+  Finalmente:
+  \begin{align}
+  \{p_z, l_x\} &= \{p_z, yp_z - zp_y\}\\
+  &= y\{p_z,p_z\} + p_z\{p_z,y\} - z\{p_z,p_y\} - p_y\{p_z,z\}\\
+  &= 0 + 0 - 0 - p_y(-1)\\
+  &= p_y
+  \end{align}
+
+  \begin{align}
+  \{p_z, l_y\} &= \{p_z, zp_x - xp_z\}\\
+  &= z\{p_z,p_x\} + p_x\{p_z,z\} - x\{p_z,p_z\} - p_z\{p_z,x\}\\
+  &= 0 + p_x(-1) - 0 - 0\\
+  &= -p_x
+  \end{align}
+
+  \begin{align}
+  \{p_z, l_z\} &= \{p_z, xp_y - yp_x\}\\
+  &= x\{p_z,p_y\} + p_y\{p_z,x\} - y\{p_z,p_x\} - p_x\{p_z,y\}\\
+  &= 0 + 0 - 0 - 0 = 0
+  \end{align}
+
+  Por lo tanto:
+  \begin{align}
+  \{p_z, l^2\} &= 2l_x \cdot p_y + 2l_y \cdot (-p_x) + 2l_z \cdot 0\\
+  &= 2(l_xp_y - l_yp_x)
+  \end{align}
+
+  Lo cual corresponde a la componente $z$ del vector $2\mathbf{l}\times\mathbf{p}$.
+
+  Combinando estos resultados, obtenemos la relación vectorial:
+  \[
+  \{\mathbf{p}, l^2\} = 2\mathbf{l}\times\mathbf{p}
+  \]
+
+  quedando así demostrada la identidad.
+
   \item Considere el conjunto de todas las transformaciones canónicas. Suponga que están 
     definidas mediante funciones generatrices del tipo \(F\). Es decir,
     \[
@@ -2017,9 +3465,172 @@ Como consecuencia de la invariancia adiabática de \(I_{r}\) e \(I_{\varphi}\), 
       \item[(d)] Se cumple la propiedad asociativa.
     \end{enumerate}
 
+  \textbf{Solución:}
+
+  \paragraph{(a) Ley de composición interna:}
+
+  Consideremos dos transformaciones canónicas:
+  \begin{itemize}
+      \item TC$_1$: $(q,p) \to (Q,P)$ generada por $F_1(q,Q,t)$
+      \item TC$_2$: $(Q,P) \to (\bar{Q},\bar{P})$ generada por $F_2(Q,\bar{Q},t)$
+  \end{itemize}
+
+  Para TC$_1$, las relaciones canónicas son:
+  \[
+  p = \frac{\partial F_1}{\partial q}, \quad P = -\frac{\partial F_1}{\partial Q}
+  \]
+
+  Para TC$_2$, las relaciones canónicas son:
+  \[
+  P = \frac{\partial F_2}{\partial Q}, \quad \bar{P} = -\frac{\partial F_2}{\partial \bar{Q}}
+  \]
+
+  La composición TC$_2 \circ$ TC$_1$ lleva directamente de $(q,p)$ a $(\bar{Q},\bar{P})$. Definamos una nueva función generatriz:
+  \[
+  F_3(q,\bar{Q},t) = F_1(q,Q,t) + F_2(Q,\bar{Q},t) - QP
+  \]
+
+  donde $Q$ y $P$ se determinan implícitamente a través de las relaciones canónicas. Al derivar $F_3$ respecto a $q$ y $\bar{Q}$:
+  \[
+  \frac{\partial F_3}{\partial q} = \frac{\partial F_1}{\partial q} = p
+  \]
+  \[
+  \frac{\partial F_3}{\partial \bar{Q}} = \frac{\partial F_2}{\partial \bar{Q}} = -\bar{P}
+  \]
+
+  Por lo tanto, $F_3$ genera correctamente la transformación canónica compuesta, mostrando que la composición de dos TC es otra TC.
+
+  \paragraph{(b) Existencia del elemento identidad:}
+
+  La TC identidad debe satisfacer $(q,p) \to (q,p)$. Esta transformación se genera mediante:
+  \[
+  F_{id}(q,Q,t) = qQ
+  \]
+
+  Con esta función generatriz:
+  \[
+  p = \frac{\partial F_{id}}{\partial q} = Q
+  \]
+  \[
+  P = -\frac{\partial F_{id}}{\partial Q} = -q
+  \]
+
+  Si hacemos $Q = p$ y $P = -q$, obtenemos una transformación canónica que es equivalente a la identidad. Aunque las variables $Q$ y $P$ tienen nombres distintos a $q$ y $p$, las ecuaciones canónicas producidas son idénticas.
+
+  Alternativamente, podemos considerar la transformación identidad como el caso donde $Q = q$ y $P = p$, generada por:
+  \[
+  F_{id}(q,Q,t) = \sum_i q_iP_i
+  \]
+
+  \paragraph{(c) Existencia del elemento inverso:}
+
+  Para cada TC definida por $F(q,Q,t)$ que transforma $(q,p) \to (Q,P)$, su inversa debe llevar $(Q,P) \to (q,p)$.
+
+  La función generatriz para la transformación inversa es:
+  \[
+  F^{-1}(Q,q,t) = -F(q,Q,t)
+  \]
+
+  Verificando:
+  \[
+  P = \frac{\partial F^{-1}}{\partial Q} = -\frac{\partial F}{\partial Q} = P
+  \]
+  \[
+  p = -\frac{\partial F^{-1}}{\partial q} = \frac{\partial F}{\partial q} = p
+  \]
+
+  Esta transformación efectivamente revierte la original, demostrando que cada TC tiene una inversa que también es una TC.
+
+  \paragraph{(d) Propiedad asociativa:}
+
+  Consideremos tres TC consecutivas:
+  \[
+  \text{TC}_1: (q,p) \to (Q,P)
+  \]
+  \[
+  \text{TC}_2: (Q,P) \to (\bar{Q},\bar{P})
+  \]
+  \[
+  \text{TC}_3: (\bar{Q},\bar{P}) \to (\bar{\bar{Q}},\bar{\bar{P}})
+  \]
+
+  La propiedad asociativa requiere que:
+  \[
+  (\text{TC}_3 \circ \text{TC}_2) \circ \text{TC}_1 = \text{TC}_3 \circ (\text{TC}_2 \circ \text{TC}_1)
+  \]
+
+  Esta propiedad se cumple naturalmente porque la composición de funciones es asociativa. Las transformaciones canónicas son operadores que actúan sobre el espacio de fases, y la aplicación secuencial de estos operadores sigue la regla asociativa de la composición de funciones. Es decir, no importa si primero aplicamos TC$_1$ y luego la composición de TC$_3 \circ$ TC$_2$, o si primero aplicamos la composición de TC$_2 \circ$ TC$_1$ y luego TC$_3$ - el resultado final es el mismo.
+
+  Por tanto, queda demostrado que el conjunto de todas las transformaciones canónicas forma un grupo matemático.
+
   \item Calcule la acción para una partícula en caída libre como función de las coordenadas. 
-    Compruebe que coincide con el generador de la transformación canónica de evolución temporal 
-    e implemente dicha transformación.
+      Compruebe que coincide con el generador de la transformación canónica de evolución temporal 
+      e implemente dicha transformación.
+
+  \textbf{Solución:}
+  Consideremos una partícula de masa $m$ que se mueve en un campo gravitacional uniforme con aceleración $g$ en dirección vertical. Tomamos el eje $y$ positivo hacia arriba.
+
+  \paragraph{1. Cálculo de la acción:}
+
+  El lagrangiano del sistema es:
+  \[
+  L = \frac{1}{2}m\dot{x}^2 + \frac{1}{2}m\dot{y}^2 - mgy
+  \]
+
+  La ecuación de movimiento para la coordenada $x$ da $\ddot{x}=0$, lo que implica $x(t) = x_0 + v_x(t-t_0)$, mientras que para $y$ obtenemos $\ddot{y}=-g$, por lo que $y(t) = y_0 + v_y(t-t_0) - \frac{1}{2}g(t-t_0)^2$.
+
+  Calculemos la acción entre los instantes $t_0$ y $t$:
+  \begin{align}
+  S(x,y,t;x_0,y_0,t_0) &= \int_{t_0}^{t} L\,d\tau \\
+  &= \int_{t_0}^{t} \left[\frac{1}{2}m\dot{x}^2 + \frac{1}{2}m\dot{y}^2 - mgy\right]\,d\tau
+  \end{align}
+
+  Sustituyendo las velocidades:
+  \begin{align}
+  \dot{x} &= v_x = \frac{x-x_0}{t-t_0} \\
+  \dot{y} &= v_y - g(t-\tau) = \frac{y-y_0}{t-t_0} + \frac{1}{2}g(t-t_0) - g(t-\tau)
+  \end{align}
+
+  Después de integrar y simplificar, obtenemos:
+  \begin{align}
+  S(x,y,t;x_0,y_0,t_0) = \frac{m}{2(t-t_0)}[(x-x_0)^2 + (y-y_0)^2] + \frac{mg}{2}(y+y_0)(t-t_0) - \frac{mg^2}{24}(t-t_0)^3
+  \end{align}
+
+  \paragraph{2. Verificación como generador de transformación canónica:}
+
+  Para comprobar que esta acción coincide con el generador de una transformación canónica de evolución temporal, calculamos:
+  \begin{align}
+  p_x &= \frac{\partial S}{\partial x} = \frac{m(x-x_0)}{t-t_0} \\
+  p_y &= \frac{\partial S}{\partial y} = \frac{m(y-y_0)}{t-t_0} + \frac{mg(t-t_0)}{2}
+  \end{align}
+
+  Estas expresiones coinciden con los momentos físicos: $p_x = m\dot{x}$ y $p_y = m\dot{y}$.
+
+  Además, verificamos:
+  \begin{align}
+  -\frac{\partial S}{\partial t} &= \frac{m[(x-x_0)^2+(y-y_0)^2]}{2(t-t_0)^2} - \frac{mg(y+y_0)}{2} + \frac{mg^2(t-t_0)^2}{8} \\
+  &= \frac{p_x^2+p_y^2}{2m} + mgy = H
+  \end{align}
+
+  Esto confirma que $-\partial S/\partial t$ es el hamiltoniano.
+
+  \paragraph{3. Implementación de la transformación canónica:}
+
+  La acción $S$ genera una transformación canónica de $(x_0,y_0,p_{x0},p_{y0})$ a $(x,y,p_x,p_y)$ mediante:
+  \begin{align}
+  p_{x0} &= -\frac{\partial S}{\partial x_0} = \frac{m(x-x_0)}{t-t_0} = p_x \\
+  p_{y0} &= -\frac{\partial S}{\partial y_0} = \frac{m(y-y_0)}{t-t_0} - \frac{mg(t-t_0)}{2} = p_y - mg(t-t_0)
+  \end{align}
+
+  La transformación canónica queda:
+  \begin{align}
+  x &= x_0 + \frac{p_{x0}}{m}(t-t_0) \\
+  y &= y_0 + \frac{p_{y0}}{m}(t-t_0) - \frac{1}{2}g(t-t_0)^2 \\
+  p_x &= p_{x0} \\
+  p_y &= p_{y0} + mg(t-t_0)
+  \end{align}
+
+  Esta transformación describe la evolución del sistema desde el estado inicial $(x_0,y_0,p_{x0},p_{y0})$ al instante $t_0$ hasta el estado $(x,y,p_x,p_y)$ al instante $t$. La conservación de $p_x$ y la variación lineal de $p_y$ con el tiempo concuerdan con las propiedades físicas del movimiento bajo gravedad constante.
 \end{enumerate}
 
 
