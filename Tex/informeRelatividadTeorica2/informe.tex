@@ -1,0 +1,161 @@
+\documentclass[a4paper,12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{cite}
+\usepackage{geometry}
+\geometry{a4paper, margin=2cm}
+
+\title{Informe de Lectura: Movimiento Regular y Caótico en Relatividad General\\
+\large Un análisis del artículo ``Regular and chaotic motion in general relativity: The case of an inclined black hole magnetosphere''}
+\author{Melanny Silva \& Juan Montoya\\
+\small{Curso de Relatividad Especial y General}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introducción y Contexto}
+
+El presente informe analiza el artículo ``Regular and chaotic motion in general relativity: The case of an inclined black hole magnetosphere'' de Ondřej Kopáček y Vladimír Karas. Este trabajo investiga un tema fascinante en la intersección entre relatividad general y teoría del caos: el comportamiento dinámico de partículas cargadas en las proximidades de un agujero negro rotante inmerso en un campo magnético externo.
+
+Como estudiantes que acabamos de completar nuestro curso de relatividad general, donde utilizamos como referencia principal el texto de Landau, encontramos este artículo particularmente interesante ya que aplica conceptos fundamentales de la relatividad general a situaciones astrofísicas realistas que involucran campos electromagnéticos fuertes y geometrías espacio-temporales complejas.
+
+El artículo explora específicamente cómo la inclinación del campo magnético respecto al eje de rotación del agujero negro afecta la naturaleza del movimiento de las partículas, examinando la transición de regímenes regulares a caóticos. Este problema tiene importantes implicaciones para la comprensión de los entornos electromagnéticamente activos alrededor de agujeros negros astrofísicos.
+
+\section{Fundamentos Teóricos}
+
+\subsection{Métrica de Kerr y Coordenadas de Boyer-Lindquist}
+
+El artículo comienza estableciendo el marco geométrico utilizando la métrica de Kerr en coordenadas de Boyer-Lindquist para describir el espacio-tiempo alrededor de un agujero negro rotante. Esta métrica, como aprendimos en nuestro curso siguiendo a Landau, representa la única solución estacionaria y axialmente simétrica de las ecuaciones de Einstein en el vacío que describe un agujero negro rotante. La métrica se expresa como:
+
+\begin{equation}
+ds^2=-\frac{\Delta}{\Sigma}\:[dt-a\sin{\theta}\,d\varphi]^2+\frac{\sin^2{\theta}}{\Sigma}\:[(r^2+a^2)d\varphi-a\,dt]^2+\frac{\Sigma}{\Delta}\;dr^2+\Sigma d\theta^2
+\end{equation}
+
+donde:
+\begin{equation}
+{\Delta}\equiv{}r^2-2Mr+a^2,\;\;\;
+\Sigma\equiv{}r^2+a^2\cos^2\theta
+\end{equation}
+
+En estas ecuaciones, $M$ representa la masa del agujero negro y $a$ su momento angular específico (por unidad de masa). El parámetro $a$ codifica la rotación del agujero negro, siendo $a=0$ el caso estático (métrica de Schwarzschild) y $0<a<M$ el caso de un agujero negro de Kerr.
+
+La complejidad de esta métrica, en comparación con la métrica de Schwarzschild estudiada en nuestro curso, reside principalmente en los términos cruzados entre las coordenadas temporal y angular $dt\,d\varphi$, que reflejan el efecto de arrastre del sistema de referencia (frame-dragging) causado por la rotación del agujero negro.
+
+\subsection{Campo Magnético en Espacio-Tiempo Curvo}
+
+Un aspecto fundamental del artículo es el tratamiento del campo electromagnético externo en la geometría curva del espacio-tiempo. Los autores mencionan la solución de Wald para un campo magnético alineado con el eje de rotación, y su generalización por Bičák y Janiš para campos inclinados. Esta aproximación de "campo de prueba" significa que el campo electromagnético no modifica la geometría del espacio-tiempo determinada por la métrica de Kerr.
+
+Es importante notar que, como aprendimos con Landau, el electromagnetismo en espacio-tiempo curvo requiere la generalización covariante de las ecuaciones de Maxwell, donde el tensor electromagnético $F_{\mu\nu}$ está relacionado con el potencial vectorial por $F_{\mu\nu}=A_{\nu,\mu}-A_{\mu,\nu}$. En particular, la elección de un potencial vectorial adecuado que satisfaga las ecuaciones de Maxwell en el fondo curvo de Kerr es un problema no trivial, resuelto en los trabajos citados por los autores.
+
+\section{Formalismo Hamiltoniano y Ecuaciones de Movimiento}
+
+\subsection{Super-Hamiltoniano y Ecuaciones Canónicas}
+
+El artículo adopta el formalismo hamiltoniano para derivar las ecuaciones de movimiento de partículas cargadas. El super-Hamiltoniano $\mathcal{H}$ se define como:
+
+\begin{equation}
+\mathcal{H}=\textstyle{\frac{1}{2}}g^{\mu\nu}(\pi_{\mu}-qA_{\mu})(\pi_{\nu}-qA_{\nu})
+\end{equation}
+
+donde $q$ es la carga de la partícula de prueba, $\pi_{\mu}$ es el momento generalizado (canónico), $g^{\mu\nu}$ es el tensor métrico, y $A_{\mu}$ denota el potencial vectorial. Esta formulación es consistente con lo que aprendimos sobre la dinámica de partículas cargadas en campos electromagnéticos según la formulación de la relatividad general.
+
+Las ecuaciones de Hamilton correspondientes son:
+
+\begin{equation}
+\frac{{\rm d}x^{\mu}}{{\rm d}\lambda}\equiv p^{\mu}=
+\frac{\partial \mathcal{H}}{\partial \pi_{\mu}},
+\quad 
+\frac{d\pi_{\mu}}{d\lambda}=-\frac{\partial\mathcal{H}}{\partial x^{\mu}}
+\end{equation}
+
+donde $\lambda=\tau/m$ es el parámetro afín adimensional, $\tau$ el tiempo propio, y $p^{\mu}$ el cuadrimomento cinemático estándar que se relaciona con el momento canónico mediante $p^{\mu}=\pi^{\mu}-qA^{\mu}$. El valor conservado del super-Hamiltoniano es $\mathcal{H}=-m^2/2$.
+
+Observamos que la estacionariedad del sistema implica que la energía $E$ (relacionada con el momento conjugado $\pi_t$) es una constante del movimiento. Sin embargo, al inclinar el campo magnético, se rompe la simetría axial y por tanto el momento angular $L_z$ ya no se conserva, lo que es crucial para la aparición del caos.
+
+\section{Análisis del Comportamiento Caótico}
+
+\subsection{Exponente Característico de Lyapunov}
+
+Para cuantificar el caos, los autores utilizan el exponente máximo de Lyapunov $\chi$, definido como:
+
+\begin{equation}
+\chi\equiv\lim_{\lambda\to\infty}\frac{1}{\lambda}\ln\frac{||w(\lambda)||}{||w(0)||}
+\end{equation}
+
+donde $w(\lambda)$ es el vector de desviación en el espacio de fases. Este indicador mide la tasa de divergencia exponencial de trayectorias inicialmente cercanas, siendo un valor positivo indicativo de comportamiento caótico.
+
+El cálculo numérico de $\chi$ se realiza resolviendo las ecuaciones variacionales que gobiernan la evolución del vector de desviación. La elección del vector de desviación inicial es importante, y los autores demuestran que su elección $w(0)=1/\sqrt{8}(1,1,1,1,1,1,1,1)$ garantiza la obtención del exponente máximo de Lyapunov.
+
+\subsection{Análisis de Cuantificación de Recurrencia (RQA)}
+
+Los autores complementan el análisis del exponente de Lyapunov con la técnica de Análisis de Cuantificación de Recurrencia (RQA), que permite visualizar y cuantificar las recurrencias de la trayectoria en el espacio de fases. Esta técnica proporciona información adicional sobre la estructura dinámica del sistema y es particularmente útil para detectar transiciones en el comportamiento de la trayectoria.
+
+\section{Resultados Principales y su Interpretación Física}
+
+\subsection{Efecto de la Inclinación del Campo}
+
+Uno de los hallazgos más significativos del artículo es que incluso una ligera inclinación del campo magnético respecto al eje de rotación del agujero negro provoca una transición de movimiento regular a caótico. Los autores observan que las órbitas regulares encontradas en el caso axisimétrico (campo alineado) se destruyen rápidamente cuando el campo se inclina ligeramente, y el caos pasa a dominar completamente el espacio de fases.
+
+Este resultado tiene profundas implicaciones astrofísicas, ya que sugiere que en situaciones realistas, donde es improbable un alineamiento perfecto entre el campo magnético y el eje de rotación, el comportamiento caótico sería predominante en la dinámica de partículas cargadas cerca de agujeros negros.
+
+\subsection{Dependencia del Ángulo Azimutal Inicial}
+
+El artículo también investiga cómo la elección del ángulo azimutal inicial $\varphi(0)$ afecta a la dinámica en el caso no axisimétrico. Los autores encuentran que, aunque la mayoría de los valores de $\varphi(0)$ conducen a resultados similares en términos del exponente de Lyapunov, ciertos ángulos (por ejemplo, $\varphi(0)=3\pi/2$ en el caso estudiado) pueden producir trayectorias marcadamente diferentes con valores asintóticos del exponente de Lyapunov significativamente menores.
+
+Este resultado destaca la importancia de las condiciones iniciales en sistemas caóticos y sugiere que incluso en sistemas débilmente no axisimétricos, el rol del ángulo azimutal inicial es crucial y su efecto no puede ser ignorado.
+
+\section{Discusión y Relevancia Astrofísica}
+
+El estudio del comportamiento dinámico de partículas cargadas alrededor de agujeros negros tiene importantes implicaciones para comprender fenómenos astrofísicos como:
+
+\begin{itemize}
+    \item Aceleración de partículas en magnetosferas de agujeros negros
+    \item Formación y estructura de jets relativistas
+    \item Procesos de acreción en núcleos galácticos activos
+    \item Emisión de radiación desde entornos de agujeros negros
+\end{itemize}
+
+La predominancia del comportamiento caótico encontrada en este trabajo sugiere que los modelos astrofísicos deben considerar cuidadosamente estos efectos al interpretar observaciones de regiones cercanas a agujeros negros.
+
+\section{Conexiones con el Curso de Relatividad}
+
+Este artículo integra varios conceptos fundamentales que estudiamos durante nuestro curso de relatividad:
+
+\begin{itemize}
+    \item Geometría del espacio-tiempo de Kerr como solución a las ecuaciones de Einstein
+    \item Geodésicas no triviales en espacio-tiempos curvos
+    \item Acoplamiento entre campos electromagnéticos y gravitatorios
+    \item Simetrías y constantes del movimiento en relatividad general
+\end{itemize}
+
+Como Landau discute en su texto, la dinámica de partículas en campos gravitacionales fuertes revela aspectos fundamentales de la estructura del espacio-tiempo. Este artículo extiende esos conceptos a situaciones donde la interacción electromagnética juega un papel crucial, demostrando cómo la ruptura de simetrías puede llevar a comportamientos dinámicos complejos y caóticos.
+
+\section{Conclusiones}
+
+El artículo de Kopáček y Karas proporciona un análisis detallado y riguroso de la dinámica de partículas cargadas en entornos de agujeros negros con campos magnéticos inclinados. Sus principales conclusiones son:
+
+\begin{itemize}
+    \item La inclinación del campo magnético, incluso ligera, provoca una transición de movimiento regular a caótico.
+    \item La elección del ángulo azimutal inicial puede tener un impacto significativo en la dinámica en configuraciones no axisimétricas.
+    \item Las herramientas de la teoría del caos, como el exponente de Lyapunov y el análisis RQA, son efectivas para caracterizar estos sistemas relativistas.
+\end{itemize}
+
+Como estudiantes que hemos completado un curso de relatividad general, encontramos que este trabajo ilustra bellamente cómo los principios fundamentales de la teoría pueden aplicarse a problemas astrofísicos complejos y realistas, revelando comportamientos dinámicos ricos que no serían evidentes en aproximaciones más simplificadas.
+
+La integración de métodos numéricos avanzados con la teoría relativista muestra un camino prometedor para investigaciones futuras en la intersección entre relatividad general, electrodinámica y sistemas dinámicos no lineales.
+
+\begin{thebibliography}{99}
+\bibitem{landau} Landau, L.D. \& Lifshitz, E.M., \textit{The Classical Theory of Fields}, Fourth Edition, Butterworth-Heinemann, 1975.
+\bibitem{kopacek14} Kopáček, O. \& Karas, V., \textit{Regular and chaotic motion in general relativity: The case of an inclined black hole magnetosphere}, J. Phys.: Conf. Ser., 2014.
+\bibitem{mtw} Misner, C.W., Thorne, K.S., \& Wheeler, J.A., \textit{Gravitation}, Freeman, San Francisco, 1973.
+\bibitem{wald74} Wald, R.M., \textit{Black hole in a uniform magnetic field}, Phys. Rev. D, 10, 1680-1685, 1974.
+\bibitem{bicak85} Bičák, J. \& Janiš, V., \textit{Magnetic fluxes across black holes}, Mon. Not. R. Astron. Soc., 212, 899-915, 1985.
+\end{thebibliography}
+
+\end{document}
