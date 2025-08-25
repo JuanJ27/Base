@@ -31,3 +31,11 @@
 *.txt
 *.yaml
 /Python/CompCuantica/Proyecto_Low_Pt_qml/Quantum_Machine_Learning_for_b-jet_charge_identifi.pdf
+# Estos en particular si los quiero
+!Python/LabAv1/ProyectoF/aaaaaaaaaaaa.csv
+!Python/LabAv1/ProyectoF/locura2.csv
+!Python/LabAv1/ProyectoF/locura.csv
+!Python/LabAv1/ProyectoF/paneod1.csv
+!Python/LabAv1/ProyectoF/paneoh.csv
+!Python/LabAv1/ProyectoF/paneov.csv
+!Python/LabAv1/ProyectoF/test1.csv
