@@ -8,7 +8,7 @@ verde = ADC(Pin(36))
 amarillo = ADC(Pin(34))
 naranja = ADC(Pin(35))
 rojo = ADC(Pin(04))
-
+5
 # Intenta configurar la atenuación para 0-3.3V
 try:
     azul.atten(ADC.ATTN_11DB)  # Para rango completo (0-3.3V)
