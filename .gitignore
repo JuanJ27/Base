@@ -24,6 +24,9 @@
 /Python/Experimental IV/Exp4
 *.vscode
 **/venv/
+*/.venv/
+**/.venv/
+.venv/
 
 # Datos 
 *.json
