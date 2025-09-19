@@ -688,98 +688,233 @@ El método de separación de variables es uno de los más utilizados para la sol
 
 \subsection{Solución de la ecuación de Laplace en coordenadas cartesianas}
 
-La ecuación de Laplace para el potencial electrostático en coordenadas cartesianas es
+La ecuación de Laplace, en coordenadas cartesianas, puede ser escrita en la forma
 \begin{equation}
-\nabla^2 \phi(x, y, z) = \frac{\partial^2\phi}{\partial x^2} + \frac{\partial^2\phi}{\partial y^2} + \frac{\partial^2\phi}{\partial z^2} = 0.
+\left(\frac{\partial^2}{\partial x^2} + \frac{\partial^2}{\partial y^2} + \frac{\partial^2}{\partial z^2}\right) \phi(x, y, z) = 0.
 \end{equation}
 
-Tomemos un volumen $V$ limitado por el paralelepípedo rectangular definido por las superficies coordenadas $x = 0$, $x = a$, $y = 0$, $y = b$, $z = 0$ y $z = c$, siendo $a$, $b$ y $c$ números reales positivos. Supongamos que conocemos los valores de $\phi$ en las caras de dicho paralelepípedo, es decir, se trata de un problema de Dirichlet. Para fijar ideas supondremos que $\phi(0, y, z) = \phi(a, y, z) = \phi(x, 0, z) = \phi(x, b, z) = 0$, y que $\phi(x, y, 0) = 0$ y $\phi(x, y, c) = f(x, y)$, siendo $f$ una función conocida.
-
-De acuerdo con el método de separación de variables, proponemos que la solución de la ecuación de Laplace tiene la forma
+Se propone, como solución de (1.61), una función del tipo
 \begin{equation}
-\phi(x, y, z) = X(x)Y(y)Z(z),
+\phi(x, y, z) = X(x)Y(y)Z(z).
 \end{equation}
-siendo $X$, $Y$ y $Z$ funciones que dependen únicamente de $x$, $y$ y $z$, respectivamente. Sustituyendo esta expresión en la ecuación (1.64) encontramos que
+Sustituyendo en la ecuación diferencial hallamos
 \begin{equation}
-Y(y)Z(z)\frac{d^2X}{dx^2} + X(x)Z(z)\frac{d^2Y}{dy^2} + X(x)Y(y)\frac{d^2Z}{dz^2} = 0.
+\frac{d^2X}{dx^2}Y(y)Z(z) + X(x)\frac{d^2Y}{dy^2}Z(z) + X(x)Y(y)\frac{d^2Z}{dz^2} = 0,
 \end{equation}
-Dividiendo ambos miembros de la ecuación anterior por el producto $X(x)Y(y)Z(z)$ obtenemos
+o bien
 \begin{equation}
 \frac{1}{X}\frac{d^2X}{dx^2} + \frac{1}{Y}\frac{d^2Y}{dy^2} + \frac{1}{Z}\frac{d^2Z}{dz^2} = 0.
 \end{equation}
 
-Nótese que cada uno de los términos depende de una sola variable, por lo que la ecuación (1.67) solamente puede satisfacerse si cada uno de los términos es igual a una constante. En caso contrario, al variar una de las variables independientes sin cambiar las restantes, no se preservaría la igualdad. Así, por ejemplo, el primer término de (1.67) es una función solamente de $x$, por lo que debe ser constante para que la suma de los tres términos sea igual a cero. De manera análoga, el segundo término debe ser una constante, y en consecuencia, el tercer término también debe ser igual a una constante. Sean $\alpha^2$, $\beta^2$ y $\gamma^2$ dichas constantes. Entonces
+Puesto que las variables $x$, $y$ y $z$ son independientes, entonces cada término de la ecuación anterior debe ser una constante numérica. Definamos
 \begin{equation}
-\frac{1}{X}\frac{d^2X}{dx^2} = -\alpha^2,
+-\alpha^2 = \frac{1}{X}\frac{d^2X}{dx^2}, \quad -\beta^2 = \frac{1}{Y}\frac{d^2Y}{dy^2}, \quad \gamma^2 = \frac{1}{Z}\frac{d^2Z}{dz^2},
+\end{equation}
+donde $\gamma^2 = \alpha^2 + \beta^2$, es decir, los números $\alpha$, $\beta$ y $\gamma$ son números pitagóricos.
+
+Reescribamos ahora de forma conveniente las tres ecuaciones anteriores, es decir,
+\begin{equation}
+\frac{d^2X}{dx^2} + \alpha^2X(x) = 0,
 \end{equation}
 \begin{equation}
-\frac{1}{Y}\frac{d^2Y}{dy^2} = -\beta^2,
+\frac{d^2Y}{dy^2} + \beta^2Y(y) = 0,
+\end{equation}
+\begin{equation}
+\frac{d^2Z}{dz^2} - \gamma^2Z(z) = 0.
+\end{equation}
+
+Dependiendo de los valores que tomen las constantes de integración $\alpha$, $\beta$ y $\gamma$, determinados por las condiciones de frontera para el potencial o sus primeras derivadas, pueden tener lugar varios tipos de soluciones para el potencial (1.62). Veamos.
+
+\begin{itemize}
+\item Caso 1: $\alpha \neq 0$, $\beta \neq 0$.
+
+Las soluciones generales para $X$, $Y$ y $Z$ vienen dadas por las expresiones
+\begin{align}
+X(x) &= a_1 e^{i\alpha x} + a_2 e^{-i\alpha x}, \\
+Y(y) &= b_1 e^{i\beta y} + b_2 e^{-i\beta y}
+\end{align}
+y
+\begin{equation}
+Z(z) = c_1 e^{\gamma z} + c_2 e^{-\gamma z},
+\end{equation}
+respectivamente.
+
+\item Caso 2: $\alpha = 0$, $\beta = \gamma \neq 0$.
+
+En este caso la solución para la función $X$ es polinómica, es decir,
+\begin{equation}
+X(x) = a_1 x + a_2.
+\end{equation}
+Además,
+\begin{equation}
+Y(y) = b_1 e^{i\beta y} + b_2 e^{-i\beta y}
 \end{equation}
 y
 \begin{equation}
-\frac{1}{Z}\frac{d^2Z}{dz^2} = \alpha^2 + \beta^2 \equiv \gamma^2.
+Z(z) = c_1 e^{\beta z} + c_2 e^{-\beta z}.
 \end{equation}
 
-De las ecuaciones anteriores obtenemos que
-\begin{equation}
-\frac{d^2X}{dx^2} + \alpha^2X = 0,
-\end{equation}
-\begin{equation}
-\frac{d^2Y}{dy^2} + \beta^2Y = 0,
-\end{equation}
+\item Caso 3: $\alpha = \beta = \gamma = 0$.
+
+En este caso las tres funciones $X$, $Y$ y $Z$ son polinomios de primer grado en sus respectivas variables, o sea,
+\begin{align}
+X(x) &= a_1 x + a_2, \\
+Y(y) &= b_1 y + b_2
+\end{align}
 y
 \begin{equation}
-\frac{d^2Z}{dz^2} - \gamma^2Z = 0.
+Z(z) = c_1 z + c_2.
 \end{equation}
+\end{itemize}
 
-Las soluciones generales de estas ecuaciones diferenciales ordinarias son
-\begin{equation}
-X(x) = A\sin(\alpha x) + B\cos(\alpha x),
-\end{equation}
-\begin{equation}
-Y(y) = C\sin(\beta y) + D\cos(\beta y),
-\end{equation}
+En todos los casos anteriores las constantes $a_1$, $a_2$, $b_1$, $b_2$, $c_1$ y $c_2$ se determinan también a partir de las condiciones de frontera específicas de cada problema concreto.
+
+Ilustremos el procedimiento de solución de la ecuación de Laplace en coordenadas cartesianas a partir de un ejemplo sencillo. Consideremos un cubo de lado $a$ con dos caras opuestas conectadas a un potencial $V$ y el resto de sus caras conectadas a tierra (potencial cero), tal y como se muestra en la figura 1.6. Queremos encontrar el valor del potencial en el interior del cubo. Se propone, como solución de la ecuación diferencial de Laplace, una función del tipo (1.62). De acuerdo con el método de separación de variables, elijamos las constantes $\alpha$, $\beta$ y $\gamma$ de manera que se satisfagan las relaciones (1.63). Si tomamos el origen de coordenadas en uno de los vértices del cubo, las funciones $X$, $Y$ y $Z$ satisfacen las condiciones de frontera
+\begin{align}
+X(0) = X(a) &= 0, \\
+Y(0) = Y(a) &= 0
+\end{align}
 y
 \begin{equation}
-Z(z) = Ee^{\gamma z} + Fe^{-\gamma z},
+Z(0) = Z(a) = V,
 \end{equation}
-siendo $A$, $B$, $C$, $D$, $E$ y $F$ constantes a determinar mediante las condiciones de frontera.
+respectivamente.
 
-Consideremos ahora las condiciones sobre las superficies definidas por $x = 0$, $x = a$, $y = 0$, $y = b$, y $z = 0$. Veamos primeramente el caso de $\phi(0, y, z) = 0$. De aquí se obtiene que $X(0) = 0$, o bien, $B = 0$. La condición $\phi(a, y, z) = 0$ nos dice que $X(a) = 0$, por lo que $A\sin(\alpha a) = 0$. Esta ecuación tiene una infinidad de soluciones para $\alpha$, a saber, $\alpha_n = \frac{n\pi}{a}$, $n = 1, 2, \ldots$. En consecuencia, $X_n(x) = A_n\sin\left(\frac{n\pi}{a}x\right)$. De manera análoga, las condiciones $\phi(x, 0, z) = 0$ y $\phi(x, b, z) = 0$ nos conducen a $D = 0$, $\beta_m = \frac{m\pi}{b}$ ($m = 1, 2, \ldots$) y $Y_m(y) = C_m\sin\left(\frac{m\pi}{b}y\right)$. Por otra parte, la condición $\phi(x, y, 0) = 0$ implica que $Z(0) = 0$, lo cual a su vez significa que $E = -F$. Podemos reescribir entonces a $Z(z)$ en la forma
+La función $X$ será solución de la ecuación diferencial (1.64), y se propone como
 \begin{equation}
-Z(z) = 2E\sinh(\gamma z).
+X(x) = A_1 \sin(\alpha x) + A_2 \cos(\alpha x).
 \end{equation}
-
-Además, $\gamma = \sqrt{\alpha^2 + \beta^2} = \pi\sqrt{\frac{n^2}{a^2} + \frac{m^2}{b^2}}$.
-
-En virtud del principio de superposición, la solución general de la ecuación de Laplace puede expresarse como
+Pero $X(0) = 0 \Rightarrow A_2 = 0$. Luego,
 \begin{equation}
-\phi(x, y, z) = \sum_{n=1}^{\infty}\sum_{m=1}^{\infty}A_{nm}\sin\left(\frac{n\pi}{a}x\right)\sin\left(\frac{m\pi}{b}y\right)\sinh\left(\pi\sqrt{\frac{n^2}{a^2} + \frac{m^2}{b^2}}z\right),
-\end{equation}
-siendo $A_{nm}$ constantes a determinar.
-
-Nos queda ahora por satisfacer la última condición de frontera, a saber, $\phi(x, y, c) = f(x, y)$. De aquí resulta que
-\begin{equation}
-f(x, y) = \sum_{n=1}^{\infty}\sum_{m=1}^{\infty}A_{nm}\sin\left(\frac{n\pi}{a}x\right)\sin\left(\frac{m\pi}{b}y\right)\sinh\left(\pi\sqrt{\frac{n^2}{a^2} + \frac{m^2}{b^2}}c\right).
+X(x) = A_1 \sin(\alpha x).
 \end{equation}
 
-Los coeficientes $A_{nm}$ pueden determinarse mediante el desarrollo en serie de Fourier de la función $f(x, y)$ en el dominio $\{(x, y) \in \mathbb{R}^2 : 0 \leq x \leq a, 0 \leq y \leq b\}$. En particular,
+Por otra parte $X(a) = A_1 \sin(\alpha a) = 0$, de donde es evidente que $\alpha \equiv \alpha_n = \frac{n\pi}{a}$, siendo $n$ un número natural ($n = 0$ conduce a la solución trivial $X = 0$, la cual no posee sentido físico). Existen entonces infinitas soluciones para $X$, que denotaremos como $X_n$. Así,
 \begin{equation}
-A_{nm} = \frac{4}{ab\sinh\left(\pi\sqrt{\frac{n^2}{a^2} + \frac{m^2}{b^2}}c\right)}\int_{0}^{a}\int_{0}^{b}f(x, y)\sin\left(\frac{n\pi}{a}x\right)\sin\left(\frac{m\pi}{b}y\right)dxdy.
+X_n(x) = A_n \sin(\alpha_n x).
+\end{equation}
+
+Análogamente
+\begin{equation}
+Y_m(y) = B_m \sin(\beta_m y),
+\end{equation}
+donde $\beta_m = \frac{m\pi}{a}$.
+
+Analicemos ahora la solución $Z$ de la ecuación diferencial (1.66), la cual se propone como
+\begin{equation}
+Z_{nm}(z) = C_{nm} \sinh(\gamma_{nm} z) + D_{nm} \cosh(\gamma_{nm} z)
+\end{equation}
+siendo $\gamma_{nm} = \sqrt{\alpha_n^2 + \beta_m^2} = \frac{\pi}{a}\sqrt{n^2 + m^2}$. De la condición de frontera $Z_{nm}(0) = V$ se desprende automáticamente que $D_{nm} = V$ para todos los valores posibles de los números $n$ y $m$. Luego
+\begin{equation}
+Z_{nm}(z) = C_{nm} \sinh(\gamma_{nm} z) + V \cosh(\gamma_{nm} z).
+\end{equation}
+
+Por otra parte, de la condición $Z_{nm}(a) = V$ se obtiene inmediatamente que
+\begin{equation}
+C_{nm} = V\frac{1 - \cosh(\gamma_{nm}a)}{\sinh(\gamma_{nm}a)}.
+\end{equation}
+
+En consecuencia
+\begin{equation}
+Z_{nm}(z) = V\left[\frac{1 - \cosh(\gamma_{nm}a)}{\sinh(\gamma_{nm}a)}\sinh(\gamma_{nm}z) + \cosh(\gamma_{nm}z)\right].
+\end{equation}
+
+Una solución particular para la ecuación de Laplace en el interior del cubo es
+\begin{equation}
+\phi_{nm}(x, y, z) = V A_n\sin(\alpha_n x)B_m\sin(\beta_m y)\left[\frac{1 - \cosh(\gamma_{nm}a)}{\sinh(\gamma_{nm}a)}\sinh(\gamma_{nm}z) + \cosh(\gamma_{nm}z)\right],
+\end{equation}
+mientras que la solución general puede ser escrita como
+\begin{align}
+\phi(x, y, z) &= \sum_{n=1}^{+\infty}\sum_{m=1}^{+\infty}\phi_{nm}(x, y, z) \\
+&= V\sum_{n=1}^{+\infty}\sum_{m=1}^{+\infty}A_n\sin(\alpha_n x)B_m\sin(\beta_m y)\left[\frac{1 - \cosh(\gamma_{nm}a)}{\sinh(\gamma_{nm}a)}\sinh(\gamma_{nm}z) + \cosh(\gamma_{nm}z)\right].
+\end{align}
+
+Debemos encontrar ahora los valores de las constantes $A_n$ y $B_m$. Es evidente que la solución anterior satisface las condiciones de frontera en las variables $x$ y $y$. En la variable $z$ tenemos que
+\begin{align}
+\phi(x, y, 0) = \phi(x, y, a) &= V\sum_{n=1}^{+\infty}\sum_{m=1}^{+\infty}A_n\sin(\alpha_n x)B_m\sin(\beta_m y) \\
+&= V\left[\sum_{n=1}^{+\infty}A_n\sin(\alpha_n x)\right]\left[\sum_{m=1}^{+\infty}B_m\sin(\beta_m y)\right].
+\end{align}
+
+Las condiciones de frontera en la variable $z$ son solamente satisfechas si $A_n$ y $B_m$ son las representaciones de Fourier de la función unidad en el intervalo $(0, a)$. Si
+\begin{equation}
+1 = \sum_{n=1}^{+\infty}A_n\sin(\alpha_n x),
+\end{equation}
+entonces
+\begin{equation}
+A_n = \frac{2}{a}\int_0^a\sin(\alpha_n x)dx = \frac{2}{n\pi}[1-(-1)^n].
+\end{equation}
+
+Análogamente
+\begin{equation}
+B_m = \frac{2}{m\pi}[1-(-1)^m].
+\end{equation}
+
+La solución buscada para el potencial dentro de la caja cúbica será entonces
+\begin{equation}
+\phi(x, y, z) = V\left(\frac{2}{\pi}\right)^2\sum_{n=1}^{+\infty}\sum_{m=1}^{+\infty}\frac{[1-(-1)^n][1-(-1)^m]}{nm}\sin(\alpha_n x)\sin(\beta_m y)\left[\frac{1 - \cosh(\gamma_{nm}a)}{\sinh(\gamma_{nm}a)}\sinh(\gamma_{nm}z) + \cosh(\gamma_{nm}z)\right].
 \end{equation}
 
 \subsection{Solución de la ecuación de Laplace en coordenadas cilíndricas}
 
-La ecuación de Laplace para el potencial electrostático en coordenadas cilíndricas $(r, \varphi, z)$ es
+La ecuación de Laplace en coordenadas cilíndricas tiene la forma
 \begin{equation}
-\nabla^2\phi = \frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial \phi}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2\phi}{\partial\varphi^2} + \frac{\partial^2\phi}{\partial z^2} = 0.
+\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial\phi}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2\phi}{\partial\varphi^2} + \frac{\partial^2\phi}{\partial z^2} = 0,
+\end{equation}
+siendo $r = \sqrt{x^2 + y^2}$, $\varphi = \arctan\left(\frac{y}{x}\right)$, y $\phi$ una función periódica de período $2\pi$ en la variable $\varphi$, es decir, $\phi(r, \varphi, z) = \phi(r, \varphi + 2\pi, z)$ para todos los valores permitidos de $r$ y $z$.
+
+Se propone, como solución de (1.71), una función del tipo
+\begin{equation}
+\phi(r, \varphi, z) = R(r)\Phi(\varphi)Z(z),
+\end{equation}
+donde $\Phi$ es, obviamente, una función $2\pi$-periódica. Sustituyendo (1.72) en la ecuación diferencial obtenemos
+\begin{equation}
+\frac{1}{rR(r)}\frac{d}{dr}\left(r\frac{dR}{dr}\right) + \frac{1}{r^2\Phi(\varphi)}\frac{d^2\Phi}{d\varphi^2} + \frac{1}{Z(z)}\frac{d^2Z}{dz^2} = 0.
 \end{equation}
 
-Veamos la solución de la ecuación de Laplace en algunos casos específicos.
+Aplicando ahora el método de separación de variables podemos escribir
+\begin{equation}
+\frac{1}{Z(z)}\frac{d^2Z}{dz^2} = k^2
+\end{equation}
+y
+\begin{equation}
+\frac{1}{\Phi(\varphi)}\frac{d^2\Phi}{d\varphi^2} = -\nu^2.
+\end{equation}
+
+El factor $-\nu^2$ se escoge negativo con el fin de obtener funciones que tengan la propiedad de periodicidad en $\varphi$ (funciones $\sin$ y $\cos$). La ecuación para $Z(z)$ tiene como solución funciones exponenciales,
+\begin{equation}
+Z(z) = C_1 e^{kz} + C_2 e^{-kz},
+\end{equation}
+en donde $C_1$ y $C_2$ son constantes, mientras que la ecuación para $\Phi(\varphi)$ produce soluciones del tipo
+\begin{equation}
+\Phi(\varphi) = A\cos\nu\varphi + B\sin\nu\varphi,
+\end{equation}
+con $A$ y $B$ constantes. Como $\Phi(\varphi + 2\pi) = \Phi(\varphi)$ para todo valor de $\varphi$, debe tenerse que $\nu = 0, 1, 2, \ldots$.
+
+Reemplazando ahora (1.74) y (1.75) en (1.73) se obtiene la ecuación para $R(r)$:
+\begin{equation}
+\frac{1}{rR(r)}\frac{d}{dr}\left(r\frac{dR}{dr}\right) = -k^2 + \frac{\nu^2}{r^2},
+\end{equation}
+que puede reescribirse como
+\begin{equation}
+r\frac{d}{dr}\left(r\frac{dR}{dr}\right) - \nu^2 R + k^2r^2R = 0.
+\end{equation}
+
+Esta es una ecuación diferencial de Bessel, cuya solución general viene dada en términos de las funciones de Bessel,
+\begin{equation}
+R(r) = C_3 J_{\nu}(kr) + C_4 Y_{\nu}(kr),
+\end{equation}
+donde $J_{\nu}$ y $Y_{\nu}$ son, respectivamente, las funciones de Bessel de primera y segunda especie, de orden $\nu$, y $C_3$ y $C_4$ son constantes. En el caso $k = 0$ la solución toma la forma
+\begin{equation}
+R(r) = C_3 r^{\nu} + C_4 r^{-\nu},
+\end{equation}
+con $C_3$ y $C_4$ constantes. Si, además, $\nu = 0$, se obtiene
+\begin{equation}
+R(r) = C_3 + C_4 \ln r.
+\end{equation}
 
 \subsubsection{Potencial independiente de $\varphi$ y $z$}
 
-Si el potencial es independiente de $\varphi$ y de $z$, la ecuación (1.81) se reduce a
+Si el potencial es independiente de $\varphi$ y de $z$, la ecuación (1.71) se reduce a
 \begin{equation}
 \frac{1}{r}\frac{d}{dr}\left(r\frac{d\phi}{dr}\right) = 0.
 \end{equation}
@@ -795,92 +930,6 @@ siendo $c_1$ una constante. Integrando nuevamente obtenemos
 donde $c_2$ es otra constante.
 
 \subsubsection{Potencial independiente de $z$}
-
-Cuando el potencial depende de $r$ y $\varphi$, pero es independiente de $z$, la ecuación (1.81) adopta la forma
-\begin{equation}
-\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial \phi}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2\phi}{\partial\varphi^2} = 0.
-\end{equation}
-
-Usando el método de separación de variables, proponemos
-\begin{equation}
-\phi(r, \varphi) = R(r)\Phi(\varphi).
-\end{equation}
-
-Sustituyendo esta expresión en la ecuación (1.85) hallamos
-\begin{equation}
-\frac{\Phi}{r}\frac{d}{dr}\left(r\frac{dR}{dr}\right) + \frac{R}{r^2}\frac{d^2\Phi}{d\varphi^2} = 0.
-\end{equation}
-
-Multiplicando por $\frac{r^2}{R\Phi}$ obtenemos
-\begin{equation}
-\frac{r}{R}\frac{d}{dr}\left(r\frac{dR}{dr}\right) + \frac{1}{\Phi}\frac{d^2\Phi}{d\varphi^2} = 0.
-\end{equation}
-
-El primer término de esta ecuación es función solamente de $r$, mientras que el segundo es función solamente de $\varphi$. Como la suma de ambos términos es igual a cero, cada uno de ellos debe ser constante. Llamemos $n^2$ a dicha constante. Entonces
-\begin{equation}
-\frac{r}{R}\frac{d}{dr}\left(r\frac{dR}{dr}\right) = n^2,
-\end{equation}
-\begin{equation}
-\frac{1}{\Phi}\frac{d^2\Phi}{d\varphi^2} = -n^2.
-\end{equation}
-
-La solución general de (1.90) es
-\begin{equation}
-\Phi(\varphi) = A\cos(n\varphi) + B\sin(n\varphi),
-\end{equation}
-siendo $A$ y $B$ constantes arbitrarias.
-
-Por su parte, la ecuación (1.89) puede ser reescrita como
-\begin{equation}
-r\frac{d}{dr}\left(r\frac{dR}{dr}\right) - n^2R = 0,
-\end{equation}
-o bien,
-\begin{equation}
-r^2\frac{d^2R}{dr^2} + r\frac{dR}{dr} - n^2R = 0.
-\end{equation}
-
-Esta es una ecuación diferencial ordinaria de Euler. Su solución general, para $n \neq 0$, es
-\begin{equation}
-R(r) = Cr^n + Dr^{-n},
-\end{equation}
-siendo $C$ y $D$ constantes.
-
-Si $n = 0$, la ecuación (1.93) se reduce a
-\begin{equation}
-r^2\frac{d^2R}{dr^2} + r\frac{dR}{dr} = 0,
-\end{equation}
-y su solución general es
-\begin{equation}
-R(r) = C\ln r + D.
-\end{equation}
-
-Por lo tanto, la solución general de la ecuación (1.85) puede escribirse en la forma
-\begin{equation}
-\phi(r, \varphi) = A_0 + B_0\ln r + \sum_{n=1}^{\infty}\left(A_n r^n + B_n r^{-n}\right)\left(C_n\cos(n\varphi) + D_n\sin(n\varphi)\right).
-\end{equation}
-
-Para simplificar podemos reescribir esta expresión como
-\begin{equation}
-\phi(r, \varphi) = a_0 + b_0\ln r + \sum_{n=1}^{\infty}\left(a_n r^n + b_n r^{-n}\right)\cos(n\varphi) + \sum_{n=1}^{\infty}\left(c_n r^n + d_n r^{-n}\right)\sin(n\varphi),
-\end{equation}
-siendo $a_0$, $b_0$, $a_n$, $b_n$, $c_n$ y $d_n$ constantes a determinar a partir de las condiciones de frontera del problema específico que se analiza.
-
-\subsubsection{Potencial independiente de $\varphi$}
-
-En este caso, la ecuación de Laplace para $\phi(r, z)$ es
-\begin{equation}
-\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial \phi}{\partial r}\right) + \frac{\partial^2\phi}{\partial z^2} = 0.
-\end{equation}
-
-Usando nuevamente el método de separación de variables, proponemos
-\begin{equation}
-\phi(r, z) = R(r)Z(z).
-\end{equation}
-
-Sustituyendo esta expresión en la ecuación (1.99) hallamos
-\begin{equation}
-\frac{Z}{r}\frac{d}{dr}\left(r\frac{dR}{dr}\right) + R\frac{d^2Z}{dz^2} = 0.
-\end{equation}
 
 Dividiendo por $RZ$ obtenemos
 \begin{equation}
@@ -1330,46 +1379,84 @@ Es importante señalar que, según la mecánica cuántica, el electrón es una p
 \section{Problemas propuestos}
 
 \begin{enumerate}
-\item Calcule el potencial y el campo eléctrico creados por una distribución esférica de carga con densidad $\rho(r) = \rho_0 (a/r)^n$ para $r \geq a$, donde $\rho_0$ y $a$ son constantes y $n > 0$.
+\item Del octante $x \geq 0$; $y \geq 0$; $z \geq 0$ de la bola $x^2 + y^2 + z^2 \leq c^2$ se ha sustraído el cuerpo limitado por los planos coordenados y por el plano $\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1$ ($a > 0$, $b > 0$, $c > 0$, $a \leq c$, $b \leq c$). Halle la carga del cuerpo si la densidad de carga es $\rho(\vec{r}) = \lambda_0 z$.
 
-\item Una esfera conductora de radio $a$ tiene una carga $Q$. Un dipolo puntual $\vec{p}$ se coloca a una distancia $d > a$ del centro de la esfera, con el momento dipolar orientado radialmente. Determine la fuerza que actúa sobre el dipolo.
+\item Determine el potencial del campo electrostático $\vec{E}(\vec{r}) = ay\vec{i} + (ax + bz)\vec{j} + by\vec{k}$, siendo $a$ y $b$ constantes. Calcule el trabajo realizado por el campo al llevar la carga $q$ desde el origen de coordenadas hasta el punto $\left(\frac{E_0}{a}, \frac{E_0}{\sqrt{2}}, \frac{E_0}{b}\sqrt{\frac{a^2}{a^2+b^2}}\right)$, siendo $E_0$ otra constante.
 
-\item Encuentre el potencial electrostático en todo el espacio para una esfera dieléctrica de radio $a$ y permitividad $\epsilon_1$ en un campo eléctrico uniforme $\vec{E}_0$, donde el medio exterior tiene permitividad $\epsilon_0$.
+\item Calcule la función de Green para el interior de un sector circular plano de radio $R$ con condiciones de frontera de Dirichlet en la frontera.
 
-\item Calcule la energía de interacción entre dos dipolos puntuales $\vec{p}_1$ y $\vec{p}_2$ separados por un vector $\vec{r}$.
+\item Calcule la función de Green para el interior de una bola de radio $R$ con la condición de frontera de Dirichlet. Repita el cálculo utilizando la condición de frontera de Neumann.
 
-\item Determine la capacitancia de un sistema formado por dos esferas conductoras de radios $a$ y $b$, cuyos centros están separados por una distancia $d > a + b$.
+\item Sea el rectángulo seminfinito $R = (0, L) \times (0, +\infty)$ y $(x, y) \in R$. Supongamos que el potencial electrostático es conocido en la frontera de este rectángulo: en particular $\phi(0, y) = \phi(L, y) = 0$ $\forall y \in (0, +\infty)$ y $\phi(x, 0) = V\sin\left(\frac{4\pi}{L}x\right)$ $\forall x \in (0, L)$. Calcule el potencial electrostático en el interior de $R$.
 
-\item Dos placas conductoras paralelas infinitas están separadas por una distancia $d$. Una de las placas está conectada a tierra, mientras que la otra se mantiene a un potencial $V_0$. Calcule la fuerza por unidad de área entre las placas.
+\item Sea una superficie cilíndrica de radio $R$ y altura $2a + b$ cerrada en ambos extremos por dos tapas circulares de radio $R$ conectadas a potencial cero. Supongamos además que el potencial electrostático sobre la superficie lateral viene dado por la expresión
+\begin{equation*}
+V(\varphi, z) = 
+\begin{cases}
+0 & \text{si } 0 < z < a \quad \forall \varphi \in (0, 2\pi) \\
+V_1 & \text{si } a < z < a + b \quad \forall \varphi \in (0, 2\pi) \\
+0 & \text{si } a + b < z < 2a + b \quad \forall \varphi \in (0, 2\pi)
+\end{cases}
+\end{equation*}
+Calcule el potencial electrostático en el conjunto que tiene como frontera exterior a la superficie dada.
 
-\item Una carga puntual $q$ se coloca a una distancia $d$ de una pared dieléctrica plana semi-infinita con permitividad $\epsilon$. Determine la fuerza que actúa sobre la carga.
+\item El potencial electrostático sobre un cascarón esférico de radio $R$ viene dado por la expresión
+\begin{equation*}
+V(\theta, \varphi) = 
+\begin{cases}
+V_1 & \text{si } 0 < \theta < \pi/2 \quad \forall \varphi \in (0, 2\pi) \\
+0 & \text{si } \pi/2 < \theta < \pi \quad \forall \varphi \in (0, 2\pi)
+\end{cases}
+\end{equation*}
+Encuentre el potencial electrostático en el interior del cascarón.
 
-\item Utilice el método de separación de variables para resolver la ecuación de Laplace y encontrar el potencial electrostático en un recinto rectangular con condiciones de contorno mixtas.
+\item Demuestre que el vector intensidad del campo eléctrico correspondiente a un dipolo eléctrico de momento dipolar $\vec{p}$ viene dado por la expresión
+\begin{equation*}
+\vec{E} = \frac{1}{4\pi\epsilon_0}\left[3\frac{(\vec{p} \cdot \vec{r})\vec{r}}{r^5} - \frac{\vec{p}}{r^3}\right]
+\end{equation*}
 
-\item Dos esferas conductoras de radios $a$ y $b$ están conectadas por un hilo conductor fino. El sistema está aislado y tiene una carga total $Q$. Calcule la distribución de carga entre las esferas y el potencial electrostático.
+\item Demuestre que el vector intensidad del campo eléctrico correspondiente a un cuadrupolo eléctrico de momento cuadrupolar con componentes $D_{ij}$ posee componentes dadas por la expresión
+\begin{equation*}
+E_k = \frac{1}{24\pi\epsilon_0}\left[\frac{15D_{ij}x_ix_jx_k}{r^7} - \frac{3}{r^5}(x_i\delta_{jk} + x_k\delta_{ij} + x_j\delta_{ki})\right]
+\end{equation*}
 
-\item Calcule el campo eléctrico dentro y fuera de una cáscara esférica no conductora de radio interno $a$ y externo $b$, con una densidad de carga volumétrica $\rho(r) = kr$ para $a < r < b$, donde $k$ es una constante.
+\item Demuestre que un dipolo eléctrico puntual de momento dipolar $\vec{p}$ responde a una densidad de carga $\rho = -(\vec{p} \cdot \nabla)\delta(\vec{r} - \vec{r}_0)$, siendo $\vec{r}_0$ el vector de posición del dipolo.
 
-\item Determine el campo y potencial eléctricos producidos por un disco circular uniformemente cargado de radio $a$ y densidad superficial de carga $\sigma$, en un punto del eje perpendicular al disco.
+\item Sean las cargas puntuales $q_1 = -e$ situada en el punto de coordenadas $(0, a, 0)$, $q_2 = e$ localizada en $(a, 0, 0)$, $q_3 = -e$ ubicada en el punto $(0, -a, 0)$ y $q_4 = e$ localizada en $(-a, 0, 0)$. Demuestre que el momento cuadrupolar eléctrico asociado a esta distribución de cargas viene dado por la expresión
+\begin{equation*}
+(D_{ij}) = 6ea^2 \begin{pmatrix} 
+1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 0
+\end{pmatrix}
+\end{equation*}
 
-\item Calcule la fuerza entre dos distribuciones lineales infinitas de carga con densidades $\lambda_1$ y $\lambda_2$, separadas por una distancia $d$.
+\item Un átomo de Hidrógeno en su estado básico tiene la densidad de carga electrónica
+\begin{equation*}
+\rho(\vec{r}) = -\frac{e}{\pi a_0^3}\exp\left[-\frac{2r}{a_0}\right],
+\end{equation*}
+siendo $e$ el valor absoluto de la carga del electrón y $a_0$ el radio de Bohr. El núcleo se supone puntual y está localizado en el origen. Verifique que
+\begin{equation*}
+\int_{\mathbb{R}^3}\rho(\vec{r})dV = -e.
+\end{equation*}
+Halle el potencial escalar y el vector intensidad del campo eléctrico en todo el espacio. Calcule la energía de interacción electrón-núcleo.
 
-\item Utilizando el método de imágenes, determine el potencial y campo eléctricos creados por una carga puntual frente a una esfera conductora conectada a tierra.
+\item En cierto estado excitado del átomo de Hidrógeno, la nube electrónica tiene la densidad de carga, escrita en coordenadas esféricas,
+\begin{equation*}
+\rho(\vec{r}) = -\frac{e}{4\pi^3 8a_0^7}r^4\exp\left[-\frac{2r}{3a_0}\right]\sin^4(\theta).
+\end{equation*}
+Demuestre que el momento dipolar eléctrico del átomo de Hidrógeno asociado a este estado excitado es cero. Demuestre además que el momento cuadrupolar eléctrico en dicho estado tiene la forma
+\begin{equation*}
+(D_{ij}) = 36ea_0^2 \begin{pmatrix}
+-1 & 0 & 0 \\
+0 & -1 & 0 \\
+0 & 0 & 2
+\end{pmatrix}
+\end{equation*}
 
-\item Una carga puntual $q$ se coloca a una distancia $d$ del centro de una esfera dieléctrica no cargada de radio $a < d$ y permitividad $\epsilon$. Encuentre los potenciales eléctricos dentro y fuera de la esfera.
-
-\item Determine la expresión para los coeficientes de los primeros términos (hasta $l=2$) en el desarrollo multipolar del potencial creado por una distribución de carga con simetría axial.
-
-\item Calcule la energía electrostática almacenada en un condensador cilíndrico de longitud $L$, radio interno $a$ y radio externo $b$, cuando se aplica una diferencia de potencial $V$ entre los electrodos.
-
-\item Demuestre que el campo eléctrico en el exterior de un conductor con una cavidad interna depende solamente de la carga total del conductor y no de la distribución de carga en la cavidad.
-
-\item Encuentre el campo eléctrico creado por un casquete esférico de radio $a$ que subtiende un ángulo sólido $\Omega$ y tiene una carga total $Q$ distribuida uniformemente.
-
-\item Determine la distribución de potencial en un anillo conductor circular de radio $a$ que contiene una brecha pequeña y está cargado a un potencial $V_0$.
-
-\item Calcule la capacitancia de un condensador formado por dos cilindros concéntricos de longitud $L$, con radios $a$ y $b$ ($a < b$), donde el espacio entre ellos está lleno con dos materiales dieléctricos de permitividades $\epsilon_1$ y $\epsilon_2$, cada uno ocupando la mitad del volumen.
+\item En el problema anterior, calcule la energía de interacción entre el núcleo positivo y la nube electrónica del átomo en el estado dado, utilizando tanto la definición (1.132) como el desarrollo en multipolos (1.135).
 \end{enumerate}
+
 \chapter{Magnetostática del vacío}
 \section{Principios básicos de la Magnetostática}
 
@@ -1651,45 +1738,32 @@ En el caso de una partícula cargada orbitando en un campo magnético, la preces
 \section{Problemas propuestos}
 
 \begin{enumerate}
-\item Calcule el campo magnético en el eje de un solenoide infinito con densidad de corriente superficial $K = K_0 \sin\theta \, \hat{\phi}$, donde $\theta$ y $\phi$ son los ángulos polar y azimutal en coordenadas esféricas.
+\item Por un cilindro muy largo de radio $a$, tan largo que puede ser considerado infinito, circula una corriente constante de densidad $\vec{J}$. Calcule el valor del vector inducción magnética $\vec{B}$ en el exterior del cilindro.
 
-\item Una espira circular de radio $a$ lleva una corriente $I$. Determine el campo magnético en un punto sobre el eje de la espira a una distancia $z$ del centro.
+\item Describa el movimiento de una partícula no relativista de carga $q$ y masa $m_0$ en presencia de un campo magnético de inducción $\vec{B}$ y de un campo eléctrico de intensidad $\vec{E}$, ambos uniformes y constantes.
 
-\item Calcule la fuerza entre dos espiras circulares coaxiales separadas por una distancia grande comparada con sus radios.
+\item Demuestre que el potencial magnético vectorial de un campo magnético uniforme y constante de inducción $\vec{B}$ viene dado por la expresión
+\begin{equation*}
+\vec{A} = \frac{1}{2}\vec{B} \times \vec{r}.
+\end{equation*}
 
-\item Una partícula con carga $q$ y masa $m$ se mueve en un campo magnético uniforme $\vec{B}$ perpendicular a su velocidad inicial $\vec{v}_0$. Describa la trayectoria de la partícula y calcule el radio de la órbita.
+\item Sea una bola de radio $a$ sobre cuyo volumen se encuentra distribuida uniformemente la carga $Q$. Si la esfera rota con velocidad constante $\omega$ alrededor de uno de sus diámetros, calcule el momento dipolar de la bola. Calcule además el vector inducción magnética en el centro de la bola.
 
-\item Una partícula cargada se mueve en un campo magnético no uniforme con simetría axial, donde la magnitud del campo aumenta en la dirección del eje. Demuestre que la partícula puede quedar atrapada entre dos puntos sobre el eje, ejecutando un movimiento conocido como "espejo magnético".
+\item Suponiendo que la bola que rota en el problema anterior es el electrón no puntual con radio clásico $r_0$ determinado en la sección 1.8 del Capítulo 1, encuentre cuál debe ser el valor de la velocidad angular $\omega$ para que el momento magnético $\vec{m}$ coincida con el momento magnético de spin del electrón. Halle la velocidad tangencial de un punto cualquiera sobre el ecuador de la bola. ¿El valor de velocidad obtenido puede ser admitido como válido?
 
-\item Determine el momento magnético de una espira cuadrada de lado $L$ que lleva una corriente $I$.
+\item Una partícula tiene el momento magnético $\vec{m}$. Demuestre que esta partícula tiene asociada la densidad de corriente $\vec{J} = (\vec{m} \times \nabla)\delta(\vec{r} - \vec{r}_0)$, siendo $\vec{r}_0$ el vector de posición de la partícula.
 
-\item Una barra conductora de longitud $L$ se mueve con velocidad constante $v$ perpendicular a su longitud en un campo magnético uniforme $\vec{B}$ perpendicular al plano de movimiento. Calcule la fuerza electromotriz inducida en la barra.
+\item En cierto estado excitado del átomo de Hidrógeno la nube electrónica tiene asociada una densidad de corriente cuyas componentes en coordenadas esféricas son $J_r = J_\theta = 0$ y
+\begin{equation*}
+J_\varphi = \frac{e\hbar}{2\pi^3 8m_0 a_0^7}r^3\exp\left[-\frac{2r}{3a_0}\right]\sin^3(\theta),
+\end{equation*}
+siendo $e$ y $m_0$ la carga y la masa de reposo del electrón, respectivamente, y $a_0$ es el radio de Bohr. Calcule el valor del vector inducción magnética $\vec{B}$ en el origen de coordenadas.
 
-\item Una espira conductora rectangular con lados $a$ y $b$ está situada en el plano $xy$ con su centro en el origen. Calcule el flujo magnético a través de la espira si existe un campo magnético $\vec{B} = B_0 (x\hat{x} + y\hat{y} + z\hat{z})$.
-
-\item Un dipolo magnético con momento $\vec{\mu}$ se coloca en un campo magnético no uniforme $\vec{B} = B_0 z \hat{z}$. Determine la fuerza sobre el dipolo.
-
-\item Una corriente $I$ fluye a lo largo de un alambre infinito recto. Calcule el campo magnético a una distancia $r$ del alambre y demuestre que obedece la ley de Ampère.
-
-\item Un cilindro conductor de radio $a$ lleva una corriente total $I$ distribuida uniformemente sobre su sección transversal. Determine el campo magnético tanto dentro como fuera del cilindro.
-
-\item Una esfera conductora de radio $R$ gira con velocidad angular constante $\omega$ alrededor de un diámetro. Si la esfera tiene una carga total $Q$ distribuida uniformemente sobre su volumen, calcule el momento magnético de la esfera.
-
-\item Determine el momento magnético de un electrón en órbita circular con radio $r$ y velocidad $v$.
-
-\item Una partícula con carga $q$ y masa $m$ se mueve en un campo eléctrico uniforme $\vec{E}$ y un campo magnético uniforme $\vec{B}$ perpendiculares entre sí. Determine la trayectoria de la partícula.
-
-\item Calcule la energía almacenada en el campo magnético de un solenoide toroidal con sección transversal circular, radio medio $R$, radio de la sección $a$ ($a \ll R$), y $N$ vueltas llevando una corriente $I$.
-
-\item Un dipolo magnético con momento $\vec{\mu}$ se encuentra en un campo magnético uniforme $\vec{B}$ que forma un ángulo $\theta$ con $\vec{\mu}$. Calcule el torque sobre el dipolo y la energía potencial del sistema.
-
-\item Una partícula con momento magnético $\vec{\mu}$ y momento angular $\vec{L}$ relacionados por $\vec{\mu} = \gamma \vec{L}$ se encuentra en un campo magnético uniforme $\vec{B}$. Demuestre que la componente de $\vec{L}$ en la dirección de $\vec{B}$ es una constante del movimiento.
-
-\item Determine el campo magnético producido por un dipolo magnético puntual con momento $\vec{\mu}$ a una distancia $r$ grande comparada con el tamaño del dipolo.
-
-\item Calcule el momento magnético de un átomo de hidrógeno en su estado fundamental, modelado como un electrón orbitando alrededor del protón.
-
-\item Un electrón con velocidad $v$ entra en una región con un campo magnético uniforme $\vec{B}$ perpendicular a $\vec{v}$. Si después de atravesar la región, el electrón ha experimentado una desviación angular $\theta$, determine la longitud de la región de campo.
+\item En otro estado excitado del átomo de Hidrógeno la densidad de corriente asociada a la nube electrónica es, en coordenadas esféricas, $J_r = J_\theta = 0$ y
+\begin{equation*}
+J_\varphi = \frac{e\hbar}{64\pi m_0 a_0^5}r\exp\left[-\frac{r}{a_0}\right]\sin(\theta).
+\end{equation*}
+Suponga que el núcleo del átomo tiene un momento magnético $\vec{m}_n$. Calcule la energía de interacción electrón-núcleo asociada con el movimiento orbital del electrón. Ignore el valor del momento magnético de spin del electrón.
 \end{enumerate}
 
 \chapter{Ecuaciones de Maxwell}
@@ -2117,45 +2191,32 @@ Esta relación impone un límite fundamental a la localización simultánea en f
 \section{Problemas propuestos}
 
 \begin{enumerate}
-\item Demuestre que la ley de conservación de carga, $\frac{\partial \rho}{\partial t} + \nabla \cdot \vec{J} = 0$, es consistente con las ecuaciones de Maxwell.
+\item La partícula cargada de carga $q$ se mueve en el plano $XY$ a lo largo de la recta $y = x - a$ con velocidad constante $\vec{v}$ alejándose del origen de coordenadas. En el instante de tiempo $t = 0$ la partícula se encontraba sobre el eje $x$. Calcule las densidades de carga y corriente asociadas a la partícula y verifique el cumplimiento de la ecuación de continuidad.
 
-\item Un condensador de placas paralelas circulares de radio $a$ y separación $d \ll a$ se carga a través de un alambre conectado al centro de una de las placas. Calcule el campo magnético entre las placas durante el proceso de carga.
+\item La partícula cargada con carga $q$ se mueve a lo largo del eje $x$ según la ley $x(t) = A \sin(\omega t)$. Calcule las densidades de carga y corriente asociadas a la partícula y verifique el cumplimiento de la ecuación de continuidad. Halle los valores medios $\langle\rho\rangle$ y $\langle\vec{J}\rangle$ de las densidades de carga y corriente, respectivamente, en el período $T = \frac{2\pi}{\omega}$. Demuestre que
+\begin{equation*}
+\int \langle\rho\rangle dV = q.
+\end{equation*}
 
-\item Una onda electromagnética plana se propaga en el vacío en la dirección $+z$. Si el campo eléctrico está dado por $\vec{E} = E_0 \cos(kz - \omega t) \hat{x}$, determine el campo magnético correspondiente.
+\item La partícula de carga $q$ se mueve en el plano $XY$ siguiendo una trayectoria circular de radio $a$ con velocidad angular constante $\omega$. La trayectoria circular tiene su centro en el origen de coordenadas, y en el instante de tiempo $t = 0$ la partícula se encontraba sobre la rama positiva del eje $x$. Halle las densidades de carga y corriente asociadas a la partícula y escríbalas en coordenadas cilíndricas. Demuestre que
+\begin{equation*}
+\int \langle\rho\rangle dV = q
+\end{equation*}
+y que
+\begin{equation*}
+\int dr \int dz \int \langle J_\varphi\rangle dV = \frac{q}{T},
+\end{equation*}
+siendo $\langle J_\varphi \rangle$ el valor medio, en un período de revolución $T$ de la partícula, de la componente $\varphi$ de la densidad de corriente.
 
-\item Demuestre que la presión de radiación ejercida por una onda electromagnética de intensidad $I$ sobre una superficie perfectamente reflectante perpendicular a la dirección de propagación es $p = 2I/c$.
+\item En el plano $XY$ se encuentra un hilo conductor que describe la parábola $y = \alpha x^2$ ($\alpha > 0$). Un campo magnético homogéneo y constante de inducción $\vec{B}$ está aplicado en la dirección perpendicular al plano de la parábola. En el instante de tiempo $t = 0$ comienza a desplazarse, con aceleración constante $a$ dirigida a lo largo del eje $y$, un puente metálico que une las dos ramas de la parábola y que es paralelo al eje $x$. Hallar la fuerza electromotriz inducida en el circuito formado por la parábola y el puente en función de $y$.
 
-\item Calcule la potencia radiada por una antena dipolar corta de longitud $L$ que transporta una corriente $I = I_0 \cos(\omega t)$.
+\item Calcule los valores medios de la densidad de energía y del vector de Poynting asociados a una onda electromagnética plana de frecuencia $\omega$ y amplitud $\vec{E}_0$.
 
-\item Demuestre que las ecuaciones de Maxwell son invariantes bajo transformaciones de Lorentz.
-
-\item Una partícula cargada se mueve con velocidad constante $\vec{v}$. Determine los potenciales y campos electromagnéticos producidos por la partícula.
-
-\item Una onda electromagnética plana incide normalmente sobre una lámina conductora delgada. Demuestre que una fracción de la potencia incidente es absorbida por la lámina y calcule el coeficiente de reflexión.
-
-\item Demuestre que la energía almacenada en un condensador puede interpretarse como la energía del campo eléctrico en el espacio.
-
-\item Una onda electromagnética plana circularmente polarizada se propaga en la dirección $+z$. Exprese los campos eléctrico y magnético en función del tiempo y la posición.
-
-\item Calcule el momentum lineal transportado por una onda electromagnética plana de intensidad $I$ que incide sobre una superficie de área $A$ durante un tiempo $t$.
-
-\item Demuestre que la corriente de desplazamiento $\epsilon_0 \frac{\partial \vec{E}}{\partial t}$ es esencial para la conservación de la carga en el caso de un condensador que se está cargando.
-
-\item Una onda electromagnética plana incide oblicuamente sobre la interfaz entre dos medios dieléctricos. Deduzca las leyes de reflexión y refracción utilizando las condiciones de contorno para los campos electromagnéticos.
-
-\item Calcule el vector de Poynting para el campo electromagnético de una carga puntual en movimiento uniforme.
-
-\item Demuestre que la velocidad de grupo de un paquete de ondas electromagnéticas en un medio dispersivo viene dada por $v_g = \frac{d\omega}{dk}$.
-
-\item Una antena emite radiación electromagnética con una potencia de 100 W uniformemente en todas las direcciones. Calcule la intensidad del campo eléctrico a una distancia de 1 km de la antena.
-
-\item Demuestre que las ondas electromagnéticas transportan momentum lineal y calcule la presión de radiación sobre una superficie absorbente.
-
-\item Calcule la energía almacenada en un solenoide largo de longitud $L$, radio $a$ y $n$ vueltas por unidad de longitud, que transporta una corriente $I$.
-
-\item Una onda electromagnética plana se propaga en un medio con permitividad $\epsilon$ y permeabilidad $\mu$. Demuestre que la velocidad de propagación es $v = 1/\sqrt{\epsilon\mu}$.
-
-\item Calcule la capacitancia de un condensador esférico formado por dos cascarones conductores concéntricos de radios $a$ y $b$ ($a < b$), y relacione la energía almacenada con la energía del campo eléctrico en el espacio entre los cascarones.
+\item En el plano $z = 0$ el vector $\vec{E}$ del campo electromagnético de una onda monocromática plana que se propaga en la dirección del eje $z$ es
+\begin{equation*}
+\vec{E} = E_0 \left[ e^{-i(\omega t - \pi/4)}\vec{e}_x + e^{-i\omega t}\vec{e}_y \right],
+\end{equation*}
+siendo $\vec{e}_x$ y $\vec{e}_y$ los vectores unitarios a lo largo de las direcciones de los ejes $x$ y $y$, respectivamente, $\omega$ es la frecuencia de la onda y $E_0$ es un número real. Encuentre una expresión que vincula las partes reales de las dos componentes dadas de $\vec{E}$. ¿Qué tipo de polarización posee la onda dada?
 \end{enumerate}
 
 \chapter{Teoría Clásica de la Radiación}
