@@ -1062,38 +1062,93 @@ donde $P_l^m(\cos\theta)$ son las funciones asociadas de Legendre.
 
 \section{Desarrollo en multipolos del campo electrostático}
 
-El campo electrostático producido por un sistema de cargas que ocupa un volumen finito puede ser descrito, para distancias suficientemente grandes comparadas con las dimensiones del sistema, mediante el llamado desarrollo en multipolos. Este método consiste en expresar el potencial electrostático como una serie de términos que representan contribuciones de diferentes órdenes (monopolo, dipolo, cuadrupolo, etc.) y que decrecen en importancia a medida que la distancia aumenta.
+En la mayoría de los casos que se presentan en Física resulta difícil encontrar representaciones analíticas exactas para la solución del problema electrostático. Son necesarios entonces métodos aproximados para resolver el problema electrostático fundamental, entre los cuales se destaca el llamado desarrollo en multipolos del campo electrostático. En esta sección efectuaremos un estudio detallado de dicho procedimiento.
 
-Supongamos que tenemos una distribución de carga con densidad $\rho(\vec{r'})$ confinada a un volumen $V$ de dimensiones características $a$. El potencial electrostático en un punto $\vec{r}$ exterior a la distribución de carga ($r > a$) está dado por
+Redefinamos las variables $x$, $y$ y $z$ como $x_1$, $x_2$ y $x_3$, respectivamente, y efectuemos un desarrollo en serie de Taylor de la expresión
 \begin{equation}
-\phi(\vec{r}) = \frac{1}{4\pi\epsilon_0}\int_V \frac{\rho(\vec{r'})}{|\vec{r} - \vec{r'}|} dV'.
+|\vec{r} - \vec{r'}|^{-1} = \left[\sum_{i=1}^{3}(x_i - x_i')^2\right]^{-1/2}
+\end{equation}
+en una vecindad de $\vec{r'} = 0$. Por simplicidad vamos a trabajar sólo hasta el segundo orden del desarrollo. Así,
+\begin{equation}
+\frac{1}{|\vec{r} - \vec{r'}|} \simeq \frac{1}{r} + \sum_{i}\left.\frac{\partial}{\partial x_i'}\left(\frac{1}{|\vec{r} - \vec{r'}|}\right)\right|_{\vec{r'}=0}x_i' + \frac{1}{2}\sum_{i,j}\left.\frac{\partial^2}{\partial x_i'\partial x_j'}\left(\frac{1}{|\vec{r} - \vec{r'}|}\right)\right|_{\vec{r'}=0}x_i'x_j'.
 \end{equation}
 
-Para distancias $r \gg a$, podemos desarrollar el factor $\frac{1}{|\vec{r} - \vec{r'}|}$ en serie de potencias de $\frac{r'}{r}$. Para ello, recordemos que
+Es posible demostrar, mediante el cálculo directo, que
 \begin{equation}
-\frac{1}{|\vec{r} - \vec{r'}|} = \frac{1}{r}\frac{1}{\sqrt{1 - 2\frac{\vec{r}\cdot\vec{r'}}{r^2} + \frac{r'^2}{r^2}}}.
+\frac{\partial}{\partial x_i'}\left(\frac{1}{|\vec{r} - \vec{r'}|}\right) = \frac{x_i - x_i'}{|\vec{r} - \vec{r'}|^3}
+\end{equation}
+y que
+\begin{equation}
+\frac{\partial^2}{\partial x_i'\partial x_j'}\left(\frac{1}{|\vec{r} - \vec{r'}|}\right) = \frac{3(x_i - x_i')(x_j - x_j')}{|\vec{r} - \vec{r'}|^5} - \frac{\delta_{ij}}{|\vec{r} - \vec{r'}|^3}.
 \end{equation}
 
-Para $r > r'$, esta expresión puede expandirse como
+Evaluando las expresiones anteriores en $\vec{r'} = 0$ y sustituyendo el resultado, hallamos que
 \begin{equation}
-\frac{1}{|\vec{r} - \vec{r'}|} = \frac{1}{r}\sum_{l=0}^{\infty}\left(\frac{r'}{r}\right)^l P_l(\cos\gamma),
-\end{equation}
-donde $P_l(\cos\gamma)$ son los polinomios de Legendre y $\gamma$ es el ángulo entre los vectores $\vec{r}$ y $\vec{r'}$.
-
-Utilizando la fórmula del coseno del ángulo entre dos vectores, $\cos\gamma = \frac{\vec{r}\cdot\vec{r'}}{rr'}$, podemos reescribir el desarrollo como
-\begin{equation}
-\frac{1}{|\vec{r} - \vec{r'}|} = \frac{1}{r}\sum_{l=0}^{\infty}\left(\frac{r'}{r}\right)^l P_l\left(\frac{\vec{r}\cdot\vec{r'}}{rr'}\right).
+\frac{1}{|\vec{r} - \vec{r'}|} \simeq \frac{1}{r} + \sum_{i}\frac{x_i x_i'}{r^3} + \frac{1}{2}\sum_{i,j}\left[\frac{3x_i x_j}{r^5} - \frac{\delta_{ij}}{r^3}\right]x_i'x_j'.
 \end{equation}
 
-Sustituyendo este desarrollo en la expresión del potencial, obtenemos
+Nótese que
 \begin{equation}
-\phi(\vec{r}) = \frac{1}{4\pi\epsilon_0}\frac{1}{r}\sum_{l=0}^{\infty}\frac{1}{r^l}\int_V \rho(\vec{r'})r'^l P_l\left(\frac{\vec{r}\cdot\vec{r'}}{rr'}\right) dV'.
+\sum_{i,j}\frac{x_i x_j}{r^5}\delta_{ij} = \sum_{i}\frac{x_i^2}{r^5}\delta_{ii} = \frac{3}{r^3} - \frac{3}{r^3} = 0.
 \end{equation}
 
-Para simplificar la notación, definimos los momentos multipolares del sistema como
+Entonces
 \begin{equation}
-Q_l = \int_V \rho(\vec{r'})r'^l P_l\left(\frac{\vec{r}\cdot\vec{r'}}{rr'}\right) dV'.
+\frac{1}{2}\sum_{i,j}\left[\frac{3x_i x_j}{r^5} - \frac{\delta_{ij}}{r^3}\right]x_i'x_j' = \frac{1}{6}\sum_{i,j}\left[\frac{3x_i x_j}{r^5} - \frac{\delta_{ij}}{r^3}\right](3x_i'x_j' - r'^2\delta_{ij}).
 \end{equation}
+
+Por lo tanto,
+\begin{equation}
+\frac{1}{|\vec{r} - \vec{r'}|} \simeq \frac{1}{r} + \sum_{i}\frac{x_i x_i'}{r^3} + \frac{1}{6}\sum_{i,j}\left[\frac{3x_i x_j}{r^5} - \frac{\delta_{ij}}{r^3}\right](3x_i'x_j' - r'^2\delta_{ij}).
+\end{equation}
+
+Sustituyendo esta expresión en la ecuación para el potencial obtenemos finalmente que
+\begin{equation}
+\phi(\vec{r}) \simeq \frac{Q}{4\pi\epsilon_0 r} + \frac{\vec{p}\cdot\vec{r}}{4\pi\epsilon_0 r^3} + \frac{1}{24\pi\epsilon_0}\sum_{i,j}D_{ij}\left[\frac{3x_i x_j}{r^5} - \frac{\delta_{ij}}{r^3}\right],
+\end{equation}
+siendo
+\begin{equation}
+Q = \int_{\mathbb{R}^3}\rho(\vec{r'})dV',
+\end{equation}
+\begin{equation}
+\vec{p} = \int_{\mathbb{R}^3}\vec{r'}\rho(\vec{r'})dV',
+\end{equation}
+y
+\begin{equation}
+D_{ij} = \int_{\mathbb{R}^3}(3x_i'x_j' - r'^2\delta_{ij})\rho(\vec{r'})dV'.
+\end{equation}
+
+\subsection{Momenta de multipolos y algunas de sus propiedades}
+
+Las magnitudes $Q$, $\vec{p}$ y $(D_{ij})$, dadas por las expresiones anteriores, reciben el nombre de momentum de monopolo eléctrico, momentum de dipolo eléctrico y momentum de cuadrupolo eléctrico, respectivamente. El momentum de monopolo eléctrico coincide con la carga neta debido a la distribución de carga $\rho$. El momentum de dipolo eléctrico es un vector, mientras que el momentum de cuadrupolo eléctrico es un tensor de segundo rango en el espacio tridimensional cuya representación matricial es precisamente $(D_{ij})$. Los momenta de multipolos dependen únicamente de la forma de la densidad de carga $\rho$ y de su dominio de definición.
+
+Recordemos que el valor de la densidad de carga es independiente de la elección del origen de coordenadas (ver la Fig. 1.1 y los comentarios realizados al final de la sección 1.1.2), y examinemos algunas de las propiedades fundamentales de los momenta de multipolos.
+
+\textbf{Propiedad 1.} Si $Q \neq 0$, existe un punto de $\mathbb{R}^3$ llamado centro de carga, cuyo vector de posición con respecto al origen de coordenadas viene dado por $\vec{r}_Q = \frac{1}{Q}\int\vec{r}\rho(\vec{r})dV$. Si el origen de coordenadas se desplaza hacia el centro de carga, entonces $\vec{p} = 0$ con respecto al nuevo origen de coordenadas.
+
+Tomemos el punto $A$ de la Fig. 1.1 en calidad de centro de carga, y $\vec{r}_A$ en calidad de $\vec{r}_Q$. El momentum de dipolo eléctrico medido desde el centro de carga es
+\begin{align}
+\vec{p} &= \int\vec{r''}\tilde{\rho}(\vec{r''})dV'' \\
+&= \int(\vec{r'} - \vec{r}_Q)\tilde{\rho}(\vec{r'} - \vec{r}_Q)dV' \\
+&= \int\vec{r'}\tilde{\rho}(\vec{r'} - \vec{r}_Q)dV' - \vec{r}_Q\int\tilde{\rho}(\vec{r'} - \vec{r}_Q)dV' \\
+&= \int\vec{r'}\rho(\vec{r'})dV' - \vec{r}_Q\int\rho(\vec{r'})dV'.
+\end{align}
+
+Teniendo en cuenta las definiciones de $Q$ y de $\vec{r}_Q$ sigue inmediatamente que $\vec{p} = 0$.
+
+\textbf{Propiedad 2.} Si $Q = 0$ y $\vec{p} \neq 0$, entonces el valor de $\vec{p}$ no depende de la elección del origen de coordenadas.
+
+Si tomamos el origen de coordenadas en el punto $A$ de la Fig. 1.1 entonces
+\begin{equation}
+\vec{p} = \int\vec{r''}\tilde{\rho}(\vec{r''})dV''.
+\end{equation}
+
+Si transferimos el origen de coordenadas al punto $O$, teniendo en cuenta la independencia de la densidad de carga de la elección del origen de coordenadas tendremos que
+\begin{align}
+\vec{p} &= \int\vec{r''}\tilde{\rho}(\vec{r''})dV'' \\
+&= \int(\vec{r'} - \vec{r}_A)\tilde{\rho}(\vec{r'} - \vec{r}_A)dV' \\
+&= \int\vec{r'}\rho(\vec{r'})dV' - \vec{r}_A Q.
+\end{align}
 
 Así, el potencial electrostático puede expresarse como
 \begin{equation}
@@ -1167,23 +1222,23 @@ El tensor $Q_{ij}$ tiene las siguientes propiedades:
 
 En consecuencia, $Q_{ij}$ tiene solo 5 componentes independientes.
 
-\subsection{Expansión de multipolo de una distribución de cargas puntuales}
+\subsection{Momenta de multipolos de una distribución de cargas puntuales}
 
-Para una distribución discreta de cargas puntuales, $\rho(\vec{r'}) = \sum_{i=1}^{N} q_i \delta(\vec{r'} - \vec{r}_i)$, los momentos multipolares toman la forma:
+Para una distribución discreta de cargas puntuales, $\rho(\vec{r'}) = \sum_{a=1}^{N} q_a \delta(\vec{r'} - \vec{r}_a)$, los momenta de multipolos toman la forma:
 
 \subsubsection{Momento monopolar}
 \begin{equation}
-Q = \sum_{i=1}^{N} q_i
+Q = \sum_{a=1}^{N} q_a
 \end{equation}
 
 \subsubsection{Momento dipolar}
 \begin{equation}
-\vec{p} = \sum_{i=1}^{N} q_i \vec{r}_i
+\vec{p} = \sum_{a=1}^{N} q_a \vec{r}_a
 \end{equation}
 
 \subsubsection{Momento cuadrupolar}
 \begin{equation}
-Q_{ij} = \sum_{i=1}^{N} q_i (3r_{ki} r_{kj} - r_k^2\delta_{ij})
+D_{ij} = \sum_{a=1}^{N} q_a (3x_{ai} x_{aj} - r_a^2\delta_{ij})
 \end{equation}
 
 En el caso particular de un sistema neutro ($Q = 0$) y con momento dipolar nulo ($\vec{p} = \vec{0}$), el primer término no nulo en el desarrollo en multipolos corresponde al momento cuadrupolar, y el potencial electrostático a grandes distancias se comporta como $r^{-3}$.
@@ -1192,7 +1247,28 @@ El desarrollo en multipolos es particularmente útil cuando estamos interesados 
 
 \section{Energía del campo electrostático}
 
-La energía de un sistema de cargas interactuantes puede calcularse de diversas formas. Una de ellas consiste en determinar el trabajo necesario para construir el sistema, trayendo las cargas desde el infinito hasta sus posiciones finales. Otra forma es calcular la energía almacenada en el propio campo electrostático generado por las cargas.
+Como ya hemos visto en la sección 1.1.4, la energía potencial de una carga de valor $q$ en presencia de un campo electrostático viene dada por la expresión
+\begin{equation}
+U(\vec{r}) = q\phi(\vec{r}).
+\end{equation}
+
+El significado físico de la energía potencial quedó claro en la sección 1.1.4. Examinemos más detalladamente esta magnitud.
+
+Consideremos primeramente el caso de una distribución de cargas puntuales, es decir, un sistema de $N$ partículas de cargas $q_j$ en la posición $\vec{r}_j$. La energía potencial de la partícula $i$ en el campo electrostático generado por las $N - 1$ partículas restantes es
+\begin{equation}
+U_i = q_i\phi(\vec{r}_i),
+\end{equation}
+siendo $\phi$ el potencial electrostático debido a la presencia de las $N - 1$ cargas restantes, o sea,
+\begin{equation}
+\phi(\vec{r}) = \frac{1}{4\pi\epsilon_0}\sum_{\substack{j=1 \\ j\neq i}}^{N}\frac{q_j}{|\vec{r} - \vec{r}_j|}.
+\end{equation}
+
+En consecuencia
+\begin{equation}
+U_i = \frac{q_i}{4\pi\epsilon_0}\sum_{\substack{j=1 \\ j\neq i}}^{N}\frac{q_j}{|\vec{r}_i - \vec{r}_j|}.
+\end{equation}
+
+La energía total del sistema puede ser obtenida sumando todas las contribuciones $U_i$ desde $i = 1$ hasta $N$, pero teniendo el cuidado de no repetir términos en la suma. En consecuencia,
 
 Consideremos primeramente un sistema de $N$ cargas puntuales $q_1, q_2, \ldots, q_N$ situadas en las posiciones $\vec{r}_1, \vec{r}_2, \ldots, \vec{r}_N$. El potencial electrostático en un punto $\vec{r}$ debido a este sistema es
 \begin{equation}
@@ -1238,143 +1314,213 @@ W = \frac{\epsilon_0}{2} \int |\nabla\phi|^2 dV = \frac{\epsilon_0}{2} \int |\ve
 
 Esta expresión muestra que la energía del sistema puede interpretarse como la energía almacenada en el propio campo eléctrico. La cantidad $w_e = \frac{1}{2}\epsilon_0 |\vec{E}|^2$ representa la densidad de energía del campo eléctrico, es decir, la energía por unidad de volumen.
 
-\section{Fuerzas de origen electrostático}
+\section{Energía de interacción de un cuerpo cargado con un campo externo}
 
-Las fuerzas de origen electrostático son aquellas que se ejercen entre cargas eléctricas debido a su interacción. Estas fuerzas pueden calcularse utilizando diferentes enfoques. Analizaremos algunos casos importantes.
-
-\subsection{Fuerza sobre una carga puntual}
-
-La fuerza que experimenta una carga puntual $q$ situada en un punto $\vec{r}$ bajo la acción de un campo eléctrico $\vec{E}(\vec{r})$ viene dada por
+Supongamos que tenemos una distribución de cargas de densidad $\rho$ definida en cierto conjunto volumétrico $V \subset \mathbb{R}^3$, y un campo eléctrico externo actuando sobre el cuerpo\footnote{Esto equivale a decir que la fuente del campo eléctrico externo no es la densidad de carga $\rho$ que está bajo análisis, y que la fuente del campo externo está definida en una región que no se intercepta con el volumen $V$.}. Tomemos el origen de coordenadas en cualquier punto arbitrario dentro del conjunto $V$. La energía de interacción entre la distribución de cargas considerada y el campo eléctrico externo a ella se define como
 \begin{equation}
-\vec{F} = q\vec{E}(\vec{r}).
+U_I = \int_V \rho(\vec{r})\phi_{ext}(\vec{r})dV,
+\end{equation}
+siendo $\phi_{ext}$ el potencial del campo externo. La diferencia entre esta expresión y la expresión para la energía total es obvia: el factor $\frac{1}{2}$ no aparece en la expresión anterior, y la densidad de carga $\rho$ no es la fuente del campo externo de potencial $\phi_{ext}$. La fuerza de interacción entre la densidad de carga y el campo externo puede calcularse por la fórmula
+\begin{equation}
+\vec{F} = -\nabla U_I,
+\end{equation}
+donde el gradiente está tomado sobre las coordenadas de las partículas generadoras de la densidad de carga $\rho$, de las cuales la energía de interacción depende paramétricamente.
+
+En determinadas circunstancias resulta útil llevar a cabo un desarrollo en multipolos para la energía de interacción. Veamos a continuación cómo se efectúa dicho desarrollo. Hagamos primeramente un desarrollo de Taylor para el potencial del campo externo en un entorno de $\vec{r} = 0$:
+\begin{equation}
+\phi_{ext}(\vec{r}) \approx \phi_{ext}(0) + \sum_i \left(\frac{\partial\phi_{ext}}{\partial x_i}\right)_{\vec{r}=0} x_i + \frac{1}{2}\sum_{i,j} \left(\frac{\partial^2\phi_{ext}}{\partial x_i \partial x_j}\right)_{\vec{r}=0} x_i x_j + \ldots
 \end{equation}
 
-Si el campo es creado por otra carga puntual $q'$ situada en $\vec{r}'$, entonces
+Pero
 \begin{equation}
-\vec{E}(\vec{r}) = \frac{1}{4\pi\epsilon_0} \frac{q'}{|\vec{r} - \vec{r}'|^2} \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|},
-\end{equation}
-y la fuerza sobre la carga $q$ es
-\begin{equation}
-\vec{F} = \frac{1}{4\pi\epsilon_0} \frac{qq'}{|\vec{r} - \vec{r}'|^2} \frac{\vec{r} - \vec{r}'}{|\vec{r} - \vec{r}'|}.
-\end{equation}
-Esta es la conocida ley de Coulomb.
-
-\subsection{Fuerza sobre una distribución de carga}
-
-Para una distribución continua de carga con densidad $\rho(\vec{r})$, la fuerza total ejercida por un campo eléctrico externo $\vec{E}_{ext}(\vec{r})$ es
-\begin{equation}
-\vec{F} = \int \rho(\vec{r}) \vec{E}_{ext}(\vec{r}) dV.
+\vec{E}_{ext} = (E^{ext}_1, E^{ext}_2, E^{ext}_3) = -\nabla\phi_{ext}.
 \end{equation}
 
-Es importante notar que $\vec{E}_{ext}$ es el campo eléctrico producido por fuentes externas y no incluye el campo generado por la propia distribución $\rho(\vec{r})$, ya que las fuerzas internas se cancelan entre sí según el principio de acción y reacción.
-
-\subsection{Tensor de tensiones de Maxwell}
-
-Una forma alternativa de calcular fuerzas electrostáticas es mediante el tensor de tensiones de Maxwell. Este enfoque considera las fuerzas como resultado de tensiones en el campo electrostático.
-
-Para el campo electrostático, el tensor de tensiones de Maxwell tiene componentes
+Luego
 \begin{equation}
-T_{ij} = \epsilon_0 \left( E_i E_j - \frac{1}{2} \delta_{ij} |\vec{E}|^2 \right),
-\end{equation}
-donde $E_i$ y $E_j$ son las componentes del campo eléctrico, y $\delta_{ij}$ es la delta de Kronecker.
-
-La fuerza sobre una distribución de carga contenida en un volumen $V$ puede calcularse como
-\begin{equation}
-F_i = \oint_S T_{ij} n_j dS,
-\end{equation}
-donde la integral se realiza sobre una superficie cerrada $S$ que encierra el volumen $V$, y $n_j$ son las componentes del vector unitario normal a la superficie.
-
-\subsection{Presión electrostática}
-
-Un caso particular de interés es la presión electrostática en la superficie de un conductor. En la superficie de un conductor en equilibrio electrostático, el campo eléctrico es perpendicular a la superficie con magnitud $E = \sigma/\epsilon_0$, donde $\sigma$ es la densidad superficial de carga.
-
-La presión electrostática sobre la superficie es
-\begin{equation}
-p = \frac{1}{2} \epsilon_0 E^2 = \frac{\sigma^2}{2\epsilon_0}.
-\end{equation}
-Esta presión siempre actúa hacia afuera del conductor.
-
-\subsection{Fuerzas entre conductores}
-
-La fuerza entre conductores cargados puede calcularse a partir de la energía del sistema. Si $W$ es la energía electrostática y $x$ es la coordenada que describe la posición relativa entre los conductores, la fuerza en la dirección $x$ es
-\begin{equation}
-F_x = -\frac{\partial W}{\partial x}.
+\phi_{ext}(\vec{r}) \approx \phi_{ext}(0) - \sum_i E^{ext}_i(0)x_i - \frac{1}{2}\sum_{i,j} \left(\frac{\partial E^{ext}_j}{\partial x_i}\right)_{\vec{r}=0} x_i x_j + \ldots
 \end{equation}
 
-Para un sistema de conductores mantenidos a potenciales constantes $\phi_1, \phi_2, \ldots, \phi_N$, la energía es $W = \frac{1}{2} \sum_{i,j} C_{ij}\phi_i\phi_j$, donde $C_{ij}$ son los coeficientes de capacidad e inducción. La fuerza viene dada por
+Nótese que
 \begin{equation}
-F_x = -\frac{1}{2} \sum_{i,j} \frac{\partial C_{ij}}{\partial x}\phi_i\phi_j.
+\sum_{i,j} \delta_{ij} \left(\frac{\partial E^{ext}_j}{\partial x_i}\right)_{\vec{r}=0} = \sum_i \left(\frac{\partial E^{ext}_i}{\partial x_i}\right)_{\vec{r}=0} = (\nabla \cdot \vec{E}_{ext})|_{\vec{r}=0} = \frac{\rho_{ext}|_{\vec{r}=0}}{\epsilon_0},
+\end{equation}
+siendo $\rho_{ext}$ la densidad de carga que es la fuente del campo externo. Pero como la fuente del campo externo es, valga la redundancia, externa al volumen $V$, entonces $\rho_{ext}|_{\vec{r}=0} = 0$, en virtud de lo cual
+\begin{equation}
+\sum_{i,j} \delta_{ij} \left(\frac{\partial E^{ext}_j}{\partial x_i}\right)_{\vec{r}=0} = 0.
 \end{equation}
 
-Si, en cambio, los conductores mantienen cargas constantes $q_1, q_2, \ldots, q_N$, la energía es $W = \frac{1}{2} \sum_{i,j} p_{ij}q_i q_j$, donde $p_{ij}$ son elementos de la matriz inversa a $C_{ij}$. La fuerza en este caso es
+En consecuencia,
 \begin{equation}
-F_x = -\frac{1}{2} \sum_{i,j} \frac{\partial p_{ij}}{\partial x}q_i q_j.
+\frac{1}{2}\sum_{i,j} \left(\frac{\partial E^{ext}_j}{\partial x_i}\right)_{\vec{r}=0} x_i x_j = \frac{1}{6}\sum_{i,j} \left(\frac{\partial E^{ext}_j}{\partial x_i}\right)_{\vec{r}=0} (3x_i x_j - r^2\delta_{ij}).
 \end{equation}
+
+La expresión para el potencial electrostático externo tiene la forma
+\begin{equation}
+\phi_{ext}(\vec{r}) \approx \phi_{ext}(0) - \sum_i E^{ext}_i(0)x_i - \frac{1}{6}\sum_{i,j} \left(\frac{\partial E^{ext}_j}{\partial x_i}\right)_{\vec{r}=0} (3x_i x_j - r^2\delta_{ij}) + \ldots
+\end{equation}
+
+Sustituyendo esta expresión en la fórmula de la energía de interacción hallamos inmediatamente que
+\begin{equation}
+U_I \approx \phi_{ext}(0) \int_V \rho(\vec{r})dV - \sum_i E^{ext}_i(0) \int_V \rho(\vec{r})x_i dV - \frac{1}{6}\sum_{i,j} \left(\frac{\partial E^{ext}_j}{\partial x_i}\right)_{\vec{r}=0} \int_V \rho(\vec{r})(3x_i x_j - r^2\delta_{ij})dV + \ldots,
+\end{equation}
+o bien, teniendo en cuenta las definiciones para los momenta de multipolos,
+\begin{equation}
+U_I \approx Q\phi_{ext}(0) - \vec{p} \cdot \vec{E}_{ext}(0) - \frac{1}{6}\sum_{i,j} D_{ij} \left(\frac{\partial E^{ext}_j}{\partial x_i}\right)_{\vec{r}=0} + \ldots
+\end{equation}
+
+La expresión anterior es justamente el desarrollo en multipolos de la energía de interacción entre un sistema de cargas de densidad $\rho$ y un campo eléctrico externo. En la suma anterior sólo hemos presentado los términos correspondientes a las aproximaciones monopolar, dipolar y cuadrupolar eléctrica.
+
 \subsection{Dipolo eléctrico en presencia de un campo electrostático}
 
-Un dipolo eléctrico en presencia de un campo electrostático experimenta tanto una fuerza como un torque. Consideremos un dipolo con momento dipolar $\vec{p}$ colocado en un campo eléctrico externo $\vec{E}(\vec{r})$.
-
-La energía potencial del dipolo en el campo es
+Supongamos que tenemos un dipolo eléctrico de carga neta nula y de momento dipolar $\vec{p}$, cuyo vector de posición es $\vec{r}$, inmerso en un campo electrostático no uniforme $\vec{E} = \vec{E}(\vec{r})$. Nótese que el momento de dipolo eléctrico es independiente de la elección del origen de coordenadas en este caso y, en consecuencia, es también independiente de la posición. La energía de interacción dipolo-campo vendrá dada por la expresión
 \begin{equation}
-U = -\vec{p} \cdot \vec{E}.
+U_I(\vec{r}) = -\vec{p} \cdot \vec{E}(\vec{r}),
+\end{equation}
+y será una función de la posición del dipolo. Por otra parte, la fuerza de interacción dipolo-campo podrá calcularse mediante la relación
+\begin{equation}
+\vec{F} = -\nabla U_I(\vec{r}) = \nabla[\vec{p} \cdot \vec{E}(\vec{r})].
 \end{equation}
 
-Esta energía da lugar a un torque que tiende a alinear el dipolo con el campo eléctrico:
+Pero sabemos que
 \begin{equation}
-\vec{\tau} = \vec{p} \times \vec{E}.
+\nabla[\vec{p} \cdot \vec{E}(\vec{r})] = (\vec{p} \cdot \nabla)\vec{E}(\vec{r}) + \vec{E}(\vec{r}) \cdot \nabla\vec{p} + \vec{E}(\vec{r}) \times (\nabla \times \vec{p}) + \vec{p} \times \nabla \times \vec{E}(\vec{r}).
 \end{equation}
 
-Si el campo eléctrico no es uniforme, el dipolo también experimenta una fuerza neta:
+Teniendo en cuenta que $\vec{E}$ es un campo conservativo [$\nabla \times \vec{E}(\vec{r}) = 0$] y que $\vec{p}$ es independiente de la posición, entonces
 \begin{equation}
-\vec{F} = (\vec{p} \cdot \nabla)\vec{E}.
+\nabla[\vec{p} \cdot \vec{E}(\vec{r})] = (\vec{p} \cdot \nabla)\vec{E}(\vec{r}),
+\end{equation}
+y por lo tanto
+\begin{equation}
+\vec{F} = (\vec{p} \cdot \nabla)\vec{E}(\vec{r}).
 \end{equation}
 
-En componentes cartesianas, esta fuerza puede escribirse como
+La expresión anterior puede transformarse en otra expresión equivalente haciendo uso del concepto de derivada direccional. Nótese que si $\vec{n}_p$ es un vector unitario a lo largo de la dirección de $\vec{p}$ y $p = |\vec{p}|$, entonces la fuerza de interacción dipolo-campo es igual al producto entre el módulo del momento de dipolo eléctrico y la derivada direccional del campo eléctrico a lo largo del vector $\vec{n}_p$, es decir,
 \begin{equation}
-F_i = p_j \frac{\partial E_i}{\partial x_j},
-\end{equation}
-donde se utiliza la convención de suma sobre índices repetidos.
-
-Si expresamos el campo en términos del potencial, $\vec{E} = -\nabla \phi$, la fuerza puede escribirse como
-\begin{equation}
-\vec{F} = -(\vec{p} \cdot \nabla)\nabla \phi = -\nabla(\vec{p} \cdot \nabla \phi) + \nabla \times (\vec{p} \times \nabla \phi).
+\vec{F} = p\frac{\partial \vec{E}(\vec{r})}{\partial n_p}.
 \end{equation}
 
-Para un dipolo con momento dipolar constante, el segundo término se anula y la fuerza es
+Introduzcamos ahora, haciendo uso del concepto de derivada direccional, la definición generalizada de momento del campo vectorial $\vec{A}$ sobre el vector $\vec{a}$ de la siguiente manera:
 \begin{equation}
-\vec{F} = -\nabla(\vec{p} \cdot \nabla \phi) = -\nabla(\vec{p} \cdot \vec{E}).
+\vec{\tau}_a = \frac{\partial}{\partial n_a}[\vec{r} \times \vec{A}] = (\vec{a} \cdot \nabla)[\vec{r} \times \vec{A}],
+\end{equation}
+siendo $a = |\vec{a}|$ y $\vec{n}_a = \frac{\vec{a}}{a}$. Transformemos un poco más la expresión anterior utilizando la densidad tensorial de Levi-Civita, pero antes veamos en qué consiste este objeto matemático.
+
+La densidad tensorial de Levi-Civita fue introducida por el matemático italiano (nacido en Padua) Tullio Levi-Civita, y se define de la siguiente manera:
+\begin{equation}
+\varepsilon_{ijk} = 
+\begin{cases}
+1 & \text{si } [i,j,k] \text{ es una permutación par de } [1,2,3], \text{ con } i \neq j \neq k \\
+-1 & \text{si } [i,j,k] \text{ es una permutación impar de } [1,2,3], \text{ con } i \neq j \neq k \\
+0 & \text{si al menos existen dos índices repetidos}
+\end{cases}
 \end{equation}
 
-Esta expresión muestra que la fuerza sobre un dipolo eléctrico puede interpretarse como el gradiente negativo de la energía potencial.
+De la definición anterior se hace evidente que
+\begin{equation}
+\varepsilon_{ijk} = \det|\vec{e}_i, \vec{e}_j, \vec{e}_k| = \vec{e}_i \cdot (\vec{e}_j \times \vec{e}_k),
+\end{equation}
+siendo $\vec{e}_i$, $\vec{e}_j$ y $\vec{e}_k$ los vectores unitarios ortogonales del sistema de coordenadas cartesianas. Puede demostrarse que
+\begin{equation}
+\varepsilon_{ijk}\varepsilon_{lmn} = \det
+\begin{vmatrix}
+\delta_{il} & \delta_{im} & \delta_{in} \\
+\delta_{jl} & \delta_{jm} & \delta_{jn} \\
+\delta_{kl} & \delta_{km} & \delta_{kn}
+\end{vmatrix},
+\end{equation}
+y de acuerdo con esto, también puede verse que
+\begin{equation}
+\varepsilon_{ijk}\varepsilon_{imn} = \delta_{jm}\delta_{kn} - \delta_{jn}\delta_{km},
+\end{equation}
+y
+\begin{equation}
+\varepsilon_{ijk}\varepsilon_{ijn} = 2\delta_{kn},
+\end{equation}
+\begin{equation}
+\varepsilon_{ijk}\varepsilon_{ijk} = 6.
+\end{equation}
+
+En las tres últimas relaciones anteriores hemos usado el convenio de suma de Einstein, es decir, se suma sobre todos los índices doblemente repetidos en una misma expresión. Finalmente, dados dos vectores $\vec{a}$ y $\vec{b}$ de componentes $a_i$ y $b_i$, respectivamente, se tiene que
+\begin{equation}
+(\vec{a} \times \vec{b})_i = \varepsilon_{ijk}a_jb_k.
+\end{equation}
+
+Retornemos ahora al vector $\vec{\tau}_a$. Utilizando el convenio de suma de Einstein, podemos escribir la componente $i$ de $\vec{\tau}_a$ como
+\begin{equation}
+\tau_a^i = a_l \frac{\partial}{\partial x_l}[\varepsilon_{ijk}x_jA_k] = a_l\varepsilon_{ijk}\frac{\partial x_j}{\partial x_l}A_k + a_l\varepsilon_{ijk}x_j\frac{\partial A_k}{\partial x_l} = a_l\varepsilon_{ijk}\delta_{jl}A_k + \varepsilon_{ijk}x_ja_l\frac{\partial A_k}{\partial x_l},
+\end{equation}
+de donde obtenemos finalmente que
+\begin{equation}
+\tau_a^i = \varepsilon_{ijk}a_jA_k + \varepsilon_{ijk}x_ja_l\frac{\partial A_k}{\partial x_l},
+\end{equation}
+o en forma vectorial,
+\begin{equation}
+\vec{\tau}_a = \vec{a} \times \vec{A} + \vec{r} \times [(\vec{a} \cdot \nabla)\vec{A}].
+\end{equation}
+
+El vector $\vec{\tau}_a$ puede ser interpretado como el torque producido por el campo vectorial $\vec{A}$ sobre el vector $\vec{a}$. Por ejemplo, si $\vec{a} \equiv \vec{r}$ y $\vec{A} \equiv \vec{f}$, siendo $\vec{f}$ una fuerza independiente de la posición, entonces
+\begin{equation}
+\vec{\tau}_r = \vec{r} \times \vec{f},
+\end{equation}
+que es justamente el torque producido por la fuerza $\vec{f}$ sobre el punto de radiovector $\vec{r}$.
+
+El torque producido por el campo electrostático de intensidad $\vec{E} = \vec{E}(\vec{r})$ sobre el dipolo eléctrico de momento dipolar $\vec{p}$ será entonces
+\begin{equation}
+\vec{\tau}_p = \vec{p} \times \vec{E}(\vec{r}) + \vec{r} \times [(\vec{p} \cdot \nabla)\vec{E}(\vec{r})],
+\end{equation}
+
+Esta es la expresión para el torque experimentado por el dipolo eléctrico en presencia de un campo electrostático no homogéneo.
 
 \subsection{Radio clásico del electrón}
 
-El radio clásico del electrón, también conocido como radio de Lorentz o longitud de Thomson, es un parámetro fundamental en la electrodinámica clásica. Se define como la distancia a la cual la energía electrostática de una esfera uniformemente cargada iguala la energía de masa del electrón según la relación de Einstein $E = mc^2$.
+Ya hemos visto que el modelo de carga puntual conduce a la divergencia de la energía del campo electrostático, a menos que los términos autoenergéticos sean intencionalmente descartados. Con vistas a corregir esta singularidad en la electrodinámica clásica, entre otras cuestiones\footnote{Una cuestión que atrajo la atención de la comunidad científica durante mucho tiempo fue el problema de encontrar la forma del campo de radiación de un electrón acelerado. El modelo de partícula puntual resultó insuficiente, por lo que fue necesario emprender la búsqueda de modelos clásicos del electrón no puntual que explicaran las observaciones experimentales sobre las propiedades del campo de radiación de partículas cargadas aceleradas. Hay que decir que ningún modelo clásico logró explicar satisfactoriamente la acumulación de datos experimentales existentes sobre este tópico.}, fueron desarrollados varios modelos destinados a dotar al electrón de dimensiones espaciales no nulas. En este sentido se destacan los trabajos desarrollados por Abraham, Lorentz y von Laue.
 
-Para una esfera de radio $r_e$ con carga $e$ uniformemente distribuida, la energía electrostática es
+Un modelo sencillo asume que el electrón es una bola de radio $r_0$ y carga $-e$, con la carga uniformemente distribuida sobre toda la bola. La densidad de carga tiene la forma
 \begin{equation}
-U_e = \frac{1}{2} \frac{e^2}{4\pi\epsilon_0 r_e}.
+\rho(\vec{r}) = 
+\begin{cases}
+-\frac{e}{4\pi r_0^3/3} & \text{si } r \leq r_0 \\
+0 & \text{si } r > r_0
+\end{cases}
 \end{equation}
 
-Igualando esta energía a la energía de masa del electrón, obtenemos
+Aplicando la ley de Gauss para obtener el vector intensidad del campo eléctrico en todo el espacio es posible demostrar que
 \begin{equation}
-\frac{1}{2} \frac{e^2}{4\pi\epsilon_0 r_e} = m_e c^2,
+\vec{E}(\vec{r}) = E(r)\vec{e}_r,
 \end{equation}
-donde $m_e$ es la masa del electrón y $c$ es la velocidad de la luz.
-
-Despejando $r_e$, encontramos el radio clásico del electrón:
+siendo
 \begin{equation}
-r_e = \frac{1}{4\pi\epsilon_0} \frac{e^2}{2m_e c^2} \approx 2.82 \times 10^{-15} \, \textrm{m}.
-\end{equation}
-
-Este valor representa la escala de longitud en la que los efectos de la mecánica cuántica y la electrodinámica cuántica se vuelven importantes para describir correctamente el comportamiento del electrón. La teoría clásica del electrón como una esfera cargada falla a distancias del orden del radio clásico.
-
-El radio clásico del electrón aparece naturalmente en la fórmula de la sección eficaz de dispersión de Thomson para la dispersión de radiación electromagnética por electrones libres:
-\begin{equation}
-\sigma_T = \frac{8\pi}{3} r_e^2.
+E(r) = 
+\begin{cases}
+-\frac{e}{4\pi\epsilon_0}\frac{r}{r_0^3} & \text{si } r \leq r_0 \\
+-\frac{e}{4\pi\epsilon_0}\frac{1}{r^2} & \text{si } r > r_0
+\end{cases}
 \end{equation}
 
-Es importante señalar que, según la mecánica cuántica, el electrón es una partícula puntual sin estructura interna conocida. El radio clásico es simplemente un parámetro que surge del tratamiento clásico y no debe interpretarse como el tamaño físico real del electrón.
+La densidad de energía del campo electrostático será
+\begin{equation}
+w(\vec{r}) = \frac{1}{2}\epsilon_0|\vec{E}(\vec{r})|^2 = 
+\begin{cases}
+\frac{e^2}{32\pi^2\epsilon_0}\frac{r^2}{r_0^6} & \text{si } r \leq r_0 \\
+\frac{e^2}{32\pi^2\epsilon_0}\frac{1}{r^4} & \text{si } r > r_0
+\end{cases}
+\end{equation}
+
+y la energía total del campo electrostático almacenada en todo el espacio será
+\begin{equation}
+U = \int_{\mathbb{R}^3} w(\vec{r})dV = \frac{3e^2}{20\pi\epsilon_0 r_0}.
+\end{equation}
+
+Nótese que si $r_0 \rightarrow 0$ entonces $U \rightarrow +\infty$, que es el resultado conocido para la carga puntual. Para estimar el valor del radio del electrón $r_0$ podemos asumir que la energía almacenada en el campo electrostático producido por el electrón es justamente su energía de reposo $m_0c^2$, siendo $m_0$ la masa propia del electrón. Haciendo $U = m_0c^2$ obtenemos fácilmente que
+\begin{equation}
+r_0 = \frac{3e^2}{20\pi\epsilon_0 m_0c^2}.
+\end{equation}
+
+Nótese que $r_0 \approx 1,7 \times 10^{-15}$ m. El valor de $r_0$ dado por la ecuación anterior recibe el nombre de radio clásico del electrón.
+
+Cualquiera que sea el modelo clásico del electrón que se proponga, los valores del radio electrónico obtenidos se encontrarán en la escala subnanométrica. Dichos modelos no pueden, en consecuencia, ser tomados como aceptables, pues en regiones espaciales de estas dimensiones la física clásica es en general no aplicable. Más aún, el modelo clásico del electrón no puntual posee objeciones serias. La más notable de ellas está relacionada con la inestabilidad de un sistema de cargas eléctricas. Para confinar las cargas eléctricas en dimensiones tan reducidas se precisa del concurso de fuerzas descomunales que garanticen que el sistema de cargas no "explote". Uno de los primeros científicos en percatarse de esta cuestión fue H. Poincaré, quien en un célebre trabajo de 1906 introdujo las llamadas tensiones de Poincaré. Las tensiones de Poincaré no son más que fuerzas del tipo no eléctricas postuladas en la teoría para darle estabilidad al modelo del electrón de dimensiones finitas no nulas. El origen de las tensiones de Poincaré es desconocido, pues la teoría clásica no es capaz de responder a las cuestiones relacionadas con la naturaleza de estas fuerzas. Hoy día se han desechado la mayoría de las tentativas destinadas a entender las propiedades del electrón desde el punto de vista de la teoría clásica del campo electromagnético. La comunidad científica está casi absolutamente de acuerdo en que el electrón debe ser comprendido, como sistema físico fundamental, desde el punto de vista que sólo la electrodinámica cuántica está en condiciones de ofrecer.
 
 \section{Problemas propuestos}
 
