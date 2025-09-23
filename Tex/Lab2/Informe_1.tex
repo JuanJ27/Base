@@ -1,0 +1,55 @@
+\documentclass[
+    aps,                % American Physical Society
+    pra,                % choose journal (pra, prb, prc, prd, pre, prl, rmp)
+    reprint,            % two-column layout
+    superscriptaddress % author affiliations as superscripts
+]{revtex4-2}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[spanish, english]{babel}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{siunitx}
+\usepackage[colorlinks=true, linkcolor=blue, citecolor=blue]{hyperref}
+
+\begin{document}
+\selectlanguage{spanish}
+\title{Aplicación del Quantum Machine Learning para la identificación de jets en el LHC}
+
+\author{Juan Montoya}
+\email{juan.montoya110@udea.edu.co}
+\affiliation{Instituto de Física, Universidad de Antioquia, Colombia}
+
+\date{\today}
+
+\maketitle
+
+\section{Introducción}
+\label{sec:intro}
+
+El aprendizaje automático (Machine Learning, ML) ha revolucionado numerosos campos científicos en las últimas décadas, incluyendo la física de altas energías. Particularmente, en la física experimental de partículas, los métodos de ML se han convertido en herramientas indispensables para el análisis y procesamiento de la inmensa cantidad de datos generados en colisionadores como el Gran Colisionador de Hadrones (LHC) \cite{ref:hepml}. Entre las aplicaciones más exitosas se encuentra la clasificación de jets hadrónicos, que representa un desafío fundamental en los experimentos del LHC \cite{ref:jetml}.
+
+Los jets son chorros de partículas producidos mediante la fragmentación y hadronización de quarks y gluones que emergen de las colisiones de partículas, como las colisiones protón-protón en el LHC. Estos objetos complejos están formados por múltiples partículas detectables, y es posible identificar sus propiedades aprovechando el contenido de partículas y sus correlaciones, comúnmente denominado subestructura del jet. Entre los problemas típicos de clasificación de jets se encuentra la identificación del hadrón de sabor pesado producido en la hadronización del jet (por ejemplo, hadrón $b$ versus hadrón $c$) o la identificación de la carga del quark de sabor pesado que constituye este hadrón (por ejemplo, $b$ versus $\bar{b}$) \cite{ref:deepjet}.
+
+Los métodos de ML de última generación, como las Redes Neuronales Profundas (DNN), Redes Neuronales Convolucionales (CNN), Redes Neuronales Recurrentes (RNN), Redes Tensoriales y Redes Neuronales de Grafos, han sido aplicados a los datos de jets recolectados por los experimentos del LHC, logrando una mejora significativa en el rendimiento de clasificación en comparación con los métodos clásicos no basados en ML \cite{ref:atlasbtag, ref:atlasbcharge}. Estos algoritmos han permitido extraer patrones complejos y correlaciones sutiles presentes en los datos que anteriormente eran inaccesibles mediante técnicas analíticas tradicionales.
+
+Recientemente, la Computación Cuántica (QC) ha preparado el escenario para una revolución en el campo del ML. Este nuevo enfoque consiste en utilizar circuitos cuánticos para abordar tareas de clasificación, en el marco del Quantum Machine Learning (QML) \cite{ref:qml}. En este paradigma, los datos se incorporan en un estado cuántico que luego se procesa mediante un circuito cuántico variacional, y al variar los parámetros del circuito se realiza un procedimiento de entrenamiento mediante la minimización de una función de pérdida clásica. Las mediciones de probabilidad del estado final se utilizan entonces para realizar la clasificación.
+
+Dadas las propiedades intrínsecas de la computación cuántica, principalmente la superposición y el entrelazamiento, este nuevo enfoque podría proporcionar perspectivas inéditas desde el punto de vista de la clasificación. Los jets que se originan a partir de gluones o quarks de una carga y sabor determinados tendrían un contenido de partículas característico y correlaciones específicas entre ellas, que podrían aprovecharse para facilitar la identificación de la partícula original. Resulta particularmente interesante estudiar si el QML, al explotar la naturaleza cuántica del algoritmo, podría mejorar el rendimiento de la clasificación más allá de lo que es posible con métodos clásicos.
+
+Las técnicas de QML han sido aplicadas recientemente para resolver problemas de Física de Altas Energías (HEP), como la separación de señal versus fondo \cite{ref:qmlappllhiggs, ref:qmlhiggs}, detección de anomalías \cite{ref:qoptjets} y reconstrucción de trazas de partículas \cite{ref:qmlappltracking}. Sin embargo, hasta ahora no se había explorado su aplicación específica en la identificación del sabor de jets. Este trabajo presenta la primera aplicación de QML a la tarea de etiquetado de carga de jets-$b$, es decir, la identificación de la carga del quark $b$ que forma el hadrón $b$ producido en la hadronización del jet.
+
+En el experimento LHCb, un espectrómetro de brazo único diseñado para estudiar hadrones $b$ y $c$ en la región frontal de colisiones protón-protón, la reconstrucción e identificación de jets presenta desafíos únicos debido a la geometría específica del detector y las características de los jets producidos en esta región cinemática. El detector LHCb cubre la región en el rango de pseudorapidez $2 < \eta < 5$, y consta de un sistema de seguimiento y un sistema de identificación de partículas que permiten reconstruir con precisión los jets y sus componentes \cite{ref:lhcb, ref:lhcbperformance}.
+
+El etiquetado de carga de jets-$b$ se convierte así en un problema de clasificación binaria donde el jet puede pertenecer a una de dos categorías exclusivas: jets-$b$ o jets-$\bar{b}$. La carga del quark $b$ en el momento de la producción está correlacionada con la carga de los productos de desintegración del hadrón $b$. Sin embargo, esta correlación no es perfecta, ya que los mesones $B$ neutros pueden oscilar, y la carga del quark $b$ en el momento de la producción puede ser diferente de la carga en el momento de la desintegración, lo que añade complejidad al problema.
+
+En este trabajo, implementamos y evaluamos varios algoritmos de QML para la tarea de etiquetado de carga de jets-$b$ utilizando simuladores cuánticos y muestras simuladas de LHCb. Aprovechando las propiedades únicas de la computación cuántica, como la superposición y el entrelazamiento, exploramos si estos métodos pueden proporcionar ventajas sobre los algoritmos clásicos de ML en términos de precisión, eficiencia y capacidad para capturar correlaciones complejas entre las características de los jets.
+
+
+
+\section{Referencias}   
+\bibliographystyle{apsrev4-2}
+\bibliography{references} % archivo references.bib
+
+\end{document}
