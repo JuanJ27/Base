@@ -38,7 +38,6 @@
 \textbf{Teoría de la Información (1948)}
 \begin{itemize}
 \item \textbf{Entropía de Shannon}: $H = -\sum_i p_i \log_2 p_i$
-\item Información $=$ Sorpresa promedio
 \item Un bit $=$ respuesta a una pregunta sí/no
 \end{itemize}
 
@@ -47,14 +46,13 @@
 \begin{itemize}
 \item Entropía termodinámica $\leftrightarrow$ Entropía informacional
 \item $S = k \ln W$ (Boltzmann) vs. $H = \sum p_i \log p_i$ (Shannon)
-\item \textcolor{red}{Información es física} (Landauer)
 \end{itemize}
 \end{column}
 \begin{column}{0.4\textwidth}
 % Placeholder para imagen de Shannon
 \begin{figure}
 \centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{1cm} \textbf{Imagen:} \\ Claude Shannon \\ trabajando en Bell Labs \vspace{1cm}}}
+\includegraphics[width=\textwidth]{Shannon_maze.png}
 \end{figure}
 \end{column}
 \end{columns}
@@ -83,14 +81,7 @@
 % Placeholder para imagen de dados/probabilidad
 \begin{figure}
 \centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Dados mostrando probabilidades \\ (más formas de obtener 7 que 2) \vspace{0.5cm}}}
-\end{figure}
-
-\vspace{0.1cm}
-% Placeholder para gráfico de distribución
-\begin{figure}
-\centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Gráfico:} \\ Distribución de Boltzmann \\ en sistemas térmicos \vspace{0.5cm}}}
+\includegraphics[width=0.9\textwidth]{dados.png}
 \end{figure}
 \end{column}
 \end{columns}
@@ -99,34 +90,19 @@
 % Diapositiva 4: Segunda Ley como Principio Estadístico
 \begin{frame}{La Segunda Ley: Estadística, No Determinismo}
 \begin{columns}
-\begin{column}{0.6\textwidth}
+\begin{column}{0.35\textwidth}
 \textbf{Interpretación Moderna (Boltzmann)}
 \begin{itemize}
-\item Los sistemas evolucionan hacia estados \textbf{más probables}
-\item $\Delta S \geq 0$ por pura \textcolor{blue}{combinatoria}
+\item $\Delta S \geq 0$
 \item Ejemplo: gas expandiéndose en una caja
 \end{itemize}
 
-\vspace{0.3cm}
-\textbf{Ejemplo Cuantitativo}
-\begin{itemize}
-\item Gas de $N = 10^{23}$ partículas
-\item Probabilidad de concentrarse en un lado: $P = 2^{-10^{23}}$
-\item Tiempo de espera: $> 10^{10^{20}}$ veces la edad del universo
-\end{itemize}
-
 \end{column}
-\begin{column}{0.4\textwidth}
+\begin{column}{0.65\textwidth}
 % Placeholder para imagen de gas expandiéndose
 \begin{figure}
 \centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Expansión libre de gas \\ (de ordenado a disperso) \vspace{0.5cm}}}
-\end{figure}
-
-% Placeholder para gráfico de probabilidades
-\begin{figure}
-\centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Gráfico:} \\ Microestados vs \\ Macroestados \vspace{0.5cm}}}
+\includegraphics[width=\textwidth]{micro_vs_macro.png}
 \end{figure}
 \end{column}
 \end{columns}
@@ -143,30 +119,18 @@
 \end{itemize}
 
 \vspace{0.3cm}
-\textbf{Resolución Moderna}
+\textbf{Resolución}
 \begin{itemize}
-\item \textbf{Principio de Landauer}: Borrar 1 bit cuesta $k T \ln 2$ de trabajo
+\item Borrar 1 bit cuesta $k T \ln 2$ de trabajo
 \item El demonio debe borrar información
 \end{itemize}
 
-\vspace{0.3cm}
-\textbf{Aplicaciones Actuales}
-\begin{itemize}
-\item Límites en computación cuántica
-\item Motores de información nanoscópicos
-\end{itemize}
 \end{column}
 \begin{column}{0.45\textwidth}
 % Placeholder para imagen del demonio de Maxwell
 \begin{figure}
 \centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Demonio de Maxwell \\ clasificando moléculas \vspace{0.5cm}}}
-\end{figure}
-
-% Placeholder para diagrama de motor de Szilard
-\begin{figure}
-\centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Diagrama:} \\ Motor de Szilard \\ (información → trabajo) \vspace{0.5cm}}}
+\includegraphics[width=\textwidth]{demon.png}
 \end{figure}
 \end{column}
 \end{columns}
@@ -178,29 +142,22 @@
 \begin{column}{0.6\textwidth}
 \textbf{¿Qué son las temperaturas negativas?}
 \begin{itemize}
-\item Sistemas con \textbf{energía máxima} finita
+\item Sistemas con energía máxima finita
 \item Inversión de población: más partículas en estados de alta energía
 \end{itemize}
 
 \vspace{0.3cm}
 \textbf{Ejemplos Reales}
 \begin{itemize}
-\item Espines nucleares en campos magnéticos
 \item Láseres (inversión de población)
-\item Gases cuánticos ultrafríos (experimento alemán 2013)
+\item Gases cuánticos ultrafríos 
 \end{itemize}
 \end{column}
 \begin{column}{0.4\textwidth}
 % Placeholder para gráfico de entropía vs energía
 \begin{figure}
 \centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Gráfico:} \\ Entropía vs Energía \\ (máximo donde $T \to \pm\infty$) \vspace{0.5cm}}}
-\end{figure}
-
-% Placeholder para imagen de experimento con átomos ultrafríos
-\begin{figure}
-\centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Átomos ultrafríos \\ (temperatura negativa) \vspace{0.5cm}}}
+\includegraphics[width=\textwidth]{negative_temp.png}
 \end{figure}
 \end{column}
 \end{columns}
@@ -214,28 +171,20 @@
 \begin{itemize}
 \item Máquinas térmicas cuánticas
 \item Baterías cuánticas
-\item Entrelazamiento como recurso termodinámico
 \end{itemize}
 
 \vspace{0.3cm}
 \textbf{Gravedad Entrópica}
 \begin{itemize}
-\item ¿Es la gravedad una fuerza emergente?
+\item Gravedad como fuerza emergente
 \item Conexión con entropía de agujeros negros
-\item Propuestas de Verlinde y otros
 \end{itemize}
 \end{column}
 \begin{column}{0.5\textwidth}
 % Placeholder para imagen de computadora cuántica
 \begin{figure}
 \centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Computadora cuántica \\ (nuevos límites termodinámicos) \vspace{0.5cm}}}
-\end{figure}
-
-% Placeholder para imagen conceptual de gravedad entrópica
-\begin{figure}
-\centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Concepto:} \\ Gravedad emergente \\ (¿entropía → espacio-tiempo?) \vspace{0.5cm}}}
+\includegraphics[width=\textwidth]{gravity.png}
 \end{figure}
 \end{column}
 \end{columns}
@@ -243,9 +192,8 @@
 
 % Diapositiva 8: Conclusiones y Perspectivas
 \begin{frame}{Conclusiones}
-\begin{columns}
-\begin{column}{0.6\textwidth}
-\textbf{Unificación Conceptual}
+
+\textbf{Conceptos}
 \begin{itemize}
 \item Información conecta termodinámica, mecánica cuántica y computación
 \item Entropía: de concepto térmico a medida universal de información
@@ -264,21 +212,7 @@
 \item Computación cuántica eficiente
 \item Nuevas tecnologías de refrigeración
 \end{itemize}
-\end{column}
-\begin{column}{0.4\textwidth}
-% Placeholder para imagen conceptual de información y realidad
-\begin{figure}
-\centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Concepto:} \\ ¿Información como \\ fundamento de la realidad? \vspace{0.5cm}}}
-\end{figure}
 
-% Placeholder para imagen de redes de información
-\begin{figure}
-\centering
-\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Redes:} \\ Información conectando \\ del bit al cosmos \vspace{0.5cm}}}
-\end{figure}
-\end{column}
-\end{columns}
 
 \vspace{0.3cm}
 \centering
