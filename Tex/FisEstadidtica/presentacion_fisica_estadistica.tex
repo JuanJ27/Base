@@ -1,0 +1,287 @@
+\documentclass[aspectratio=169,12pt]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{xcolor}
+
+% Configuración para manejar imágenes faltantes
+\setkeys{Gin}{draft=false}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg,.jpeg}
+
+% Tema y colores
+\usetheme{Madrid}
+\usecolortheme{seahorse}
+
+% Configuración del título
+\title[Física Estadística]{Entropía, Información y Termodinámica}
+\author{Juan Montoya}
+\date{1 de octubre de 2025}
+\institute{Universidad de Antioquia}
+
+% Configuración de itemize con símbolos personalizados
+\setbeamertemplate{itemize item}{\color{blue}$\bullet$}
+\setbeamertemplate{itemize subitem}{\color{red}$\circ$}
+
+\begin{document}
+
+% Diapositiva 1: Título
+\begin{frame}
+\titlepage
+\end{frame}
+
+% Diapositiva 2: La Revolución de Shannon
+\begin{frame}{La Revolución de Shannon: Información como Concepto Físico}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\textbf{Teoría de la Información (1948)}
+\begin{itemize}
+\item \textbf{Entropía de Shannon}: $H = -\sum_i p_i \log_2 p_i$
+\item Información $=$ Sorpresa promedio
+\item Un bit $=$ respuesta a una pregunta sí/no
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Conexión Fundamental}
+\begin{itemize}
+\item Entropía termodinámica $\leftrightarrow$ Entropía informacional
+\item $S = k \ln W$ (Boltzmann) vs. $H = \sum p_i \log p_i$ (Shannon)
+\item \textcolor{red}{Información es física} (Landauer)
+\end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+% Placeholder para imagen de Shannon
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{1cm} \textbf{Imagen:} \\ Claude Shannon \\ trabajando en Bell Labs \vspace{1cm}}}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+% Diapositiva 3: Entropía - Más Allá del Desorden
+\begin{frame}{Entropía: Muy distinta a "desorden"}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{¿Qué NO es la entropía?}
+\begin{itemize}
+\item No es simplemente "desorden"
+\item No depende de percepciones subjetivas
+\item No siempre aumenta localmente
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{¿Qué SÍ es la entropía?}
+\begin{itemize}
+\item Número de microestados: $S = k \ln \Omega$
+\item Información faltante sobre el sistema
+\item Medida de incertidumbre cuantificable
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+% Placeholder para imagen de dados/probabilidad
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Dados mostrando probabilidades \\ (más formas de obtener 7 que 2) \vspace{0.5cm}}}
+\end{figure}
+
+\vspace{0.1cm}
+% Placeholder para gráfico de distribución
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Gráfico:} \\ Distribución de Boltzmann \\ en sistemas térmicos \vspace{0.5cm}}}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+% Diapositiva 4: Segunda Ley como Principio Estadístico
+\begin{frame}{La Segunda Ley: Estadística, No Determinismo}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\textbf{Interpretación Moderna (Boltzmann)}
+\begin{itemize}
+\item Los sistemas evolucionan hacia estados \textbf{más probables}
+\item $\Delta S \geq 0$ por pura \textcolor{blue}{combinatoria}
+\item Ejemplo: gas expandiéndose en una caja
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Ejemplo Cuantitativo}
+\begin{itemize}
+\item Gas de $N = 10^{23}$ partículas
+\item Probabilidad de concentrarse en un lado: $P = 2^{-10^{23}}$
+\item Tiempo de espera: $> 10^{10^{20}}$ veces la edad del universo
+\end{itemize}
+
+\end{column}
+\begin{column}{0.4\textwidth}
+% Placeholder para imagen de gas expandiéndose
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Expansión libre de gas \\ (de ordenado a disperso) \vspace{0.5cm}}}
+\end{figure}
+
+% Placeholder para gráfico de probabilidades
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Gráfico:} \\ Microestados vs \\ Macroestados \vspace{0.5cm}}}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+% Diapositiva 5: Demonio de Maxwell y Límites Fundamentales
+\begin{frame}{El Demonio de Maxwell: Información, Trabajo y Borrado}
+\begin{columns}
+\begin{column}{0.56\textwidth}
+\textbf{La Paradoja (1867)}
+\begin{itemize}
+\item Demonio inteligente separa moléculas
+\item Aparentemente viola la segunda ley
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Resolución Moderna}
+\begin{itemize}
+\item \textbf{Principio de Landauer}: Borrar 1 bit cuesta $k T \ln 2$ de trabajo
+\item El demonio debe borrar información
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Aplicaciones Actuales}
+\begin{itemize}
+\item Límites en computación cuántica
+\item Motores de información nanoscópicos
+\end{itemize}
+\end{column}
+\begin{column}{0.45\textwidth}
+% Placeholder para imagen del demonio de Maxwell
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Demonio de Maxwell \\ clasificando moléculas \vspace{0.5cm}}}
+\end{figure}
+
+% Placeholder para diagrama de motor de Szilard
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Diagrama:} \\ Motor de Szilard \\ (información → trabajo) \vspace{0.5cm}}}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+% Diapositiva 6: Temperatura Negativa
+\begin{frame}{Temperatura Negativa: Más Caliente que Infinito}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\textbf{¿Qué son las temperaturas negativas?}
+\begin{itemize}
+\item Sistemas con \textbf{energía máxima} finita
+\item Inversión de población: más partículas en estados de alta energía
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Ejemplos Reales}
+\begin{itemize}
+\item Espines nucleares en campos magnéticos
+\item Láseres (inversión de población)
+\item Gases cuánticos ultrafríos (experimento alemán 2013)
+\end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+% Placeholder para gráfico de entropía vs energía
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Gráfico:} \\ Entropía vs Energía \\ (máximo donde $T \to \pm\infty$) \vspace{0.5cm}}}
+\end{figure}
+
+% Placeholder para imagen de experimento con átomos ultrafríos
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Átomos ultrafríos \\ (temperatura negativa) \vspace{0.5cm}}}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+% Diapositiva 7: Fronteras Actuales
+\begin{frame}{Termodinámica Cuántica y Gravedad Entrópica}
+\begin{columns}
+\begin{column}{0.5\textwidth}
+\textbf{Termodinámica Cuántica}
+\begin{itemize}
+\item Máquinas térmicas cuánticas
+\item Baterías cuánticas
+\item Entrelazamiento como recurso termodinámico
+\end{itemize}
+
+\vspace{0.3cm}
+\textbf{Gravedad Entrópica}
+\begin{itemize}
+\item ¿Es la gravedad una fuerza emergente?
+\item Conexión con entropía de agujeros negros
+\item Propuestas de Verlinde y otros
+\end{itemize}
+\end{column}
+\begin{column}{0.5\textwidth}
+% Placeholder para imagen de computadora cuántica
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Imagen:} \\ Computadora cuántica \\ (nuevos límites termodinámicos) \vspace{0.5cm}}}
+\end{figure}
+
+% Placeholder para imagen conceptual de gravedad entrópica
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Concepto:} \\ Gravedad emergente \\ (¿entropía → espacio-tiempo?) \vspace{0.5cm}}}
+\end{figure}
+\end{column}
+\end{columns}
+\end{frame}
+
+% Diapositiva 8: Conclusiones y Perspectivas
+\begin{frame}{Conclusiones}
+\begin{columns}
+\begin{column}{0.6\textwidth}
+\textbf{Unificación Conceptual}
+\begin{itemize}
+\item Información conecta termodinámica, mecánica cuántica y computación
+\item Entropía: de concepto térmico a medida universal de información
+\end{itemize}
+
+\vspace{0.2cm}
+\textbf{Implicaciones Filosóficas}
+\begin{itemize}
+\item La realidad física podría ser informacional
+\item $"$It from Bit" (Wheeler)
+\end{itemize}
+
+\vspace{0.2cm}
+\textbf{Aplicaciones Futuras}
+\begin{itemize}
+\item Computación cuántica eficiente
+\item Nuevas tecnologías de refrigeración
+\end{itemize}
+\end{column}
+\begin{column}{0.4\textwidth}
+% Placeholder para imagen conceptual de información y realidad
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Concepto:} \\ ¿Información como \\ fundamento de la realidad? \vspace{0.5cm}}}
+\end{figure}
+
+% Placeholder para imagen de redes de información
+\begin{figure}
+\centering
+\fbox{\parbox{0.9\textwidth}{\centering \vspace{0.5cm} \textbf{Redes:} \\ Información conectando \\ del bit al cosmos \vspace{0.5cm}}}
+\end{figure}
+\end{column}
+\end{columns}
+
+\vspace{0.3cm}
+\centering
+\end{frame}
+
+\end{document}
