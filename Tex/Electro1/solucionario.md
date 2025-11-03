@@ -38,14 +38,24 @@ Q_{esfera} = \lambda_0 \int_0^{\pi/2} d\varphi \int_0^{\pi/2} \cos\theta \sin\th
 $$
 
 Calculamos cada integral por separado:
-*   $\int_0^{\pi/2} d\varphi = [\varphi]_0^{\pi/2} = \frac{\pi}{2}$
-*   $\int_0^c r^3 dr = \left[\frac{r^4}{4}\right]_0^c = \frac{c^4}{4}$
-*   $\int_0^{\pi/2} \sin\theta \cos\theta d\theta = \left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2} = \frac{1^2}{2} - \frac{0^2}{2} = \frac{1}{2}$
 
-Multiplicando los resultados:
-$$
-Q_{esfera} = \lambda_0 \left(\frac{\pi}{2}\right) \left(\frac{1}{2}\right) \left(\frac{c^4}{4}\right) = \frac{\pi \lambda_0 c^4}{16}
-$$
+**Integral en $\varphi$:**
+$$\int_0^{\pi/2} d\varphi = [\varphi]_0^{\pi/2} = \frac{\pi}{2} - 0 = \frac{\pi}{2}$$
+
+**Integral en $r$:**
+$$\int_0^c r^3 dr = \left[\frac{r^4}{4}\right]_0^c = \frac{c^4}{4} - \frac{0^4}{4} = \frac{c^4}{4}$$
+
+**Integral en $\theta$:**
+Para calcular $\int_0^{\pi/2} \sin\theta \cos\theta d\theta$, usamos el cambio de variable $u = \sin\theta$, de modo que $du = \cos\theta d\theta$:
+- Si $\theta = 0$, $u = 0$
+- Si $\theta = \pi/2$, $u = 1$
+
+$$\int_0^{\pi/2} \sin\theta \cos\theta d\theta = \int_0^1 u du = \left[\frac{u^2}{2}\right]_0^1 = \frac{1}{2} - 0 = \frac{1}{2}$$
+
+**Multiplicación de los resultados:**
+$$Q_{esfera} = \lambda_0 \int_0^{\pi/2} d\varphi \int_0^{\pi/2} \cos\theta \sin\theta d\theta \int_0^c r^3 dr$$
+$$Q_{esfera} = \lambda_0 \left(\frac{\pi}{2}\right) \left(\frac{1}{2}\right) \left(\frac{c^4}{4}\right)$$
+$$Q_{esfera} = \frac{\pi \lambda_0 c^4}{16}$$
 
 **2. Cálculo de la carga en el tetraedro ($Q_{tetraedro}$)**
 
@@ -60,37 +70,76 @@ La integral para la carga es:
 $$
 Q_{tetraedro} = \int_0^a \int_0^{b(1-x/a)} \int_0^{c(1-x/a-y/b)} (\lambda_0 z) dz dy dx
 $$
+
+**Paso 1: Integración en $z$**
+
+Primero integramos con respecto a $z$:
 $$
-Q_{tetraedro} = \lambda_0 \int_0^a \int_0^{b(1-x/a)} \left[\frac{z^2}{2}\right]_0^{c(1-x/a-y/b)} dy dx
+\int_0^{c(1-x/a-y/b)} \lambda_0 z \, dz = \lambda_0 \left[\frac{z^2}{2}\right]_0^{c(1-x/a-y/b)} = \frac{\lambda_0}{2}\left[c\left(1 - \frac{x}{a} - \frac{y}{b}\right)\right]^2
 $$
+
+Desarrollamos el cuadrado:
+$$
+\left[c\left(1 - \frac{x}{a} - \frac{y}{b}\right)\right]^2 = c^2\left(1 - \frac{x}{a} - \frac{y}{b}\right)^2
+$$
+
+Por lo tanto:
 $$
 Q_{tetraedro} = \frac{\lambda_0 c^2}{2} \int_0^a \int_0^{b(1-x/a)} \left(1 - \frac{x}{a} - \frac{y}{b}\right)^2 dy dx
 $$
 
-Para simplificar, hacemos un cambio de variable en la integral interna: $u = 1 - \frac{x}{a} - \frac{y}{b}$, de donde $du = -\frac{1}{b} dy$.
-*   Si $y=0$, $u = 1 - \frac{x}{a}$.
-*   Si $y=b(1-x/a)$, $u = 0$.
+**Paso 2: Cambio de variable en la integral en $y$**
+
+Para simplificar, hacemos un cambio de variable en la integral interna: $u = 1 - \frac{x}{a} - \frac{y}{b}$.
+
+Entonces:
+- $\frac{\partial u}{\partial y} = -\frac{1}{b}$
+- $du = -\frac{1}{b} dy \implies dy = -b \, du$
+
+Cuando $y=0$: $u = 1 - \frac{x}{a}$
+
+Cuando $y=b(1-x/a)$: $u = 1 - \frac{x}{a} - \frac{1}{b} \cdot b\left(1-\frac{x}{a}\right) = 1 - \frac{x}{a} - \left(1-\frac{x}{a}\right) = 0$
 
 La integral en $y$ se convierte en:
 $$
-\int_{1-x/a}^0 u^2 (-b du) = b \int_0^{1-x/a} u^2 du = b \left[\frac{u^3}{3}\right]_0^{1-x/a} = \frac{b}{3}\left(1 - \frac{x}{a}\right)^3
+\int_0^{b(1-x/a)} u^2 \, dy = \int_{1-x/a}^0 u^2 (-b du) = b \int_0^{1-x/a} u^2 du
 $$
 
-Sustituyendo en la integral principal:
+Evaluamos esta integral:
+$$
+b \int_0^{1-x/a} u^2 du = b \left[\frac{u^3}{3}\right]_0^{1-x/a} = \frac{b}{3}\left(1 - \frac{x}{a}\right)^3
+$$
+
+Sustituyendo de vuelta:
 $$
 Q_{tetraedro} = \frac{\lambda_0 c^2}{2} \int_0^a \frac{b}{3}\left(1 - \frac{x}{a}\right)^3 dx = \frac{\lambda_0 b c^2}{6} \int_0^a \left(1 - \frac{x}{a}\right)^3 dx
 $$
 
-Hacemos otro cambio de variable: $v = 1 - \frac{x}{a}$, de donde $dv = -\frac{1}{a} dx$.
-*   Si $x=0$, $v=1$.
-*   Si $x=a$, $v=0$.
+**Paso 3: Cambio de variable en la integral en $x$**
 
-La integral se convierte en:
+Hacemos otro cambio de variable: $v = 1 - \frac{x}{a}$
+
+Entonces:
+- $\frac{dv}{dx} = -\frac{1}{a}$
+- $dv = -\frac{1}{a} dx \implies dx = -a \, dv$
+
+Cuando $x=0$: $v=1 - 0 = 1$
+
+Cuando $x=a$: $v=1 - \frac{a}{a} = 0$
+
+La integral en $x$ se convierte en:
 $$
-\int_1^0 v^3 (-a dv) = a \int_0^1 v^3 dv = a \left[\frac{v^4}{4}\right]_0^1 = \frac{a}{4}
+\int_0^a \left(1 - \frac{x}{a}\right)^3 dx = \int_1^0 v^3 (-a dv) = a \int_0^1 v^3 dv
 $$
 
-Sustituyendo de nuevo:
+Evaluamos esta integral:
+$$
+a \int_0^1 v^3 dv = a \left[\frac{v^4}{4}\right]_0^1 = a \left(\frac{1}{4} - 0\right) = \frac{a}{4}
+$$
+
+**Paso 4: Resultado final para el tetraedro**
+
+Sustituyendo el resultado de la integral en la expresión anterior:
 $$
 Q_{tetraedro} = \frac{\lambda_0 b c^2}{6} \left(\frac{a}{4}\right) = \frac{\lambda_0 a b c^2}{24}
 $$
@@ -145,15 +194,23 @@ $$
 $$
 donde $f(y, z)$ es una función de integración que puede depender de $y$ y $z$.
 
-Ahora, derivamos esta expresión para $\phi$ con respecto a $y$ y la igualamos a la segunda ecuación:
+Ahora, derivamos esta expresión para $\phi$ con respecto a $y$:
 $$
--\frac{\partial \phi}{\partial y} = -(-ax + \frac{\partial f}{\partial y}) = ax - \frac{\partial f}{\partial y}
+\frac{\partial \phi}{\partial y} = \frac{\partial}{\partial y}[-axy + f(y, z)] = -ax + \frac{\partial f}{\partial y}
 $$
-Igualando a $E_y$:
+
+Igualando con la condición $-\frac{\partial \phi}{\partial y} = ax + bz$:
 $$
-ax + bz = ax - \frac{\partial f}{\partial y} \implies \frac{\partial f}{\partial y} = -bz
+-\left(-ax + \frac{\partial f}{\partial y}\right) = ax + bz
 $$
-Integramos esta nueva ecuación con respecto a $y$:
+$$
+ax - \frac{\partial f}{\partial y} = ax + bz
+$$
+$$
+-\frac{\partial f}{\partial y} = bz \implies \frac{\partial f}{\partial y} = -bz
+$$
+
+Integramos esta ecuación con respecto a $y$:
 $$
 f(y, z) = -\int bz \, dy = -byz + g(z)
 $$
@@ -163,18 +220,28 @@ Sustituimos $f(y, z)$ en nuestra expresión para $\phi$:
 $$
 \phi(x, y, z) = -axy - byz + g(z)
 $$
-Finalmente, derivamos esta expresión con respecto a $z$ y la igualamos a la tercera ecuación:
+
+Finalmente, derivamos esta expresión con respecto a $z$:
 $$
--\frac{\partial \phi}{\partial z} = -(-by + \frac{dg}{dz}) = by - \frac{dg}{dz}
+\frac{\partial \phi}{\partial z} = \frac{\partial}{\partial z}[-axy - byz + g(z)] = -by + \frac{dg}{dz}
 $$
-Igualando a $E_z$:
+
+Igualando con la condición $-\frac{\partial \phi}{\partial z} = by$:
 $$
-by = by - \frac{dg}{dz} \implies \frac{dg}{dz} = 0
+-\left(-by + \frac{dg}{dz}\right) = by
 $$
+$$
+by - \frac{dg}{dz} = by
+$$
+$$
+\frac{dg}{dz} = 0
+$$
+
 Esto significa que $g(z)$ es una constante, que podemos llamar $C$. Por lo tanto, el potencial electrostático es:
 $$
 \phi(x, y, z) = -axy - byz + C
 $$
+
 Por simplicidad, podemos elegir la constante de potencial $C=0$, ya que solo las diferencias de potencial tienen significado físico.
 $$
 \phi(x, y, z) = -axy - byz
@@ -192,17 +259,35 @@ En este caso:
 
 Calculamos el potencial en ambos puntos:
 *   $\phi_A = \phi(0, 0, 0) = -a(0)(0) - b(0)(0) = 0$.
-*   $\phi_B = \phi(x_B, y_B, z_B) = -a(x_B)(y_B) - b(y_B)(z_B)$
+
+*   Para $\phi_B$, sustituimos $x_B = \frac{E_0}{a}$, $y_B = \frac{E_0}{\sqrt{a^2+b^2}}$, $z_B = \frac{E_0}{b}$:
     $$
-    \phi_B = -a\left(\frac{E_0}{a}\right)\left(\frac{E_0}{\sqrt{a^2+b^2}}\right) - b\left(\frac{E_0}{\sqrt{a^2+b^2}}\right)\left(\frac{E_0}{b}\right)
+    \phi_B = -a(x_B)(y_B) - b(y_B)(z_B)
     $$
+    
+    Primer término:
+    $$
+    -a(x_B)(y_B) = -a \left(\frac{E_0}{a}\right)\left(\frac{E_0}{\sqrt{a^2+b^2}}\right) = -E_0 \cdot \frac{E_0}{\sqrt{a^2+b^2}} = -\frac{E_0^2}{\sqrt{a^2+b^2}}
+    $$
+    
+    Segundo término:
+    $$
+    -b(y_B)(z_B) = -b\left(\frac{E_0}{\sqrt{a^2+b^2}}\right)\left(\frac{E_0}{b}\right) = -E_0 \cdot \frac{E_0}{\sqrt{a^2+b^2}} = -\frac{E_0^2}{\sqrt{a^2+b^2}}
+    $$
+    
+    Sumando los dos términos:
     $$
     \phi_B = -\frac{E_0^2}{\sqrt{a^2+b^2}} - \frac{E_0^2}{\sqrt{a^2+b^2}} = -\frac{2E_0^2}{\sqrt{a^2+b^2}}
     $$
 
-Ahora calculamos el trabajo:
+Ahora calculamos el trabajo. La diferencia de potencial es:
 $$
-W = q(\phi_A - \phi_B) = q\left(0 - \left(-\frac{2E_0^2}{\sqrt{a^2+b^2}}\right)\right)
+\phi_A - \phi_B = 0 - \left(-\frac{2E_0^2}{\sqrt{a^2+b^2}}\right) = \frac{2E_0^2}{\sqrt{a^2+b^2}}
+$$
+
+Por lo tanto:
+$$
+W = q(\phi_A - \phi_B) = q \cdot \frac{2E_0^2}{\sqrt{a^2+b^2}}
 $$
 $$
 W = \frac{2qE_0^2}{\sqrt{a^2+b^2}}
@@ -1765,6 +1850,298 @@ $$ \vec{v}_D = \frac{(E\hat{y}) \times (B\hat{z})}{B^2} = \frac{EB\hat{x}}{B^2} 
 La partícula es continuamente acelerada en la dirección $x$, y su velocidad se aproxima a la velocidad de la luz.
 
 **La órbita es una curva en el espacio-tiempo tal que la velocidad de la partícula $\vec{v}(t)$ tiende asintóticamente a $c\hat{x}$.** La partícula nunca alcanza la velocidad de la luz, pero se acerca indefinidamente a ella mientras es continuamente acelerada en la dirección del eje $x$. La trayectoria es una curva que se vuelve cada vez más paralela al eje $x$.
+
+---
+
+# APÉNDICE: Pasos Intermedios Expandidos
+
+Este apéndice contiene los pasos intermedios detallados para los desarrollos matemáticos que tienen saltos o simplificaciones.
+
+## Problema 1 de Electrostática - Detalles de Integrales
+
+### Integral en $\theta$ para la esfera (alternativa usando sustitución)
+
+Se puede usar también la identidad $\sin(2\theta) = 2\sin\theta\cos\theta$, por lo que:
+$$\sin\theta\cos\theta = \frac{1}{2}\sin(2\theta)$$
+
+Entonces:
+$$\int_0^{\pi/2} \sin\theta\cos\theta \, d\theta = \frac{1}{2}\int_0^{\pi/2} \sin(2\theta) \, d\theta = \frac{1}{2}\left[-\frac{\cos(2\theta)}{2}\right]_0^{\pi/2}$$
+
+Evaluando:
+$$= \frac{1}{2}\left[-\frac{\cos(\pi)}{2} + \frac{\cos(0)}{2}\right] = \frac{1}{2}\left[-\frac{(-1)}{2} + \frac{1}{2}\right] = \frac{1}{2}\left[\frac{1}{2} + \frac{1}{2}\right] = \frac{1}{2}$$
+
+Este resultado confirma el obtenido mediante sustitución.
+
+### Expansión del Tetraedro - Detalles Adicionales
+
+**Verificación de los límites de integración:**
+
+Para un punto $(x, y)$ dentro del rectángulo de base del tetraedro, la altura máxima en $z$ viene de despejar:
+$$\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1 \implies z = c\left(1 - \frac{x}{a} - \frac{y}{b}\right)$$
+
+Esta cantidad es positiva precisamente cuando $\frac{x}{a} + \frac{y}{b} < 1$, lo que define la región triangular en el plano $xy$.
+
+**Cambio de variable detallado para $y$:**
+
+Partiendo de:
+$$\int_0^{b(1-x/a)} \left(1 - \frac{x}{a} - \frac{y}{b}\right)^2 dy$$
+
+Sea $u = 1 - \frac{x}{a} - \frac{y}{b}$. Entonces:
+- Cuando $y = 0$: $u = 1 - \frac{x}{a}$
+- Cuando $y = b(1 - \frac{x}{a})$: $u = 1 - \frac{x}{a} - \frac{1}{b} \cdot b(1 - \frac{x}{a}) = 0$
+
+Además, $\frac{\partial u}{\partial y} = -\frac{1}{b}$, entonces $dy = -b \, du$.
+
+La integral se transforma:
+$$\int_0^{b(1-x/a)} u^2 \, dy = \int_{1-x/a}^{0} u^2 \cdot (-b) \, du = b\int_0^{1-x/a} u^2 \, du$$
+
+Evaluando:
+$$b \left[\frac{u^3}{3}\right]_0^{1-x/a} = \frac{b}{3}\left[\left(1-\frac{x}{a}\right)^3 - 0\right] = \frac{b}{3}\left(1-\frac{x}{a}\right)^3$$
+
+---
+
+## Problema 3 de Electrostática - Expansión de Laplaciano y Función Delta
+
+### Desarrollo Completo del Laplaciano en Coordenadas Polares
+
+En coordenadas polares 2D, el Laplaciano actúa sobre una función escalar $\phi(r, \theta)$:
+$$\nabla^2 \phi = \frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial \phi}{\partial r}\right) + \frac{1}{r^2}\frac{\partial^2\phi}{\partial\theta^2}$$
+
+Considerando la expansión:
+$$G(r, \theta; r', \theta') = \sum_{n=1}^{\infty} g_n(r, r') \sin\left(\frac{n\pi\theta}{\alpha}\right)$$
+
+El Laplaciano sobre esta suma:
+$$\nabla^2 G = \sum_{n=1}^{\infty} \sin\left(\frac{n\pi\theta}{\alpha}\right) \left[\frac{1}{r}\frac{d}{dr}\left(r\frac{dg_n}{dr}\right) + \frac{1}{r^2}\frac{\partial^2}{\partial\theta^2}\left(\sin\left(\frac{n\pi\theta}{\alpha}\right)\right)\right]$$
+
+Para la derivada angular:
+$$\frac{\partial^2}{\partial\theta^2}\left(\sin\left(\frac{n\pi\theta}{\alpha}\right)\right) = -\left(\frac{n\pi}{\alpha}\right)^2 \sin\left(\frac{n\pi\theta}{\alpha}\right)$$
+
+Sustituyendo:
+$$\nabla^2 G = \sum_{n=1}^{\infty} \sin\left(\frac{n\pi\theta}{\alpha}\right) \left[\frac{1}{r}\frac{d}{dr}\left(r\frac{dg_n}{dr}\right) - \frac{1}{r^2}\left(\frac{n\pi}{\alpha}\right)^2 g_n\right]$$
+
+Definiendo $\nu_n = \frac{n\pi}{\alpha}$:
+$$\nabla^2 G = \sum_{n=1}^{\infty} \sin\left(\frac{n\pi\theta}{\alpha}\right) \left[\frac{1}{r}\frac{d}{dr}\left(r\frac{dg_n}{dr}\right) - \frac{\nu_n^2}{r^2} g_n\right]$$
+
+### Expansión en Series de Fourier de la Función Delta
+
+La función delta bidimensional en coordenadas polares se puede expandir:
+$$\delta(r - r')\delta(\theta - \theta') = \frac{\delta(r-r')}{r'} \sum_{n=1}^{\infty} \frac{2}{\alpha} \sin\left(\frac{n\pi\theta'}{\alpha}\right) \sin\left(\frac{n\pi\theta}{\alpha}\right)$$
+
+Esto proviene del hecho de que las funciones $\{\sin(n\pi\theta/\alpha)\}$ forman una base ortogonal en $[0, \alpha]$ con peso 1.
+
+---
+
+## Problema 5 de Magnetostática - Identidad Vectorial Completa
+
+### Demostración de la Identidad Vectorial
+
+La identidad $\vec{A} \times (\vec{B} \times \vec{C}) = \vec{B}(\vec{A} \cdot \vec{C}) - \vec{C}(\vec{A} \cdot \vec{B})$ se puede demostrar en componentes.
+
+En notación de índices:
+$$[\vec{A} \times (\vec{B} \times \vec{C})]_i = \epsilon_{ijk} A_j (\vec{B} \times \vec{C})_k = \epsilon_{ijk} A_j \epsilon_{klm} B_l C_m$$
+
+Usando la identidad $\epsilon_{ijk}\epsilon_{klm} = \delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}$:
+$$= A_j(\delta_{il}\delta_{jm} - \delta_{im}\delta_{jl}) B_l C_m = A_j\delta_{il}B_l C_m \delta_{jm} - A_j\delta_{im}B_l C_m\delta_{jl}$$
+$$= A_j B_i C_j - A_j B_j C_i = B_i(A_j C_j) - C_i(A_j B_j) = B_i(\vec{A} \cdot \vec{C}) - C_i(\vec{A} \cdot \vec{B})$$
+
+Recomponiendo en notación vectorial:
+$$\vec{A} \times (\vec{B} \times \vec{C}) = \vec{B}(\vec{A} \cdot \vec{C}) - \vec{C}(\vec{A} \cdot \vec{B})$$
+
+### Aplicación al Problema
+
+Con $\vec{A} = \vec{r}$, $\vec{B} = \vec{\omega}$, $\vec{C} = \vec{r}$:
+$$\vec{r} \times (\vec{\omega} \times \vec{r}) = \vec{\omega}(\vec{r} \cdot \vec{r}) - \vec{r}(\vec{r} \cdot \vec{\omega})$$
+$$= \vec{\omega} r^2 - \vec{r}(\vec{r} \cdot \vec{\omega})$$
+
+**Por qué se anula el segundo término en la integral:**
+
+En componentes del segundo término, integrado sobre la esfera:
+$$\int_V \vec{r}(\vec{r} \cdot \vec{\omega}) dV = \int_V (r_i r_j \omega_j) dV$$
+
+Esta es la contracción del tensor de momento de inercia con $\vec{\omega}$. Para una distribución con simetría esférica, se puede demostrar que:
+$$\int_V r_i r_j dV = \delta_{ij} \int_V r^2 dV$$
+
+Por lo tanto:
+$$\int_V \vec{r}(\vec{r} \cdot \vec{\omega}) dV = \omega_j \delta_{ij} \int_V r^2 dV = \omega_i \int_V r^2 dV = \vec{\omega} \int_V r^2 dV$$
+
+### Cálculo Alternativo Usando Tensor de Inercia
+
+Para una esfera sólida uniforme de masa $M$ y radio $R$, el tensor de momento de inercia es:
+$$I_{ij} = \frac{2}{5}MR^2 \delta_{ij}$$
+
+El momento angular es:
+$$L_i = I_{ij} \omega_j = \frac{2}{5}MR^2 \omega_i$$
+
+Esto verifica que $\vec{L} = \frac{2}{5}MR^2 \vec{\omega}$.
+
+Para la carga uniforme $q$ en la misma distribución:
+$$\vec{m} = \frac{q}{2M}\vec{L} = \frac{q}{2M} \cdot \frac{2}{5}MR^2\vec{\omega} = \frac{1}{5}qR^2\vec{\omega}$$
+
+---
+
+## Problema 6 de Magnetostática - Constante de Estructura Fina
+
+### Definición y Propiedades de $\alpha$
+
+La constante de estructura fina $\alpha$ es:
+$$\alpha = \frac{e^2}{4\pi\epsilon_0\hbar c} \approx \frac{1}{137}$$
+
+Esta puede reescribirse como:
+$$\frac{e^2}{4\pi\epsilon_0} = \alpha \hbar c$$
+
+O usando sistemas CGS:
+$$\alpha = \frac{e^2}{\hbar c}$$
+
+### Radio Clásico del Electrón en Términos de $\alpha$
+
+$$r_0 = \frac{e^2}{4\pi\epsilon_0 m_e c^2} = \frac{\alpha \hbar c}{m_e c^2} = \frac{\alpha \hbar}{m_e c}$$
+
+Numéricamente: $r_0 \approx 2.8 \times 10^{-15}$ m (femtómetros)
+
+### Simplificación de la Velocidad Angular
+
+Partiendo de:
+$$\omega = \frac{3\hbar}{2m_e r_0^2}$$
+
+Sustituyendo $r_0 = \frac{\alpha \hbar}{m_e c}$:
+$$r_0^2 = \left(\frac{\alpha \hbar}{m_e c}\right)^2 = \frac{\alpha^2 \hbar^2}{m_e^2 c^2}$$
+
+Entonces:
+$$\omega = \frac{3\hbar}{2m_e} \cdot \frac{m_e^2 c^2}{\alpha^2 \hbar^2} = \frac{3m_e c^2}{2\alpha^2 \hbar}$$
+
+### Velocidad Tangencial en el Ecuador
+
+$$v_t = \omega r_0 = \frac{3m_e c^2}{2\alpha^2 \hbar} \cdot \frac{\alpha \hbar}{m_e c} = \frac{3c}{2\alpha}$$
+
+Con $\alpha = 1/137$:
+$$v_t = \frac{3c}{2/137} = \frac{3 \times 137}{2} c = \frac{411}{2}c \approx 205.5 c$$
+
+### Análisis de la Inconsistencia
+
+Este resultado demuestra que el modelo clásico es inconsistente con la relatividad especial:
+- Una velocidad $v_t > c$ es imposible
+- Esto sugiere que el espín es una propiedad cuántica intrínseca
+- El factor $g \approx 2$ tampoco puede explicarse clásicamente
+
+---
+
+## Problema 8 de Magnetostática - Cálculos de Integrales Complejas
+
+### Integral Angular: Fórmulas de Wallis
+
+Las fórmulas de Wallis para integrales de potencias de seno y coseno son:
+
+$$\int_0^\pi \sin^n(\theta) d\theta = \begin{cases}
+\frac{(n-1)!! \pi}{n!!} & \text{si } n \text{ es par} \\
+\frac{(n-1)!!}{n!!} \cdot 2 & \text{si } n \text{ es impar}
+\end{cases}$$
+
+donde $n!! = n(n-2)(n-4)\cdots$ es el factorial doble.
+
+Para $n = 5$ (impar):
+$$\int_0^\pi \sin^5(\theta) d\theta = \frac{4!!}{5!!} \cdot 2 = \frac{4 \cdot 2}{5 \cdot 3 \cdot 1} \cdot 2 = \frac{8}{15} \cdot 2 = \frac{16}{15}$$
+
+### Integral Radial Usando Función Gamma
+
+La función Gamma se define como:
+$$\Gamma(n) = \int_0^\infty x^{n-1} e^{-x} dx = (n-1)!$$
+
+La integral general:
+$$\int_0^\infty x^n e^{-ax} dx = \frac{\Gamma(n+1)}{a^{n+1}} = \frac{n!}{a^{n+1}}$$
+
+Para $\int_0^\infty r^3 e^{-2r/3a_0} dr$, hacemos $u = \frac{2r}{3a_0}$, $r = \frac{3a_0 u}{2}$, $dr = \frac{3a_0}{2}du$:
+
+$$\int_0^\infty r^3 e^{-2r/3a_0} dr = \int_0^\infty \left(\frac{3a_0 u}{2}\right)^3 e^{-u} \frac{3a_0}{2} du$$
+$$= \left(\frac{3a_0}{2}\right)^4 \int_0^\infty u^3 e^{-u} du = \frac{3^4 a_0^4}{2^4} \cdot 3! = \frac{81 a_0^4}{16} \cdot 6 = \frac{486 a_0^4}{16} = \frac{243 a_0^4}{8}$$
+
+---
+
+## Problema 9 de Magnetostática - Campo Magnético de Corriente Azimutal
+
+### Componentes del Vector Unitario $\hat{\theta}$
+
+En coordenadas esféricas:
+- $\hat{r} = \sin\theta\cos\varphi \hat{x} + \sin\theta\sin\varphi \hat{y} + \cos\theta \hat{z}$
+- $\hat{\theta} = \cos\theta\cos\varphi \hat{x} + \cos\theta\sin\varphi \hat{y} - \sin\theta \hat{z}$
+- $\hat{\varphi} = -\sin\varphi \hat{x} + \cos\varphi \hat{y}$
+
+La componente $z$ de $\hat{\theta}$ es:
+$$\hat{\theta} \cdot \hat{z} = -\sin\theta$$
+
+### Evaluación de la Integral Angular
+
+$$\int_0^\pi \sin^3(\theta) d\theta$$
+
+Usando $\sin^3(\theta) = \sin(\theta)(1 - \cos^2(\theta))$, sea $u = \cos(\theta)$, $du = -\sin(\theta)d\theta$:
+
+$$\int_0^\pi \sin^3(\theta) d\theta = \int_1^{-1} (1 - u^2)(-du) = \int_{-1}^1 (1 - u^2) du$$
+$$= \left[u - \frac{u^3}{3}\right]_{-1}^1 = \left(1 - \frac{1}{3}\right) - \left(-1 + \frac{1}{3}\right) = \frac{2}{3} - (-\frac{2}{3}) = \frac{4}{3}$$
+
+---
+
+## Problema 10-11 de Magnetostática - Análisis Relativista
+
+### Invariantes de Lorentz
+
+Los dos invariantes básicos del campo electromagnético bajo transformaciones de Lorentz son:
+
+1. **Invariante pseudoescalar:**
+   $$I_1 = \vec{E} \cdot \vec{B}$$
+
+2. **Invariante escalar:**
+   $$I_2 = \frac{E^2}{c^2} - B^2$$
+
+Para el problema 11 con $E = cB$ y $\vec{E} \perp \vec{B}$:
+- $I_1 = 0$ (porque $\vec{E} \perp \vec{B}$)
+- $I_2 = \frac{(cB)^2}{c^2} - B^2 = B^2 - B^2 = 0$
+
+Cuando ambos invariantes son cero, existe un marco de referencia donde $\vec{E}' = \vec{B}' = 0$.
+
+### Búsqueda del Marco sin Campos
+
+Las transformaciones de Lorentz de los campos bajo un boost con velocidad $\vec{u}$ perpendicular a ambos $\vec{E}$ y $\vec{B}$ son:
+$$\vec{E}' = \gamma(\vec{E} + \vec{u} \times \vec{B})$$
+$$\vec{B}' = \gamma\left(\vec{B} - \frac{\vec{u} \times \vec{E}}{c^2}\right)$$
+
+Con $\vec{u} = u\hat{x}$, $\vec{E} = E\hat{y}$, $\vec{B} = B\hat{z}$:
+$$\vec{u} \times \vec{B} = u\hat{x} \times B\hat{z} = -uB\hat{y}$$
+$$\vec{u} \times \vec{E} = u\hat{x} \times E\hat{y} = uE\hat{z}$$
+
+Para $\vec{E}' = 0$: $E - uB = 0 \implies u = E/B = c$
+
+Para $\vec{B}' = 0$: $B - \frac{uE}{c^2} = 0 \implies u = \frac{c^2 B}{E} = \frac{c^2 B}{cB} = c$
+
+Ambos dan $u = c$, confirmando que el sistema $S'$ que se mueve a la velocidad de la luz no tiene campos.
+
+---
+
+## Referencias Útiles
+
+### Identidades Vectoriales Comunes
+
+$$\nabla \times (\nabla \phi) = 0$$
+$$\nabla \cdot (\nabla \times \vec{A}) = 0$$
+$$\nabla \times (\nabla \times \vec{A}) = \nabla(\nabla \cdot \vec{A}) - \nabla^2 \vec{A}$$
+
+### Fórmulas de Integración
+
+$$\int_0^a x^n dx = \frac{a^{n+1}}{n+1}$$
+$$\int_0^\pi \sin^n(\theta) d\theta = \frac{(n-1)!!}{n!!} \cdot \begin{cases} 2 & n \text{ impar} \\ \pi & n \text{ par} \end{cases}$$
+$$\int_0^\infty x^n e^{-ax} dx = \frac{n!}{a^{n+1}}$$
+
+### Transformaciones de Coordenadas
+
+**Cartesianas a Esféricas:**
+- $x = r\sin\theta\cos\varphi$
+- $y = r\sin\theta\sin\varphi$  
+- $z = r\cos\theta$
+- $dV = r^2\sin\theta \, dr \, d\theta \, d\varphi$
+
+**Cartesianas a Cilíndricas:**
+- $x = \rho\cos\varphi$
+- $y = \rho\sin\varphi$
+- $z = z$
+- $dV = \rho \, d\rho \, d\varphi \, dz$
 
 ---
 
