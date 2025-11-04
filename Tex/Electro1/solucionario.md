@@ -1120,90 +1120,119 @@ Ambos métodos, interpretados correctamente, conducen al mismo resultado.
 
 ## Problema 1
 
-**Enunciado:** Una partícula de masa $m$ y carga $e$ en presencia del campo magnetostático uniforme $\vec{B}$ tiene una trayectoria circular de radio $r$ cuya frecuencia angular es $\omega = \frac{eB}{m}$. Halle la trayectoria de la partícula si, además del campo magnetostático uniforme $\vec{B} = B\vec{e}_z$, existe un campo eléctrico uniforme y constante $\vec{E} = E\vec{e}_y$ que es perpendicular al campo magnético.
+**Enunciado:** Por un cilindro muy largo de radio $a$, tan largo que puede ser considerado infinito, circula una corriente constante de densidad $\vec{J}$. Calcule el valor del vector inducción magnética $\vec{B}$ en el exterior del cilindro.
 
 **Solución:**
 
-**1. Ecuación de Movimiento**
+Para resolver este problema, utilizaremos la Ley de Ampère en su forma integral, que es ideal para situaciones con alta simetría.
 
-La fuerza de Lorentz sobre una partícula de carga $e$ en presencia de campos eléctrico y magnético es:
-$$ \vec{F} = e(\vec{E} + \vec{v} \times \vec{B}) $$
+**1. Ley de Ampère:**
+La ley de Ampère establece que la circulación del campo magnético $\vec{B}$ a lo largo de un contorno cerrado $C$ es proporcional a la corriente total $I_{enc}$ que atraviesa la superficie delimitada por dicho contorno.
+$$ \oint_C \vec{B} \cdot d\vec{l} = \mu_0 I_{enc} $$
 
-La ecuación de movimiento de Newton es:
-$$ m\frac{d\vec{v}}{dt} = e(\vec{E} + \vec{v} \times \vec{B}) $$
+**2. Simetría del Problema:**
+Debido a la simetría cilíndrica del problema (el cilindro es infinito), podemos deducir que:
+*   El campo magnético $\vec{B}$ debe tener solo una componente azimutal ($\vec{B} = B_\varphi \hat{\varphi}$).
+*   La magnitud del campo, $B_\varphi$, solo puede depender de la distancia radial $r$ al eje del cilindro, es decir, $B_\varphi = B(r)$.
 
-Con $\vec{E} = E\vec{e}_y$ y $\vec{B} = B\vec{e}_z$, y escribiendo $\vec{v} = v_x\vec{e}_x + v_y\vec{e}_y + v_z\vec{e}_z$, el producto vectorial es:
-$$ \vec{v} \times \vec{B} = (v_x\vec{e}_x + v_y\vec{e}_y + v_z\vec{e}_z) \times (B\vec{e}_z) = v_xB\vec{e}_y - v_yB\vec{e}_x $$
+**3. Elección del Contorno Amperiano:**
+Elegimos un contorno amperiano circular de radio $r > a$, centrado en el eje del cilindro y en un plano perpendicular a este.
 
-Las ecuaciones de movimiento componente por componente son:
-1. $m\frac{dv_x}{dt} = -ev_yB$
-2. $m\frac{dv_y}{dt} = eE + ev_xB$
-3. $m\frac{dv_z}{dt} = 0$
+**4. Cálculo de la Circulación de $\vec{B}$:**
+El vector $d\vec{l}$ a lo largo de este contorno es siempre tangente al círculo y en la misma dirección que $\hat{\varphi}$. Por lo tanto, $\vec{B}$ y $d\vec{l}$ son paralelos en todo el contorno.
+$$ \oint_C \vec{B} \cdot d\vec{l} = \oint_C B(r) \hat{\varphi} \cdot (r d\varphi \hat{\varphi}) = \int_0^{2\pi} B(r) r d\varphi $$
+Como $B(r)$ y $r$ son constantes a lo largo del contorno:
+$$ \oint_C \vec{B} \cdot d\vec{l} = B(r) r \int_0^{2\pi} d\varphi = B(r) \cdot 2\pi r $$
 
-**2. Movimiento en la Dirección z**
+**5. Cálculo de la Corriente Encerrada ($I_{enc}$):**
+La corriente encerrada por nuestro contorno de radio $r > a$ es la corriente total que fluye por el cilindro. La densidad de corriente es $\vec{J}$, y la sección transversal del cilindro es un círculo de radio $a$.
+$$ I_{enc} = \int_S \vec{J} \cdot d\vec{S} $$
+Si asumimos que $\vec{J}$ es uniforme y paralela al eje del cilindro, la corriente total es $I = J \cdot (\pi a^2)$.
 
-De la tercera ecuación, $v_z$ es constante. Si la velocidad inicial en $z$ es cero, entonces $v_z(t) = 0$ y $z(t) = z_0$ (constante). El movimiento está confinado al plano $xy$.
-
-**3. Movimiento en el Plano xy**
-
-Definimos la frecuencia ciclotrón $\omega = \frac{eB}{m}$. Las ecuaciones se reescriben como:
-$$ \frac{dv_x}{dt} = -\omega v_y $$
-$$ \frac{dv_y}{dt} = \frac{eE}{m} + \omega v_x $$
-
-**4. Velocidad de Deriva**
-
-Buscamos una solución de la forma $\vec{v} = \vec{v}_{ciclo} + \vec{v}_d$, donde $\vec{v}_d$ es una velocidad de deriva constante. Para campos perpendiculares, la velocidad de deriva es:
-$$ \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2} = \frac{(E\vec{e}_y) \times (B\vec{e}_z)}{B^2} = \frac{EB}{B^2}\vec{e}_x = \frac{E}{B}\vec{e}_x $$
-
-**5. Cambio de Variables**
-
-Hacemos el cambio de variables $\vec{v}' = \vec{v} - \vec{v}_d$, es decir:
-$$ v'_x = v_x - \frac{E}{B}, \quad v'_y = v_y $$
-
-Las ecuaciones para $\vec{v}'$ son:
-$$ \frac{dv'_x}{dt} = -\omega v'_y $$
-$$ \frac{dv'_y}{dt} = \omega v'_x $$
-
-Estas son las ecuaciones de un movimiento circular uniforme con frecuencia angular $\omega$. La solución es:
-$$ v'_x(t) = v_0 \cos(\omega t + \phi) $$
-$$ v'_y(t) = -v_0 \sin(\omega t + \phi) $$
-
-donde $v_0$ es la magnitud de la velocidad en el sistema de referencia que se mueve con velocidad $\vec{v}_d$, y $\phi$ es una fase determinada por las condiciones iniciales.
-
-**6. Velocidad y Trayectoria**
-
-Volviendo a las variables originales:
-$$ v_x(t) = \frac{E}{B} + v_0 \cos(\omega t + \phi) $$
-$$ v_y(t) = -v_0 \sin(\omega t + \phi) $$
-
-Integrando para obtener la posición (con condiciones iniciales apropiadas):
-$$ x(t) = x_0 + \frac{E}{B}t + \frac{v_0}{\omega}\sin(\omega t + \phi) $$
-$$ y(t) = y_0 + \frac{v_0}{\omega}\cos(\omega t + \phi) $$
-
-**7. Descripción de la Trayectoria**
-
-La trayectoria es una **cicloide**: la partícula se mueve en círculos de radio $r = \frac{v_0}{\omega} = \frac{mv_0}{eB}$ mientras deriva en la dirección $x$ con velocidad constante $v_d = \frac{E}{B}$.
-
-Esta deriva es conocida como la **deriva $\vec{E} \times \vec{B}$**, y es perpendicular tanto al campo eléctrico como al magnético.
+**6. Aplicación de la Ley de Ampère:**
+Igualamos los resultados de los pasos 4 y 5:
+$$ B(r) \cdot 2\pi r = \mu_0 I $$
+Despejando $B(r)$ para el exterior del cilindro ($r > a$):
+$$ B(r) = \frac{\mu_0 I}{2\pi r} $$
+Donde $I = J \pi a^2$ es la corriente total. Sustituyendo $I$:
+$$ B(r) = \frac{\mu_0 (J \pi a^2)}{2\pi r} = \frac{\mu_0 J a^2}{2r} $$
+En forma vectorial, el campo magnético en el exterior del cilindro es:
+$$ \vec{B}(\vec{r}) = \frac{\mu_0 J a^2}{2r} \hat{\varphi} \quad (\text{para } r > a) $$
 
 ---
 
 ## Problema 2
 
+**Enunciado:** Suponiendo conocidas las condiciones iniciales, encuentre la ley de movimiento $\vec{r} = \vec{r}(t)$ de una partícula de masa $m$, cargada con carga $q$, que posee una frecuencia propia de oscilación $\omega_0$ y se mueve en presencia de un campo magnetostático de vector de inducción $\vec{B} = (0,0,B)$. Resuelva el problema en la aproximación no relativista.
+
+**Solución:**
+
+Este problema describe un oscilador armónico tridimensional cargado en un campo magnético uniforme.
+
+**1. Ecuación de Movimiento:**
+La fuerza total sobre la partícula es la suma de la fuerza elástica (debido a su frecuencia propia $\omega_0$) y la fuerza de Lorentz. La ecuación de Newton es:
+$$ m\ddot{\vec{r}} = -m\omega_0^2 \vec{r} + q(\dot{\vec{r}} \times \vec{B}) $$
+
+**2. Componentes de la Ecuación:**
+Con $\vec{B} = B\hat{z}$ y $\vec{r} = x\hat{x} + y\hat{y} + z\hat{z}$, el producto vectorial es:
+$$ \dot{\vec{r}} \times \vec{B} = (\dot{x}\hat{x} + \dot{y}\hat{y} + \dot{z}\hat{z}) \times (B\hat{z}) = \dot{x}B\hat{y} - \dot{y}B\hat{x} $$
+
+Las ecuaciones componente por componente son:
+1. $m\ddot{x} = -m\omega_0^2 x + qB\dot{y}$
+2. $m\ddot{y} = -m\omega_0^2 y - qB\dot{x}$
+3. $m\ddot{z} = -m\omega_0^2 z$
+
+**3. Movimiento en la Dirección z:**
+La tercera ecuación es independiente:
+$$ \ddot{z} + \omega_0^2 z = 0 $$
+La solución es un oscilador armónico simple:
+$$ z(t) = A_z\cos(\omega_0 t) + B_z\sin(\omega_0 t) $$
+donde $A_z$ y $B_z$ se determinan por las condiciones iniciales.
+
+**4. Movimiento en el Plano xy:**
+Definimos la frecuencia ciclotrón $\omega_c = \frac{qB}{m}$. Las ecuaciones se reescriben:
+$$ \ddot{x} + \omega_0^2 x = \omega_c\dot{y} $$
+$$ \ddot{y} + \omega_0^2 y = -\omega_c\dot{x} $$
+
+**5. Solución usando Números Complejos:**
+Definimos $w = x + iy$. Multiplicando la segunda ecuación por $i$ y sumando:
+$$ \ddot{w} + \omega_0^2 w = \omega_c\dot{y} - i\omega_c\dot{x} = \omega_c(iy - ix) \cdot i = -i\omega_c(x + iy) = -i\omega_c w $$
+Reordenando:
+$$ \ddot{w} + i\omega_c\dot{w} + \omega_0^2 w = 0 $$
+
+**6. Solución General:**
+Proponemos $w = e^{\lambda t}$. Sustituyendo:
+$$ \lambda^2 + i\omega_c\lambda + \omega_0^2 = 0 $$
+Usando la fórmula cuadrática:
+$$ \lambda = \frac{-i\omega_c \pm \sqrt{-\omega_c^2 - 4\omega_0^2}}{2} = \frac{-i\omega_c \pm i\sqrt{\omega_c^2 + 4\omega_0^2}}{2} $$
+Definiendo $\Omega = \sqrt{\omega_c^2 + 4\omega_0^2}$:
+$$ \lambda_{\pm} = \frac{-i(\omega_c \mp \Omega)}{2} $$
+
+La solución general es:
+$$ w(t) = C_+ e^{-i(\omega_c - \Omega)t/2} + C_- e^{-i(\omega_c + \Omega)t/2} $$
+
+**7. Forma Real:**
+Separando en componentes reales e imaginarias, las soluciones para $x(t)$ y $y(t)$ son combinaciones de términos oscilatorios con frecuencias $\omega_+ = \frac{\Omega - \omega_c}{2}$ y $\omega_- = \frac{\Omega + \omega_c}{2}$, donde las constantes se determinan por las condiciones iniciales $x(0), y(0), \dot{x}(0), \dot{y}(0)$.
+
+La solución completa es:
+$$ \vec{r}(t) = (x(t), y(t), z(t)) $$
+con $z(t)$ oscilando a frecuencia $\omega_0$ y $(x(t), y(t))$ oscilando con dos frecuencias $\omega_+$ y $\omega_-$.
+
+---
+
+## Problema 3
+
 **Enunciado:** Un flujo de partículas de masa $m$ y carga $e$ penetra con velocidad $\vec{v}_0$ en una región en la cual existe un campo magnetostático homogéneo $\vec{B}$, el cual es perpendicular a $\vec{v}_0$. Calcule el ángulo de desviación de la partícula y el tiempo de permanencia en el campo $\vec{B}$ suponiendo que el campo magnetostático existe en una región limitada del espacio con dimensión característica $a$ en la dirección perpendicular a $\vec{v}_0$.
 
 **Solución:**
 
-**1. Movimiento en el Campo Magnético**
-
+**1. Movimiento en el Campo Magnético:**
 Una partícula cargada que entra perpendicularmente a un campo magnético uniforme describe un movimiento circular con radio:
 $$ r = \frac{mv_0}{eB} $$
-
 La frecuencia angular es:
 $$ \omega = \frac{eB}{m} $$
 
-**2. Geometría del Problema**
-
+**2. Geometría del Problema:**
 La partícula entra en la región del campo magnético, describe un arco circular de radio $r$, y luego sale de la región cuando ha atravesado una distancia $a$ (la dimensión característica de la región del campo).
 
 Sea $\theta$ el ángulo que la partícula recorre en su trayectoria circular dentro del campo. La distancia horizontal atravesada es:
@@ -1217,15 +1246,13 @@ $$ \theta = 2\arcsin\left(\frac{aeB}{2mv_0}\right) $$
 
 Este es el **ángulo de desviación** de la partícula.
 
-**3. Condiciones de Validez**
-
+**3. Condiciones de Validez:**
 Para que esta solución sea válida, se requiere que $\frac{aeB}{2mv_0} \leq 1$, es decir:
 $$ a \leq \frac{2mv_0}{eB} = 2r $$
 
 Si $a > 2r$, la partícula completaría un semicírculo o más dentro de la región.
 
-**4. Tiempo de Permanencia**
-
+**4. Tiempo de Permanencia:**
 La longitud del arco recorrido por la partícula es:
 $$ s = r\theta $$
 
@@ -1235,8 +1262,7 @@ $$ t = \frac{s}{v_0} = \frac{r\theta}{v_0} = \frac{m\theta}{eB} $$
 Sustituyendo la expresión para $\theta$:
 $$ t = \frac{2m}{eB}\arcsin\left(\frac{aeB}{2mv_0}\right) $$
 
-**5. Caso Límite: Campo Débil o Región Pequeña**
-
+**5. Caso Límite: Campo Débil o Región Pequeña:**
 Si $a \ll r$ (campo débil o región pequeña), podemos usar la aproximación $\arcsin(x) \approx x$ para $x \ll 1$:
 $$ \theta \approx 2 \cdot \frac{aeB}{2mv_0} = \frac{aeB}{mv_0} $$
 $$ t \approx \frac{2m}{eB} \cdot \frac{aeB}{2mv_0} = \frac{a}{v_0} $$
@@ -1245,14 +1271,13 @@ En este límite, el tiempo de permanencia es simplemente el tiempo que tardaría
 
 ---
 
-## Problema 3
+## Problema 4
 
 **Enunciado:** Una partícula de masa $m$ y carga $e$ en presencia de campos $\vec{E}$ y $\vec{B}$ uniformes, constantes y paralelos entre sí, tiene una velocidad inicial $\vec{v}_0$ perpendicular a los campos. Halle la trayectoria de la partícula.
 
 **Solución:**
 
-**1. Configuración y Ecuación de Movimiento**
-
+**1. Configuración y Ecuación de Movimiento:**
 Orientamos el sistema de coordenadas de modo que los campos estén en la dirección $z$:
 $$ \vec{E} = E\vec{e}_z, \quad \vec{B} = B\vec{e}_z $$
 
@@ -1261,8 +1286,7 @@ La velocidad inicial es perpendicular a los campos, por ejemplo $\vec{v}_0 = v_0
 La ecuación de movimiento es:
 $$ m\frac{d\vec{v}}{dt} = e(\vec{E} + \vec{v} \times \vec{B}) $$
 
-**2. Componentes de la Ecuación de Movimiento**
-
+**2. Componentes de la Ecuación de Movimiento:**
 Escribiendo $\vec{v} = v_x\vec{e}_x + v_y\vec{e}_y + v_z\vec{e}_z$, el producto vectorial es:
 $$ \vec{v} \times \vec{B} = (v_x\vec{e}_x + v_y\vec{e}_y + v_z\vec{e}_z) \times (B\vec{e}_z) = v_xB\vec{e}_y - v_yB\vec{e}_x $$
 
@@ -1271,8 +1295,7 @@ Las ecuaciones componente por componente son:
 2. $m\frac{dv_y}{dt} = ev_xB$
 3. $m\frac{dv_z}{dt} = eE$
 
-**3. Movimiento en la Dirección z**
-
+**3. Movimiento en la Dirección z:**
 La tercera ecuación se integra directamente:
 $$ v_z(t) = v_{z,0} + \frac{eE}{m}t $$
 
@@ -1284,8 +1307,7 @@ $$ z(t) = z_0 + \frac{eE}{2m}t^2 $$
 
 El movimiento en $z$ es **uniformemente acelerado** con aceleración $a_z = \frac{eE}{m}$.
 
-**4. Movimiento en el Plano xy**
-
+**4. Movimiento en el Plano xy:**
 Las dos primeras ecuaciones describen un movimiento circular. Definimos la frecuencia ciclotrón $\omega = \frac{eB}{m}$:
 $$ \frac{dv_x}{dt} = -\omega v_y $$
 $$ \frac{dv_y}{dt} = \omega v_x $$
@@ -1298,8 +1320,7 @@ Integrando:
 $$ x(t) = x_0 + \frac{v_0}{\omega}\sin(\omega t) $$
 $$ y(t) = y_0 - \frac{v_0}{\omega}\cos(\omega t) + \frac{v_0}{\omega} $$
 
-**5. Descripción de la Trayectoria**
-
+**5. Descripción de la Trayectoria:**
 En el plano $xy$, la partícula describe un movimiento circular con radio $r = \frac{v_0}{\omega} = \frac{mv_0}{eB}$ y frecuencia angular $\omega$.
 
 Simultáneamente, la partícula es acelerada en la dirección $z$ por el campo eléctrico.
@@ -1308,14 +1329,13 @@ La trayectoria completa es una **hélice con paso creciente** (o espiral cónica
 
 ---
 
-## Problema 4
+## Problema 5
 
 **Enunciado:** Una partícula de masa $m$ y carga $e$ entra en una región con campo magnético uniforme $\vec{B}$ con velocidad $\vec{v}_0$ que forma un ángulo $\alpha$ con $\vec{B}$. Describa el movimiento de la partícula.
 
 **Solución:**
 
-**1. Descomposición de la Velocidad**
-
+**1. Descomposición de la Velocidad:**
 Orientamos el sistema de coordenadas con $\vec{B} = B\vec{e}_z$. La velocidad inicial se descompone en:
 *   **Componente paralela al campo:** $v_{\parallel} = v_0\cos\alpha$
 *   **Componente perpendicular al campo:** $v_{\perp} = v_0\sin\alpha$
@@ -1323,29 +1343,25 @@ Orientamos el sistema de coordenadas con $\vec{B} = B\vec{e}_z$. La velocidad in
 Podemos escribir:
 $$ \vec{v}_0 = v_{\perp}\vec{e}_x + v_{\parallel}\vec{e}_z $$
 
-**2. Ecuación de Movimiento**
-
+**2. Ecuación de Movimiento:**
 La fuerza de Lorentz es:
 $$ \vec{F} = e\vec{v} \times \vec{B} $$
 
 Esta fuerza es siempre perpendicular tanto a $\vec{v}$ como a $\vec{B}$. Por lo tanto, la componente de la velocidad paralela al campo magnético no experimenta ninguna fuerza:
 $$ F_z = 0 \implies v_z = v_{\parallel} = \text{constante} $$
 
-**3. Movimiento Paralelo al Campo**
-
+**3. Movimiento Paralelo al Campo:**
 El movimiento en la dirección del campo es **uniforme**:
 $$ z(t) = z_0 + v_{\parallel}t $$
 
-**4. Movimiento Perpendicular al Campo**
-
+**4. Movimiento Perpendicular al Campo:**
 En el plano perpendicular a $\vec{B}$, la partícula experimenta la fuerza magnética que la hace describir un movimiento circular uniforme. La frecuencia angular es:
 $$ \omega = \frac{eB}{m} $$
 
 El radio de la órbita circular está determinado por la componente perpendicular de la velocidad:
 $$ r = \frac{mv_{\perp}}{eB} = \frac{mv_0\sin\alpha}{eB} $$
 
-**5. Trayectoria Completa**
-
+**5. Trayectoria Completa:**
 La combinación del movimiento circular en el plano $xy$ y el movimiento uniforme en la dirección $z$ resulta en una **trayectoria helicoidal** (hélice) alrededor de la dirección del campo magnético.
 
 Los parámetros de la hélice son:
@@ -1354,29 +1370,26 @@ Los parámetros de la hélice son:
 *   **Paso de la hélice** (distancia recorrida en $z$ por cada vuelta completa):
     $$ d = v_{\parallel}T = v_{\parallel}\frac{2\pi}{\omega} = \frac{2\pi m v_0\cos\alpha}{eB} $$
 
-**6. Casos Especiales**
-
+**6. Casos Especiales:**
 *   Si $\alpha = 0$ (velocidad paralela al campo): No hay fuerza ($r=0$), la partícula se mueve en línea recta.
 *   Si $\alpha = 90°$ (velocidad perpendicular al campo): $v_{\parallel}=0$, la partícula describe un círculo en un plano perpendicular a $\vec{B}$.
 
 ---
 
-## Problema 5
+## Problema 6
 
 **Enunciado:** Una bola maciza de radio $R$ tiene carga $q$ distribuida uniformemente en su volumen y rota con velocidad angular $\vec{\omega}$ alrededor de un eje que pasa por su centro. Halle el campo $\vec{B}$ y el momento dipolar magnético $\vec{m}$ de la bola.
 
 **Solución:**
 
-**1. Densidad de Corriente**
-
+**1. Densidad de Corriente:**
 Una esfera cargada que rota equivale a una distribución de corrientes. La densidad de carga es:
 $$ \rho = \frac{q}{\frac{4}{3}\pi R^3} = \frac{3q}{4\pi R^3} $$
 
 En un punto $\vec{r}$ dentro de la esfera, la velocidad debido a la rotación es $\vec{v} = \vec{\omega} \times \vec{r}$. La densidad de corriente es:
 $$ \vec{J}(\vec{r}) = \rho\vec{v} = \rho(\vec{\omega} \times \vec{r}) = \frac{3q}{4\pi R^3}(\vec{\omega} \times \vec{r}) $$
 
-**2. Cálculo del Momento Dipolar Magnético**
-
+**2. Cálculo del Momento Dipolar Magnético:**
 El momento dipolar magnético se define como:
 $$ \vec{m} = \frac{1}{2}\int_V \vec{r} \times \vec{J}(\vec{r}) dV $$
 
@@ -1395,28 +1408,21 @@ $$ \int_V r^2 dV = \int_0^R r^2(4\pi r^2 dr) = 4\pi\int_0^R r^4 dr = 4\pi\left[\
 Sustituyendo:
 $$ \vec{m} = \frac{3q}{8\pi R^3}\vec{\omega} \cdot \frac{4\pi R^5}{5} = \frac{3q \cdot 4\pi R^5}{8\pi R^3 \cdot 5}\vec{\omega} = \frac{qR^2}{5}\vec{\omega} $$
 
-Alternativamente, con la forma más común:
+El momento dipolar magnético es:
 $$ \vec{m} = \frac{1}{5}qR^2\vec{\omega} $$
 
-O usando el momento angular $\vec{L} = I\vec{\omega} = \frac{2}{5}mR^2\vec{\omega}$ (para una esfera sólida):
-$$ \vec{m} = \frac{q}{2m}\vec{L} $$
-
-**3. Cálculo del Campo Magnético $\vec{B}$**
-
-Para calcular el campo magnético, usamos la ley de Ampère con simetría esférica. Sin embargo, dada la complejidad del problema, el resultado es:
+**3. Cálculo del Campo Magnético $\vec{B}$:**
+Para calcular el campo magnético, usamos la ley de Ampère con simetría esférica. El resultado es:
 
 *   **En el centro de la esfera ($\vec{r}=0$):**
-    $$ \vec{B}(0) = \frac{2\mu_0}{5}\frac{q\vec{\omega}}{R} = \frac{2\mu_0\vec{m}}{5R^3} \cdot 5 = \frac{2\mu_0\vec{m}}{R^3} $$
-    
-    Más precisamente:
-    $$ \vec{B}(0) = \frac{\mu_0 q\vec{\omega}}{5R} $$
+    $$ \vec{B}(0) = \frac{2\mu_0}{5}\frac{q\vec{\omega}}{R} $$
 
 *   **Fuera de la esfera ($r > R$):** El campo es el de un dipolo magnético:
     $$ \vec{B}(\vec{r}) = \frac{\mu_0}{4\pi r^3}\left[3(\vec{m} \cdot \hat{r})\hat{r} - \vec{m}\right] $$
 
 ---
 
-## Problema 6
+## Problema 7
 
 **Enunciado:** Suponiendo que la bola que rota en el problema anterior es el electrón no puntual con radio clásico $r_0 = \frac{e^2}{4 \pi \epsilon_0 m_e c^2}$, encuentre cuál debe ser el valor de la velocidad angular $\omega$ para que el momento magnético $\vec{m}$ coincida con el momento magnético de spin del electrón, que es $\vec{m}_s = -g \frac{e}{2m_e}\vec{S}$, donde $\vec{S}$ es el momento angular de spin, cuya magnitud es $|\vec{S}| = \frac{\hbar}{2}$ y $g \approx 2$. Compare el resultado de la velocidad tangencial en el ecuador con la velocidad de la luz.
 
@@ -1424,19 +1430,17 @@ Para calcular el campo magnético, usamos la ley de Ampère con simetría esfér
 
 Este problema utiliza el resultado del problema anterior para modelar el electrón como una esfera cargada en rotación y comparar su momento magnético clásico con el momento magnético de espín cuántico.
 
-**1. Momento Magnético Clásico**
-
-Del problema 5, el momento dipolar magnético de una esfera de radio $R$ y carga $q$ que rota con velocidad angular $\vec{\omega}$ es:
-$$ \vec{m} = \frac{1}{3} q R^2 \vec{\omega} $$
+**1. Momento Magnético Clásico:**
+Del problema 6, el momento dipolar magnético de una esfera de radio $R$ y carga $q$ que rota con velocidad angular $\vec{\omega}$ es:
+$$ \vec{m} = \frac{1}{5} q R^2 \vec{\omega} $$
 Para este modelo del electrón, tenemos:
 *   La carga $q = -e$ (carga del electrón).
 *   El radio $R = r_0 = \frac{e^2}{4 \pi \epsilon_0 m_e c^2}$ (radio clásico del electrón).
 
 Sustituyendo estos valores, el momento magnético clásico del electrón es:
-$$ \vec{m} = -\frac{1}{3} e r_0^2 \vec{\omega} $$
+$$ \vec{m} = -\frac{1}{5} e r_0^2 \vec{\omega} $$
 
-**2. Momento Magnético de Espín**
-
+**2. Momento Magnético de Espín:**
 El momento magnético de espín intrínseco del electrón viene dado por:
 $$ \vec{m}_s = -g \frac{e}{2m_e}\vec{S} $$
 Donde:
@@ -1444,122 +1448,81 @@ Donde:
 *   $m_e$ es la masa del electrón.
 *   $\vec{S}$ es el momento angular de espín.
 
-La magnitud del momento angular de espín es $|\vec{S}| = \frac{\hbar}{2}$. Asumiendo que la rotación y el espín están alineados con el eje $z$ (es decir, $\vec{\omega} = \omega \hat{z}$ y $\vec{S} = \frac{\hbar}{2} \hat{z}$), podemos comparar las magnitudes:
+La magnitud del momento angular de espín es $|\vec{S}| = \frac{\hbar}{2}$. Asumiendo que la rotación y el espín están alineados, podemos comparar las magnitudes:
 $$ |\vec{m}_s| = g \frac{e}{2m_e} |\vec{S}| = 2 \frac{e}{2m_e} \frac{\hbar}{2} = \frac{e\hbar}{2m_e} $$
 Este valor se conoce como el **magnetón de Bohr**, $\mu_B = \frac{e\hbar}{2m_e}$.
 
-**3. Cálculo de la Velocidad Angular $\omega$**
-
+**3. Cálculo de la Velocidad Angular $\omega$:**
 Igualamos las magnitudes de los dos momentos magnéticos, $|\vec{m}| = |\vec{m}_s|$:
-$$ \frac{1}{3} e r_0^2 \omega = \frac{e\hbar}{2m_e} $$
-Ahora, despejamos la velocidad angular $\omega$:
-$$ \omega = \frac{3}{2} \frac{e\hbar}{m_e} \frac{1}{e r_0^2} = \frac{3\hbar}{2m_e r_0^2} $$
-Sustituimos la expresión para el radio clásico del electrón, $r_0$:
-$$ \omega = \frac{3\hbar}{2m_e} \left( \frac{4 \pi \epsilon_0 m_e c^2}{e^2} \right)^2 $$
-Para simplificar esta expresión, introducimos la **constante de estructura fina**, $\alpha$:
+$$ \frac{1}{5} e r_0^2 \omega = \frac{e\hbar}{2m_e} $$
+Despejamos la velocidad angular $\omega$:
+$$ \omega = \frac{5\hbar}{2m_e r_0^2} $$
+Sustituimos la expresión para el radio clásico del electrón:
+$$ r_0 = \frac{e^2}{4 \pi \epsilon_0 m_e c^2} $$
+Para simplificar, introducimos la **constante de estructura fina**:
 $$ \alpha = \frac{e^2}{4 \pi \epsilon_0 \hbar c} \approx \frac{1}{137} $$
-De esta definición, podemos despejar el grupo de constantes $e^2 / (4 \pi \epsilon_0)$:
-$$ \frac{e^2}{4 \pi \epsilon_0} = \alpha \hbar c $$
-Sustituyendo esto en la expresión de $r_0$:
-$$ r_0 = \frac{\alpha \hbar c}{m_e c^2} = \frac{\alpha \hbar}{m_e c} $$
-Ahora sustituimos esta forma simplificada de $r_0$ en nuestra ecuación para $\omega$:
-$$ \omega = \frac{3\hbar}{2m_e \left( \frac{\alpha \hbar}{m_e c} \right)^2} = \frac{3\hbar}{2m_e} \frac{m_e^2 c^2}{\alpha^2 \hbar^2} = \frac{3 m_e c^2}{2 \alpha^2 \hbar} $$
+De esta definición, $r_0 = \frac{\alpha \hbar}{m_e c}$. Sustituyendo en nuestra ecuación:
+$$ \omega = \frac{5\hbar}{2m_e} \cdot \frac{m_e^2 c^2}{\alpha^2 \hbar^2} = \frac{5 m_e c^2}{2 \alpha^2 \hbar} $$
 
-**4. Comparación de la Velocidad Tangencial con la Velocidad de la Luz**
-
+**4. Comparación de la Velocidad Tangencial con la Velocidad de la Luz:**
 La velocidad tangencial $v_t$ en el ecuador de la esfera (donde el radio es $r_0$) está dada por $v_t = \omega r_0$.
-$$ v_t = \left( \frac{3 m_e c^2}{2 \alpha^2 \hbar} \right) \left( \frac{\alpha \hbar}{m_e c} \right) $$
-Simplificando la expresión:
-$$ v_t = \frac{3}{2\alpha} c $$
+$$ v_t = \left( \frac{5 m_e c^2}{2 \alpha^2 \hbar} \right) \left( \frac{\alpha \hbar}{m_e c} \right) = \frac{5c}{2\alpha} $$
 Dado que $\alpha \approx 1/137$, el valor de la velocidad tangencial es:
-$$ v_t \approx \frac{3}{2 \cdot (1/137)} c = \frac{3 \cdot 137}{2} c = 205.5 c $$
+$$ v_t \approx \frac{5 \cdot 137}{2} c \approx 342.5 c $$
 
-**Conclusión**
-
-La velocidad tangencial en el ecuador de este electrón clásico sería aproximadamente **205.5 veces la velocidad de la luz**.
+**Conclusión:**
+La velocidad tangencial en el ecuador de este electrón clásico sería aproximadamente **342.5 veces la velocidad de la luz**.
 
 Este resultado es físicamente imposible y demuestra de manera contundente por qué el modelo clásico de un electrón como una simple esfera cargada en rotación es inadecuado para describir sus propiedades cuánticas como el espín y el momento magnético. El espín es una propiedad intrínseca y no puede ser explicada por una rotación mecánica en el espacio.
 
 ---
 
-## Problema 7
+## Problema 8
 
 **Enunciado:** Una partícula tiene el momento magnético $\vec{m}$. Demuestre que esta partícula tiene asociada la densidad de corriente $\vec{J} = (\vec{m} \times \nabla)\delta(\vec{r} - \vec{r}_0)$, siendo $\vec{r}_0$ el vector de posición de la partícula.
 
 **Solución:**
 
-Para demostrar que la densidad de corriente asociada a un dipolo magnético puntual $\vec{m}$ en $\vec{r}_0$ es la expresión dada, podemos seguir dos caminos:
-1.  Calcular el potencial vector $\vec{A}(\vec{r})$ que esta densidad de corriente $\vec{J}$ produce y verificar si coincide con el potencial conocido de un dipolo magnético.
-2.  Calcular el momento dipolar magnético de esta densidad de corriente y ver si recuperamos $\vec{m}$.
+Para demostrar que la densidad de corriente asociada a un dipolo magnético puntual $\vec{m}$ en $\vec{r}_0$ es la expresión dada, calcularemos el potencial vector $\vec{A}(\vec{r})$ que esta densidad de corriente $\vec{J}$ produce y verificaremos si coincide con el potencial conocido de un dipolo magnético.
 
-Usaremos el primer método, ya que es más directo.
-
-**1. Potencial Vector de un Dipolo Magnético**
-
+**1. Potencial Vector de un Dipolo Magnético:**
 El potencial vector magnético $\vec{A}_{dip}(\vec{r})$ generado por un dipolo magnético puntual $\vec{m}$ localizado en una posición $\vec{r}_0$ es:
 $$ \vec{A}_{dip}(\vec{r}) = \frac{\mu_0}{4\pi} \frac{\vec{m} \times (\vec{r} - \vec{r}_0)}{|\vec{r} - \vec{r}_0|^3} $$
-Para simplificar, podemos relacionar esto con el gradiente de $1/|\vec{r}-\vec{r}_0|$:
-$$ \nabla \left( \frac{1}{|\vec{r} - \vec{r}_0|} \right) = -\frac{\vec{r} - \vec{r}_0}{|\vec{r} - \vec{r}_0|^3} $$
-Por lo tanto, el potencial del dipolo se puede escribir como:
-$$ \vec{A}_{dip}(\vec{r}) = -\frac{\mu_0}{4\pi} \left( \vec{m} \times \nabla \left( \frac{1}{|\vec{r} - \vec{r}_0|} \right) \right) $$
 
-**2. Potencial Vector a partir de la Densidad de Corriente**
-
-Ahora, calculemos el potencial vector $\vec{A}(\vec{r})$ usando la fórmula general que lo relaciona con una densidad de corriente $\vec{J}(\vec{r}')$:
+**2. Potencial Vector a partir de la Densidad de Corriente:**
+Ahora, calculemos el potencial vector $\vec{A}(\vec{r})$ usando la fórmula general:
 $$ \vec{A}(\vec{r}) = \frac{\mu_0}{4\pi} \int_{V'} \frac{\vec{J}(\vec{r}')}{|\vec{r} - \vec{r}'|} d^3r' $$
-Sustituimos la expresión propuesta para $\vec{J}(\vec{r}')$, donde el dipolo está en $\vec{r}_0$:
+Sustituimos la expresión propuesta para $\vec{J}(\vec{r}')$:
 $$ \vec{J}(\vec{r}') = (\vec{m} \times \nabla') \delta(\vec{r}' - \vec{r}_0) $$
-El operador $\nabla'$ actúa sobre las coordenadas $\vec{r}'$.
 $$ \vec{A}(\vec{r}) = \frac{\mu_0}{4\pi} \int_{V'} \frac{(\vec{m} \times \nabla') \delta(\vec{r}' - \vec{r}_0)}{|\vec{r} - \vec{r}'|} d^3r' $$
 
-**3. Integración por Partes**
-
-La integral contiene un gradiente actuando sobre una función delta de Dirac, lo que sugiere usar integración por partes. La identidad de integración por partes para un campo vectorial $\vec{F}$ y una función escalar $\phi$ es:
-$$ \int_V \phi (\nabla \cdot \vec{F}) dV = \oint_S \phi \vec{F} \cdot d\vec{S} - \int_V (\nabla \phi) \cdot \vec{F} dV $$
-En nuestro caso, la expresión es un poco diferente. Consideremos la $i$-ésima componente del integrando:
+**3. Integración por Partes:**
+La $i$-ésima componente del integrando es:
 $$ [(\vec{m} \times \nabla') \delta(\vec{r}' - \vec{r}_0)]_i = \sum_{j,k} \epsilon_{ijk} m_j (\partial'_k \delta(\vec{r}' - \vec{r}_0)) $$
-La $i$-ésima componente del potencial vector es:
-$$ A_i(\vec{r}) = \frac{\mu_0}{4\pi} \int_{V'} \frac{1}{|\vec{r} - \vec{r}'|} \sum_{j,k} \epsilon_{ijk} m_j (\partial'_k \delta(\vec{r}' - \vec{r}_0)) d^3r' $$
-Usamos la propiedad de la función delta con derivadas:
-$$ \int f(x) \frac{d}{dx}\delta(x-a) dx = - \frac{df}{dx}\bigg|_{x=a} $$
-Aplicando esto a nuestra integral en 3D:
+
+Usando la propiedad de la función delta con derivadas:
 $$ \int_{V'} f(\vec{r}') (\partial'_k \delta(\vec{r}' - \vec{r}_0)) d^3r' = - \frac{\partial f}{\partial r'_k} \bigg|_{\vec{r}'=\vec{r}_0} $$
-En nuestro caso, la función $f(\vec{r}')$ es $\frac{1}{|\vec{r} - \vec{r}'|}$.
-$$ A_i(\vec{r}) = \frac{\mu_0}{4\pi} \sum_{j,k} \epsilon_{ijk} m_j \left( - \frac{\partial}{\partial r'_k} \frac{1}{|\vec{r} - \vec{r}'|} \right)_{\vec{r}'=\vec{r}_0} $$
+
 La derivada parcial es:
-$$ \frac{\partial}{\partial r'_k} \frac{1}{|\vec{r} - \vec{r}'|} = \frac{\partial}{\partial r'_k} \left( \sum_l (r_l - r'_l)^2 \right)^{-1/2} = -\frac{1}{2}(\dots)^{-3/2} \cdot 2(r_k - r'_k)(-1) = \frac{r_k - r'_k}{|\vec{r} - \vec{r}'|^3} $$
-Evaluando en $\vec{r}' = \vec{r}_0$:
-$$ \left( \frac{\partial}{\partial r'_k} \frac{1}{|\vec{r} - \vec{r}'|} \right)_{\vec{r}'=\vec{r}_0} = \frac{r_k - r_{0,k}}{|\vec{r} - \vec{r}_0|^3} $$
-Sustituyendo de nuevo en la expresión para $A_i(\vec{r})$:
+$$ \frac{\partial}{\partial r'_k} \frac{1}{|\vec{r} - \vec{r}'|} = \frac{r_k - r'_k}{|\vec{r} - \vec{r}'|^3} $$
+
+Por lo tanto:
 $$ A_i(\vec{r}) = \frac{\mu_0}{4\pi} \sum_{j,k} \epsilon_{ijk} m_j \left( - \frac{r_k - r_{0,k}}{|\vec{r} - \vec{r}_0|^3} \right) $$
-Esto es la $i$-ésima componente de un producto vectorial:
-$$ A_i(\vec{r}) = -\frac{\mu_0}{4\pi} \left[ \vec{m} \times \frac{\vec{r} - \vec{r}_0}{|\vec{r} - \vec{r}_0|^3} \right]_i $$
-Recomponiendo el vector, obtenemos:
-$$ \vec{A}(\vec{r}) = -\frac{\mu_0}{4\pi} \frac{\vec{m} \times (\vec{r} - \vec{r}_0)}{|\vec{r} - \vec{r}_0|^3} $$
-Usando la identidad $\nabla(1/R) = -\vec{R}/R^3$ con $\vec{R} = \vec{r} - \vec{r}_0$, podemos reescribir esto como:
-$$ \vec{A}(\vec{r}) = -\frac{\mu_0}{4\pi} \left( \vec{m} \times \left( -\nabla \frac{1}{|\vec{r} - \vec{r}_0|} \right) \right) = \frac{\mu_0}{4\pi} \left( \vec{m} \times \nabla \frac{1}{|\vec{r} - \vec{r}_0|} \right) $$
-*Corrección*: Hay un signo menos de diferencia con la expresión en el paso 1. Revisemos los signos.
-La derivada de $1/|\vec{r}-\vec{r}'|$ con respecto a $\vec{r}'$ es $\nabla' (1/|\vec{r}-\vec{r}'|) = +(\vec{r}-\vec{r}')/|\vec{r}-\vec{r}'|^3$.
-La derivada con respecto a $\vec{r}$ es $\nabla (1/|\vec{r}-\vec{r}'|) = -(\vec{r}-\vec{r}')/|\vec{r}-\vec{r}'|^3$.
-Entonces, $\nabla' = -\nabla$.
 
-Volviendo a la integral:
-$$ A_i(\vec{r}) = \frac{\mu_0}{4\pi} \sum_{j,k} \epsilon_{ijk} m_j \left( - \frac{\partial}{\partial r'_k} \frac{1}{|\vec{r} - \vec{r}'|} \right)_{\vec{r}'=\vec{r}_0} $$
-$$ \frac{\partial}{\partial r'_k} = -\frac{\partial}{\partial r_k} $$
-$$ A_i(\vec{r}) = \frac{\mu_0}{4\pi} \sum_{j,k} \epsilon_{ijk} m_j \left( \frac{\partial}{\partial r_k} \frac{1}{|\vec{r} - \vec{r}'|} \right)_{\vec{r}'=\vec{r}_0} = \frac{\mu_0}{4\pi} \left[ \vec{m} \times \nabla \left( \frac{1}{|\vec{r} - \vec{r}_0|} \right) \right]_i $$
-Recomponiendo el vector:
-$$ \vec{A}(\vec{r}) = \frac{\mu_0}{4\pi} \left( \vec{m} \times \nabla \left( \frac{1}{|\vec{r} - \vec{r}_0|} \right) \right) $$
-Usando $\nabla(1/R) = -\vec{R}/R^3$:
-$$ \vec{A}(\vec{r}) = \frac{\mu_0}{4\pi} \left( \vec{m} \times \left( -\frac{\vec{r} - \vec{r}_0}{|\vec{r} - \vec{r}_0|^3} \right) \right) = \frac{\mu_0}{4\pi} \frac{\vec{m} \times (\vec{r}_0 - \vec{r})}{|\vec{r} - \vec{r}_0|^3} = \frac{\mu_0}{4\pi} \frac{\vec{m} \times (\vec{r} - \vec{r}_0)}{|\vec{r} - \vec{r}_0|^3} $$
-Esta expresión final coincide exactamente con el potencial vector de un dipolo magnético puntual.
+Dado que $\frac{\partial}{\partial r'_k} = -\frac{\partial}{\partial r_k}$:
+$$ A_i(\vec{r}) = \frac{\mu_0}{4\pi} \left[ \vec{m} \times \nabla \left( \frac{1}{|\vec{r} - \vec{r}_0|} \right) \right]_i $$
 
-**Conclusión**
+Usando $\nabla(1/R) = -\vec{R}/R^3$ con $\vec{R} = \vec{r} - \vec{r}_0$:
+$$ \vec{A}(\vec{r}) = \frac{\mu_0}{4\pi} \left( \vec{m} \times \left( -\frac{\vec{r} - \vec{r}_0}{|\vec{r} - \vec{r}_0|^3} \right) \right) = \frac{\mu_0}{4\pi} \frac{\vec{m} \times (\vec{r} - \vec{r}_0)}{|\vec{r} - \vec{r}_0|^3} $$
 
+Esta expresión coincide exactamente con el potencial vector de un dipolo magnético puntual.
+
+**Conclusión:**
 Dado que la densidad de corriente $\vec{J} = (\vec{m} \times \nabla)\delta(\vec{r} - \vec{r}_0)$ genera el potencial vector magnético correcto para un dipolo puntual, hemos demostrado que esta es la representación matemática correcta de la densidad de corriente para dicha partícula.
 
 ---
 
-## Problema 8
+## Problema 9
 
 **Enunciado:** En cierto estado excitado del átomo de Hidrógeno la nube electrónica tiene asociada una densidad de corriente cuyas componentes en coordenadas esféricas son $J_r = J_\theta = 0$ y
 $$
@@ -1571,64 +1534,52 @@ siendo $e$ y $m_0$ la carga y la masa de reposo del electrón, respectivamente, 
 
 Este problema se divide en dos partes: calcular el campo magnético $\vec{B}$ en el origen y calcular el momento dipolar magnético total $\vec{m}$.
 
-**1. Cálculo del Campo Magnético $\vec{B}$ en el Origen**
+**1. Cálculo del Campo Magnético $\vec{B}$ en el Origen:**
+La ley de Biot-Savart nos da el campo magnético en el origen ($\vec{r}=0$):
+$$ \vec{B}(0) = -\frac{\mu_0}{4\pi} \int_{V'} \frac{\vec{J}(\vec{r}') \times \vec{r}'}{r'^3} d^3r' $$
 
-La ley de Biot-Savart nos da el campo magnético en un punto $\vec{r}$ a partir de una densidad de corriente $\vec{J}(\vec{r}')$:
-$$ \vec{B}(\vec{r}) = \frac{\mu_0}{4\pi} \int_{V'} \frac{\vec{J}(\vec{r}') \times (\vec{r} - \vec{r}')}{|\vec{r} - \vec{r}'|^3} d^3r' $$
-Para calcular el campo en el origen, hacemos $\vec{r}=0$:
-$$ \vec{B}(0) = \frac{\mu_0}{4\pi} \int_{V'} \frac{\vec{J}(\vec{r}') \times (-\vec{r}')}{|\vec{r}'|^3} d^3r' = -\frac{\mu_0}{4\pi} \int_{V'} \frac{\vec{J}(\vec{r}') \times \vec{r}'}{r'^3} d^3r' $$
-Trabajamos en coordenadas esféricas, donde $\vec{r}' = r' \hat{r}'$ y $\vec{J} = J_\varphi \hat{\varphi}'$. El producto vectorial es:
+En coordenadas esféricas, $\vec{J} = J_\varphi \hat{\varphi}'$ y $\vec{r}' = r' \hat{r}'$. El producto vectorial es:
 $$ \vec{J} \times \vec{r}' = (J_\varphi \hat{\varphi}') \times (r' \hat{r}') = J_\varphi r' (\hat{\varphi}' \times \hat{r}') = J_\varphi r' \hat{\theta}' $$
-Sustituyendo en la integral, con $d^3r' = r'^2 \sin\theta' dr' d\theta' d\varphi'$:
-$$ \vec{B}(0) = -\frac{\mu_0}{4\pi} \int_0^{2\pi} \int_0^\pi \int_0^\infty \frac{(J_\varphi r' \hat{\theta}')}{r'^3} (r'^2 \sin\theta' dr' d\theta' d\varphi') $$
-$$ \vec{B}(0) = -\frac{\mu_0}{4\pi} \int_0^{2\pi} \int_0^\pi \int_0^\infty J_\varphi(r', \theta') \sin\theta' \hat{\theta}' dr' d\theta' d\varphi' $$
-El vector unitario $\hat{\theta}'$ no es constante y debe expresarse en coordenadas cartesianas para ser integrado:
-$$ \hat{\theta}' = \cos\theta'\cos\varphi' \hat{x} + \cos\theta'\sin\varphi' \hat{y} - \sin\theta' \hat{z} $$
-Debido a la simetría, las componentes $x$ e $y$ se anularán al integrar sobre $\varphi'$ de $0$ a $2\pi$ (ya que $\int_0^{2\pi}\cos\varphi' d\varphi' = 0$ y $\int_0^{2\pi}\sin\varphi' d\varphi' = 0$). Por lo tanto, solo la componente $z$ sobrevive.
-$$ \vec{B}(0) = B_z \hat{z} $$
-$$ B_z = -\frac{\mu_0}{4\pi} \int_0^{2\pi} \int_0^\pi \int_0^\infty J_\varphi(r', \theta') \sin\theta' (-\sin\theta') dr' d\theta' d\varphi' $$
+
+Por simetría, solo la componente $z$ sobrevive:
 $$ B_z = \frac{\mu_0}{4\pi} \int_0^{2\pi} d\varphi' \int_0^\pi \sin^2\theta' \left( \int_0^\infty J_\varphi(r', \theta') dr' \right) d\theta' $$
-Sustituimos $J_\varphi = C r^3 e^{-ar} \sin^3\theta$, con $C = \frac{e\hbar}{16\pi^3 m_0 a_0^7}$ y $a = \frac{2}{3a_0}$:
-$$ B_z = \frac{\mu_0}{4\pi} (2\pi) \int_0^\pi \sin^2\theta' \left( \int_0^\infty C r'^3 e^{-ar'} \sin^3\theta' dr' \right) d\theta' $$
+
+Sustituyendo $J_\varphi = C r^3 e^{-ar} \sin^3\theta$, con $C = \frac{e\hbar}{16\pi^3 m_0 a_0^7}$ y $a = \frac{2}{3a_0}$:
 $$ B_z = \frac{\mu_0 C}{2} \int_0^\pi \sin^5\theta' d\theta' \int_0^\infty r'^3 e^{-ar'} dr' $$
-Calculamos las dos integrales por separado:
+
+Calculamos las integrales:
 *   **Integral en $\theta'$**: $\int_0^\pi \sin^5\theta' d\theta' = \frac{16}{15}$
-*   **Integral en $r'$** (usando la función Gamma $\Gamma(n+1) = n! = \int_0^\infty x^n e^{-x} dx$):
-    $$ \int_0^\infty r'^3 e^{-ar'} dr' = \frac{\Gamma(4)}{a^4} = \frac{3!}{a^4} = \frac{6}{a^4} $$
-Sustituyendo los resultados:
+*   **Integral en $r'$**: $\int_0^\infty r'^3 e^{-ar'} dr' = \frac{3!}{a^4} = \frac{6}{a^4}$
+
+Sustituyendo:
 $$ B_z = \frac{\mu_0 C}{2} \left(\frac{16}{15}\right) \left(\frac{6}{a^4}\right) = \frac{8 \mu_0 C}{5a^4} $$
-Ahora sustituimos los valores de $C$ y $a$:
-$$ B_z = \frac{8 \mu_0}{5} \left( \frac{e\hbar}{16\pi^3 m_0 a_0^7} \right) \frac{1}{(2/3a_0)^4} = \frac{8 \mu_0 e\hbar}{5 \cdot 16\pi^3 m_0 a_0^7} \frac{3^4 a_0^4}{2^4} = \frac{8 \mu_0 e\hbar \cdot 81 a_0^4}{5 \cdot 16\pi^3 m_0 a_0^7 \cdot 16} $$
+
+Con los valores de $C$ y $a$:
 $$ B_z = \frac{81 \mu_0 e\hbar}{320 \pi^3 m_0 a_0^3} $$
+
 El campo magnético en el origen es:
 $$ \vec{B}(0) = \frac{81 \mu_0 e\hbar}{320 \pi^3 m_0 a_0^3} \hat{z} $$
 
-**2. Cálculo del Momento Dipolar Magnético $\vec{m}$**
-
-El momento dipolar magnético se calcula con la fórmula:
+**2. Cálculo del Momento Dipolar Magnético $\vec{m}$:**
+El momento dipolar magnético se calcula con:
 $$ \vec{m} = \frac{1}{2} \int_{V'} \vec{r}' \times \vec{J}(\vec{r}') d^3r' $$
-El producto vectorial es $\vec{r}' \times \vec{J} = (r' \hat{r}') \times (J_\varphi \hat{\varphi}') = r' J_\varphi (\hat{r}' \times \hat{\varphi}') = -r' J_\varphi \hat{\theta}'$.
-$$ \vec{m} = -\frac{1}{2} \int_0^{2\pi} \int_0^\pi \int_0^\infty (r' J_\varphi \hat{\theta}') (r'^2 \sin\theta' dr' d\theta' d\varphi') $$
-De nuevo, por simetría, solo la componente $z$ sobrevive. La componente $z$ de $\hat{\theta}'$ es $-\sin\theta'$.
-$$ m_z = -\frac{1}{2} \int_0^{2\pi} \int_0^\pi \int_0^\infty r'^3 J_\varphi (-\sin\theta') \sin\theta' dr' d\theta' d\varphi' $$
-$$ m_z = \frac{1}{2} (2\pi) \int_0^\pi \sin^2\theta' \left( \int_0^\infty r'^3 J_\varphi(r', \theta') dr' \right) d\theta' $$
-Sustituyendo $J_\varphi = C r^3 e^{-ar} \sin^3\theta$:
-$$ m_z = \pi \int_0^\pi \sin^2\theta' \left( \int_0^\infty r'^3 (C r'^3 e^{-ar'} \sin^3\theta') dr' \right) d\theta' $$
+
+El producto vectorial es $\vec{r}' \times \vec{J} = -r' J_\varphi \hat{\theta}'$. Por simetría, solo la componente $z$ sobrevive:
 $$ m_z = \pi C \int_0^\pi \sin^5\theta' d\theta' \int_0^\infty r'^6 e^{-ar'} dr' $$
+
 Calculamos las integrales:
 *   **Integral en $\theta'$**: $\int_0^\pi \sin^5\theta' d\theta' = \frac{16}{15}$
-*   **Integral en $r'$**: $\int_0^\infty r'^6 e^{-ar'} dr' = \frac{\Gamma(7)}{a^7} = \frac{6!}{a^7} = \frac{720}{a^7}$
+*   **Integral en $r'$**: $\int_0^\infty r'^6 e^{-ar'} dr' = \frac{6!}{a^7} = \frac{720}{a^7}$
+
 Sustituyendo los resultados:
-$$ m_z = \pi C \left(\frac{16}{15}\right) \left(\frac{720}{a^7}\right) = \pi C \cdot 16 \cdot 48 \cdot \frac{1}{a^7} = \frac{768 \pi C}{a^7} $$
-Ahora sustituimos los valores de $C$ y $a$:
-$$ m_z = 768 \pi \left( \frac{e\hbar}{16\pi^3 m_0 a_0^7} \right) \frac{1}{(2/3a_0)^7} = \frac{768 \pi e\hbar}{16\pi^3 m_0 a_0^7} \frac{3^7 a_0^7}{2^7} = \frac{48 e\hbar}{\pi^2 m_0} \frac{2187}{128} $$
-$$ m_z = \frac{3 \cdot 2187}{8\pi^2} \frac{e\hbar}{m_0} = \frac{6561}{8\pi^2} \frac{e\hbar}{m_0} $$
+$$ m_z = \frac{6561}{8\pi^2} \frac{e\hbar}{m_0} $$
+
 El momento dipolar magnético es:
 $$ \vec{m} = \frac{6561}{8\pi^2} \frac{e\hbar}{m_0} \hat{z} $$
 
 ---
 
-## Problema 9
+## Problema 10
 
 **Enunciado:** En otro estado excitado del átomo de Hidrógeno la densidad de corriente asociada a la nube electrónica es, en coordenadas esféricas, $J_r = J_\theta = 0$ y
 $$
@@ -1638,218 +1589,118 @@ Suponga que el núcleo del átomo tiene un momento magnético $\vec{m}_n$. Calcu
 
 **Solución:**
 
-**1. Concepto de Energía de Interacción**
-
+**1. Concepto de Energía de Interacción:**
 La energía de interacción de un momento dipolar magnético $\vec{m}_n$ en un campo magnético externo $\vec{B}_e$ está dada por:
 $$ U = -\vec{m}_n \cdot \vec{B}_e $$
-En este caso, el campo magnético "externo" que siente el núcleo es el campo generado por la nube de corriente del electrón, evaluado en la posición del núcleo, que es el origen de coordenadas ($\vec{r}=0$). Por lo tanto, primero debemos calcular $\vec{B}_e(0)$.
 
-**2. Cálculo del Campo Magnético en el Origen**
+El campo magnético "externo" que siente el núcleo es el campo generado por la nube de corriente del electrón, evaluado en el origen ($\vec{r}=0$).
 
-Utilizamos la ley de Biot-Savart para encontrar el campo magnético en el origen debido a la densidad de corriente $\vec{J}$:
-$$ \vec{B}_e(0) = \frac{\mu_0}{4\pi} \int_{V'} \frac{\vec{J}(\vec{r}') \times (-\vec{r}')}{|\vec{r}'|^3} d^3r' = -\frac{\mu_0}{4\pi} \int_{V'} \frac{\vec{J}(\vec{r}') \times \vec{r}'}{r'^3} d^3r' $$
-En coordenadas esféricas, tenemos $\vec{J} = J_\varphi \hat{\varphi}'$ y $\vec{r}' = r' \hat{r}'$. El producto vectorial es:
-$$ \vec{J} \times \vec{r}' = (J_\varphi \hat{\varphi}') \times (r' \hat{r}') = J_\varphi r' (\hat{\varphi}' \times \hat{r}') = J_\varphi r' \hat{\theta}' $$
-Sustituyendo esto en la integral y usando el elemento de volumen $d^3r' = r'^2 \sin\theta' dr' d\theta' d\varphi'$:
-$$ \vec{B}_e(0) = -\frac{\mu_0}{4\pi} \int_0^{2\pi} \int_0^\pi \int_0^\infty \frac{(J_\varphi r' \hat{\theta}')}{r'^3} (r'^2 \sin\theta' dr' d\theta' d\varphi') $$
-$$ \vec{B}_e(0) = -\frac{\mu_0}{4\pi} \int J_\varphi(r', \theta') \sin\theta' \hat{\theta}' dr' d\theta' d\varphi' $$
-Para integrar el vector unitario $\hat{\theta}'$, lo expresamos en coordenadas cartesianas:
-$$ \hat{\theta}' = \cos\theta'\cos\varphi' \hat{x} + \cos\theta'\sin\varphi' \hat{y} - \sin\theta' \hat{z} $$
-Debido a la simetría azimutal de la corriente, las componentes $x$ e $y$ del campo se anularán al integrar sobre $\varphi'$ de $0$ a $2\pi$. Solo la componente $z$ sobrevive.
-$$ B_{e,z}(0) = -\frac{\mu_0}{4\pi} \int_0^{2\pi} d\varphi' \int_0^\pi \int_0^\infty J_\varphi(r', \theta') \sin\theta' (-\sin\theta') dr' d\theta' $$
+**2. Cálculo del Campo Magnético en el Origen:**
+Utilizamos la ley de Biot-Savart:
+$$ \vec{B}_e(0) = -\frac{\mu_0}{4\pi} \int_{V'} \frac{\vec{J}(\vec{r}') \times \vec{r}'}{r'^3} d^3r' $$
+
+En coordenadas esféricas, el producto vectorial es:
+$$ \vec{J} \times \vec{r}' = J_\varphi r' \hat{\theta}' $$
+
+Por simetría azimutal, solo la componente $z$ sobrevive:
 $$ B_{e,z}(0) = \frac{\mu_0(2\pi)}{4\pi} \int_0^\pi \int_0^\infty J_\varphi(r', \theta') \sin^2\theta' dr' d\theta' $$
-Sustituimos la expresión para $J_\varphi = C r e^{-r/a_0} \sin\theta$, donde $C = \frac{e\hbar}{64\pi m_0 a_0^5}$:
-$$ B_{e,z}(0) = \frac{\mu_0}{2} \int_0^\pi \int_0^\infty \left( C r' e^{-r'/a_0} \sin\theta' \right) \sin^2\theta' dr' d\theta' $$
+
+Sustituyendo $J_\varphi = C r e^{-r/a_0} \sin\theta$, donde $C = \frac{e\hbar}{64\pi m_0 a_0^5}$:
 $$ B_{e,z}(0) = \frac{\mu_0 C}{2} \left( \int_0^\pi \sin^3\theta' d\theta' \right) \left( \int_0^\infty r' e^{-r'/a_0} dr' \right) $$
-Calculamos las dos integrales por separado:
-*   **Integral en $\theta'$**:
-    $$ \int_0^\pi \sin^3\theta' d\theta' = \int_0^\pi (1-\cos^2\theta')\sin\theta' d\theta' = \left[-\cos\theta' + \frac{\cos^3\theta'}{3}\right]_0^\pi = \left(1-\frac{1}{3}\right) - \left(-1+\frac{1}{3}\right) = \frac{2}{3} - (-\frac{2}{3}) = \frac{4}{3} $$
-*   **Integral en $r'$** (usando la fórmula $\int_0^\infty x^n e^{-ax} dx = n!/a^{n+1}$ con $n=1$ y $a=1/a_0$):
-    $$ \int_0^\infty r' e^{-r'/a_0} dr' = \frac{1!}{(1/a_0)^2} = a_0^2 $$
-Sustituyendo los resultados de las integrales:
-$$ B_{e,z}(0) = \frac{\mu_0 C}{2} \left( \frac{4}{3} \right) (a_0^2) = \frac{2\mu_0 C a_0^2}{3} $$
-Ahora, sustituimos el valor de la constante $C$:
-$$ B_{e,z}(0) = \frac{2\mu_0 a_0^2}{3} \left( \frac{e\hbar}{64\pi m_0 a_0^5} \right) = \frac{2\mu_0 e\hbar a_0^2}{192\pi m_0 a_0^5} = \frac{\mu_0 e\hbar}{96\pi m_0 a_0^3} $$
+
+Calculamos las integrales:
+*   **Integral en $\theta'$**: $\int_0^\pi \sin^3\theta' d\theta' = \frac{4}{3}$
+*   **Integral en $r'$**: $\int_0^\infty r' e^{-r'/a_0} dr' = a_0^2$
+
+Sustituyendo:
+$$ B_{e,z}(0) = \frac{\mu_0 C a_0^2}{2} \cdot \frac{4}{3} = \frac{2\mu_0 C a_0^2}{3} $$
+
+Con el valor de $C$:
+$$ B_{e,z}(0) = \frac{\mu_0 e\hbar}{96\pi m_0 a_0^3} $$
+
 El campo magnético de la nube electrónica en el origen es:
 $$ \vec{B}_e(0) = \frac{\mu_0 e\hbar}{96\pi m_0 a_0^3} \hat{z} $$
 
-**3. Cálculo de la Energía de Interacción**
+**3. Cálculo de la Energía de Interacción:**
+Asumimos que el momento magnético del núcleo es $\vec{m}_n = m_{nx}\hat{x} + m_{ny}\hat{y} + m_{nz}\hat{z}$.
+$$ U = -\vec{m}_n \cdot \vec{B}_e(0) = -m_{nz} \left( \frac{\mu_0 e\hbar}{96\pi m_0 a_0^3} \right) $$
 
-Finalmente, calculamos la energía de interacción. Asumimos que el momento magnético del núcleo, $\vec{m}_n$, es un vector genérico $\vec{m}_n = m_{nx}\hat{x} + m_{ny}\hat{y} + m_{nz}\hat{z}$.
-$$ U = -\vec{m}_n \cdot \vec{B}_e(0) = -(m_{nx}\hat{x} + m_{ny}\hat{y} + m_{nz}\hat{z}) \cdot \left( \frac{\mu_0 e\hbar}{96\pi m_0 a_0^3} \hat{z} \right) $$
-$$ U = -m_{nz} \left( \frac{\mu_0 e\hbar}{96\pi m_0 a_0^3} \right) $$
 La energía de interacción solo depende de la componente del momento magnético nuclear que es paralela al eje $z$ (el eje de simetría de la corriente electrónica).
-
----
-
-## Problema 10
-
-**Enunciado:** Una partícula de masa propia $m_0$ y carga $e$ se mueve bajo la acción del campo magnetostático homogéneo $\vec{B} = B \vec{e_z}$, siendo $\vec{e_z}$ el vector unitario en la dirección $z$. Halle la órbita de la partícula aplicando la dinámica relativista. Discuta el caso $v \ll c$, siendo $v$ el módulo de la velocidad de la partícula.
-
-**Solución:**
-
-**1. Ecuación de Movimiento Relativista**
-
-La segunda ley de Newton en su forma relativista, combinada con la fuerza de Lorentz, es:
-$$ \frac{d\vec{p}}{dt} = e(\vec{E} + \vec{v} \times \vec{B}) $$
-donde $\vec{p} = \gamma m_0 \vec{v}$ es el momento relativista y $\gamma = (1 - v^2/c^2)^{-1/2}$ es el factor de Lorentz.
-En este problema, el campo eléctrico $\vec{E}=0$ y el campo magnético es $\vec{B} = B\hat{z}$. La ecuación de movimiento se simplifica a:
-$$ \frac{d}{dt}(\gamma m_0 \vec{v}) = e(\vec{v} \times B\hat{z}) $$
-
-**2. Análisis de la Energía y la Velocidad**
-
-La fuerza magnética $\vec{F} = e(\vec{v} \times \vec{B})$ es siempre perpendicular a la velocidad $\vec{v}$. Por lo tanto, la potencia desarrollada por la fuerza es cero:
-$$ P = \vec{F} \cdot \vec{v} = e(\vec{v} \times \vec{B}) \cdot \vec{v} = 0 $$
-Esto significa que la fuerza magnética no realiza trabajo sobre la partícula, y su energía cinética relativista $K = (\gamma - 1)m_0 c^2$ es constante. Si la energía cinética es constante, el factor de Lorentz $\gamma$ también es constante.
-Como $\gamma$ es constante, la magnitud de la velocidad total $v = |\vec{v}|$ también debe ser constante.
-
-**3. Componentes de la Ecuación de Movimiento**
-
-Dado que $\gamma$ y $m_0$ son constantes, la ecuación de movimiento se puede escribir como:
-$$ \gamma m_0 \frac{d\vec{v}}{dt} = e(\vec{v} \times B\hat{z}) $$
-Descomponemos la velocidad $\vec{v} = (v_x, v_y, v_z)$. El producto vectorial es:
-$$ \vec{v} \times B\hat{z} = \begin{vmatrix} \hat{x} & \hat{y} & \hat{z} \\ v_x & v_y & v_z \\ 0 & 0 & B \end{vmatrix} = Bv_y \hat{x} - Bv_x \hat{y} $$
-Las ecuaciones para cada componente son:
-1.  $\gamma m_0 \frac{dv_x}{dt} = eBv_y$
-2.  $\gamma m_0 \frac{dv_y}{dt} = -eBv_x$
-3.  $\gamma m_0 \frac{dv_z}{dt} = 0$
-
-**4. Solución de las Ecuaciones**
-
-*   **Movimiento en el eje z:** De la tercera ecuación, $\frac{dv_z}{dt} = 0$, lo que implica que $v_z$ es constante.
-    $$ v_z(t) = v_{z,0} $$
-    Integrando con respecto al tiempo, obtenemos la posición en $z$:
-    $$ z(t) = z_0 + v_{z,0} t $$
-    El movimiento a lo largo del campo magnético es rectilíneo y uniforme.
-
-*   **Movimiento en el plano xy:** Las dos primeras ecuaciones están acopladas. Definimos la **frecuencia de ciclotrón relativista** como:
-    $$ \omega = \frac{eB}{\gamma m_0} $$
-    Las ecuaciones se convierten en:
-    $$ \frac{dv_x}{dt} = \omega v_y \quad \text{y} \quad \frac{dv_y}{dt} = -\omega v_x $$
-    Para resolver este sistema, derivamos la primera ecuación respecto al tiempo y sustituimos la segunda:
-    $$ \frac{d^2v_x}{dt^2} = \omega \frac{dv_y}{dt} = \omega(-\omega v_x) = -\omega^2 v_x $$
-    $$ \frac{d^2v_x}{dt^2} + \omega^2 v_x = 0 $$
-    Esta es la ecuación de un oscilador armónico simple. La solución general es:
-    $$ v_x(t) = v_\perp \cos(\omega t + \phi) $$
-    donde $v_\perp$ es la magnitud de la velocidad en el plano xy. Usando la ecuación $\frac{dv_x}{dt} = \omega v_y$, encontramos $v_y(t)$:
-    $$ v_y(t) = \frac{1}{\omega}\frac{dv_x}{dt} = -v_\perp \sin(\omega t + \phi) $$
-    Para encontrar la trayectoria, integramos las velocidades. Eligiendo el origen de la trayectoria circular en $(x_c, y_c)$ y ajustando la fase $\phi$ para simplificar, las soluciones son:
-    $$ x(t) = x_c + R \sin(\omega t) $$
-    $$ y(t) = y_c + R \cos(\omega t) $$
-    donde $R$ es el radio de la órbita. La velocidad se obtiene derivando: $v_x(t) = R\omega \cos(\omega t)$ y $v_y(t) = -R\omega \sin(\omega t)$. Comparando con las soluciones para la velocidad, vemos que el radio de la trayectoria circular es:
-    $$ R = \frac{v_\perp}{\omega} = \frac{v_\perp \gamma m_0}{eB} $$
-
-**5. Órbita Completa**
-
-La órbita de la partícula es la combinación del movimiento uniforme en la dirección $z$ y el movimiento circular uniforme en el plano $xy$. Esto describe una **hélice** con:
-*   **Eje:** Paralelo al eje $z$.
-*   **Radio:** $R = \frac{\gamma m_0 v_\perp}{eB}$.
-*   **Frecuencia angular:** $\omega = \frac{eB}{\gamma m_0}$.
-*   **Paso de hélice (distancia avanzada en $z$ por cada revolución):** $d = v_z T = v_z \frac{2\pi}{\omega} = \frac{2\pi \gamma m_0 v_z}{eB}$.
-
-**6. Discusión del Caso no Relativista ($v \ll c$)**
-
-En el límite no relativista, la velocidad de la partícula es mucho menor que la velocidad de la luz ($v \ll c$).
-*   El factor de Lorentz $\gamma = (1 - v^2/c^2)^{-1/2}$ tiende a 1.
-*   La masa relativista $\gamma m_0$ tiende a la masa en reposo $m_0$.
-
-Las expresiones para la órbita se simplifican a las conocidas de la mecánica clásica:
-*   **Frecuencia de ciclotrón clásica:**
-    $$ \omega_{cl} = \lim_{v \to 0} \omega = \frac{eB}{m_0} $$
-    A diferencia del caso relativista, la frecuencia no depende de la velocidad de la partícula.
-*   **Radio de la órbita clásica:**
-    $$ R_{cl} = \lim_{v \to 0} R = \frac{m_0 v_\perp}{eB} $$
-
-La trayectoria sigue siendo una hélice, pero sus parámetros (radio y frecuencia) se calculan usando la masa en reposo $m_0$ y son independientes de la energía total de la partícula (mientras se mantenga en el régimen no relativista).
 
 ---
 
 ## Problema 11
 
-**Enunciado:** Una partícula de masa propia $m_0$ y carga $e$ se somete a la acción simultánea de los campos $\vec{E}$ y $\vec{B}$, ambos uniformes y constantes. Los campos son perpendiculares entre sí y además satisfacen la condición $E = cB$. Halle la órbita de la partícula aplicando la dinámica relativista.
+**Enunciado:** Una partícula de masa propia $m_0$ y carga $e$ se mueve bajo la acción del campo magnetostático homogéneo $\vec{B} = B \vec{e_z}$, siendo $\vec{e_z}$ el vector unitario en la dirección $z$. Halle la órbita de la partícula aplicando la dinámica relativista. Discuta el caso $v \ll c$, siendo $v$ el módulo de la velocidad de la partícula.
 
 **Solución:**
 
-Este es un problema clásico que se resuelve de manera más elegante utilizando el formalismo de la relatividad especial y los invariantes de Lorentz.
+**1. Ecuación de Movimiento Relativista:**
+La segunda ley de Newton en su forma relativista es:
+$$ \frac{d\vec{p}}{dt} = e(\vec{E} + \vec{v} \times \vec{B}) $$
+donde $\vec{p} = \gamma m_0 \vec{v}$ es el momento relativista y $\gamma = (1 - v^2/c^2)^{-1/2}$ es el factor de Lorentz.
 
-**1. Configuración de los Campos**
+En este problema, $\vec{E}=0$ y $\vec{B} = B\hat{z}$:
+$$ \frac{d}{dt}(\gamma m_0 \vec{v}) = e(\vec{v} \times B\hat{z}) $$
 
-Dado que los campos son uniformes, constantes y perpendiculares, podemos orientar nuestro sistema de coordenadas para simplificar el análisis. Escogemos:
-*   $\vec{B} = B \hat{z}$
-*   $\vec{E} = E \hat{y}$
+**2. Análisis de la Energía:**
+La fuerza magnética es perpendicular a $\vec{v}$, por lo que no realiza trabajo:
+$$ P = \vec{F} \cdot \vec{v} = e(\vec{v} \times \vec{B}) \cdot \vec{v} = 0 $$
 
-La condición dada es $E = cB$.
+Esto significa que la energía cinética relativista es constante. Si la energía es constante, el factor de Lorentz $\gamma$ también es constante, y por lo tanto la magnitud de la velocidad $v = |\vec{v}|$ es constante.
 
-**2. Invariantes de Lorentz**
+**3. Componentes de la Ecuación de Movimiento:**
+Dado que $\gamma$ y $m_0$ son constantes:
+$$ \gamma m_0 \frac{d\vec{v}}{dt} = e(\vec{v} \times B\hat{z}) $$
 
-En la teoría de la relatividad, existen dos cantidades escalares construidas a partir de los campos $\vec{E}$ y $\vec{B}$ que son invariantes bajo transformaciones de Lorentz (es decir, tienen el mismo valor en todos los sistemas de referencia inerciales). Estas son:
+Descomponemos $\vec{v} = (v_x, v_y, v_z)$. Las ecuaciones para cada componente son:
+1. $\gamma m_0 \frac{dv_x}{dt} = eBv_y$
+2. $\gamma m_0 \frac{dv_y}{dt} = -eBv_x$
+3. $\gamma m_0 \frac{dv_z}{dt} = 0$
 
-1.  $I_1 = \vec{E} \cdot \vec{B}$
-2.  $I_2 = \frac{E^2}{c^2} - B^2$
+**4. Solución de las Ecuaciones:**
 
-Calculemos estos invariantes para nuestra configuración:
-1.  $I_1 = (E\hat{y}) \cdot (B\hat{z}) = 0$
-2.  $I_2 = \frac{(cB)^2}{c^2} - B^2 = \frac{c^2 B^2}{c^2} - B^2 = B^2 - B^2 = 0$
+*   **Movimiento en el eje z:** $v_z(t) = v_{z,0}$ (constante)
+    $$ z(t) = z_0 + v_{z,0} t $$
+    El movimiento a lo largo del campo magnético es rectilíneo y uniforme.
 
-Ambos invariantes de Lorentz son cero. Esto tiene una consecuencia muy importante: **existe un sistema de referencia inercial donde los campos eléctrico y magnético son ambos nulos.**
+*   **Movimiento en el plano xy:** Definimos la **frecuencia de ciclotrón relativista**:
+    $$ \omega = \frac{eB}{\gamma m_0} $$
+    Las ecuaciones se convierten en:
+    $$ \frac{dv_x}{dt} = \omega v_y \quad \text{y} \quad \frac{dv_y}{dt} = -\omega v_x $$
+    
+    La solución es:
+    $$ v_x(t) = v_\perp \cos(\omega t + \phi) $$
+    $$ v_y(t) = -v_\perp \sin(\omega t + \phi) $$
+    
+    Integrando para obtener la posición:
+    $$ x(t) = x_c + R \sin(\omega t) $$
+    $$ y(t) = y_c + R \cos(\omega t) $$
+    
+    donde el radio de la órbita es:
+    $$ R = \frac{v_\perp}{\omega} = \frac{v_\perp \gamma m_0}{eB} $$
 
-**3. Búsqueda del Sistema de Referencia sin Campos**
+**5. Órbita Completa:**
+La órbita de la partícula es una **hélice** con:
+*   **Eje:** Paralelo al eje $z$.
+*   **Radio:** $R = \frac{\gamma m_0 v_\perp}{eB}$.
+*   **Frecuencia angular:** $\omega = \frac{eB}{\gamma m_0}$.
+*   **Paso de hélice:** $d = v_z T = v_z \frac{2\pi}{\omega} = \frac{2\pi \gamma m_0 v_z}{eB}$.
 
-Vamos a encontrar la velocidad $\vec{u}$ de este sistema de referencia especial (llamémoslo $S'$) con respecto a nuestro sistema de laboratorio ($S$). La transformación de los campos a un sistema $S'$ que se mueve con velocidad $\vec{u}$ es:
+**6. Discusión del Caso no Relativista ($v \ll c$):**
+En el límite no relativista:
+*   El factor de Lorentz $\gamma \to 1$.
+*   La masa relativista $\gamma m_0 \to m_0$.
 
-$$ \vec{E}' = \gamma(\vec{E} + \vec{u} \times \vec{B}) - \frac{\gamma^2}{\gamma+1} \frac{(\vec{u} \cdot \vec{E})}{c^2} \vec{u} $$
-$$ \vec{B}' = \gamma(\vec{B} - \frac{\vec{u} \times \vec{E}}{c^2}) - \frac{\gamma^2}{\gamma+1} \frac{(\vec{u} \cdot \vec{B})}{c^2} \vec{u} $$
+Las expresiones se simplifican:
+*   **Frecuencia de ciclotrón clásica:**
+    $$ \omega_{cl} = \frac{eB}{m_0} $$
+    A diferencia del caso relativista, la frecuencia no depende de la velocidad.
+    
+*   **Radio de la órbita clásica:**
+    $$ R_{cl} = \frac{m_0 v_\perp}{eB} $$
 
-Queremos encontrar $\vec{u}$ tal que $\vec{E}' = 0$ y $\vec{B}' = 0$.
-Probemos con una velocidad $\vec{u}$ en la dirección $\vec{E} \times \vec{B}$:
-$$ \vec{u} = u \frac{\vec{E} \times \vec{B}}{|\vec{E} \times \vec{B}|} = u \frac{(E\hat{y}) \times (B\hat{z})}{EB} = u \frac{EB\hat{x}}{EB} = u\hat{x} $$
-Sustituyamos $\vec{u} = u\hat{x}$ en la ecuación de transformación de $\vec{E}'$:
-*   $\vec{u} \cdot \vec{E} = (u\hat{x}) \cdot (E\hat{y}) = 0$. El último término se anula.
-*   $\vec{u} \times \vec{B} = (u\hat{x}) \times (B\hat{z}) = -uB\hat{y}$.
-
-La ecuación para $\vec{E}'$ se convierte en:
-$$ \vec{E}' = \gamma(\vec{E} + \vec{u} \times \vec{B}) = \gamma(E\hat{y} - uB\hat{y}) = \gamma(E - uB)\hat{y} $$
-Para que $\vec{E}'=0$, necesitamos que $E - uB = 0$, lo que implica $u = E/B$.
-Usando la condición $E=cB$, obtenemos:
-$$ u = \frac{cB}{B} = c $$
-La velocidad de este sistema de referencia especial es $\vec{u} = c\hat{x}$.
-
-Verifiquemos que $\vec{B}'$ también es cero con esta velocidad:
-*   $\vec{u} \cdot \vec{B} = (c\hat{x}) \cdot (B\hat{z}) = 0$.
-*   $\vec{u} \times \vec{E} = (c\hat{x}) \times (E\hat{y}) = cE\hat{z} = c(cB)\hat{z} = c^2B\hat{z}$.
-
-La ecuación para $\vec{B}'$ es:
-$$ \vec{B}' = \gamma(\vec{B} - \frac{\vec{u} \times \vec{E}}{c^2}) = \gamma(B\hat{z} - \frac{c^2B\hat{z}}{c^2}) = \gamma(B\hat{z} - B\hat{z}) = 0 $$
-Ambos campos son nulos en el sistema $S'$ que se mueve con velocidad $\vec{u} = c\hat{x}$.
-
-**4. Movimiento de la Partícula**
-
-*   **En el sistema $S'$:** Como no hay campos ($\vec{E}'=0, \vec{B}'=0$), no hay fuerza sobre la partícula. Por la primera ley de Newton, la partícula se moverá con velocidad constante, $\vec{v}'$.
-    $$ \vec{v}'(t') = \vec{v}'_0 = \text{constante} $$
-    Su trayectoria es una línea recta:
-    $$ \vec{r}'(t') = \vec{r}'_0 + \vec{v}'_0 t' $$
-
-*   **En el sistema de laboratorio $S$:** La órbita de la partícula en el sistema de laboratorio es la transformación de Lorentz de esta línea recta.
-
-La velocidad de la partícula en el sistema $S$ se obtiene usando la fórmula de adición de velocidades de Einstein:
-$$ \vec{v} = \frac{1}{1 + \frac{\vec{u} \cdot \vec{v}'}{c^2}} \left[ \vec{u} + \frac{\vec{v}'}{\gamma_u} + \frac{\gamma_u}{\gamma_u+1} \frac{(\vec{u} \cdot \vec{v}')}{c^2} \vec{u} \right] $$
-donde $\vec{u} = c\hat{x}$ es la velocidad de $S'$ respecto a $S$.
-Como $u=c$, el factor $\gamma_u = (1-u^2/c^2)^{-1/2}$ es infinito. La fórmula no se puede aplicar directamente.
-
-**5. Conclusión sobre la Órbita**
-
-El hecho de que el sistema sin campos se mueva a la velocidad de la luz $c$ es la clave. Una partícula masiva ($m_0 > 0$) no puede alcanzar la velocidad de la luz.
-
-Consideremos la velocidad de la partícula en el sistema de laboratorio $S$. Su velocidad $\vec{v}$ siempre debe tener una magnitud $v < c$.
-La velocidad de la partícula en el sistema $S'$ es $\vec{v}'$. La magnitud de la velocidad en $S$ está relacionada con la de $S'$ por la transformación de velocidades.
-
-Si la partícula tiene una velocidad inicial $\vec{v}_0$ en el laboratorio, su velocidad inicial en el sistema $S'$ será $\vec{v}'_0$. A partir de ese momento, $\vec{v}'$ permanece constante. La partícula en el laboratorio $S$ se moverá de tal manera que su velocidad $\vec{v}(t)$ siempre será la transformada de Lorentz de la velocidad constante $\vec{v}'_0$.
-
-La partícula es acelerada por los campos, pero de una manera muy específica. La fuerza neta siempre actúa de tal forma que la velocidad de la partícula, $\vec{v}$, se acerca asintóticamente a la velocidad de deriva $\vec{v}_D = \frac{\vec{E} \times \vec{B}}{B^2}$. En nuestro caso, con $E=cB$:
-$$ \vec{v}_D = \frac{(E\hat{y}) \times (B\hat{z})}{B^2} = \frac{EB\hat{x}}{B^2} = \frac{E}{B}\hat{x} = c\hat{x} $$
-La partícula es continuamente acelerada en la dirección $x$, y su velocidad se aproxima a la velocidad de la luz.
-
-**La órbita es una curva en el espacio-tiempo tal que la velocidad de la partícula $\vec{v}(t)$ tiende asintóticamente a $c\hat{x}$.** La partícula nunca alcanza la velocidad de la luz, pero se acerca indefinidamente a ella mientras es continuamente acelerada en la dirección del eje $x$. La trayectoria es una curva que se vuelve cada vez más paralela al eje $x$.
+La trayectoria sigue siendo una hélice, pero sus parámetros se calculan usando la masa en reposo $m_0$ y son independientes de la energía total de la partícula.
 
 ---
 
