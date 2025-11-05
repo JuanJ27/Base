@@ -1222,203 +1222,204 @@ con $z(t)$ oscilando a frecuencia $\omega_0$ y $(x(t), y(t))$ oscilando con dos 
 
 ## Problema 3
 
-**Enunciado:** Un flujo de partículas de masa $m$ y carga $e$ penetra con velocidad $\vec{v}_0$ en una región en la cual existe un campo magnetostático homogéneo $\vec{B}$, el cual es perpendicular a $\vec{v}_0$. Calcule el ángulo de desviación de la partícula y el tiempo de permanencia en el campo $\vec{B}$ suponiendo que el campo magnetostático existe en una región limitada del espacio con dimensión característica $a$ en la dirección perpendicular a $\vec{v}_0$.
+**Enunciado:** Describa el movimiento de una partícula no relativista de carga $q$ y masa $m_0$ en presencia de un campo magnético de inducción $\vec{B}$ y de un campo eléctrico de intensidad $\vec{E}$, ambos uniformes y constantes. Calcule la densidad de corriente y explore la posibilidad de que se cumpla la ley de ohm.
 
 **Solución:**
 
-**1. Movimiento en el Campo Magnético:**
-Una partícula cargada que entra perpendicularmente a un campo magnético uniforme describe un movimiento circular con radio:
-$$ r = \frac{mv_0}{eB} $$
-La frecuencia angular es:
-$$ \omega = \frac{eB}{m} $$
+Este problema tiene múltiples casos según la orientación relativa de los campos. Analizaremos el caso general.
 
-**2. Geometría del Problema:**
-La partícula entra en la región del campo magnético, describe un arco circular de radio $r$, y luego sale de la región cuando ha atravesado una distancia $a$ (la dimensión característica de la región del campo).
+**1. Ecuación de Movimiento:**
+La fuerza de Lorentz sobre la partícula es:
+$$ m_0\frac{d\vec{v}}{dt} = q(\vec{E} + \vec{v} \times \vec{B}) $$
 
-Sea $\theta$ el ángulo que la partícula recorre en su trayectoria circular dentro del campo. La distancia horizontal atravesada es:
-$$ a = 2r\sin\left(\frac{\theta}{2}\right) $$
+**2. Análisis General:**
+La trayectoria depende de la orientación relativa de $\vec{E}$ y $\vec{B}$:
 
-Despejando el ángulo:
-$$ \sin\left(\frac{\theta}{2}\right) = \frac{a}{2r} = \frac{a}{2} \frac{eB}{mv_0} = \frac{aeB}{2mv_0} $$
+*   **Caso 1: $\vec{E}$ y $\vec{B}$ paralelos** - La partícula experimenta movimiento helicoidal con aceleración en la dirección de los campos.
 
-Por lo tanto:
-$$ \theta = 2\arcsin\left(\frac{aeB}{2mv_0}\right) $$
+*   **Caso 2: $\vec{E}$ y $\vec{B}$ perpendiculares** - Existe una velocidad de deriva $\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}$.
 
-Este es el **ángulo de desviación** de la partícula.
+*   **Caso 3: Ángulo arbitrario** - Combinación de los anteriores.
 
-**3. Condiciones de Validez:**
-Para que esta solución sea válida, se requiere que $\frac{aeB}{2mv_0} \leq 1$, es decir:
-$$ a \leq \frac{2mv_0}{eB} = 2r $$
+**3. Caso Específico: Campos Perpendiculares ($\vec{E} \perp \vec{B}$):**
 
-Si $a > 2r$, la partícula completaría un semicírculo o más dentro de la región.
+Orientamos los ejes: $\vec{E} = E\hat{y}$, $\vec{B} = B\hat{z}$.
 
-**4. Tiempo de Permanencia:**
-La longitud del arco recorrido por la partícula es:
-$$ s = r\theta $$
+La ecuación de movimiento componente por componente:
+1. $m_0\frac{dv_x}{dt} = -qv_yB$
+2. $m_0\frac{dv_y}{dt} = qE + qv_xB$
+3. $m_0\frac{dv_z}{dt} = 0$
 
-El tiempo de permanencia es:
-$$ t = \frac{s}{v_0} = \frac{r\theta}{v_0} = \frac{m\theta}{eB} $$
+**4. Velocidad de Deriva:**
+La solución incluye una velocidad de deriva constante:
+$$ \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2} = \frac{E}{B}\hat{x} $$
 
-Sustituyendo la expresión para $\theta$:
-$$ t = \frac{2m}{eB}\arcsin\left(\frac{aeB}{2mv_0}\right) $$
+**5. Movimiento Completo:**
+La trayectoria es una cicloide: movimiento circular superpuesto con deriva constante en dirección perpendicular a ambos campos.
 
-**5. Caso Límite: Campo Débil o Región Pequeña:**
-Si $a \ll r$ (campo débil o región pequeña), podemos usar la aproximación $\arcsin(x) \approx x$ para $x \ll 1$:
-$$ \theta \approx 2 \cdot \frac{aeB}{2mv_0} = \frac{aeB}{mv_0} $$
-$$ t \approx \frac{2m}{eB} \cdot \frac{aeB}{2mv_0} = \frac{a}{v_0} $$
+**6. Densidad de Corriente:**
+Para un conjunto de partículas con densidad numérica $n$, la densidad de corriente es:
+$$ \vec{J} = nq\vec{v} = nq\vec{v}_d + nq\vec{v}_{ciclo} $$
 
-En este límite, el tiempo de permanencia es simplemente el tiempo que tardaría en atravesar la región sin deflexión.
+El término de deriva contribuye:
+$$ \vec{J}_d = nq\frac{\vec{E} \times \vec{B}}{B^2} $$
+
+**7. Ley de Ohm:**
+Para explorar si se cumple la ley de Ohm ($\vec{J} = \sigma \vec{E}$), analizamos la componente estacionaria:
+
+$$ \vec{J}_d = nq\frac{\vec{E} \times \vec{B}}{B^2} $$
+
+Esta expresión NO tiene la forma $\vec{J} = \sigma\vec{E}$ porque:
+- $\vec{J}_d$ es perpendicular a $\vec{E}$ (por el producto vectorial)
+- Depende de $\vec{B}$, no solo de $\vec{E}$
+
+**Conclusión:** En presencia de campo magnético, la ley de Ohm en su forma simple NO se cumple. La relación entre $\vec{J}$ y $\vec{E}$ es más compleja y la conductividad se vuelve un tensor en lugar de un escalar.
 
 ---
 
 ## Problema 4
 
-**Enunciado:** Una partícula de masa $m$ y carga $e$ en presencia de campos $\vec{E}$ y $\vec{B}$ uniformes, constantes y paralelos entre sí, tiene una velocidad inicial $\vec{v}_0$ perpendicular a los campos. Halle la trayectoria de la partícula.
+**Enunciado:** Demuestre que el potencial magnético vectorial de un campo magnético uniforme y constante de inducción $\vec{B}$ viene dado por la expresión
+$$
+\vec{A} = \frac{1}{2}\vec{B} \times \vec{r}.
+$$
 
 **Solución:**
 
-**1. Configuración y Ecuación de Movimiento:**
-Orientamos el sistema de coordenadas de modo que los campos estén en la dirección $z$:
-$$ \vec{E} = E\vec{e}_z, \quad \vec{B} = B\vec{e}_z $$
+Para demostrar esta afirmación, debemos verificar que $\vec{B} = \nabla \times \vec{A}$ cuando $\vec{A} = \frac{1}{2}\vec{B} \times \vec{r}$.
 
-La velocidad inicial es perpendicular a los campos, por ejemplo $\vec{v}_0 = v_0\vec{e}_x$.
+**1. Cálculo del Rotacional:**
+Calculamos $\nabla \times \vec{A}$ donde $\vec{A} = \frac{1}{2}\vec{B} \times \vec{r}$.
 
-La ecuación de movimiento es:
-$$ m\frac{d\vec{v}}{dt} = e(\vec{E} + \vec{v} \times \vec{B}) $$
+Usamos la identidad vectorial:
+$$ \nabla \times (\vec{B} \times \vec{r}) = \vec{B}(\nabla \cdot \vec{r}) - (\vec{B} \cdot \nabla)\vec{r} $$
 
-**2. Componentes de la Ecuación de Movimiento:**
-Escribiendo $\vec{v} = v_x\vec{e}_x + v_y\vec{e}_y + v_z\vec{e}_z$, el producto vectorial es:
-$$ \vec{v} \times \vec{B} = (v_x\vec{e}_x + v_y\vec{e}_y + v_z\vec{e}_z) \times (B\vec{e}_z) = v_xB\vec{e}_y - v_yB\vec{e}_x $$
+**2. Evaluación de cada Término:**
 
-Las ecuaciones componente por componente son:
-1. $m\frac{dv_x}{dt} = -ev_yB$
-2. $m\frac{dv_y}{dt} = ev_xB$
-3. $m\frac{dv_z}{dt} = eE$
+*   $\nabla \cdot \vec{r} = \frac{\partial x}{\partial x} + \frac{\partial y}{\partial y} + \frac{\partial z}{\partial z} = 3$
 
-**3. Movimiento en la Dirección z:**
-La tercera ecuación se integra directamente:
-$$ v_z(t) = v_{z,0} + \frac{eE}{m}t $$
+*   Para $(\vec{B} \cdot \nabla)\vec{r}$, como $\vec{B}$ es constante:
+    $$ (\vec{B} \cdot \nabla)\vec{r} = \left(B_x\frac{\partial}{\partial x} + B_y\frac{\partial}{\partial y} + B_z\frac{\partial}{\partial z}\right)(x\hat{x} + y\hat{y} + z\hat{z}) $$
+    $$ = B_x\hat{x} + B_y\hat{y} + B_z\hat{z} = \vec{B} $$
 
-Si inicialmente $v_{z,0} = 0$:
-$$ v_z(t) = \frac{eE}{m}t $$
+**3. Sustitución:**
+$$ \nabla \times (\vec{B} \times \vec{r}) = 3\vec{B} - \vec{B} = 2\vec{B} $$
 
-Integrando nuevamente:
-$$ z(t) = z_0 + \frac{eE}{2m}t^2 $$
+Por lo tanto:
+$$ \nabla \times \vec{A} = \nabla \times \left(\frac{1}{2}\vec{B} \times \vec{r}\right) = \frac{1}{2}\nabla \times (\vec{B} \times \vec{r}) = \frac{1}{2}(2\vec{B}) = \vec{B} $$
 
-El movimiento en $z$ es **uniformemente acelerado** con aceleración $a_z = \frac{eE}{m}$.
+**Conclusión:**
+Hemos demostrado que $\nabla \times \vec{A} = \vec{B}$, lo que verifica que $\vec{A} = \frac{1}{2}\vec{B} \times \vec{r}$ es efectivamente un potencial vectorial válido para un campo magnético uniforme y constante $\vec{B}$.
 
-**4. Movimiento en el Plano xy:**
-Las dos primeras ecuaciones describen un movimiento circular. Definimos la frecuencia ciclotrón $\omega = \frac{eB}{m}$:
-$$ \frac{dv_x}{dt} = -\omega v_y $$
-$$ \frac{dv_y}{dt} = \omega v_x $$
-
-La solución es:
-$$ v_x(t) = v_0\cos(\omega t) $$
-$$ v_y(t) = v_0\sin(\omega t) $$
-
-Integrando:
-$$ x(t) = x_0 + \frac{v_0}{\omega}\sin(\omega t) $$
-$$ y(t) = y_0 - \frac{v_0}{\omega}\cos(\omega t) + \frac{v_0}{\omega} $$
-
-**5. Descripción de la Trayectoria:**
-En el plano $xy$, la partícula describe un movimiento circular con radio $r = \frac{v_0}{\omega} = \frac{mv_0}{eB}$ y frecuencia angular $\omega$.
-
-Simultáneamente, la partícula es acelerada en la dirección $z$ por el campo eléctrico.
-
-La trayectoria completa es una **hélice con paso creciente** (o espiral cónica). El radio de la hélice permanece constante ($r = \frac{mv_0}{eB}$), pero la velocidad en la dirección $z$ aumenta linealmente con el tiempo, lo que hace que el paso de la hélice aumente con cada vuelta.
+**Nota:** Este no es el único potencial vectorial posible. Debido a la libertad de gauge, cualquier $\vec{A}' = \vec{A} + \nabla \Lambda$ (donde $\Lambda$ es una función escalar arbitraria) también es un potencial vectorial válido para el mismo campo $\vec{B}$.
 
 ---
 
 ## Problema 5
 
-**Enunciado:** Una partícula de masa $m$ y carga $e$ entra en una región con campo magnético uniforme $\vec{B}$ con velocidad $\vec{v}_0$ que forma un ángulo $\alpha$ con $\vec{B}$. Describa el movimiento de la partícula.
-
-**Solución:**
-
-**1. Descomposición de la Velocidad:**
-Orientamos el sistema de coordenadas con $\vec{B} = B\vec{e}_z$. La velocidad inicial se descompone en:
-*   **Componente paralela al campo:** $v_{\parallel} = v_0\cos\alpha$
-*   **Componente perpendicular al campo:** $v_{\perp} = v_0\sin\alpha$
-
-Podemos escribir:
-$$ \vec{v}_0 = v_{\perp}\vec{e}_x + v_{\parallel}\vec{e}_z $$
-
-**2. Ecuación de Movimiento:**
-La fuerza de Lorentz es:
-$$ \vec{F} = e\vec{v} \times \vec{B} $$
-
-Esta fuerza es siempre perpendicular tanto a $\vec{v}$ como a $\vec{B}$. Por lo tanto, la componente de la velocidad paralela al campo magnético no experimenta ninguna fuerza:
-$$ F_z = 0 \implies v_z = v_{\parallel} = \text{constante} $$
-
-**3. Movimiento Paralelo al Campo:**
-El movimiento en la dirección del campo es **uniforme**:
-$$ z(t) = z_0 + v_{\parallel}t $$
-
-**4. Movimiento Perpendicular al Campo:**
-En el plano perpendicular a $\vec{B}$, la partícula experimenta la fuerza magnética que la hace describir un movimiento circular uniforme. La frecuencia angular es:
-$$ \omega = \frac{eB}{m} $$
-
-El radio de la órbita circular está determinado por la componente perpendicular de la velocidad:
-$$ r = \frac{mv_{\perp}}{eB} = \frac{mv_0\sin\alpha}{eB} $$
-
-**5. Trayectoria Completa:**
-La combinación del movimiento circular en el plano $xy$ y el movimiento uniforme en la dirección $z$ resulta en una **trayectoria helicoidal** (hélice) alrededor de la dirección del campo magnético.
-
-Los parámetros de la hélice son:
-*   **Radio:** $r = \frac{mv_0\sin\alpha}{eB}$
-*   **Frecuencia angular:** $\omega = \frac{eB}{m}$
-*   **Paso de la hélice** (distancia recorrida en $z$ por cada vuelta completa):
-    $$ d = v_{\parallel}T = v_{\parallel}\frac{2\pi}{\omega} = \frac{2\pi m v_0\cos\alpha}{eB} $$
-
-**6. Casos Especiales:**
-*   Si $\alpha = 0$ (velocidad paralela al campo): No hay fuerza ($r=0$), la partícula se mueve en línea recta.
-*   Si $\alpha = 90°$ (velocidad perpendicular al campo): $v_{\parallel}=0$, la partícula describe un círculo en un plano perpendicular a $\vec{B}$.
-
----
-
-## Problema 6
-
-**Enunciado:** Una bola maciza de radio $R$ tiene carga $q$ distribuida uniformemente en su volumen y rota con velocidad angular $\vec{\omega}$ alrededor de un eje que pasa por su centro. Halle el campo $\vec{B}$ y el momento dipolar magnético $\vec{m}$ de la bola.
+**Enunciado:** Sea una bola de radio $a$ sobre cuyo volumen se encuentra distribuida uniformemente la carga $Q$. Si la esfera rota con velocidad constante $\omega$ alrededor de uno de sus diámetros, calcule el momento dipolar de la bola. Calcule además el vector inducción magnética en el centro de la bola.
 
 **Solución:**
 
 **1. Densidad de Corriente:**
 Una esfera cargada que rota equivale a una distribución de corrientes. La densidad de carga es:
-$$ \rho = \frac{q}{\frac{4}{3}\pi R^3} = \frac{3q}{4\pi R^3} $$
+$$ \rho = \frac{Q}{\frac{4}{3}\pi a^3} = \frac{3Q}{4\pi a^3} $$
 
 En un punto $\vec{r}$ dentro de la esfera, la velocidad debido a la rotación es $\vec{v} = \vec{\omega} \times \vec{r}$. La densidad de corriente es:
-$$ \vec{J}(\vec{r}) = \rho\vec{v} = \rho(\vec{\omega} \times \vec{r}) = \frac{3q}{4\pi R^3}(\vec{\omega} \times \vec{r}) $$
+$$ \vec{J}(\vec{r}) = \rho\vec{v} = \rho(\vec{\omega} \times \vec{r}) = \frac{3Q}{4\pi a^3}(\vec{\omega} \times \vec{r}) $$
 
 **2. Cálculo del Momento Dipolar Magnético:**
 El momento dipolar magnético se define como:
 $$ \vec{m} = \frac{1}{2}\int_V \vec{r} \times \vec{J}(\vec{r}) dV $$
 
 Sustituyendo $\vec{J}$:
-$$ \vec{m} = \frac{1}{2}\int_V \vec{r} \times \left[\frac{3q}{4\pi R^3}(\vec{\omega} \times \vec{r})\right] dV = \frac{3q}{8\pi R^3}\int_V \vec{r} \times (\vec{\omega} \times \vec{r}) dV $$
+$$ \vec{m} = \frac{1}{2}\int_V \vec{r} \times \left[\frac{3Q}{4\pi a^3}(\vec{\omega} \times \vec{r})\right] dV = \frac{3Q}{8\pi a^3}\int_V \vec{r} \times (\vec{\omega} \times \vec{r}) dV $$
 
 Usando la identidad vectorial $\vec{A} \times (\vec{B} \times \vec{C}) = \vec{B}(\vec{A} \cdot \vec{C}) - \vec{C}(\vec{A} \cdot \vec{B})$:
 $$ \vec{r} \times (\vec{\omega} \times \vec{r}) = \vec{\omega}(\vec{r} \cdot \vec{r}) - \vec{r}(\vec{r} \cdot \vec{\omega}) = \vec{\omega}r^2 - \vec{r}(\vec{r} \cdot \vec{\omega}) $$
 
 Por simetría esférica, la integral del segundo término se anula. La integral queda:
-$$ \vec{m} = \frac{3q}{8\pi R^3}\vec{\omega}\int_V r^2 dV $$
+$$ \vec{m} = \frac{3Q}{8\pi a^3}\vec{\omega}\int_V r^2 dV $$
 
 En coordenadas esféricas, $dV = 4\pi r^2 dr$:
-$$ \int_V r^2 dV = \int_0^R r^2(4\pi r^2 dr) = 4\pi\int_0^R r^4 dr = 4\pi\left[\frac{r^5}{5}\right]_0^R = \frac{4\pi R^5}{5} $$
+$$ \int_V r^2 dV = \int_0^a r^2(4\pi r^2 dr) = 4\pi\int_0^a r^4 dr = 4\pi\left[\frac{r^5}{5}\right]_0^a = \frac{4\pi a^5}{5} $$
 
 Sustituyendo:
-$$ \vec{m} = \frac{3q}{8\pi R^3}\vec{\omega} \cdot \frac{4\pi R^5}{5} = \frac{3q \cdot 4\pi R^5}{8\pi R^3 \cdot 5}\vec{\omega} = \frac{qR^2}{5}\vec{\omega} $$
+$$ \vec{m} = \frac{3Q}{8\pi a^3}\vec{\omega} \cdot \frac{4\pi a^5}{5} = \frac{3Q \cdot 4\pi a^5}{8\pi a^3 \cdot 5}\vec{\omega} = \frac{Qa^2}{5}\vec{\omega} $$
 
 El momento dipolar magnético es:
-$$ \vec{m} = \frac{1}{5}qR^2\vec{\omega} $$
+$$ \vec{m} = \frac{1}{5}Qa^2\vec{\omega} $$
 
-**3. Cálculo del Campo Magnético $\vec{B}$:**
-Para calcular el campo magnético, usamos la ley de Ampère con simetría esférica. El resultado es:
+**3. Cálculo del Campo Magnético en el Centro:**
+Para el campo en el centro, usamos el resultado conocido de la esfera uniformemente magnetizada:
+$$ \vec{B}(0) = \frac{2\mu_0}{5}\frac{Q\vec{\omega}}{a} = \frac{2\mu_0 \vec{m}}{a^3} $$
 
-*   **En el centro de la esfera ($\vec{r}=0$):**
-    $$ \vec{B}(0) = \frac{2\mu_0}{5}\frac{q\vec{\omega}}{R} $$
+Sustituyendo el valor de $\vec{m}$:
+$$ \vec{B}(0) = \frac{2\mu_0}{5} \frac{Q\omega}{a} \hat{\omega} $$
 
-*   **Fuera de la esfera ($r > R$):** El campo es el de un dipolo magnético:
-    $$ \vec{B}(\vec{r}) = \frac{\mu_0}{4\pi r^3}\left[3(\vec{m} \cdot \hat{r})\hat{r} - \vec{m}\right] $$
+donde $\hat{\omega}$ es el vector unitario en la dirección de $\vec{\omega}$.
+
+---
+
+## Problema 6
+
+**Enunciado:** Suponiendo que la bola que rota en el problema anterior es el electrón no puntual con radio clásico $r_0$ determinado en la sección 1.8 del Capítulo 1, encuentre cuál debe ser el valor de la velocidad angular $\omega$ para que el momento magnético $\vec{m}$ coincida con el momento magnético de spin del electrón. Halle la velocidad tangencial de un punto cualquiera sobre el ecuador de la bola. ¿El valor de velocidad obtenido puede ser admitido como válido?
+
+**Solución:**
+
+Este problema utiliza el resultado del problema anterior para modelar el electrón como una esfera cargada en rotación y comparar su momento magnético clásico con el momento magnético de espín cuántico.
+
+**1. Momento Magnético Clásico:**
+Del problema 5, el momento dipolar magnético de una esfera de radio $R$ y carga $q$ que rota con velocidad angular $\vec{\omega}$ es:
+$$ \vec{m} = \frac{1}{5} q R^2 \vec{\omega} $$
+Para este modelo del electrón, tenemos:
+*   La carga $q = -e$ (carga del electrón).
+*   El radio $R = r_0 = \frac{e^2}{4 \pi \epsilon_0 m_e c^2}$ (radio clásico del electrón).
+
+Sustituyendo estos valores, el momento magnético clásico del electrón es:
+$$ \vec{m} = -\frac{1}{5} e r_0^2 \vec{\omega} $$
+
+**2. Momento Magnético de Espín:**
+El momento magnético de espín intrínseco del electrón viene dado por:
+$$ \vec{m}_s = -g \frac{e}{2m_e}\vec{S} $$
+Donde:
+*   $g \approx 2$ es el factor g del electrón.
+*   $m_e$ es la masa del electrón.
+*   $\vec{S}$ es el momento angular de espín.
+
+La magnitud del momento angular de espín es $|\vec{S}| = \frac{\hbar}{2}$. Asumiendo que la rotación y el espín están alineados, podemos comparar las magnitudes:
+$$ |\vec{m}_s| = g \frac{e}{2m_e} |\vec{S}| = 2 \frac{e}{2m_e} \frac{\hbar}{2} = \frac{e\hbar}{2m_e} $$
+Este valor se conoce como el **magnetón de Bohr**, $\mu_B = \frac{e\hbar}{2m_e}$.
+
+**3. Cálculo de la Velocidad Angular $\omega$:**
+Igualamos las magnitudes de los dos momentos magnéticos, $|\vec{m}| = |\vec{m}_s|$:
+$$ \frac{1}{5} e r_0^2 \omega = \frac{e\hbar}{2m_e} $$
+Despejamos la velocidad angular $\omega$:
+$$ \omega = \frac{5\hbar}{2m_e r_0^2} $$
+Sustituimos la expresión para el radio clásico del electrón:
+$$ r_0 = \frac{e^2}{4 \pi \epsilon_0 m_e c^2} $$
+Para simplificar, introducimos la **constante de estructura fina**:
+$$ \alpha = \frac{e^2}{4 \pi \epsilon_0 \hbar c} \approx \frac{1}{137} $$
+De esta definición, $r_0 = \frac{\alpha \hbar}{m_e c}$. Sustituyendo en nuestra ecuación:
+$$ \omega = \frac{5\hbar}{2m_e} \cdot \frac{m_e^2 c^2}{\alpha^2 \hbar^2} = \frac{5 m_e c^2}{2 \alpha^2 \hbar} $$
+
+**4. Cálculo de la Velocidad Tangencial:**
+La velocidad tangencial $v_t$ en el ecuador de la esfera (donde el radio es $r_0$) está dada por $v_t = \omega r_0$.
+$$ v_t = \left( \frac{5 m_e c^2}{2 \alpha^2 \hbar} \right) \left( \frac{\alpha \hbar}{m_e c} \right) = \frac{5c}{2\alpha} $$
+Dado que $\alpha \approx 1/137$, el valor de la velocidad tangencial es:
+$$ v_t \approx \frac{5 \cdot 137}{2} c \approx 342.5 c $$
+
+**5. ¿Es Válido este Resultado?**
+
+**NO.** La velocidad tangencial en el ecuador de este electrón clásico sería aproximadamente **342.5 veces la velocidad de la luz**.
+
+Este resultado es físicamente imposible por varias razones:
+1. Ningún objeto material puede moverse más rápido que la luz.
+2. Contradice los principios fundamentales de la relatividad especial.
+3. El valor superlumínico indica que el modelo clásico es inadecuado.
+
+**Conclusión:**
+Este resultado demuestra de manera contundente por qué el modelo clásico de un electrón como una simple esfera cargada en rotación es inadecuado para describir sus propiedades cuánticas como el espín y el momento magnético. El espín es una propiedad intrínseca cuántica y no puede ser explicada por una rotación mecánica en el espacio.
 
 ---
 
