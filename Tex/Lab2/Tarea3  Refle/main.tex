@@ -1,0 +1,276 @@
+\documentclass[14pt,a4paper,twocolumn]{article}
+
+% Paquetes útiles
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}   % opcional si ya está por defecto
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath} % Times New Roman
+\usepackage{geometry}         
+\geometry{margin=2cm}
+\usepackage{setspace}         
+\usepackage{graphicx}         
+\usepackage{amsmath, amssymb} 
+\usepackage{hyperref}         
+\usepackage{fancyhdr}         
+\usepackage{csquotes}         
+\usepackage{array}            % Tablas avanzadas
+\usepackage{natbib}           % Bibliografía
+\usepackage{abstract}         
+\usepackage{ytableau}         % Diagramas de Young (elige uno solo)
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{example}{Ejemplo}
+\hypersetup{hidelinks}
+\usepackage{float}
+
+% Encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Fundamentos sobre vacío}
+\rhead{\thepage}
+\cfoot{}
+
+% Datos de portada
+\title{\textbf{Caracterización de una película delgada: Propiedades ópticas} \\[0.5em]}
+
+\author{
+  Jose David Ortíz Campo \\
+  Juan Pablo Otálvaro Ghisays \\
+  Juan José Montoya Sánchez \\[0.5em]
+  \textit{Universidad de Antioquia, Medellín, Colombia} \\[0.25em]
+    \texttt{jose.ortizc@udea.edu.co}  
+  \texttt{juan.otalvaro1@udea.edu.co}
+  \texttt{juan.montoya110@udea.edu.co}
+}
+
+\date{\today}
+
+\begin{document}
+
+% Portada
+\twocolumn[
+  \maketitle
+  \begin{abstract}
+
+En este trabajo se caracterizó una película delgada de aluminio fabricada por evaporación térmica, mediante espectroscopía de reflectancia en el rango visible (440-700 nm). Se realizaron mediciones a tres ángulos de incidencia (30°, 45° y 60°) utilizando un espectrómetro de fibra óptica. A partir de los espectros de reflectancia obtenidos, se calcularon los componentes real ($n$) e imaginario ($k$) del índice de refracción complejo utilizando un ajuste de mínimos cuadrados basado en las ecuaciones de Fresnel. Los resultados muestran valores de $k$ inferiores a los del aluminio masivo, lo que sugiere la presencia de una capa de óxido superficial y efectos de rugosidad en la película delgada.
+  \end{abstract}
+  \vspace{1em}
+]
+
+% Introducción
+\section{Introducción}
+
+A principios del siglo XIX, el físico Augustin-Jean Fresnel desarrolló una teoría capaz de dar cuenta del comportamiento de la luz al ser incidida sobre una superficie. Él desarrolló las conocidas ecuaciones de Fresnel (EF), éstas predicen cómo se refleja y transmite la luz dependiendo del material y del ángulo de incidencia \cite{apsnews2016fresnel}. Son importantes en el ámbito científico debido a que influyó en la idea de ver la luz como una onda\cite{garcia2024epistemological}. Además de que estas ecuaciones fueron y/o son fundamentales para el diseño de dispositivos ópticos, como lo son recubrimientos antirreflectantes o filtros polarizantes, teniendo un gran impacto en la sociedad hoy en día\cite{QuantumInnovations_AR,Siletz2014}.
+Actualemnte, la caracterización de los materiales se da mediante distintas tecnicas, como lo son la elipsometria o espectrofotometria.
+
+En particular las EF permiten determinar características como el índice de refracción ($N$), el cual da cuenta de cómo cambia la velocidad de la luz en los materiales en comparación a la que tiene en el vacío. Este índice de forma genérica contiene la propagación del haz de luz incidente, y la absorción de la luz sobre el material en cuestión\cite{fresnel_equations_wikipedia}. De hecho, las ecuaciones de reflectancia sirven para calcular la fracción de intensidad reflejada en una interfaz entre dos medios. Esto es importante, pues se ve influenciado en el desarrollo de semiconductores y nanotecnología\cite{PalikHolm2017,LeporeDelfino2022}, ya que dicha caracterización permite extraer propiedades ópticas de capas delgadas, celdas solares o sensores. Con esta teoría se modela cómo la luz interactúa con superficies a nanoescala y se puede usar para reducir pérdidas importantes por reflexión no deseada\cite{Politano2023,MDPI_2076_3417_15_6_3053,AIMS2017}.
+
+
+Actualmente se busca adaptar las EF a materiales como el grafeno, $MoS_{2}$ o heteroestructuras de van der waals, donde el grosor es comparable a la longitud de onda. Una suposición que se hace en el desarrollo de estas teorías es subestiman la reflectancia, algo que no ocurre en las teorias que involucran peliculas delgadas\cite{Xu2017_MoS2_Graphene_vdW,Eini2025_TransmissionLineModel_2D,Wang2019_Fresnel2D}. Adicionalmente, se busca una mayor precisión en las mediciones de la reflectancia especular mediante interferometría con haces Bessel o reflectancia de fibra unica. Ésta es una tecnica de espectroscopía donde una sola fibra óptica emite y recoge la luz reglejada por la muestra, permitiendo mediciones espectrales localizadas con una profundidad de muestreo de cientos de micrómetros, útil en caracterizción de materiales\cite{Post2020_SubdiffuseSFR}.
+
+Para enontrar el indice $N$ con mayor precisión se han desarrollado tecnicas como la interferometría con haces Bessel o reflectancia de fibra unica. Al trabajar sobre peliculas delgadas, se ajustan las EF para una mejor extracción de la reflectancia, minimizando así errores realizando multiples medidas desde distintos angulos. 
+
+
+En el siguiente trabajo se realizarán medidas de reflectancia sobre muestras Al/sustrato con diferentes angulos de incidencia. Con esto, se realizará un ajuste de dichas medidas para una mejor estimación del indice de refracción.
+
+
+
+
+
+
+
+
+
+
+
+\section{Metodología}
+
+\begin{itemize}
+
+     \item El material de prueba que se usó para realizar la medida de reflectancia es una película de aluminio fabricada mediante evaporación térmica \footnote{Ver anexo}. Las medidas se hicieron utilizando un espectómetro de fibra óptica Thorlabs CCS-100, cuyo rango de medidas abarca el espectro entre los 350 nm y los 700 nm, así como un software compatible con el espectrómetro, que permitía la visualización y el almacenamiento de los datos. Las medidas de reflectancia se hicieron a distintos grados de incidencia (30°,45° y 60°) usando soportes de ángulo fijo. En la figura  \ref{fig:montaje} se visualiza el montaje experimental usado en el proceso de medición.
+\end{itemize}
+    \begin{figure}[H] % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/montajereflectancia.jpg} % Escala la imagen
+    \caption{Montaje experimental: 1.) Espectrómetro Thorlabs CCS-100 2.) Soportes de ángulo fijo para reflectancia 3.) Computador con software compatible con el espectrómetro }
+    \label{fig:montaje}
+    \end{figure}
+\begin{itemize}
+    \item Para generar la luz se utilizó una fuente AIS model DT 1000. Para cada ángulo se realizaron 4 medidas: Espectro del estándar especular de referencia $S(\lambda)$, espectro oscuro de la referencia $D_s(\lambda)$, espectro de la película delgada $R(\lambda)$ y espectro oscuro de la película delgada $D_R(\lambda)$.  
+
+    Como referencia para las medidas de las muestras se usó un patrón difuso.Para tomar las medidas de espectro oscuro la fuente se dejó apagada, estas medidas son esenciales para restar el ruido en la estimación de la reflectancia. Para tomar las medidas $S(\lambda)$ y $R(\lambda)$ se enciende la fuente en el rango visible. En la figura \ref{fig:fuente} se observa la fuente utilizada, su conexión y el interruptor que activa y desactiva el espectro visible.
+
+    \item Para calcular la reflectancia relativa a partir de los espectros medidos se utilizó la ecuación \eqref{eqreflectancia}. Una vez hecho este cálculo, se obtuvieron los máximos y mínimos de reflectancia, la media y se graficaron los resultados en graficas de reflectancia relativa vs longitud de onda (nm). Se superpusieron los gráficos de reflectancia para detectar los cambios que genera en la medida el variar el ángulo de incidencia. Se realizó un análisis por región espectral, donde se obtuvo la media de la reflectancia y su error estándar en los rangos UV (300-400 nm), visible (400-700 nm) y el infrarrojo cercano (700-1000 nm). Finalmente, se seleccionaron algunas longitudes de onda representativas (400 nm, 500 nm, 600 nm y 700 nm) y se realizaron gráficos de reflectancia en función del ángulo de incidencia para estas longitudes con el objetivo de observar cómo el cambio en la reflectancia al momento de variar el ángulo de incidencia puede depender de la longitud de onda.
+
+\end{itemize}
+    \begin{equation}
+        R(\lambda) = \frac{S(\lambda)-D_S(\lambda)}{r(\lambda)-D_r(\lambda)}
+        \label{eqreflectancia}
+    \end{equation}
+
+
+
+
+
+\begin{figure} % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/fuente.jpeg} % Escala la imagen
+    \caption{1.) Fuente AIS model DT 1000 2.) Interruptor Vis. On}
+    \label{fig:fuente}
+\end{figure}
+
+
+\section{Resultados y Discusiones}
+
+\subsection{30°}
+
+\begin{itemize}
+    \item El mínimo de reflectancia relativa fue de -19.0030 y se obtuvo para una longitud de onda de 322 nm. El máximo fue 22.3235 y se obtuvo para una longitud de onda de 339 nm. La media se estimó en $0.2\pm 0.8$.
+
+    \item Se graficó la reflectancia vs longitud de onda, la gráfica correspondiente se puede ver en la figura \ref{fig:ref30}.
+
+    \item En el rango UV (300 - 400 nm), la media de reflectancia fue de $0.3\pm 1.7$. En el rango visible (400 - 700 nm), la media fue de $0.27\pm0.02$. En el rango infrarrojo cercano (700 - 1000 nm) la media fue de $0.284 \pm 0.02$.
+    
+    \begin{figure}[H] % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/ref30.png} % Escala la imagen
+    \caption{Reflectancia (adim) vs Longitud de onda (nm) para una inclinación de 30°}
+    \label{fig:ref30}
+\end{figure}
+
+\end{itemize} 
+
+\subsection{45°}
+
+\begin{itemize}
+    \item El mínimo de reflectancia relativa fue de -66.776 y se obtuvo para una longitud de onda de 339 nm. El máximo fue 81.302 y se obtuvo para una longitud de onda de 376 nm. La media se estimó en $0.2\pm 0.8$.
+
+    \item Se graficó  la reflectancia vs longitud de onda, la gráfica correspondiente se puede ver en la figura \ref{fig:ref45}.
+
+    \item En el rango UV (300 - 400 nm), la media de reflectancia fue de $1\pm 6$. En el rango visible (400 - 700 nm), la media fue de $0.40\pm0.02$. En el rango infrarrojo cercano (700 - 1000 nm) la media fue de $0.4 \pm 0.1$.
+
+\end{itemize}
+
+\begin{figure}[H] % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/ref45.png} % Escala la imagen
+    \caption{Reflectancia (adim) vs Longitud de onda (nm) para una inclinación de 45°}
+    \label{fig:ref45}
+\end{figure}
+
+
+\subsection{60°}
+
+\begin{itemize}
+    \item El mínimo de reflectancia relativa fue de -387.14 y se obtuvo para una longitud de onda de 329 nm. El máximo fue 210.13 y se obtuvo para una longitud de onda de 381 nm. La media se estimó en $0.47\pm 8.8$.
+
+    \item Se graficó  la reflectancia vs longitud de onda, la gráfica correspondiente se puede ver en la figura \ref{fig:ref60}.
+
+    \item En el rango UV (300 - 400 nm), la media de reflectancia fue de $0\pm 10$. En el rango visible (400 - 700 nm), la media fue de $0.50\pm0.09$. En el rango infrarrojo cercano (700 - 1000 nm) la media fue de $0.7 \pm 0.5$.
+
+\end{itemize}
+
+\begin{figure}[H] % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/ref60.png} % Escala la imagen
+    \caption{Reflectancia (adim) vs Longitud de onda (nm) para una inclinación de 60°}
+    \label{fig:ref60}
+\end{figure}
+
+\subsection{Comparación}
+
+\begin{itemize}
+    \item La gráfica resultante de la superposición de las 3 curvas de reflectancia vs longitud de onda se observa en la figura \ref{fig:super}
+
+\begin{figure} % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/super.png} % Escala la imagen
+    \caption{Reflectancia (adim) vs Longitud de onda (nm) para 30°,45°,60°}
+    \label{fig:super}
+\end{figure}
+
+\item Las gráficas de reflectancia para determinadas longitudes de onda en función del ángulo de incidencia se observan en las figura \ref{fig:nm}
+
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/nm.jpeg} % Escala la imagen
+    \caption{Reflectancia a 400, 500, 600 y 700 nm para 30°,45°,60°}
+    \label{fig:nm}
+\end{figure}
+
+\begin{itemize}
+    \item A partir del ajuste de los datos experimentales utilizando las ecuaciones de Fresnel, se obtuvieron los valores del índice de refracción ($n$) y el coeficiente de extinción ($k$) en función de la longitud de onda. La figura \ref{fig:nk_plot} muestra el comportamiento espectral de estas constantes ópticas. Se observa que $n$ se mantiene relativamente estable en el rango visible, mientras que $k$ presenta valores bajos comparados con el aluminio masivo, indicando una absorción reducida.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/ajuste.jpeg}
+    \caption{Índice de refracción real ($n$) y coeficiente de extinción ($k$) calculados a partir del ajuste de Fresnel.}
+    \label{fig:nk_plot}
+\end{figure}
+
+
+
+\section{Conclusiones}
+
+Se caracterizó una película delgada de aluminio mediante espectroscopía con múltiples ángulos de incidencia. Los espectros muestran dependencia de la reflectancia con el ángulo de incidencia. El ajuste de los datos permitió estimar los índices de refracción complejos de la muestra, obteniendo valores de $n$ en el rango de $0.4-0.8$ y $k$ en el rango de $0.3-1.3$ para el espectro visible. Estos valores de ($k$) son notablemente inferiores a los reportados para el aluminio masivo puro ($k > 4$). Esta discrepancia se atribuye principalmente a la rápida oxidación de la superficie del aluminio, formando una capa de óxido de aluminio ($Al_2O_3$) que es transparente y reduce la reflectancia especular efectiva.
+
+Ademas, la rugosidad superficial y el espesor de la película contribuyen a las desviaciones respecto al modelo ideal de Fresnel para medios semi-infinitos. A pesar de estas diferencias cuantitativas, el estudio confirma la naturaleza metálica de la película y demuestra la utilidad de la reflectancia angular para sondear la calidad y composición de superficies delgadas.
+
+% Bibliografía
+\bibliographystyle{unsrt}
+\bibliography{bibliografia} % Archivo .bib con tus referencias
+
+
+\section*{Anexo: Elaboración de la película delgada}
+
+La película delgada utilizada en este experimento se elaboró mediante la evaporación térmica de aluminio de alta pureza sobre un sustrato de vídrio. Se utilizó un equipo JEOL-JEE4B, en la figura \ref{fig:jeol} se observa y se enumeran a grandes rasgos las partes de dicho equipo.
+
+\begin{figure} % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/montajeevaporacion.jpeg} % Escala la imagen
+    \caption{Equipo JEOL-JEE4B: 1.) Cámara. 2.) Bomba mecánica. 3.) Válvula corriente. 4.) Medidor de presión}
+    \label{fig:jeol}
+\end{figure}
+
+
+\begin{itemize}
+    \item \textbf{Limpieza:} El primer paso en la fabricación de la película delgada fue la limpieza del equipo JEOL-JEE4B. Para realizar esta limpieza se despresurizó la cámara, se abrió dicha cámara, se lijó y se limpió con alcohol cada una de las partes dentro del sistema. En la figura  \ref{fig:limpieza} se evidencia este proceso.
+
+\end{itemize}
+\begin{figure}[h] % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/limpieza.jpeg} % Escala la imagen
+    \caption{Limpieza de las componentes del equipo JEOL-JEE4B}
+    \label{fig:limpieza}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Sustrato y filamento:} Una vez realizada la limpieza del equipo, se procedió a preparar el filamento de aluminio de alta pureza y el sustrato de vídrio donde se realizará la deposición. 
+\end{itemize}
+
+\begin{figure}[h] % h = here
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/sustrato-filamento.jpeg} % Escala la imagen
+    \caption{1.) Filamento 2.) Sustrato}
+    \label{fig:sustrato}
+\end{figure}
+
+\begin{itemize}
+    \item \textbf{Vacío:} Una vez preparado el filamento y el sustrato, se procedió a realizar la primera etapa de vacío, es decir, vacío grueso. Para esto se encendió la bomba mecánica, que es capaz de llevar a la cámara hasta los $10^{-3}$ Torr. El proceso de evaporación térmica requiere alcanzar una presión del orden de $10^{-4}$ Torr, para esto, se enciendió la bomba difusora hasta alcanzar el alto vacío.
+\end{itemize}
+
+
+
+\begin{itemize}
+    \item \textbf{Deposición} Al momento de llegar a una presión del orden de $10^{-4}$ Torr, se cerró la válvula que conectaba la bomba difusora con el sistema. Luego se hizo pasar corriente por una barra de tungsteno que soportaba el filamento de aluminio. Así se calentó el tungsteno y las partículas de aluminio fueron depositadas en el sustrato de vidrio.
+\end{itemize}
+
+\begin{itemize}
+    \item \textbf{Extracción de la muestra} Al finalizar la deposición, se cortó el paso de corriente y se apagó la bomba difusora, se abrieron las válvulas muy suavemente presurizando el sistema. Luego, se levantó la cámara y se retiró la película con unas pinzas. Por último, se procedió a pesar la muestra y se guardó en bolsas herméticas. Todo este tratamiento se hizo con guantes.
+\end{itemize}
+
+
+
+\end{document}

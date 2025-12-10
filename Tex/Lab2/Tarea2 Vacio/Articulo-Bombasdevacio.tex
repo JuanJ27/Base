@@ -1,0 +1,162 @@
+\documentclass[14pt,a4paper,twocolumn]{article}
+
+% Paquetes útiles
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}   % opcional si ya está por defecto
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath} % Times New Roman
+\usepackage{geometry}         
+\geometry{margin=2cm}
+\usepackage{setspace}         
+\usepackage{graphicx}         
+\usepackage{amsmath, amssymb} 
+\usepackage{hyperref}         
+\usepackage{fancyhdr}         
+\usepackage{csquotes}         
+\usepackage{array}            % Tablas avanzadas
+\usepackage{natbib}           % Bibliografía
+\usepackage{abstract}         
+\usepackage{ytableau}         % Diagramas de Young (elige uno solo)
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{example}{Ejemplo}
+\hypersetup{hidelinks}
+\usepackage{float}
+
+% Encabezado y pie de página
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{Fundamentos sobre vacío}
+\rhead{\thepage}
+\cfoot{}
+
+% Datos de portada
+\title{\textbf{Fundamentos sobre vacío: Capacidad de Bombeo y Circuito de vacío} \\[0.5em]}
+
+\author{
+  Jose David Ortíz Campo \\
+  Juan Pablo Otálvaro Ghisays \\
+  Juan José Montoya Sánchez \\[0.5em]
+  \textit{Universidad de Antioquia, Medellín, Colombia} \\[0.25em]
+    \texttt{jose.ortizc@udea.edu.co}  
+  \texttt{juan.otalvaro1@udea.edu.co}
+  \texttt{juan.montoya110@udea.edu.co}
+}
+
+\date{\today}
+
+\begin{document}
+
+% Portada
+\twocolumn[
+  \maketitle
+    \begin{abstract}
+        Se presenta la caracterización de un sistema de vacío compuesto por una bomba rotativa de paletas de dos etapas (Dual Stage Rotary Vane 2005 C1) como bomba primaria y una bomba turbomolecular (Pfeiffer TMH 071 P) como bomba secundaria. Se determinó el volumen de la cámara de vacío mediante mediciones geométricas, obteniéndose $V = 4,39 \pm 0,01$ L. Se registró la evolución temporal de la presión utilizando un medidor Pirani (KJLC 947) con sensor MKS Convection Gauge. A partir del análisis de la curva de bombeo se calculó la tasa de variación de presión $\frac{dP}{dt} = -212,6 \pm 0,5$ mbar/s para presiones superiores a 10 mbar, lo que permite evaluar la eficiencia del sistema en el rango de vacío grueso a medio.
+    \end{abstract}
+  \vspace{1em}
+]
+
+% Introducción
+\section{Introducción}
+En 1654, Otto Von Guericke creó la primera bomba de vacío práctica. Utilizó una esfera de cobre (como cámara de vacío) la cual fue evacuada por una bomba de pistón con el propósito de demostrar la existencia del vacío. Este famoso experimento fue llamado la “esfera de Magdeburgo”, con este logró demostrar la presión atmosférica al intentar separar los lados de una esfera con la fuerza de ocho caballos. Esto impulsó la física experimental , más aún la tecnología del vacío se volvió más necesaria y eficiente. En 1855, Heinrich Geissler desarrolló la bomba de Geissler, la cual usaba mercurio para crear mejores vacíos, permitiendo los primeros tubos de luz\cite{jousten2016}. A principios del siglo XX, grandes inventos son creados los cuales fueron necesarios para el desarrollo de las tecnologías modernas; Thomas Edison con la bombilla incandescente y Lee De Forest con el triodo, los cuales fueron inventos fundamentales para la base de la radio y la electrónica. Ambos requirieron de la tecnología del vacío en su invención. Así, el desarrollo y la tecnología del vacío es importante para la ciencia y la sociedad en general \cite{jousten2016, cressey2018chapter6}
+.
+
+La tecnología del vacío permite crear y mantener la presión interior de sistemas experimentales. Las bombas de vacío (BV) extraen gases y partículas llevando a los sistemas a entornos con presión inferior a la atmosférica (1 atm = 760 mmHg), los principales tipos de BV son las mecánicas, chorro, difusión, turbomoleculares y las criogénicas. Existen distintos rangos de vacío; el vacío bajo (~300-1 bar), el vacío medio (1 a $10^{-3}$ mbar), el vacío alto ($~10^{-3}$ a $10^{-7}$) y vacío super alto (menores que $10^{-7}$)\cite{hablanian1984history}. Las BV usualmente pueden llevar a los sistemas de un rango a otro, y el uso de estas junto con su eficiencia, será afectado por las condiciones en las que se encuentre el sistemas. En multitud de situaciones se requieren de varias BV ensambladas simultáneamente para alcanzar la presión deseada. Así mismo existen múltiples medidores de presión dependiendo del rango a tratar, algunos muy comunes son los manómetros térmicos como los Pirani o las termocupla, además de cátodo frío como los tipo Penning\cite{jitschin1990accuracy}.
+
+Para un correcto funcionamiento y creación de los diferentes tipos de sistemas de vacío se deben de realizar procedimientos precisos. Las imperfecciones en el diseño y montaje puede afectar en los procedimientos experimentales además de impedir el correcto funcionamiento de las BV incapacitando llegar al vacío buscado\cite{redhead2002}. Se deben tener en cuenta las características de las partes del montaje experimental, pues debido a la diversidad de los implementos con los que se crea vacío, la incorrecta escogencia de los mismos no permitirá llegar a los objetivos esperados. Los objetos usuales a tener en cuenta son los conectores, acoples, empaques, abrazaderas, sensores de vacío, válvulas entre otros\cite{harris1989modern}. 
+
+En el siguiente trabajo se analizará un sistema de vacío el cual está compuesto por diversos elementos (mencionados con anterioridad) con el fin de comprender su funcionamiento, además de evaluar su eficiencia. Para esto se medirán las dimensiones de la cámara de vacío y se estimará el volumen o capacidad volumétrica del sistema. Adicional a esto, se tomarán medidas de presión en el tiempo de un medidor de convección MKS conecto internamente a un medidor Pirani KJLC 947 \cite{pirani} mediante una camara celular. Se calculará la velocidad de bombeo de la BV mecánica Dual Stage Rotay Vane 2005 C1 en el sistema y se comparará con las especificaciones del fabricante para ver la compatibilidad de los elementos. 
+
+\section{Metodología}
+
+\begin{enumerate}
+    \item Las dimensiones de la cámara de vacío se midieron directamente con regla y pie de rey. La forma de la cámara se obtiene al incrustar 3 cilindros perpendicularmente \footnote{Ver anexo}. Se midió un cilindro y se usó la misma medida para los 3. Se tomaron medidas de longitud de la longitud del cilindro y del diámetro del visor, con estas medidas se calculó el volumen de la cámara y se usó propagación de error para obtener la incertidumbre de la medida teniendo en cuenta que la incertidumbre de la regla es $\Delta x = 1 \text{ mm}$.
+    
+    \item Para medir la capacidad de bombeo del sistema se registró en una cámara de celular las medidas de presión del sensor Pirani KJLC 947 cuando se activaba el sistema. Para medir el tiempo se usó el tiempo registrado por la cámara de video. Las medidas de presión y el registro de tiempo se transcribieron a un documento XLS observando el video frame por frame. La incertidumbre de la medida de la presión es de $\Delta P = 0,01 \text{ Torr}$. La incertidumbre de la medida del tiempo es de $\Delta t = 0,01 \text{ s}$
+
+    
+    \item Se cargaron los datos en un notebook de Google Colab, se pasaron los datos de presión de Torr a mbar multiplicando los datos por el factor 1.3332236534674. Se graficaron los datos en escala semi-logaritmica, se marcó el momento en el que se alcanzan los 10 mbar. Se seleccionaron los datos correspondientes a presiones mayores a los 10 mbar. Se analizó su comportamiento y se decidió hacer un ajuste lineal (sin reescalar).
+    
+\end{enumerate}
+
+\section{Resultados}
+
+\begin{enumerate}
+    \item Se estimó el volumen de la cámara de vacío en $V = 4,39 \pm 0,01 \text{ L}$
+    \item Se graficó Presión (Torr) vs Tiempo (s) en escala semi-logarítmica. La línea roja indica el límite de los 10 mbar.
+
+\begin{figure}[h] % h = here
+    \centering
+    \includegraphics[width=\linewidth]{gráfica1.png} % Escala la imagen
+    \caption{Presión (log) vs tiempo}
+    \label{fig:imagen1}
+\end{figure}
+
+    \item El ajuste lineal arrojó un valor de pendiente, cuyo valor indica la tasa promedio de variación temporal de la presión dentro de la cámara de vacío.
+    
+    $$m \equiv \frac{dP}{dt} = -212,6 \pm 0,5 \ \frac{\text{mbar}}{\text{s}}  $$
+    
+\begin{figure}[h] % h = here
+    \centering
+    \includegraphics[width=\linewidth]{gráfica2.png} % Escala la imagen
+    \caption{Presión (hasta 10 mbar) vs tiempo}
+    \label{fig:imagen1}
+\end{figure}
+    
+\end{enumerate}
+
+\section{Conclusiones}
+a
+
+% Bibliografía
+\bibliographystyle{unsrt}
+\bibliography{bibliografia} % Archivo .bib con tus referencias
+
+
+\section*{Anexo: Partes del Sistema de Vacío}
+
+\begin{figure}[H] % h = here
+    \centering
+    \includegraphics[width=0.8\linewidth]{imagen1.jpeg} % Escala la imagen
+    \caption{Sistema de vacío}
+    \label{fig:imagen1}
+\end{figure}
+
+\begin{figure}[H] % h = here
+    \centering
+    \includegraphics[width=0.8\linewidth]{imagen2.jpeg} % Escala la imagen
+    \caption{Sistema de vacío}
+    \label{fig:imagen2}
+\end{figure}
+
+
+\begin{enumerate}
+    \item \textbf{KJLC 947 Pirani Pressure Controller:} Se usa para medir la presión dentro de la cámara. El rango de medición abarca de \(1\times10^{-3}  \text{ Torr}\) a \(1\times10^{3}  \text{ Torr}\) (con ayuda del MKS Convection Gauge). Cuenta con pantalla digital LED para la lectura de la medida \cite{pirani}.
+    
+    \item \textbf{MKS Convection Gauge:} Mejora la precisión de la medición de la presión de la cámara del Pressure Controller \cite{pirani}.
+    
+    \item \textbf{Dual Stage Rotary Vane 2005 C1:} La bomba de vacío de paletas rotativas de dos estapas está diseñada especialmente para bombear gases corrosivos en la industria química. Tiene un motor universal que opera entre 115-245 VAC a frecuencias de 50/60 Hz \cite{rotary}. En este sistema cumple el rol de bomba primaria, es decir, se encarga de generar el vacío grueso (\(10^{3}  \text{ Torr}\)) y el vacío medio (entre 10 y \(10^{-3}  \text{ Torr}\))
+    
+    \item \textbf{Cámara de vacío: } Recipiente rígido del cuál se extrae aire y gases con el fin de generar un ambiente de baja presión. El dispositivo utilizado tiene un volumen de $4,39 \pm 0,01 \text{ L}$.
+    
+    \item \textbf{Pfeiffer TMH 071 P:} Bomba turbomolecular capaz de alcanzar el ultra alto vacío (\(10^{-7} \text{ Torr}\) ). En este sistema cumple el rol de bomba secundaria, se activa cuando la presión es del orden de $10^{-2} \text{ Torr}$, llevando al sistema del vacío medio al alto vacío ($10^{-3} \text{ Torr}$). 
+    \item \textbf{Manómetros de gas a presión positiva:} Son usados para controlar la entrada de gases desde líneas presurizadas hacia el sistema. Un manómetro mide la presión del suministro, el otro mide la presión de salida regulada.
+    
+    \item \textbf{Mangueras metálicas:} Las mangueras metálicas permiten conectar las componentes del sistema. 
+
+    
+    \item \textbf{Válvulas manuales: } Sirven para abrir o cerrar el paso de gas o vacío.
+
+    \item \textbf{abrazaderas y O-rings} Las abrazaderas aseguran las uniones entre componentes, los O-rings evitan fugas en las conexiones.
+\end{enumerate}
+
+A continuación se adjunta el diagrama del sistema de vacío.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\linewidth]{diagrama.pdf}
+    \caption{Diagrama del sistema de vacío}
+    \label{fig:imagen4}
+\end{figure}
+
+
+\end{document}
