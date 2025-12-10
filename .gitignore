@@ -9,7 +9,9 @@
 *.nav
 *.snm
 *.toc
-
+*.bbl
+*.blg
+*.bib
 # Ignorar archivos de paquetes o configuraciones adicionales
 *.zip
 *.pth
@@ -20,6 +22,8 @@
 *.mkv
 *.png
 *.jpeg
+*.eps
+*.svg
 # Entorno
 /Python/Experimental IV/Exp4
 *.vscode
