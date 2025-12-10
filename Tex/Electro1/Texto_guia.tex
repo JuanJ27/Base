@@ -8,13 +8,13 @@
 \usepackage{hyperref}
 \hypersetup{colorlinks=true,linkcolor=blue}
 
-\begin{document}
+   \begin{document}
 
-% Portada
-\begin{titlepage}
-\begin{center}
-\vspace*{3cm}
-{\huge \textbf{Electrodinámica I}}\\[2cm]
+   % Portada
+   \begin{titlepage}
+   \begin{center}
+   \vspace*{3cm}
+   {\huge \textbf{Electrodinámica I}}\\[2cm]
 
 {\Large E. Reyes Gómez}\\[6cm]
 
@@ -1527,7 +1527,7 @@ Cualquiera que sea el modelo clásico del electrón que se proponga, los valores
 \begin{enumerate}
 \item Del octante $x \geq 0$; $y \geq 0$; $z \geq 0$ de la bola $x^2 + y^2 + z^2 \leq c^2$ se ha sustraído el cuerpo limitado por los planos coordenados y por el plano $\frac{x}{a} + \frac{y}{b} + \frac{z}{c} = 1$ ($a > 0$, $b > 0$, $c > 0$, $a \leq c$, $b \leq c$). Halle la carga del cuerpo si la densidad de carga es $\rho(\vec{r}) = \lambda_0 z$.
 
-\item Determine el potencial del campo electrostático $\vec{E}(\vec{r}) = ay\vec{i} + (ax + bz)\vec{j} + by\vec{k}$, siendo $a$ y $b$ constantes. Calcule el trabajo realizado por el campo al llevar la carga $q$ desde el origen de coordenadas hasta el punto $\left(\frac{E_0}{a}, \frac{E_0}{\sqrt{2}}, \frac{E_0}{b}\sqrt{\frac{a^2}{a^2+b^2}}\right)$, siendo $E_0$ otra constante.
+\item Determine el potencial del campo electrostático $\vec{E}(\vec{r}) = ay\vec{i} + (ax + bz)\vec{j} + by\vec{k}$, siendo $a$ y $b$ constantes. Calcule el trabajo realizado por el campo al llevar la carga $q$ desde el origen de coordenadas hasta el punto $\left(\frac{E_0}{a}, \frac{E_0}{\sqrt{a^{2}+b^{2}}}, \frac{E_0}{b}\right)$, siendo $E_0$ otra constante.
 
 \item Calcule la función de Green para el interior de un sector circular plano de radio $R$ con condiciones de frontera de Dirichlet en la frontera.
 
@@ -1537,10 +1537,10 @@ Cualquiera que sea el modelo clásico del electrón que se proponga, los valores
 
 \item Sea una superficie cilíndrica de radio $R$ y altura $2a + b$ cerrada en ambos extremos por dos tapas circulares de radio $R$ conectadas a potencial cero. Supongamos además que el potencial electrostático sobre la superficie lateral viene dado por la expresión
 \begin{equation*}
-V(\varphi, z) = 
+V(\varphi, z) = V
 \begin{cases}
 0 & \text{si } 0 < z < a \quad \forall \varphi \in (0, 2\pi) \\
-V_1 & \text{si } a < z < a + b \quad \forall \varphi \in (0, 2\pi) \\
+1 & \text{si } a < z < a + b \quad \forall \varphi \in (0, 2\pi) \\
 0 & \text{si } a + b < z < 2a + b \quad \forall \varphi \in (0, 2\pi)
 \end{cases}
 \end{equation*}
@@ -1548,9 +1548,9 @@ Calcule el potencial electrostático en el conjunto que tiene como frontera exte
 
 \item El potencial electrostático sobre un cascarón esférico de radio $R$ viene dado por la expresión
 \begin{equation*}
-V(\theta, \varphi) = 
+V(\theta, \varphi) = V
 \begin{cases}
-V_1 & \text{si } 0 < \theta < \pi/2 \quad \forall \varphi \in (0, 2\pi) \\
+1 & \text{si } 0 < \theta < \pi/2 \quad \forall \varphi \in (0, 2\pi) \\
 0 & \text{si } \pi/2 < \theta < \pi \quad \forall \varphi \in (0, 2\pi)
 \end{cases}
 \end{equation*}
@@ -1561,9 +1561,10 @@ Encuentre el potencial electrostático en el interior del cascarón.
 \vec{E} = \frac{1}{4\pi\epsilon_0}\left[3\frac{(\vec{p} \cdot \vec{r})\vec{r}}{r^5} - \frac{\vec{p}}{r^3}\right]
 \end{equation*}
 
+
 \item Demuestre que el vector intensidad del campo eléctrico correspondiente a un cuadrupolo eléctrico de momento cuadrupolar con componentes $D_{ij}$ posee componentes dadas por la expresión
 \begin{equation*}
-E_k = \frac{1}{24\pi\epsilon_0}\left[\frac{15D_{ij}x_ix_jx_k}{r^7} - \frac{3}{r^5}(x_i\delta_{jk} + x_k\delta_{ij} + x_j\delta_{ki})\right]
+E_k = \frac{1}{24\pi\epsilon_0}\left[\frac{15x_ix_jx_k}{r^7} - \frac{3}{r^5}(x_i\delta_{jk} + x_k\delta_{ij} + x_j\delta_{ki})\right]
 \end{equation*}
 
 \item Demuestre que un dipolo eléctrico puntual de momento dipolar $\vec{p}$ responde a una densidad de carga $\rho = -(\vec{p} \cdot \nabla)\delta(\vec{r} - \vec{r}_0)$, siendo $\vec{r}_0$ el vector de posición del dipolo.
@@ -1886,7 +1887,9 @@ En el caso de una partícula cargada orbitando en un campo magnético, la preces
 \begin{enumerate}
 \item Por un cilindro muy largo de radio $a$, tan largo que puede ser considerado infinito, circula una corriente constante de densidad $\vec{J}$. Calcule el valor del vector inducción magnética $\vec{B}$ en el exterior del cilindro.
 
-\item Describa el movimiento de una partícula no relativista de carga $q$ y masa $m_0$ en presencia de un campo magnético de inducción $\vec{B}$ y de un campo eléctrico de intensidad $\vec{E}$, ambos uniformes y constantes.
+\item Suponiendo conociddas las condiciones iniciales, encuentre la ley de movimiento $\vec{r} = \vec{r}(t)$ de una partícula de masa m, cargada con carga $q$, que posee una frecuencia propia de oscilacion $\omega_0$ y se mueve en presencia de un campo magnetostático de vector de induccion $\vec{B} = (0,0,B)$. Resuelva el problema en la aproximación no relativista.
+
+\item Describa el movimiento de una partícula no relativista de carga $q$ y masa $m_0$ en presencia de un campo magnético de inducción $\vec{B}$ y de un campo eléctrico de intensidad $\vec{E}$, ambos uniformes y constantes. Calcule la densidad de corriente y explore la posibilidad de que se cumpla la ley de ohm.
 
 \item Demuestre que el potencial magnético vectorial de un campo magnético uniforme y constante de inducción $\vec{B}$ viene dado por la expresión
 \begin{equation*}
@@ -1903,13 +1906,16 @@ En el caso de una partícula cargada orbitando en un campo magnético, la preces
 \begin{equation*}
 J_\varphi = \frac{e\hbar}{2\pi^3 8m_0 a_0^7}r^3\exp\left[-\frac{2r}{3a_0}\right]\sin^3(\theta),
 \end{equation*}
-siendo $e$ y $m_0$ la carga y la masa de reposo del electrón, respectivamente, y $a_0$ es el radio de Bohr. Calcule el valor del vector inducción magnética $\vec{B}$ en el origen de coordenadas.
+siendo $e$ y $m_0$ la carga y la masa de reposo del electrón, respectivamente, y $a_0$ es el radio de Bohr. Calcule el valor del vector inducción magnética $\vec{B}$ en el origen de coordenadas. Calcule el momentum dipolar magnetico del atomo en ese estado.
 
 \item En otro estado excitado del átomo de Hidrógeno la densidad de corriente asociada a la nube electrónica es, en coordenadas esféricas, $J_r = J_\theta = 0$ y
 \begin{equation*}
 J_\varphi = \frac{e\hbar}{64\pi m_0 a_0^5}r\exp\left[-\frac{r}{a_0}\right]\sin(\theta).
 \end{equation*}
 Suponga que el núcleo del átomo tiene un momento magnético $\vec{m}_n$. Calcule la energía de interacción electrón-núcleo asociada con el movimiento orbital del electrón. Ignore el valor del momento magnético de spin del electrón.
+\item Una particula de masa propia $m_0$ y carga $e$ se mueve bajo la ccion del campo magnetostático homogeneo $\vec{B} = B \vec{e_z}$, siendo $\vec{e_z}$ el vector unitario en la dirección $z$. Halle la orbita de la particula aplicando la dinamica relativista. Discuta el caso $v \ll c$, siendo $v$ el modulo de la velocidad de la particula.
+\item Una partícula de masa propia $m_0$ y carga $e$ se somete a la accion simultánea de los campos $\vec{E}$ y $\vec{B}$, ambos uniformes y constantes. Los campos son perpendiculares entre si y ademas satisfacen la condicion $E = cB$. Halle la órbita de la particula aplicando la dinamica relativista.
+
 \end{enumerate}
 
 \chapter{Ecuaciones de Maxwell}
