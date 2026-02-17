@@ -24,6 +24,8 @@
 *.jpeg
 *.eps
 *.svg
+*.webp
+*.jpg
 # Entorno
 /Python/Experimental IV/Exp4
 *.vscode
@@ -31,6 +33,7 @@
 */.venv/
 **/.venv/
 .venv/
+*.npy
 
 # Datos 
 *.json
@@ -46,3 +49,7 @@
 !Python/LabAv1/ProyectoF/paneoh.csv
 !Python/LabAv1/ProyectoF/paneov.csv
 !Python/LabAv1/ProyectoF/test1.csv
+
+
+# hep files
+*.root

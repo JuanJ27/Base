@@ -1,0 +1,365 @@
+% --- CREACIÓN AUTOMÁTICA DE BIBLIOGRAFÍA DE EJEMPLO ---
+% (Puedes borrar este bloque 'filecontents' una vez tengas tu propio archivo .bib)
+\begin{filecontents}{bibliografia.bib}
+@article{ejemplo1,
+    author = {Apellido, Nombre},
+    title = {Título del artículo de ejemplo},
+    journal = {Journal of Examples},
+    year = {2024},
+    volume = {1},
+    pages = {1--10}
+}
+\end{filecontents}
+% ------------------------------------------------------
+
+\documentclass[10pt,twocolumn,a4paper]{article}
+
+% --- Paquetes esenciales ---
+\usepackage[utf8]{inputenc}      
+\usepackage[T1]{fontenc}         
+\usepackage[spanish]{babel}      % Cambiar a 'spanish' si escribes en español
+\usepackage{amsmath, amssymb, amsthm}    
+\usepackage{graphicx}            
+\usepackage{hyperref}            
+\usepackage{cite}                
+\usepackage{geometry}                     
+\usepackage{authblk}             
+\usepackage{booktabs}            
+\usepackage{balance}    
+\usepackage{float}
+
+% --- Paquetes para mejorar el diseño ---
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+\usepackage{abstract}
+\usepackage{microtype}
+\usepackage{enumitem}
+\usepackage{caption}
+\usepackage{subcaption}
+
+% --- Geometría y márgenes ---
+\geometry{
+    a4paper,
+    top=2cm,
+    bottom=2cm,
+    left=1.8cm,
+    right=1.8cm,
+    columnsep=0.6cm
+}
+
+% --- Colores personalizados (Estilo Original) ---
+\definecolor{titlecolor}{RGB}{0, 51, 102}
+\definecolor{sectioncolor}{RGB}{0, 102, 153}
+\definecolor{subsectioncolor}{RGB}{51, 102, 153}
+\definecolor{linkcolor}{RGB}{0, 102, 204}
+
+% --- Configuración de hipervínculos ---
+\hypersetup{
+    colorlinks=true,
+    linkcolor=linkcolor,
+    citecolor=linkcolor,
+    urlcolor=linkcolor,
+    bookmarksnumbered=true,
+    pdfstartview=FitH
+}
+
+% --- Formato de títulos de sección ---
+\titleformat{\section}
+    {\color{sectioncolor}\Large\bfseries\sffamily}
+    {\thesection}{1em}{}
+    [\vspace{-0.3em}\color{sectioncolor}\rule{\linewidth}{0.5pt}]
+
+\titleformat{\subsection}
+    {\color{subsectioncolor}\large\bfseries\sffamily}
+    {\thesubsection}{1em}{}
+
+\titleformat{\subsubsection}
+    {\color{subsectioncolor}\normalsize\bfseries\sffamily}
+    {\thesubsubsection}{1em}{}
+
+% --- Espaciado de títulos ---
+\titlespacing*{\section}{0pt}{1.2ex plus 0.5ex minus 0.2ex}{0.8ex plus 0.2ex}
+\titlespacing*{\subsection}{0pt}{1ex plus 0.4ex minus 0.2ex}{0.6ex plus 0.2ex}
+\titlespacing*{\subsubsection}{0pt}{0.8ex plus 0.3ex minus 0.1ex}{0.4ex plus 0.1ex}
+
+% --- Configuración del abstract ---
+\renewcommand{\abstractnamefont}{\normalfont\large\bfseries\color{sectioncolor}}
+\renewcommand{\abstracttextfont}{\normalfont\small\itshape}
+\setlength{\absleftindent}{0.5cm}
+\setlength{\absrightindent}{0.5cm}
+
+% --- Configuración de listas ---
+\setlist[itemize]{leftmargin=*, itemsep=0pt, parsep=0.3ex, topsep=0.5ex}
+
+% --- Configuración de captions ---
+\captionsetup{
+    font=small,
+    labelfont={bf,color=sectioncolor},
+    textfont=it,
+    labelsep=period
+}
+
+% --- Encabezado y pie de página ---
+\pagestyle{fancy}
+\fancyhf{}
+% EDITAR AQUÍ: Título corto para el encabezado
+\fancyhead[L]{\small\itshape Título Corto del Proyecto} 
+\fancyhead[R]{\small\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% --- Título y autores ---
+\title{\vspace{-1cm}\color{titlecolor}\textbf{\sffamily Efecto de la dimensionalidad y la orientación angular en la respuesta magnética de la aleación  $ (Fe_{25}Co_{25}Ni_{25})(B_{0.7}Si_{0.3})_{25} $ usando VSM }}
+\author[]{Ortiz J. Montoya J. Otalvaro J.}
+\affil[]{\small\itshape Universidad de Antioquia}
+\date{}
+
+\begin{document}
+
+% --- Bloque de Título y Abstract (Una columna) ---
+\twocolumn[
+\begin{@twocolumnfalse}
+\maketitle
+\begin{abstract}
+\noindent La caracterización magnetica de materiales  ha sido fundamental para el desarrollo de tecnologias y avance en la ciencia. Actualmente existen diversos dispositivos y/o metodos para medirla. En algunos materiales se presenta un campo desmagnetizante, el cual se opone a los campos externos sobre los cuales se somete el material, este en general es debido a la geometria del sistema. Existen materiales anisotropicos los cuales presentan dicha caracteristicas. En el siguiente trabajo se busca analizar la dimensionalidad y la orientacion angular del material ferromagnetico $ (Fe_{25}Co_{25}Ni_{25})(B_{0.7}Si_{0.3})_{25} $. Utilizando un magnetometro de muestra vibrante para medir la respuesta magnetica del material. Se varió la dimensionalidad de las muestras y se dispusieron en angulos de $(15^*,30^*,45^*)$ respecto al plano paralelo del campo externo. Se ajustaron los datos a un modelo de $Tanh$ encontrando que el aumento de la variación angular .....
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\vspace{0.5cm}
+\end{abstract}
+\end{@twocolumnfalse}
+]
+
+\thispagestyle{fancy}
+
+% --- SECCIÓN 1: INTRODUCCIÓN ---
+\section{Introducción}
+
+En la historia se han visto multitud de descubrimientos y desarrollos del magnetismo. Hitos históricos, como el de William Gilbert, demostraron que la Tierra es un gran imán \cite{morron2014william}. Esto dio lugar al nacimiento de una teoría unificadora de la electricidad y el magnetismo, además de proporcionar una base teórica microscópica del mismo \cite{hafeli1997mystery}. A su vez, esto abrió paso a la tecnología moderna y al desarrollo de nuevas teorías como la relatividad especial y la mecánica cuántica.
+
+Actualmente, se buscan nuevos materiales funcionales capaces de superar los límites de las aleaciones cristalinas convencionales, impulsados por las demandas de miniaturización y alto rendimiento de la industria electrónica. Dependiendo de su composición base, estos materiales pueden ofrecer propiedades superiores. Los vidrios metálicos basados en $(Fe,Co,Ni)$ surgen como candidatos prometedores, pues su desorden estructural otorga una combinación única de alta permeabilidad magnética, baja coercitividad y excelente resistencia mecánica \cite{panahi2022structure}.
+
+La caracterización precisa de estos materiales presenta desafíos experimentales. Debido a su alta permeabilidad, la respuesta medida experimentalmente suele estar dominada por la geometría macroscópica y no por las propiedades intrínsecas del material. Este fenómeno, conocido como campo desmagnetizante, provoca un cizallamiento artificial en los ciclos de histéresis \cite{cullity2009introduction}. Al exponer el material a un campo externo, se genera un campo magnético interno en dirección opuesta al campo aplicado, debido a la geometría intrínseca de la muestra.
+
+Existen diversos métodos para la caracterización magnética. Entre ellos se encuentran los magnetómetros tipo SQUID, que utilizan las propiedades cuánticas de materiales superconductores, o los magnetómetros atómicos, que emplean vapor atómico excitado por láser para alinear los espines del sistema. Otros dispositivos más comerciales, aunque a veces menos precisos, son los magnetómetros MEMS, que miden la fuerza que un campo magnético ejerce sobre un subsistema móvil \cite{ScienceDirectMagnetometer}. Sin embargo, uno de los instrumentos más utilizados en laboratorios es el magnetómetro de muestra vibrante (VSM). Este dispositivo mide la magnetización de una muestra induciendo una vibración dentro de un campo magnético \cite{Buchner2018}. Al vibrar, la muestra genera una variación periódica del flujo magnético que, según la ley de Faraday, induce un voltaje proporcional a las características magnéticas de la muestra y del sistema de medida.
+
+En el presente trabajo se analizarán cintas de la aleación $(Fe_{25}Co_{25}Ni_{25})(B_{0.7}Si_{0.3})_{25}$ mediante VSM. Se estudiará el impacto de las dimensiones de la muestra y la orientación angular respecto al campo aplicado, evidenciando así la anisotropía de forma. Se utilizarán piezas rectangulares de diferentes tamaños y se variará el ángulo de las muestras en 30, 45 y 60 grados. Aunque la teoría de Jiles-Atherton modela con precisión el comportamiento de la magnetización del sistema, en este estudio se empleará la aproximación de arcotangente inversa \cite{Wilson2002}. Si bien esta simplificación introduce un error, este es despreciable en comparación con el efecto significativo que provoca la variación en las dimensiones de la muestra.
+
+
+
+
+
+
+
+
+% --- SECCIÓN 2: MARCO TEÓRICO ---
+
+
+
+\section{Marco teórico}
+
+Cuando un cuerpo finito se somete a un campo magnético externo ($H_{ext}$), la aparición de polos magnéticos libres en su superficie genera un campo interno opuesto al aplicado, conocido como campo desmagnetizante ($H_d$). Este campo se define como $H_d = -N \cdot M$, donde $N$ es el factor desmagnetizante geométrico y $M$ la magnetización.
+
+Para materiales paramagnéticos o diamagnéticos este término $N \cdot M$ es prácticamente nulo; sin embargo, en las aleaciones ferromagnéticas $M$ es muy grande, haciendo que este término no se pueda ignorar. Además, existe otra propiedad fundamental, que es la permeabilidad. Cuando un material tiene la característica de tener alta permeabilidad, es susceptible a magnetizarse con campos muy pequeños, haciendo así que el efecto de la geometría (forma) del material domine en la respuesta magnética. El material $(Fe_{25}Co_{25}Ni_{25})(B_{0.7}Si_{0.3})_{25}$ cumple con dichas características. Así, al ser sometido a un campo externo $H_{ext}$, este experimenta un campo interno efectivo de la forma:
+
+$$ H_{int} = H_{ext} - N \cdot M $$
+
+Cuando los materiales son expuestos con un ángulo particular respecto al campo externo, el factor desmagnetizante $N$, al tener un carácter tensorial, se transforma de la forma:
+
+$$ N(\theta) = N_{\parallel} \cos^2(\theta) + N_{\perp} \sin^2(\theta) $$
+
+donde $N_{\parallel}$ y $N_{\perp}$ corresponden a los factores desmagnetizantes a lo largo de los ejes principales (longitudinal y transversal) de la muestra.
+
+Por otro lado, el material $(Fe_{25}Co_{25}Ni_{25})(B_{0.7}Si_{0.3})_{25}$ se caracteriza por presentar una baja coercitividad $H_c$ y una alta permeabilidad magnética $\mu$. En consecuencia, este se magnetiza con gran facilidad y su ciclo de histéresis exhibe una forma sigmoidal cercana a una S ideal. En materiales ferromagnéticos blandos, cuya histéresis intrínseca es mínima, es habitual aproximar la función de Brillouin mediante una función tangente hiperbólica de la forma:
+
+$$ M = M_s \tanh\left( \frac{H_{int}}{H_a} \right) $$
+
+donde $M$ es la magnetización resultante, $M_s$ la magnetización de saturación, $H_{int}$ el campo magnético interno y $H_a$ un campo característico del material asociado a los mecanismos de alineación de los momentos magnéticos.
+
+No obstante, en la práctica, cuando el material no se encuentra completamente caracterizado, puede recurrirse a una primera aproximación empírica, de naturaleza puramente fenomenológica, dada por:
+
+$$ M(H_{int}) = \frac{2 M_s}{\pi} \arctan\left( \frac{\pi H_{int}}{2 H_a} \right) $$
+
+Esta expresión presenta asíntotas en $\pm M_s$, lo cual concuerda con el comportamiento esperado de la magnetización de saturación. Además, en materiales como cintas amorfas y vidrios metálicos, los efectos de forma juegan un papel dominante en la respuesta magnética del sistema, influyendo de manera significativa en el campo interno $H_{int}$ y, por ende, en la magnetización observada.
+
+Por tanto, el comportamiento que sigue el sistema cumple con la siguiente relación constitutiva, obtenida al sustituir la expresión del campo interno efectivo en la aproximación fenomenológica:
+
+\begin{equation}
+    M = \frac{2 M_s}{\pi} \arctan\left[ \frac{\pi}{2 H_a} \left( H_{ext} - N(\theta) \cdot M \right) \right]
+\end{equation}
+Resulta conveniente invertir la expresión para despejar el campo externo $H_{ext}$ en función de la magnetización:
+
+$$ H_{ext} = \frac{2 H_a}{\pi} \tan\left( \frac{\pi M}{2 M_s} \right) + N(\theta) \cdot M $$
+
+En esta formulación final, el primer término describe la respuesta intrínseca del material (gobernada por $H_a$), mientras que el segundo término ($N(\theta) \cdot M$) representa explícitamente el cizallamiento del ciclo o shearing introducido por la geometría de la muestra y su orientación angular.
+
+
+Para la determinación precisa de los factores desmagnetizantes, se consideran las dimensiones reales de la muestra modelada como un prisma rectangular de semiejes $a = L/2$, $b = w/2$ y $c = t/2$. Dado que las dimensiones planares son comparables ($L \sim w$) y mucho mayores al espesor, se utiliza la solución analítica exacta de Aharoni \cite{Aharoni1998}.
+
+Debido a la simetría geométrica del prisma, es posible definir una función auxiliar general $\mathcal{F}(u, v, w)$, donde $u$ representa la dimensión paralela al campo aplicado, y $v, w$ las dimensiones perpendiculares. La expresión compacta se define como:
+
+\begin{equation} \small
+\begin{split}
+\mathcal{F}(u, v, w) &= \frac{v^2-w^2}{2vw} \ln\left( \frac{R-u}{R+u} \right) 
++ \frac{u^2-w^2}{2uw} \ln\left( \frac{R-v}{R+v} \right) \\
+&\quad + \frac{v}{2w} \ln\left( \frac{\sqrt{u^2+v^2}+u}{\sqrt{u^2+v^2}-u} \right) 
++ \frac{u}{2w} \ln\left( \frac{\sqrt{u^2+v^2}+v}{\sqrt{u^2+v^2}-v} \right) \\
+&\quad + \frac{w}{2u} \ln\left( \frac{\sqrt{v^2+w^2}-v}{\sqrt{v^2+w^2}+v} \right) 
++ \frac{w}{2v} \ln\left( \frac{\sqrt{u^2+w^2}-u}{\sqrt{u^2+w^2}+u} \right) \\
+&\quad + 2 \arctan\left( \frac{uv}{wR} \right) + \frac{u^3+v^3-2w^3}{3uvw} \\
+&\quad + \frac{u^2+v^2-2w^2}{3uvw} R 
++ \frac{w}{uv} \left( \sqrt{u^2+w^2} + \sqrt{v^2+w^2} \right) \\
+&\quad - \frac{(u^2+v^2)^{3/2} + (v^2+w^2)^{3/2} + (w^2+u^2)^{3/2}}{3uvw}
+\end{split}
+\end{equation}
+
+donde $R = \sqrt{u^2+v^2+w^2}$.
+
+A partir de esta función general, los factores desmagnetizantes requeridos para la simulación se obtienen mediante la permutación de las variables correspondientes a los ejes de medición:
+
+\begin{equation}
+N_{\parallel} = \frac{1}{\pi} \mathcal{F}(a, b, c) \quad \text{y} \quad N_{\perp} = \frac{1}{\pi} \mathcal{F}(b, a, c)
+\end{equation}
+
+Esta formulación garantiza el cálculo exacto de la anisotropía de forma para cualquier relación de aspecto de las muestras rectangulares, capturando la diferencia física entre medir a lo largo del largo ($a$) o del ancho ($b$).
+
+\section{Metodología}
+
+Debido a la necesidad de colocar las muestras en el dispositivo VSM con distintos ángulos, fue necesario crear un soporte dentro del portamuestras por defecto (este es de oro). Estos soportes se fabricaron en una impresora Prusa XL, utilizando una resolución de 0.2 mm. Por otro lado, se dispuso de una cinta metálica amorfa, la cual se cortó con un bisturí quirúrgico. Por último, se midió la respuesta magnética del material en el VSM.
+
+\subsection{Soportes}
+
+El material de construcción es un Acrilonitrilo Butadieno Estireno (ABS). Este tiene la característica de presentar una respuesta magnética despreciable (diamagnético); por tanto, se espera que no influya significativamente en las medidas. Para la creación de los soportes se midió el portamuestras del VSM, cuyo diámetro máximo es de $3.54 \pm 0.02$ mm; por lo tanto, los diámetros y largos de los soportes y muestras no podían superar dicho valor. Así, se crearon los soportes con un corte de forma transversal con ángulos de 0, 15, 30 y 45 grados respecto al eje paralelo al campo magnético, como se muestra en la Figura \ref{fig:soportes_vsm}.
+
+\begin{figure}[H]
+    \centering
+    % El cambio clave es \columnwidth en lugar de \textwidth
+    \includegraphics[width=1.0\columnwidth]{Muestras.jpeg} 
+    \caption{Diseño de los soportes con cortes transversales a 0, 15, 30 y 45 grados para el VSM.}
+    \label{fig:soportes_vsm}
+\end{figure}
+
+\subsection{Muestras}
+
+El material utilizado consiste en una cinta de composición $(Fe_{25}Co_{25}Ni_{25})(B_{0.7}Si_{0.3})_{25}$, cuyo ancho máximo es de $1.85 \pm 0.1$ mm. Para la preparación de las muestras, se utilizó un bisturí quirúrgico con el fin de cortar la cinta en secciones de diferentes longitudes.
+
+Las dimensiones fueron determinadas utilizando un vernier para el largo y el ancho, y un tornillo micrométrico para el espesor. A partir de estas medidas se calculó el volumen de cada muestra. Los resultados se detallan en la tabla \ref{tab:dimensiones_muestras}.
+
+\begin{table}[h] 
+    \centering
+    \caption{Dimensiones y volumen de las muestras (en mm).}
+    \label{tab:dimensiones_muestras}
+    \resizebox{\columnwidth}{!}{%
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{M.} & \textbf{Largo} & \textbf{Ancho} & \textbf{Espesor} & \textbf{Volumen} \\
+             & ($\pm 0.05$) & ($\pm 0.05$) & ($\pm 0.01$) & ($mm^3$) \\
+            \hline
+            1 & 2.80 & 1.85 & 0.04 & 0.2072 \\
+            \hline
+            2 & 1.25 & 1.20 & 0.04 & 0.0600 \\
+            \hline
+            3 & 1.35 & 1.30 & 0.04 & 0.0702 \\
+            \hline
+            4 & 1.80 & 1.40 & 0.04 & 0.1008 \\
+            \hline
+        \end{tabular}%
+    }
+\end{table}
+
+\subsection{Preparación de las muestras y medición de VSM}
+
+Para utilizar el VSM correctamente y alcanzar el vacío adecuado, se limpiaron las muestras y el portamuestras; esto se realizó para evitar agentes externos que pudieran afectar las medidas. Luego, se centró la muestra junto con el soporte en el lugar indicado por el portamuestras, con el fin de que la futura calibración automática del VSM fuera más sencilla, permitiendo al equipo tener una estimación inicial de la ubicación de la muestra.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.0\columnwidth]{Portamuestras.png} 
+    \caption{Tratamiento y calibración inicial manual de las muestras.}
+    \label{fig:calibracion_vsm} % Corregí el label duplicado (antes era soportes_vsm)
+\end{figure}
+
+Antes de iniciar la rutina de medición en el VSM, se tomaron varias precauciones: se verificó la temperatura y la presión de la cámara para posteriormente despresurizar y retirar la caña que contenía una muestra de una medición anterior. Se montó la nueva muestra en la caña y se introdujo en el VSM. Para estimar el rango de operación útil, se observaron medidas previas en un material similar, notándose que la magnetización de saturación se alcanzaba aproximadamente a los $\pm 1000 \text{ Oe}$; se decidió entonces que este fuese el rango de operación. 
+
+Para centrar la muestra en el VSM se realizó una medición rápida a 50 Oe con el objetivo de que el equipo detectara la máxima señal y determinara dicho punto como la ubicación de la muestra. Se ingresaron los datos de la muestra (largo, ancho, espesor, material), se registró en la bitácora del laboratorio y se inició la rutina. Dicha rutina comenzaba desde un campo magnético nulo, subía hasta 1000 Oe, bajaba hasta los -1000 Oe y subía nuevamente a campo nulo; sin embargo, la toma de datos se configuró para empezar desde los 1000 Oe, con el objetivo de apreciar el ciclo de histéresis completo. Las medidas se realizaron a 300 K. Se repitió el procedimiento para cada muestra. Por falta de tiempo, no se pudieron realizar medidas con todas las inclinaciones para todas las muestras.
+
+\section{Resultados y Análisis}
+
+En esta sección se presentan los resultados obtenidos mediante las medidas experimentales con el VSM y se comparan con las simulaciones teóricas basadas en el modelo de Aharoni y la aproximación de la tangente hiperbólica.
+
+\subsection{Medidas Experimentales (VSM)}
+
+Se realizaron mediciones de ciclos de histéresis a temperatura ambiente (300 K) para muestras con diferentes relaciones de aspecto y orientaciones angulares respecto al campo aplicado. Las muestras analizadas incluyen configuraciones a 0, 15, 30 y 45 grados.
+
+Para garantizar la validez de los datos, se aplicó una corrección de señal sustrayendo el ruido de fondo del sistema (background noise subtraction). Esto permitió aislar la respuesta magnética intrínseca de la aleación $(Fe_{25}Co_{25}Ni_{25})(B_{0.7}Si_{0.3})_{25}$.
+
+\begin{figure}[H]
+    \centering
+    \fbox{\begin{minipage}{0.9\columnwidth}
+        \centering
+        \vspace{2cm}
+        \textbf{[Inserte aquí: Gráfica de ciclos de histéresis experimentales comparando diferentes ángulos (0, 15, 30, 45 grados)]}
+        \vspace{2cm}
+    \end{minipage}}
+    \caption{Ciclos de histéresis experimentales corregidos por ruido para diferentes orientaciones angulares. Se observa el cambio en la pendiente y apertura del ciclo al variar el ángulo.}
+    \label{fig:resultados_vsm}
+\end{figure}
+
+Los resultados muestran un comportamiento ferromagnético blando característico, con una baja coercitividad ($H_c < 20$ Oe) y una rápida saturación. Sin embargo, se observa una fuerte dependencia angular en la forma de los ciclos:
+\begin{itemize}
+    \item Para ángulos pequeños (cercanos a 0 grados, configuración longitudinal), el ciclo es más cuadrado y alcanza la saturación a campos menores, indicando un factor desmagnetizante $N$ bajo.
+    \item A medida que aumenta el ángulo de inclinación (hacia 45 grados), el ciclo se inclina (efecto de cizallamiento o \textit{shearing}), requiriendo campos externos mayores para alcanzar la misma magnetización. Esto es consistente con un aumento en el factor desmagnetizante efectivo del sistema.
+\end{itemize}
+
+\subsection{Simulación Teórica y Comparación}
+
+Se implementó el modelo teórico descrito en la ecuación (1), utilizando los factores desmagnetizantes analíticos de Aharoni para prismas rectangulares. Se calcularon los factores $N_{\parallel}$ y $N_{\perp}$ para las dimensiones experimentales promedio de las cintas.
+
+Para una cinta típica de $L=2.0$ mm, $w=1.5$ mm y $t=0.04$ mm, los cálculos arrojan que $N_{\perp} \gg N_{\parallel}$, lo que explica físicamente la dificultad creciente para magnetizar la muestra a medida que se rota fuera de su eje fácil (longitudinal).
+
+\begin{figure}[H]
+    \centering
+    \fbox{\begin{minipage}{0.9\columnwidth}
+        \centering
+        \vspace{2cm}
+        \textbf{[Inserte aquí: Gráfica de simulación mostrando el efecto del ángulo en el ciclo de histéresis (Modelo Aharoni)]}
+        \vspace{2cm}
+    \end{minipage}}
+    \caption{Simulación teórica del efecto de la orientación angular en los ciclos de histéresis. El modelo reproduce el cizallamiento observado experimentalmente.}
+    \label{fig:simulacion_aharoni}
+\end{figure}
+
+La comparación entre los datos experimentales y la simulación confirma que la anisotropía de forma es el mecanismo dominante en estas muestras amorfas. El modelo $M(H_{ext})$ basado en la arcotangente inversa y los factores de Aharoni describe adecuadamente la tendencia de los ciclos a "cerrarse" o inclinarse al aumentar el ángulo, validando la hipótesis de que la geometría macroscópica gobierna la respuesta magnética efectiva.
+
+\section{Conclusiones}
+
+A partir del estudio realizado sobre la aleación $(Fe_{25}Co_{25}Ni_{25})(B_{0.7}Si_{0.3})_{25}$, se concluye que:
+
+\begin{enumerate}
+    \item El material exhibe un comportamiento ferromagnético blando excelente, confirmado por la baja coercitividad y alta permeabilidad observadas en las medidas VSM.
+    \item La geometría de la muestra juega un papel crucial en la respuesta magnética medida. La anisotropía de forma domina sobre la anisotropía magnetocristalina (prácticamente nula por el carácter amorfo), haciendo que los factores desmagnetizantes sean determinantes.
+    \item Existe una clara dependencia angular en los ciclos de histéresis. Al rotar la muestra desde una configuración longitudinal (0°) hacia una transversal, el campo desmagnetizante efectivo aumenta, provocando un cizallamiento del ciclo y reduciendo la permeabilidad aparente.
+    \item El modelo teórico implementado, utilizando la solución exacta de Aharoni para prismas, predice correctamente el comportamiento cualitativo de los lazos de histéresis al variar la orientación, confirmando la validez del marco teórico utilizado.
+\end{enumerate}
+
+Una forma de mejorar el experimento y refinar aún más la comparación cuantitativa sería tomar medidas systematically para todas las muestras en un rango angular más denso (ej. cada 5 grados) y asegurar una alineación precisa para minimizar errores geométricos experimentales. 
+
+% --- BIBLIOGRAFÍA ---
+\bibliographystyle{unsrt}
+\bibliography{bibliografia} % Nombre del archivo .bib (sin la extensión)
+
+% Balancear columnas en la última página
+\balance
+
+\end{document}

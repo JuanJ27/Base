@@ -9,80 +9,116 @@ $$ P = \frac{1}{4\pi\epsilon_0} \frac{2}{3} \frac{q^2 a^2}{c^3} = \frac{q^2 a^2}
 
 ## Problema 1: Átomo de Hidrógeno y Colapso Radiativo
 
-**Enunciado:** Considere un átomo de Hidrógeno descrito por el modelo clásico planetario de Rutherford. Suponga que el electrón gira en una órbita circular de radio $r$. En $t=0$, $r=a_0$. Calcule el tiempo de caída al núcleo.
+**Enunciado:** Considere un átomo de Hidrógeno descrito por el modelo clásico planetario de Rutherford. El electrón describe una órbita circular de radio $r$ alrededor del núcleo. En $t=0$, el radio es el radio de Bohr $a_0$. Calcule el tiempo de colapso $\tau$ debido a la pérdida de energía por radiación.
 
 **Solución:**
+Este problema se resuelve bajo la **aproximación adiabática**, asumiendo que la pérdida de energía es muy lenta comparada con el período orbital ($\tau \gg T_{orb}$). Esto nos permite utilizar las relaciones de la mecánica orbital newtoniana (fuerza central) en cada instante, considerando que el radio $r(t)$ disminuye lentamente.
 
-1.  **Dinámica de la órbita circular:**
-    El electrón de carga $-e$ y masa $m$ orbita alrededor del núcleo (carga $+e$, masa infinita para este cálculo). La fuerza centrípeta es la fuerza de Coulomb:
-    $$ m \frac{v^2}{r} = \frac{1}{4\pi\epsilon_0} \frac{e^2}{r^2} \implies v^2 = \frac{e^2}{4\pi\epsilon_0 mr} $$
-    $$ a = \frac{v^2}{r} = \frac{e^2}{4\pi\epsilon_0 mr^2} $$
+1.  **Dinámica Orbital (Instántanea):**
+    El electrón (carga $-e$, masa $m$) orbita el núcleo ($+e$, masa $M \gg m$, asumimos centro fijo). La fuerza de Coulomb proporciona la aceleración centrípeta:
+    $$ F_C = \frac{1}{4\pi\epsilon_0} \frac{e^2}{r^2} = m a_c = m \frac{v^2}{r} $$
+    De aquí obtenemos la velocidad al cuadrado y la aceleración en función del radio $r$:
+    $$ v^2 = \frac{e^2}{4\pi\epsilon_0 m r} $$
+    $$ a = \frac{v^2}{r} = \frac{e^2}{4\pi\epsilon_0 m r^2} $$
 
-2.  **Energía Total:**
-    $$ E = K + V = \frac{1}{2}mv^2 - \frac{1}{4\pi\epsilon_0}\frac{e^2}{r} = \frac{1}{2}\left( \frac{e^2}{4\pi\epsilon_0 r} \right) - \frac{e^2}{4\pi\epsilon_0 r} = -\frac{e^2}{8\pi\epsilon_0 r} $$
-    Derivando respecto al tiempo:
-    $$ \frac{dE}{dt} = \frac{e^2}{8\pi\epsilon_0 r^2} \frac{dr}{dt} $$
+2.  **Energía Mecánica Total:**
+    $$ E(r) = K + U = \frac{1}{2}mv^2 - \frac{e^2}{4\pi\epsilon_0 r} $$
+    Sustituimos $v^2$:
+    $$ E(r) = \frac{1}{2} \left( \frac{e^2}{4\pi\epsilon_0 r} \right) - \frac{e^2}{4\pi\epsilon_0 r} = -\frac{e^2}{8\pi\epsilon_0 r} $$
+    La tasa de cambio de la energía con respecto al tiempo es:
+    $$ \frac{dE}{dt} = \frac{dE}{dr} \frac{dr}{dt} = \left( \frac{e^2}{8\pi\epsilon_0 r^2} \right) \dot{r} $$
 
-3.  **Potencia Radiada (Fórmula de Larmor):**
-    Según la fórmula de Larmor, la potencia perdida por radiación es:
-    $$ P = \frac{1}{4\pi\epsilon_0} \frac{2}{3} \frac{e^2 a^2}{c^3} $$
-    Sustituyendo la aceleración $a = e^2 / (4\pi\epsilon_0 mr^2)$:
-    $$ P = \frac{1}{4\pi\epsilon_0} \frac{2 e^2}{3 c^3} \left( \frac{e^2}{4\pi\epsilon_0 mr^2} \right)^2 = \frac{2 e^6}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^4} $$
+3.  **Potencia Radiada (Larmor):**
+    Una carga acelerada irradia potencia. En el régimen no relativista ($v \ll c$), usamos la fórmula de Larmor (SI):
+    $$ P = \frac{1}{4\pi\epsilon_0} \frac{2 e^2 a^2}{3 c^3} $$
+    Sustituimos la expresión de la aceleración $a(r)$:
+    $$ P(r) = \frac{1}{4\pi\epsilon_0} \frac{2 e^2}{3 c^3} \left( \frac{e^2}{4\pi\epsilon_0 m r^2} \right)^2 = \frac{2 e^6}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^4} $$
 
-4.  **Balance de Energía:**
-    La tasa de pérdida de energía debe ser igual a la potencia radiada ($dE/dt = -P$):
-    $$ \frac{e^2}{8\pi\epsilon_0 r^2} \frac{dr}{dt} = - \frac{2 e^6}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^4} $$
+4.  **Balance Energético y Ecuación Diferencial:**
+    La conservación de la energía implica que la disminución de energía mecánica equivale a la energía radiada al infinito: $\frac{dE}{dt} = -P$.
+    $$ \frac{e^2}{8\pi\epsilon_0 r^2} \dot{r} = - \frac{2 e^6}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^4} $$
+    Despejamos $\dot{r}$ simplificando términos ($e^2$ y factores $4\pi\epsilon_0$):
+    $$ \frac{1}{8\pi\epsilon_0 r^2} \dot{r} = - \frac{2 e^4}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^4} $$
+    $$ \dot{r} = - \frac{2 e^4}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^4} \cdot (8\pi\epsilon_0 r^2) $$
+    $$ \dot{r} = - \frac{16 \pi \epsilon_0 e^4}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^2} = - \frac{4 e^4}{3 (4\pi\epsilon_0)^2 m^2 c^3 r^2} $$
+    Reagrupando constantes para claridad:
+    $$ dt = - \frac{3 (4\pi\epsilon_0)^2 m^2 c^3}{4 e^4} r^2 dr $$
 
 5.  **Integración:**
-    Simplificando y despejando $dt$:
-    $$ \frac{dr}{dt} = - \frac{2 e^6}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^4} \cdot \frac{8\pi\epsilon_0 r^2}{e^2} $$
-    $$ \frac{dr}{dt} = - \frac{16\pi\epsilon_0 e^4}{3 (4\pi\epsilon_0)^3 m^2 c^3 r^2} = - \frac{e^4}{12 \pi^2 \epsilon_0^2 m^2 c^3 r^2} $$
-    $$ r^2 dr = - \frac{e^4}{12 \pi^2 \epsilon_0^2 m^2 c^3} dt $$
-    Integramos desde $t=0$ ($r=a_0$) hasta $t=\tau$ ($r=0$):
-    $$ \int_{a_0}^{0} r^2 dr = - \frac{e^4}{12 \pi^2 \epsilon_0^2 m^2 c^3} \int_{0}^{\tau} dt $$
-    $$ \left[ \frac{r^3}{3} \right]_{a_0}^{0} = - \frac{a_0^3}{3} = - \frac{e^4}{12 \pi^2 \epsilon_0^2 m^2 c^3} \tau $$
-    $$ \tau = \frac{4 \pi^2 \epsilon_0^2 m^2 c^3 a_0^3}{e^4} $$
+    Integramos desde el estado inicial ($t=0, r=a_0$) hasta el colapso ($t=\tau, r=0$):
+    $$ \int_0^\tau dt = - \frac{3 (4\pi\epsilon_0)^2 m^2 c^3}{4 e^4} \int_{a_0}^0 r^2 dr $$
+    $$ \tau = - \frac{3 (4\pi\epsilon_0)^2 m^2 c^3}{4 e^4} \left[ \frac{r^3}{3} \right]_{a_0}^0 $$
+    $$ \tau = - \frac{3 (4\pi\epsilon_0)^2 m^2 c^3}{4 e^4} \left( -\frac{a_0^3}{3} \right) = \frac{(4\pi\epsilon_0)^2 m^2 c^3 a_0^3}{4 e^4} $$
+    O simplificando usando $\epsilon_0$:
+    $$ \tau = \frac{16 \pi^2 \epsilon_0^2 m^2 c^3 a_0^3}{4 e^4} = \frac{4 \pi^2 \epsilon_0^2 m^2 c^3 a_0^3}{e^4} $$
 
-**Respuesta:** El tiempo de caída es $\tau = \frac{4 \pi^2 \epsilon_0^2 m^2 c^3 a_0^3}{e^4}$.
+**Respuesta:** El tiempo clásico de vida es $\tau = \frac{4 \pi^2 \epsilon_0^2 m^2 c^3 a_0^3}{e^4}$ (aprox. $1.3 \times 10^{-11}$ s).
 
 ---
 
 ## Problema 2: Protón en campos E y B cruzados
 
-**Enunciado:** Un protón se mueve en campos $\vec{E}$ y $\vec{B}$ constantes y perpendiculares. Velocidad inicial $\vec{v}_0$. Calcular la energía radiada en tiempo $t$.
+**Enunciado:** Un protón (masa $m$, carga $q$) se mueve en una región con campos uniformes y estáticos perpendiculares $\vec{E} = E \hat{y}$ y $\vec{B} = B \hat{z}$. La velocidad inicial es $\vec{v}_0$. Calcule la energía total radiada por el protón en un intervalo de tiempo $t$.
 (a) Sin reacción de radiación.
 (b) Con reacción de radiación.
 
 **Solución:**
 
-### (a) Sin reacción de radiación
+### (a) Sin considerar la fuerza de reacción de radiación
 
-1.  **Ecuación de movimiento (Lorentz):**
-    $$ m \frac{d\vec{v}}{dt} = q \vec{E} + q \vec{v} \times \vec{B} $$
-    Dado que $\vec{E} \perp \vec{B}$, podemos orientar $\vec{E} = E \hat{y}$ y $\vec{B} = B \hat{z}$.
-    Esto induce una deriva $\vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2}$ superpuesta a un movimiento ciclotrónico.
-    La aceleración $\vec{a}$ es:
-    $$ \vec{a} = \frac{q}{m} \left( \vec{E} + \vec{v} \times \vec{B} \right) $$
+1.  **Análisis del Movimiento:**
+    La ecuación de movimiento es la fuerza de Lorentz:
+    $$ m \frac{d\vec{v}}{dt} = q (\vec{E} + \vec{v} \times \vec{B}) $$
+    Este movimiento se puede descomponer en una velocidad de deriva constante $\vec{v}_d$ y un movimiento circular ("ciclotrónico") $\vec{v}_c(t)$.
+    Definimos la velocidad de deriva para anular el campo eléctrico en el sistema móvil:
+    $$ \vec{v}_d = \frac{\vec{E} \times \vec{B}}{B^2} = \frac{E}{B} \hat{x} $$
+    Sustituyendo $\vec{v} = \vec{v}_d + \vec{v}_c(t)$:
+    $$ m \dot{\vec{v}}_c = q (\vec{E} + (\vec{v}_d + \vec{v}_c) \times \vec{B}) = q (\vec{E} + \vec{v}_d \times \vec{B} + \vec{v}_c \times \vec{B}) $$
+    Como $q(\vec{E} + \vec{v}_d \times \vec{B}) = 0$, nos queda:
+    $$ m \dot{\vec{v}}_c = q (\vec{v}_c \times \vec{B}) $$
+    Esto describe un movimiento circular uniforme con frecuencia de ciclotrón $\omega = qB/m$.
+    La aceleración total de la partícula es igual a la aceleración de la parte circular (ya que $\vec{v}_d$ es constante):
+    $$ \vec{a} = \dot{\vec{v}}_c = \frac{q}{m} (\vec{v}_c \times \vec{B}) $$
+    El módulo de la aceleración es constante: $a = \omega |\vec{v}_c| = \omega v_{c0}$, donde $v_{c0}$ es la componente de velocidad circular inicial (determinada por $\vec{v}_0 - \vec{v}_d$).
 
-    Escribamos la velocidad como $\vec{v}(t) = \vec{u}(t) + \vec{v}_{deriva}$, donde $\vec{u}(t)$ es la componente de rotación circular.
-    En el marco de referencia que se mueve con la velocidad de deriva, el campo eléctrico efectivo se anula (o se equilibra con la fuerza magnética de la deriva). La aceleración es puramente centrípeta debida a la componente magnética sobre la velocidad rotacional.
-    
-    $$ \vec{a} = \frac{q}{m} (\vec{u}(t) \times \vec{B}) $$
-    Su magnitud es constante: $|\vec{a}| = \frac{q B}{m} u$, donde $u = |\vec{u}|$ es la velocidad tangencial constante.
-    $\omega_B = \frac{qB}{m}$.
-    $a = \omega_B u$.
+2.  **Cálculo de la Energía Radiada:**
+    La potencia radiada instantánea está dada por la fórmula de Larmor:
+    $$ P = \frac{1}{4\pi\epsilon_0} \frac{2 q^2 a^2}{3 c^3} $$
+    Como la aceleración $a$ es constante en magnitud en esta aproximación (el radio de giro no cambia sin fricción), la potencia es constante.
+    La energía radiada $W$ en un tiempo $t$ es simplemente:
+    $$ W_{rad} = \int_0^t P dt = P \cdot t = \frac{1}{4\pi\epsilon_0} \frac{2 q^2 a^2 t}{3 c^3} $$
+    Expresado en términos de la velocidad perpendicular al campo magnético $v_{c0}$:
+    $$ W_{rad} = \frac{q^2 (\omega v_{c0})^2 t}{6 \pi \epsilon_0 c^3} = \frac{q^4 B^2 v_{c0}^2 t}{6 \pi \epsilon_0 m^2 c^3} $$
 
-    Energía perdida: $W = \int_0^t P dt$.
-    Potencia de Larmor (SI): $P = \frac{1}{4\pi\epsilon_0} \frac{2q^2 a^2}{3c^3}$.
-    Como $a$ es constante:
-    $$ W = \frac{1}{4\pi\epsilon_0} \frac{2q^2 a^2 t}{3c^3} = \frac{q^2 a^2 t}{6 \pi \epsilon_0 c^3} $$
+### (b) Con fuerza de reacción de radiación
 
-### (b) Con reacción de radiación
+Ahora incluimos la fuerza de Abraham-Lorentz $\vec{f}_{rad} = m\tau_0 \dot{\vec{a}}$. Esto actúa como una fricción que amortigua el movimiento.
 
-La fuerza de reacción es $\vec{f}_{rad} = m \tau_0 \dot{\vec{a}}$, donde en SI:
-$$ \tau_0 = \frac{1}{4\pi\epsilon_0} \frac{2q^2}{3mc^3} = \frac{q^2}{6\pi \epsilon_0 m c^3} $$
-El movimiento rotacional se amortigua $u(t) = u_0 e^{-t/\tau_{damp}}$.
-La energía radiada será la integral de la potencia que ahora depende del tiempo.
+1.  **Ecuación efectiva:**
+    Como vimos en el Problema 3, para el movimiento ciclotrónico, la fuerza de radiación se aproxima a una fuerza de fricción viscosa:
+    $$ \vec{f}_{rad} \approx -m \tau_0 \omega^2 \vec{v}_c $$
+    La ecuación de movimiento para la componente circular se convierte en:
+    $$ m \dot{\vec{v}}_c = q (\vec{v}_c \times \vec{B}) - m \Gamma \vec{v}_c $$
+    Donde $\Gamma = \tau_0 \omega^2$.
+    (Nota: La velocidad de deriva $\vec{v}_d$ está dictada por el equilibrio de fuerzas $q\vec{E} + q\vec{v}\times\vec{B} \approx 0$ en promedio, por lo que se mantiene constante en esta aproximación de primer orden).
+
+2.  **Amortiguamiento de la Energía Cinética:**
+    La energía cinética asociada al movimiento circular es $K_c = \frac{1}{2} m v_c^2$.
+    La tasa de cambio es:
+    $$ \frac{dK_c}{dt} = \vec{v}_c \cdot (m \dot{\vec{v}}_c) = \vec{v}_c \cdot (q \vec{v}_c \times \vec{B} - m \Gamma \vec{v}_c) $$
+    $$ \frac{dK_c}{dt} = - m \Gamma v_c^2 = - 2 \Gamma K_c $$
+    Solución: $K_c(t) = K_{c0} e^{-2\Gamma t}$.
+
+3.  **Energía Radiada:**
+    La energía radiada proviene de la pérdida de energía mecánica del sistema. Asumiendo que toda la pérdida de $K_c$ se convierte en radiación:
+    $$ W_{rad}(t) = K_c(0) - K_c(t) = K_{c0} (1 - e^{-2\Gamma t}) $$
+    Sustituyendo $\Gamma = \tau_0 \omega^2 = \left( \frac{1}{4\pi\epsilon_0} \frac{2q^2}{3mc^3} \right) \left( \frac{qB}{m} \right)^2$:
+    $$ \Gamma = \frac{q^4 B^2}{6 \pi \epsilon_0 m^3 c^3} $$
+    Para tiempos cortos ($2\Gamma t \ll 1$), $1 - e^{-2\Gamma t} \approx 2\Gamma t$, recuperando el resultado de (a):
+    $$ W_{rad} \approx K_{c0} (2\Gamma t) = \frac{1}{2} m v_{c0}^2 (2 \frac{P_{Larmor}}{m v_{c0}^2} t) = P_{Larmor} t $$
+
+    **Respuesta:** La energía radiada es $W_{rad} = \frac{1}{2} m v_{c0}^2 \left( 1 - \exp\left( - \frac{q^4 B^2 t}{3 \pi \epsilon_0 m^3 c^3} \right) \right)$.
+
 
 ---
 
@@ -141,47 +177,73 @@ $$ K(t) = W_0 e^{-\gamma t} $$
 La inclusión de la fuerza de reacción confirma el resultado obtenido por balance energético global.
 ---
 
-## Problema 4: Antena Cuadrada (Pulso Gaussiano-like)
+## Problema 4: Antena Cuadrada (Pulso Gaussiano)
 
-**Enunciado:** Hilo cuadrado lado $d$. Corriente $I = I_0 e^{-\alpha t^2}$. Potencia total radiada (Aproximación dipolar magnética).
+**Enunciado:** Un hilo conductor forma un cuadrado de lado $d$. Circula una corriente $I(t) = I_0 e^{-\alpha t^2}$. Calcule la potencia instantánea radiada en la aproximación de dipolo magnético.
 
 **Solución:**
-1.  **Momento Dipolar Magnético ($\vec{m}$):**
-    En SI: $\vec{m}(t) = I(t) \text{Area} \cdot \hat{n}$.
-    Área $A = d^2$.
-    $$ \vec{m}(t) = d^2 I_0 e^{-\alpha t^2} \hat{z} $$
 
-2.  **Potencia Dipolar Magnética:**
-    Fórmula SI: $P = \frac{\mu_0}{4\pi} \frac{2}{3c^3} |\ddot{\vec{m}}|^2 = \frac{\mu_0}{6\pi c^3} |\ddot{\vec{m}}|^2$.
-    
-3.  **Cálculo de $\ddot{m}$:**
-    $$ \ddot{m} = d^2 I_0 \frac{d^2}{dt^2}(e^{-\alpha t^2}) = d^2 I_0 \left[ 2\alpha(2\alpha t^2 - 1) e^{-\alpha t^2} \right] $$
+1.  **Justificación de la Aproximación:**
+    Asumimos que el tamaño del sistema $d$ es pequeño comparado con la longitud de onda característica ($d \ll \lambda \sim c/\sqrt{\alpha}$) y que las velocidades de los portadores son no relativistas. Esto permite utilizar la aproximación dipolar, donde el término dominante es el dipolo magnético $\vec{m}$ (ya que el lazo es neutro y cerrado, $\vec{p}=0$ y $\dot{\vec{p}}=0$).
 
-4.  **Potencia Instantánea:**
-    $$ P(t) = \frac{\mu_0}{6\pi c^3} \left( d^2 I_0 2\alpha(2\alpha t^2 - 1) e^{-\alpha t^2} \right)^2 $$
+2.  **Momento Dipolar Magnético:**
+    El momento magnético de una espira plana es $\vec{m}(t) = I(t) A \hat{n}$.
+    Aquí $A = d^2$ y orientamos $\hat{n} = \hat{z}$.
+    $$ \vec{m}(t) = (d^2 I_0 e^{-\alpha t^2}) \hat{z} $$
+
+3.  **Potencia Radiada por Dipolo Magnético:**
+    La fórmula para la potencia radiada por un dipolo magnético variante en el tiempo (en SI) es análoga a la del dipolo eléctrico, con la sustitución $\vec{p} \to \vec{m}/c$:
+    $$ P(t) = \frac{\mu_0}{4\pi} \frac{2 |\ddot{\vec{m}}|^2}{3 c^3} $$
+    (Recordando que $\mu_0 = 1/(\epsilon_0 c^2)$, esto equivale a $P = \frac{1}{4\pi\epsilon_0} \frac{2 |\ddot{\vec{m}}|^2}{3 c^5}$).
+
+4.  **Derivadas Temporales:**
+    Calculamos $\ddot{m}(t)$:
+    $$ m(t) = d^2 I_0 e^{-\alpha t^2} $$
+    $$ \dot{m}(t) = d^2 I_0 (-2\alpha t) e^{-\alpha t^2} $$
+    $$ \ddot{m}(t) = d^2 I_0 \left[ (-2\alpha) e^{-\alpha t^2} + (-2\alpha t)(-2\alpha t) e^{-\alpha t^2} \right] $$
+    $$ \ddot{m}(t) = d^2 I_0 2\alpha (2\alpha t^2 - 1) e^{-\alpha t^2} $$
+
+5.  **Potencia Instantánea:**
+    Sustituimos $\ddot{m}$ en la fórmula de potencia:
+    $$ P(t) = \frac{\mu_0}{6\pi c^3} \left[ d^2 I_0 2\alpha (2\alpha t^2 - 1) e^{-\alpha t^2} \right]^2 $$
     $$ P(t) = \frac{2 \mu_0 \alpha^2 d^4 I_0^2}{3 \pi c^3} (2\alpha t^2 - 1)^2 e^{-2\alpha t^2} $$
+    
+    *Análisis físico:* La potencia es nula en $t = \pm 1/\sqrt{2\alpha}$ (puntos de inflexión de la corriente) y máxima en $t=0$ o con picos secundarios. El sistema radia debido al cambio en la corriente.
+
 
 ---
 
 ## Problema 5: Antena Cuadrada (Corriente AC)
 
-**Enunciado:** Misma antena, $I = I_0 \cos(\omega t)$. Potencia radiada en un período.
+**Enunciado:** Considere la misma antena cuadrada de lado $d$, ahora con corriente oscilante $I(t) = I_0 \cos(\omega t)$. Calcule la potencia media radiada durante un período.
 
 **Solución:**
-1.  **Momento magnético:**
-    $$ m(t) = d^2 I_0 \cos(\omega t) $$
 
-2.  **Segunda derivada:**
-    $$ \ddot{m} = -\omega^2 d^2 I_0 \cos(\omega t) $$
+1.  **Momento Magnético y Derivadas:**
+    $$ \vec{m}(t) = d^2 I_0 \cos(\omega t) \hat{z} $$
+    Derivando dos veces respecto al tiempo:
+    $$ \dot{\vec{m}} = - \omega d^2 I_0 \sin(\omega t) \hat{z} $$
+    $$ \ddot{\vec{m}} = - \omega^2 d^2 I_0 \cos(\omega t) \hat{z} $$
+    
+2.  **Potencia Instantánea:**
+    Usando la fórmula de Larmor magnética:
+    $$ P(t) = \frac{\mu_0}{6\pi c^3} |\ddot{\vec{m}}|^2 = \frac{\mu_0}{6\pi c^3} \left( \omega^2 d^2 I_0 \cos(\omega t) \right)^2 $$
+    $$ P(t) = \frac{\mu_0 \omega^4 d^4 I_0^2}{6 \pi c^3} \cos^2(\omega t) $$
 
-3.  **Potencia instantánea:**
-    $$ P(t) = \frac{\mu_0}{6\pi c^3} \left( d^2 I_0 \omega^2 \cos(\omega t) \right)^2 = \frac{\mu_0 d^4 I_0^2 \omega^4}{6\pi c^3} \cos^2(\omega t) $$
+3.  **Potencia Media y Energía:**
+    Queremos la potencia promediada en un período $T = 2\pi/\omega$.
+    Sabemos que el promedio temporal de $\cos^2(\omega t)$ sobre un ciclo completo es $1/2$.
+    $$ \langle P \rangle = \frac{1}{T} \int_0^T P(t) dt = \frac{\mu_0 \omega^4 d^4 I_0^2}{6 \pi c^3} \underbrace{\langle \cos^2(\omega t) \rangle}_{1/2} $$
+    $$ \langle P \rangle = \frac{\mu_0 \omega^4 d^4 I_0^2}{12 \pi c^3} $$
+    
+    La energía total radiada en un período es simplemente la potencia media por el período:
+    $$ E_{periodo} = \langle P \rangle \cdot T = \left( \frac{\mu_0 \omega^4 d^4 I_0^2}{12 \pi c^3} \right) \left( \frac{2\pi}{\omega} \right) $$
+    $$ E_{periodo} = \frac{\mu_0 \omega^3 d^4 I_0^2}{6 c^3} $$
 
-4.  **Promedio/Integración en un período:**
-    Promedio de $\cos^2$ es $1/2$.
-    Potencia media $\langle P \rangle = \frac{\mu_0 d^4 I_0^2 \omega^4}{12 \pi c^3}$.
-    Energía en un período $T = 2\pi/\omega$:
-    $$ E = \langle P \rangle \cdot T = \frac{\mu_0 d^4 I_0^2 \omega^4}{12 \pi c^3} \frac{2\pi}{\omega} = \frac{\mu_0 d^4 I_0^2 \omega^3}{6 c^3} $$
+    **Nota sobre la Resistencia de Radiación:** Este cálculo permite definir una "resistencia de radiación" $R_{rad}$ tal que $\langle P \rangle = \frac{1}{2} I_0^2 R_{rad}$.
+    $$ R_{rad} = \frac{\mu_0 \omega^4 d^4}{6 \pi c^3} $$
+    Esto confirma que la capacidad de radiación aumenta fuertemente con la frecuencia ($\omega^4$).
+
 
 ---
 
@@ -226,7 +288,7 @@ $$ P_E = \frac{e^4 E^2}{6 \pi \epsilon_0 m^2 c^3} $$
 Nótese que $P_E$ es constante en el tiempo porque la aceleración es constante.
 
 ### (b) Radiación dipolar magnética
-La potencia radiada por un dipolo magnético $\vec{m}_{mag}$ es:
+La potencia rxNadiada por un dipolo magnético $\vec{m}_{mag}$ es:
 $$ P_M = \frac{\mu_0}{4\pi} \frac{2}{3c^3} |\ddot{\vec{m}}_{mag}|^2 = \frac{1}{4\pi\epsilon_0} \frac{2}{3c^5} |\ddot{\vec{m}}_{mag}|^2 $$
 (Usando $\mu_0 = 1/(\epsilon_0 c^2)$).
 El momento magnético orbital es $\vec{m}_{mag} = \frac{1}{2} e (\vec{r} \times \vec{v})$.

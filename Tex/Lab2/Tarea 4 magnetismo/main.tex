@@ -1,0 +1,141 @@
+\documentclass[14pt,a4paper,twocolumn]{article}
+% Paquetes útiles
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{newtxtext,newtxmath} % Times New Roman
+\usepackage{geometry}
+\geometry{margin=2cm}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}[2002/01/22]
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{csquotes}
+\usepackage{array}
+\usepackage{natbib}
+\usepackage{abstract}
+\usepackage{float}
+
+\newtheorem{theorem}{Teorema}[section]
+\newtheorem{example}{Ejemplo}
+\hypersetup{hidelinks}
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\thepage}
+\cfoot{}
+
+\setlength{\textfloatsep}{5pt plus 2pt minus 2pt}
+\setlength{\floatsep}{5pt plus 2pt minus 2pt}
+\setlength{\intextsep}{5pt plus 2pt minus 2pt}
+
+\title{\textbf{Caracterización de una película delgada: Propiedades magnéticas} \\[0.5em]}
+\author{
+  Jose David Ortíz Campo \\
+  Juan Pablo Otálvaro Ghisays \\
+  Juan José Montoya Sánchez \\[0.5em]
+  \textit{Universidad de Antioquia, Medellín, Colombia} \\[0.25em]
+    \texttt{jose.ortizc@udea.edu.co}
+  \texttt{juan.otalvaro1@udea.edu.co}
+  \texttt{juan.montoya110@udea.edu.co}
+}
+\date{\today}
+\begin{document}
+% Portada
+\twocolumn[
+  \maketitle
+  \begin{abstract}
+En este trabajo se caracterizó una película delgada de aluminio fabricada por evaporación térmica, mediante espectroscopía de reflectancia en el rango visible (440-700 nm). Se realizaron mediciones a tres ángulos de incidencia (30°, 45° y 60°) utilizando un espectrómetro de fibra óptica. A partir de los espectros de reflectancia obtenidos, se calcularon los componentes real ($n$) e imaginario ($k$) del índice de refracción complejo utilizando un ajuste de mínimos cuadrados basado en las ecuaciones de Fresnel. Los resultados muestran valores de $k$ inferiores a los del aluminio masivo, lo que sugiere la presencia de una capa de óxido superficial y efectos de rugosidad en la película delgada.
+  \end{abstract}
+  \vspace{1em}
+]
+% Introducción
+\section{Introducción}
+A lo largo de la historia se han visto multitud de descubrimientos y/o desarrollos del magnetismo; desde la antigüedad con Tales de Mileto que resalta propiedades de algunas piedras que atraían hierro, hasta hechos más recientes como el de William Gilbert que mostró que la Tierra es un gran imán. Estos eventos permitieron que, en el siglo XIX, se desarrollase una teoría unificadora de la electricidad y el magnetismo, además de una base teórica microscópica del fenómeno en sí mismo. Debido al desarrollo unificador de Maxwell se aceleró el desarrollo de la tecnología moderna, desde las redes eléctricas hasta las computadoras y la electrónica en general. Incluso tuvo impactos en el desarrollo de nuevas teorías científicas como la relatividad especial o la mecánica cuántica. Por tanto, esto tuvo grandes implicaciones sobre la sociedad y su desarrollo tecnológico a lo largo de la historia.
+Tener la capacidad de medir propiedades magnéticas de múltiples sistemas permite contrastar predicciones teóricas, como las propiedades magnéticas, teorías de espines, efectos cuánticos (efecto Hall), entre otros. Además de permitir el desarrollo de dispositivos que tienen como pilar fundamental el magnetismo. En los últimos años se han desarrollado diversos mecanismos ingeniosos para medir la magnetización. Con estos se puede caracterizar el comportamiento magnético, es decir, si es de tipo ferromagnético, antiferromagnético, paramagnético o diamagnético. Algunos de estos son los magnetómetros, como lo son los de tipo SQUID que utilizan las propiedades cuánticas de materiales superconductores para hacer sus mediciones, o los de tipo atómico que utilizan átomos en vapor, el cual excita el gas atómico con un láser que alinea los espines del sistema. Algunos no tan precisos y más comerciales son los magnetómetros MEMS, los cuales miden la fuerza que un campo magnético ejerce sobre un subsistema móvil. Uno de los instrumentos más usados en laboratorios para medir las propiedades magnéticas de materiales es el magnetómetro de muestra vibrante (VSM), este mide la magnetización de una muestra haciendo que vibre dentro de un campo magnético. La muestra al vibrar proporciona una variación periódica del flujo magnético, y por la ley de Faraday esto induce un voltaje proporcional a cantidades características tanto de la muestra como del sistema de medida.
+Para entender las propiedades magnéticas que tienen los materiales y/o sistemas, en el siguiente proyecto se usará un VSM para caracterizar una muestra de aluminio. Se realizarán diferentes mediciones para encontrar curvas de magnetización a una temperatura constante y, de estas, propiedades del material, como su comportamiento magnético. Además de esto, se encontrará la susceptibilidad magnética y se comparará \textcolor{blue}{con la del aluminio puro.}
+
+\section{Metodología}
+
+Para determinar las propiedades magnéticas de una película delgada se usó un magnetómetro de muestra vibrante (VSM). El primer paso fue la preparación inicial del sistema: Se verificó que el nivel de Helio superase el 50\%, se montó la muestra en una caña hecha de fibra de carbono y se ajustó la frecuencia de vibración a 40 Hz. Luego se inicializó el software Multiview: Se estabilizó el sistema a la temperatura ambiente, se transfirió Helio líquido al criostato, se introdujo la caña en el portamuestras y se almacenaron datos correspondientes a propiedades de la película delgada en una carpeta. Se inició la rutina de centrado automático (el sistema localiza el máximo de señal y lo identifica como el centro geométrico), el campo aplicado para este procedimiento fue de 500 Oe. Para iniciar la toma de medidas se creó un archivo y se configuró el intervalo de adquisición de datos en 5 minutos, es estableció la temperatura de medición en 300 K se partió de un campo magnético nulo, se llegó a 1 T, y luego de 1 T se pasó gradualmente a -1 T. Finalmente, se extrajo la muestra y se activó el modo de bajo consumo energético. Ya teniendo los datos, se trataron para obtener curvas de magnetización en función del campo externo. El primer paso fue graficar las curvas de momento magnético vs campo magnético extenro, esta gráfica contiene el comportamiento de la magnetización total de la película de aluminio, incluyendo el sustrato de vidrio. Puesto que el sustrato es diamagnético y tiene mayor respuesta que la capa de aluminio, se restó el aporte del sustrato a la curva de magnetización total, para esto se escogió la rama del 2do cuadrante, se ajustó a una línea recta y se estimó la pendiente, el valor de esta pendiente corresponde a la susceptibilidad del sustrato. Se almacenó este valor en una variable $m$ y se creó un nuevo conjunto de datos haciendo la siguiente operación:
+
+\begin{equation}
+\mu_{Al} = \mu-mH    
+\end{equation}
+
+Se graficó el comportamiento real de la película de aluminio al graficar este nuevo conjunto de datos en función del campo externo. Se usaron los modelos de Langevin y de Brillouin para ajustar el conjunto de datos. Se usó el volumen estimado de la médida para graficar una curva de magnetización por unidad de volumen en función del campo magnético.
+
+
+\section{Resultados y Discusiones}
+
+La gráfica resultante de plotear los datos de magnetización de la película delgada en función del campo externo sin restar el efecto del sustrato se observa en la figura \ref{fig:sutrato+pelicula}.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/curva1.png} % Escala la imagen
+    \caption{Curva de m vs H sustrato + película}
+    \label{fig:sutrato+pelicula}
+\end{figure}
+
+Se observa que, la magnetización decrece a medida que aumenta el campo magnético de manera lineal en dos ramas: $H<-2500 \text{ Oe}$ y $H>2500 \text{ Oe}$. Esta curva de magnetización no entra dentro de las distintas categorías conocidas, ya que es producto de la magnetización neta entre un material diamagnético (el vidrio del sustrato) y un material paramagnético (la película de aluminio). El ajuste lineal hecho a la región de $H<-2500 \text{ Oe}$ retornó una pendiente $m = -1.13\times 10^{-9} \frac{\text{emu}}{\text{Oe}}$. La gráfica correspondiente a este ajuste se observa en la figura \ref{fig:ajustelineal}.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/ajuste.png} % Escala la imagen
+    \caption{Ajuste lineal del 2do cuadrante}
+    \label{fig:ajustelineal}
+\end{figure}
+
+La gráfica resultante de restar los efectos magnéticos del sustrato a los datos, para obtener la verdadera curva de magnetización de la película delgada se observa en la figura \ref{fig:correcciónmvsH}. 
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/curvacorregida.png} % Escala la imagen
+    \caption{Curva m vs H corregida}
+    \label{fig:correcciónmvsH}
+\end{figure}
+
+Se observa la gráfica típica de un material paramagnético, el cual presenta magnetización en presencia de un campo externo, sin embargo, no presenta magnetización remanente puesto que no hay un ordenamiento en los espínes, ya que no existe interacción entre estos. Al ajustar los datos a las funciones de Langevin y Brillouin, se obtuvieron las gráficas de la figura \ref{fig:langevin}. Para el ajuste de Langevin se obtuvo un coeficiente de determinación $R^2 = 0.882$. Para el ajuste de Brillouin el coeficiente de determinación arrojó un valor de $R^2 = 0.881$.
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/ajustes-lang-bri.png} % Escala la imagen
+    \caption{Ajuste con Langevin y Brillouin}
+    \label{fig:langevin}
+\end{figure}
+
+
+Al verificar el comportamiento del ajuste en regiones de campo magnético pequeño $H \in (-2000 \text{ Oe},2000 \text{ Oe})$ se obtuvo la gráfica de la figura \ref{fig:zoom}
+
+\begin{figure}[htp]
+    \centering
+    \includegraphics[width=\linewidth]{imagenes/zoom.png} % Escala la imagen
+    \caption{Ajuste con Langevin y Brillouin en campos bajos}
+    \label{fig:zoom}
+\end{figure}
+
+
+
+
+\section{Conclusiones}
+A partir de la caracterización magnética de la película delgada de aluminio mediante magnetometría de muestra vibrante (VSM), se obtuvieron las siguientes conclusiones:
+
+\begin{itemize}
+    \item La señal magnética bruta estuvo dominada por la respuesta diamagnética del sustrato de vidrio. Mediante un ajuste lineal en la región de alto campo ($H < -2500$ Oe), se determinó una susceptibilidad del sustrato de $m \approx -1.13 \times 10^{-9}$ emu/Oe. La sustracción de este aporte fue fundamental para aislar la respuesta intrínseca de la película de aluminio.
+    
+    \item El análisis de los modelos teóricos indica que la función de Langevin ($R^2 \approx 0.882$) describe ligeramente mejor los datos experimentales que la función de Brillouin ($R^2 \approx 0.881$). Esto sugiere que el magnetismo observado podría tener un origen superparamagnético, posiblemente debido a la formación de \textit{clusters} magnéticos o nanopartículas en la película, en lugar de momentos atómicos aislados.
+    
+    \item Se obtuvo una magnetización de saturación $M_s \approx 0.92$ emu/cm$^3$. Este valor es significativamente mayor al esperado para el aluminio puro (que es un paramagneto débil de Pauli). Este incremento en la respuesta magnética puede atribuirse a varios factores: la presencia de impurezas ferromagnéticas, efectos de tamaño finito debido al espesor nanométrico de la película ($1.5$ nm), o la contribución de la capa de óxido superficial (Al$_2$O$_3$) y defectos estructurales.
+    
+    \item El parámetro de ajuste $a \approx 2.36 \times 10^{-3}$ Oe$^{-1}$ en el modelo de Langevin es coherente con la existencia de momentos magnéticos efectivos pequeños que responden no linealmente a campos moderados.
+\end{itemize}
+
+En resumen, aunque el aluminio masivo es paramagnético, la película delgada estudiada exhibe caracteristicas magnéticas complejas dominadas por efectos de superficie y posibles impurezas.
+
+% Bibliografía
+%\bibliographystyle{unsrt}
+%\bibliography{bibliografia} % Archivo .bib con tus referencias
+
+\end{document}

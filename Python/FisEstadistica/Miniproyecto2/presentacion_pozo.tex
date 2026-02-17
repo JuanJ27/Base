@@ -1,0 +1,404 @@
+\documentclass[aspectratio=169]{beamer}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{xcolor}
+
+% Tema y colores
+\usetheme{Madrid}
+\usecolortheme{default}
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{caption}[numbered]
+
+% Definir colores personalizados
+\definecolor{udea}{RGB}{0,102,51}
+\setbeamercolor{structure}{fg=udea}
+\setbeamercolor{title}{fg=white,bg=udea}
+\setbeamercolor{frametitle}{fg=white,bg=udea}
+\setbeamercolor{titlelike}{fg=white,bg=udea}
+\setbeamercolor{author}{fg=black}
+\setbeamercolor{institute}{fg=black}
+\setbeamercolor{date}{fg=black}
+
+% Información del documento
+\title[Partículas en una Caja Caliente]{Miniproyecto 2: Where are the particles when the box is hot?}
+\subtitle{Reproducción y Extensión al Pozo Finito}
+\author[Juan Montoya \& Pablo Sánchez]{Juan Montoya \& Pablo Sánchez}
+\institute[UdeA]{Instituto de Física\\Universidad de Antioquia}
+\date{21 de Enero de 2026}
+
+\begin{document}
+
+%===============================================================================
+% DIAPOSITIVA 1: PORTADA
+%===============================================================================
+\begin{frame}
+\titlepage
+\end{frame}
+
+%===============================================================================
+% DIAPOSITIVA 2: CONTENIDO
+%===============================================================================
+\begin{frame}{Contenido}
+\tableofcontents
+\end{frame}
+
+%===============================================================================
+% DIAPOSITIVA 3: INTRODUCCIÓN Y OBJETIVO
+%===============================================================================
+\section{Introducción}
+\begin{frame}{Introducción y Objetivo}
+\begin{block}{Objetivo Principal}
+Reproducir los resultados del artículo \textit{"Where are the particles when the box is hot?"} (Eur. J. Phys., 2019) y extender el análisis al caso de un pozo de potencial finito.
+\end{block}
+
+\vspace{0.2cm}
+\begin{columns}[T]
+\column{0.5\textwidth}
+\textbf{Problema central:}
+\begin{itemize}
+\item ¿Cómo cambia la densidad de probabilidad de una partícula cuántica al aumentar la temperatura?
+\item ¿Qué efecto tiene la estadística (Bose-Einstein vs Fermi-Dirac) en sistemas de dos partículas?
+\item ¿Cómo influye el espín en la distribución espacial?
+\end{itemize}
+
+\column{0.5\textwidth}
+\textbf{Extensión propuesta:}
+\begin{itemize}
+\item Considerar un pozo de altura finita $V_0$.
+\item Evaluar el límite termodinámico y la densidad de estados.
+\end{itemize}
+\end{columns}
+\end{frame}
+
+%===============================================================================
+% SECCIÓN 1: POZO INFINITO (MODELO DEL ARTÍCULO)
+%===============================================================================
+\section{El Pozo de Potencial Infinito}
+
+% Frame: Modelo de una partícula
+\begin{frame}{1. Una partícula en el Pozo Infinito}
+\begin{columns}[T]
+\column{0.5\textwidth}
+\vspace{-0.3cm}
+\begin{block}{Modelo Básico}
+Partícula de masa $m$ en una caja de longitud $L$:
+$$ V(X) = \begin{cases} 0 & 0 < X < L \\ \infty & \text{resto} \end{cases} $$
+\end{block}
+
+\textbf{Soluciones:}
+$$ \psi_n(X) = \sqrt{\frac{2}{L}} \sin\left(\frac{n\pi X}{L}\right) $$
+$$ E_n = \frac{h^2 n^2}{8mL^2} $$
+
+\column{0.5\textwidth}
+\vspace{0.7cm}
+\begin{center}
+\includegraphics[width =\columnwidth]{figures/pozo_infinito_termico.eps}
+\end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}{1. Una partícula en el Pozo Infinito con temperatura}
+\begin{columns}[T]
+\column{0.3\textwidth}
+\vspace{1cm}
+\textbf{Ensamble Canónico (Temperatura $T$):}
+Densidad de probabilidad térmica media ponderada por Boltzmann:
+$$ P_{th}(x, t) = \frac{\sum_{n=1}^{\infty} |\psi_n(x)|^2 e^{-E_n/k_B T}}{\sum_{n=1}^{\infty} e^{-E_n/k_B T}}$$
+
+\column{0.7\textwidth}
+\vspace{-0.73cm}
+\begin{center}
+\includegraphics[width =0.55\columnwidth]{figures/fig1a_Pth.png}
+\includegraphics[width =0.55\columnwidth]{figures/fig1b_boundary_layer.eps}
+
+\end{center}
+\end{columns}
+\end{frame}
+
+
+% Frame: Dos partículas (Bosones vs Fermiones)
+\begin{frame}{2. Dos Partículas: Bosones vs Fermiones (Sin Espín)}
+\begin{columns}[T]
+\column{0.5\textwidth}
+\vspace{-0.8cm}
+\textbf{Bosones ($\Psi$ Simétrica):}
+$$ \Psi = \frac{1}{2} ( \psi_{n_1}(x_1)\psi_{n_2}(x_2) + \psi_{n_1}(x_2)\psi_{n_2}(x_1) )$$
+\begin{itemize}
+\vspace{-0.8cm}
+\item \textcolor{blue}{Atracción efectiva}: Pueden ocupar el mismo estado ($n_1 = n_2$).
+\end{itemize}
+
+\begin{center}
+    \includegraphics[width = 1.04\columnwidth]{figures/figure2_bosons.png}
+\end{center}
+
+\column{0.5\textwidth}
+\vspace{-0.8cm}
+\textbf{Fermiones ($\Psi$ Antisimétrica):}
+$$ \Psi = \frac{1}{2} ( \psi_{n_1}(x_1)\psi_{n_2}(x_2) - \psi_{n_1}(x_2)\psi_{n_2}(x_1) )$$
+\begin{itemize}
+\vspace{-0.8cm}
+\item \textcolor{red}{Repulsión Pauli}: No pueden ocupar el mismo estado ($n_1 \neq n_2$).
+\end{itemize}
+\begin{center}
+    \includegraphics[width = 1.04\columnwidth]{figures/figure3_fermions.png}
+\end{center}
+\end{columns}
+\end{frame}
+
+% Frame: Figura 4 - Densidad Térmica 2 Partículas
+\begin{frame}{3. Densidad térmica de dos partículas}
+\begin{columns}[T]
+\column{0.55\textwidth}
+\scriptsize
+\begin{itemize}
+    \item \textbf{Sumas Diferenciadas:}
+    \begin{itemize}
+        \item \textit{Bosones:} $1 \le n_1 \le n_2 \le n_{max}$ (Permite $n_1=n_2$).
+        \item \textit{Fermiones:} $1 \le n_1 < n_2 \le n_{max}$ (Exclusion de Pauli).
+    \end{itemize}
+    \item \textbf{Convergencia:} $n_{max} \approx 25$ para estabilidad a $t=10$.
+    \item
+    \textbf{Bosones:} Máxima probabilidad en la diagonal $x_1=x_2$ (atracción efectiva).
+    \item 
+    \textbf{Fermiones (sin espín):} Probabilidad nula en diagonal.
+    \item
+    \textbf{Fermiones (con espín):} Al incluir espín, se permiten contribuciones simétricas espaciales (Singlete) que pueblan la diagonal.
+\end{itemize}
+\column{0.45\textwidth}
+\vspace{-1.7cm}
+\begin{center}
+    \includegraphics[width=0.7\columnwidth]{figures/fig4_thermalized.eps}
+\end{center}
+\end{columns}
+\end{frame}
+
+% Frame: Fermiones con Espín
+\begin{frame}{4. Mecanismo de Espín en Fermiones}
+\vspace{-0.6cm}
+\begin{columns}[T]
+\column{0.45\textwidth}
+\begin{block}{Singlete ($S=0$)}
+\begin{itemize}
+\item Espín Antisimétrico ($\uparrow\downarrow - \downarrow\uparrow$)
+\item \textbf{Espacio Simétrico} (Tipo Bosón)
+\end{itemize}
+\end{block}
+
+\column{0.5\textwidth}
+\begin{block}{Triplete ($S=1$)}
+\begin{itemize}
+\item Espín Simétrico ($\uparrow\uparrow$, etc.)
+\item \textbf{Espacio Antisimétrico} (Tipo Fermión)
+\end{itemize}
+\end{block}
+\end{columns}
+
+\vspace{-0.01cm}
+\textbf{Resultado Térmico:}
+$$ P_{total} = \frac{1}{4} P_{Singlete} + \frac{3}{4} P_{Triplete} $$
+
+\vspace{-0.3cm}
+\begin{center}
+    \includegraphics[width=0.65\columnwidth]{figures/fig5_infinito.eps}
+\end{center}
+
+\end{frame}
+
+%===============================================================================
+% SECCIÓN 2: POZO FINITO (EXTENSIÓN)
+%===============================================================================
+\section{Extensión: Pozo de Potencial Finito}
+
+% Frame: Modelo Pozo Finito
+\begin{frame}{5. Modelo de Pozo Finito (Método Numerov)}
+\begin{columns}[T]
+\column{0.45\textwidth}
+\textbf{Definición:}
+$$ V(x) = \begin{cases} 0 & |x| < a \\ V_0 & |x| \ge a \end{cases} $$
+
+\textbf{Método Numérico (Numerov):}
+Resolvemos la ecuación de Schrödinger independiente del tiempo usando el esquema de diferencias finitas de 4to orden:
+$$ \psi_{i+1} = \frac{2(1 - \frac{5}{12}h^2 k_i^2)\psi_i - (1 + \frac{1}{12}h^2 k_{i-1}^2)\psi_{i-1}}{1 + \frac{1}{12}h^2 k_{i+1}^2} $$
+
+\column{0.55\textwidth}
+\vspace{0.7cm}
+\begin{center}
+    \includegraphics[width=0.75\columnwidth]{figures/finite_well_fig1a_Pth.png}
+\end{center}
+\end{columns}
+\end{frame}
+
+% Frame: Resultados Pozo Finito
+\begin{frame}{6. Resultados: Pozo Finito}
+\begin{columns}[T]
+\column{0.55\textwidth}
+\vspace{-0.6cm}
+\begin{center}
+    \includegraphics[width=0.8\columnwidth]{figures/finite_well_fig2_bosons.png}
+\end{center}    
+\tiny{Bosones dos particulas}
+\begin{center}
+    \includegraphics[width=0.8\columnwidth]{figures/finite_well_fig3_fermions.png}
+\end{center}
+\tiny{Fermiones dos particulas}
+
+\column{0.45\textwidth}
+\vspace{-1.7cm}
+\begin{center}
+    \includegraphics[width=0.7\columnwidth]{figures/finite_well_fig4_thermal_2p.eps}
+\end{center}
+\tiny{(a) Bosones (atracción), (b) Fermiones (repulsión), (c) Spin.}
+\end{columns}
+\end{frame}
+
+\begin{frame}{6.Resultados: Pozo finito}
+\begin{center}
+    \includegraphics[width=0.85\columnwidth]{figures/finite_well_fig5_spin.png}
+\end{center}    
+\end{frame}
+
+% Frame: Extensión Potenciales
+\begin{frame}{7. Extensión: Potenciales Armónico y en V}
+\begin{columns}[T]
+\column{0.25\textwidth}
+\textbf{Modelo Armónico Finito:}
+$$ V(x) = \frac{1}{2}kx^2 $$
+
+\textbf{Modelo en V Finito:}
+$$ V(x) = V_0 \frac{|x|}{a} $$
+
+
+\column{0.75\textwidth}
+\vspace{-0.5cm}
+\begin{center}
+    \includegraphics[width=0.45\columnwidth]{figures/harmonic_pot.eps}
+    \includegraphics[width=0.45\columnwidth]{figures/v_pot.eps}
+\end{center}
+\end{columns}
+\end{frame}
+
+\begin{frame}{8. Comparación de Estadística en Potenciales}
+
+\vspace{-0.2cm}
+\begin{columns}[T]
+\column{0.35\textwidth}
+\centering \textbf{Pozo Finito}
+\includegraphics[width=\columnwidth]{figures/finite_well_fig1a_Pth.png}
+\tiny{T_{th}}
+
+\column{0.35\textwidth}
+\centering \textbf{Armónico}
+\includegraphics[width=\columnwidth]{figures/harmonic_fig1a_Pth.png}
+\tiny{T_{th}}
+
+\column{0.35\textwidth}
+\centering \textbf{Potencial V}
+% Placeholder si no existe, o usar harmonic fermiones
+\includegraphics[width=\columnwidth]{figures/harmonic_fig1a_Pth.png}
+\tiny{T_{th}}
+\end{columns}
+\end{frame}
+
+
+% Frame: Resultados Comparados
+\begin{frame}{8. Comparación de Estadística en Potenciales}
+
+\vspace{-0.2cm}
+\begin{columns}[T]
+\column{0.35\textwidth}
+\centering \textbf{Pozo Finito}
+\includegraphics[width=\columnwidth]{figures/finite_well_fig2_bosons.png}
+\tiny{Bosones}
+
+\column{0.35\textwidth}
+\centering \textbf{Armónico}
+\includegraphics[width=\columnwidth]{figures/harmonic_fig2_bosons.png}
+\tiny{Bosones}
+
+\column{0.35\textwidth}
+\centering \textbf{Potencial V}
+% Placeholder si no existe, o usar harmonic fermiones
+\includegraphics[width=\columnwidth]{figures/harmonic_fig2_bosons.png}
+\tiny{Bosones}
+\end{columns}
+\end{frame}
+
+
+% Frame: Resultados Comparados
+\begin{frame}{8. Comparación de Estadística en Potenciales}
+
+\vspace{-0.2cm}
+\begin{columns}[T]
+\column{0.35\textwidth}
+\centering \textbf{Pozo Finito}
+\includegraphics[width=\columnwidth]{figures/finite_well_fig3_fermions.png}
+\tiny{Fermiones}
+\column{0.35\textwidth}
+\centering \textbf{Armónico}
+\includegraphics[width=\columnwidth]{figures/harmonic_fig3_fermions.png}
+\tiny{Fermiones}
+\column{0.35\textwidth}
+\centering \textbf{Potencial V}
+% Placeholder si no existe, o usar harmonic fermiones
+\includegraphics[width=\columnwidth]{figures/harmonic_fig3_fermions.png}
+\tiny{Fermiones}
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{9.Convergencia}
+\begin{center}
+    \includegraphics[width=0.35\columnwidth]{figures/convergence_t_vs_N.png}
+    \includegraphics[width=0.35\columnwidth]{figures/convergence_fit_t_vs_N.png}
+    \includegraphics[width=0.35\columnwidth]{figures/convergence_t_vs_N_clean.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{10.Densidad de Estados}
+\begin{center}
+    \includegraphics[width=0.35\columnwidth]{figures/dos_comparison_multiple_widths.png}
+    \includegraphics[width=0.35\columnwidth]{figures/dos_convergence_comparison.png}
+    \includegraphics[width=0.35\columnwidth]{figures/dos_cumulative_N.png}
+\end{center}
+\end{frame}
+
+%===============================================================================
+% CONCLUSIONES
+%===============================================================================
+\section{Conclusiones}
+\begin{frame}{Conclusiones}
+\begin{itemize}
+\item \textbf{Efecto Térmico Universal:} En todos los potenciales, $T$ tiende a uniformizar la densidad $P_{th}$, pero las condiciones de frontera (duras o suaves) imponen perfiles específicos en los bordes.
+\item \textbf{Robustez Estadística:} La naturaleza de Bosones (atracción efectiva) y Fermiones (repulsión) domina sobre la geometría del potencial.
+\item \textbf{Espín:} Es el mecanismo fundamental que permite a los fermiones (como electrones) compartir espacio mediante el estado Singlete.
+\item \textbf{Métodos Numéricos:}
+    \begin{itemize}
+        \item \textit{Numerov:} Alta precisión para estados 1D continuos.
+    \end{itemize}
+\end{itemize}
+
+\vspace{0.3cm}
+
+\end{frame}
+
+%===============================================================================
+% DIAPOSITIVA FINAL
+%===============================================================================
+\begin{frame}[plain]
+\begin{center}
+\Huge{\textcolor{udea}{\textbf{Gracias}}}
+
+\vspace{1cm}
+\normalsize
+\textbf{Juan Montoya \& Pablo Sánchez}\\
+Física Estadística
+\end{center}
+\end{frame}
+
+\end{document}
