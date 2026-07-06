@@ -48,6 +48,7 @@ El notebook genera salidas reproducibles en `figures/` para revisión o presenta
 | `fft_harmonics_beaming.png` | Proxy fenomenológico de pulsos y armónicos. |
 | `crt_vs_synchrotron_gamma.png`, `crt_schematic.png` | Comparación conceptual CRT/sincrotrón y escala de potencia para `B` fijo. |
 | `crt_screen_time_evolution.png` | Evolución temporal del punto luminoso en una pantalla CRT con barrido, deflexión vertical y persistencia fosfórica. |
+| `crt_screen_heatmap.png` | Mapa de calor de impactos del haz en la pantalla CRT con persistencia fosfórica acumulada y trayectoria del punto. |
 
 La FFT es una ayuda cualitativa: muestra que pulsos más angostos exigen armónicos más altos, pero no calcula la distribución espectral sincrotrón completa con funciones de Bessel.
 
