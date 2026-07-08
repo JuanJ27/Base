@@ -1,0 +1,284 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage[spanish,es-tabla]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{booktabs}
+\usepackage{geometry}
+\usepackage{tikz}
+\usepackage{hyperref}
+\usepackage[numbers,sort&compress]{natbib}
+\usetikzlibrary{arrows.meta,babel}
+
+\geometry{margin=2.5cm}
+\sisetup{per-mode=symbol,detect-all,separate-uncertainty=true}
+\hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
+
+\title{Medición de la relación carga-masa del electrón mediante deflexión magnética en un tubo e/m}
+\author{Propuesta experimental de laboratorio}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+Se propone una práctica de laboratorio para determinar la relación carga-masa del electrón, $e/m$, mediante la observación de la trayectoria circular de un haz electrónico en un tubo e/m sometido al campo magnético producido por bobinas de Helmholtz. La propuesta se conecta conceptualmente con la dinámica de partículas cargadas bajo fuerza de Lorentz, pero no plantea medir radiación sincrotrón real. El resultado esperado es un valor experimental compatible, dentro de incertidumbres, con el valor aceptado $e/m=\SI{1.758820e11}{\coulomb\per\kilogram}$.
+\end{abstract}
+
+\section{Título específico y técnico}
+
+\textbf{Medición de la relación carga-masa del electrón mediante deflexión magnética en un tubo e/m.}
+
+El experimento estudia la deflexión magnética de electrones acelerados por una diferencia de potencial conocida. Al imponer un campo magnético aproximadamente uniforme y perpendicular a la velocidad inicial del haz, la fuerza de Lorentz actúa como fuerza centrípeta y permite inferir $e/m$ a partir de cantidades medibles en un laboratorio docente: voltaje de aceleración, corriente en bobinas y radio de curvatura del haz.
+
+\section{Objetivos generales y específicos}
+
+\subsection{Objetivo general}
+
+Determinar experimentalmente la relación e/m del electrón a partir de la trayectoria circular de un haz electrónico sometido a un campo magnético uniforme.
+
+\subsection{Objetivos específicos}
+
+\begin{itemize}
+  \item Calibrar el campo magnético generado por bobinas de Helmholtz en función de la corriente eléctrica aplicada.
+  \item Medir el radio de curvatura del haz electrónico para diferentes voltajes de aceleración y corrientes de bobina.
+  \item Ajustar los datos experimentales al modelo $e/m = 2V/(B^2 r^2)$.
+  \item Estimar incertidumbres instrumentales, aleatorias y sistemáticas asociadas a $V$, $B$ y $r$.
+  \item Comparar el valor obtenido con el valor aceptado de la relación carga-masa del electrón.
+\end{itemize}
+
+\section{Fundamento teórico detallado}
+
+\subsection{Aceleración no relativista de electrones}
+
+En un tubo e/m, los electrones son emitidos por un cañón electrónico y acelerados mediante una diferencia de potencial $V$. Si se desprecia la energía térmica inicial y las pérdidas dentro del tubo, el trabajo realizado por el campo eléctrico se transforma en energía cinética traslacional:
+\begin{equation}
+  eV = \frac{1}{2} m v^2,
+  \label{eq:energia}
+\end{equation}
+donde $e$ es la magnitud de la carga del electrón, $m$ su masa y $v$ la rapidez adquirida. Aunque la carga real del electrón es negativa, se usa $e>0$ para representar su magnitud. Para voltajes típicos de laboratorio, del orden de cientos de voltios, la rapidez resultante sigue siendo suficientemente menor que $c$ como para justificar una primera aproximación no relativista.
+
+\subsection{Fuerza de Lorentz y deflexión magnética}
+
+La fuerza magnética sobre una partícula cargada está dada por la fuerza de Lorentz:
+\begin{equation}
+  \vec{F} = q\,\vec{v}\times\vec{B}.
+\end{equation}
+Para el electrón, $q=-e$, por lo que
+\begin{equation}
+  \vec{F} = -e\,\vec{v}\times\vec{B}.
+\end{equation}
+Si la velocidad del haz es perpendicular al campo magnético, la magnitud de la fuerza es
+\begin{equation}
+  F = e v B.
+  \label{eq:lorentz_magnitud}
+\end{equation}
+Esta fuerza no realiza trabajo porque siempre es perpendicular a la velocidad instantánea. Por lo tanto, modifica la dirección del movimiento, pero no la rapidez. Bajo un campo uniforme y perpendicular a la velocidad, el resultado ideal es una trayectoria circular.
+
+\subsection{Movimiento circular del haz}
+
+Para una trayectoria circular de radio $r$, la fuerza centrípeta requerida es
+\begin{equation}
+  F_c = \frac{m v^2}{r}.
+\end{equation}
+Al identificar la fuerza magnética con la fuerza centrípeta se obtiene
+\begin{equation}
+  e v B = \frac{m v^2}{r}.
+  \label{eq:centripeta}
+\end{equation}
+Si $v \neq 0$, la ecuación anterior conduce a
+\begin{equation}
+  \frac{e}{m} = \frac{v}{B r}.
+  \label{eq:em_vbr}
+\end{equation}
+La rapidez $v$ no se mide directamente; se elimina usando la relación energética de la ecuación~\eqref{eq:energia}. De allí,
+\begin{equation}
+  v^2 = \frac{2eV}{m}.
+\end{equation}
+Al combinar esta expresión con la ecuación~\eqref{eq:centripeta}, se obtiene la relación operacional del experimento:
+\begin{equation}
+  \boxed{\frac{e}{m}=\frac{2V}{B^2 r^2}}.
+  \label{eq:em_final}
+\end{equation}
+Esta ecuación muestra que $e/m$ puede determinarse si se conocen el voltaje de aceleración $V$, el campo magnético $B$ y el radio $r$ de la trayectoria del haz.
+
+\subsection{Campo magnético de bobinas de Helmholtz}
+
+El campo magnético se genera con dos bobinas coaxiales idénticas separadas por una distancia igual a su radio $R_H$. Cerca del punto medio entre ambas bobinas, el campo es aproximadamente uniforme. Para $N$ espiras por bobina y corriente $I$, el campo central ideal es
+\begin{equation}
+  B = \left(\frac{4}{5}\right)^{3/2}\frac{\mu_0 N I}{R_H},
+  \label{eq:helmholtz}
+\end{equation}
+donde $\mu_0$ es la permeabilidad del vacío. En la práctica, esta relación puede utilizarse como calibración primaria o contrastarse con una sonda Hall si el laboratorio dispone de una. La linealidad esperada $B \propto I$ es un control experimental importante.
+
+\subsection{Corrección relativista y alcance del modelo}
+
+Para mayor precisión, puede considerarse la corrección relativista mediante
+\begin{equation}
+  \gamma = 1 + \frac{eV}{m_e c^2}.
+\end{equation}
+Como $m_e c^2 \approx \SI{511}{\kilo\electronvolt}$, los voltajes de un tubo e/m docente, típicamente menores que algunos kilovoltios, producen correcciones pequeñas respecto de las incertidumbres dominantes de lectura del radio, alineación y calibración del campo. Por ello, el análisis principal se mantiene en el régimen no relativista y se reporta la corrección relativista como posible fuente sistemática.
+
+\subsection{Relación conceptual con dinámica de haces}
+
+El experimento comparte con la física de haces cargados el principio central de que un campo magnético transversal curva la trayectoria de partículas cargadas. Sin embargo, esta propuesta no mide radiación sincrotrón ni requiere un acelerador real. La medición se limita a la dinámica de deflexión del haz en un tubo didáctico, donde la fuerza de Lorentz y el movimiento circular son observables de manera directa y segura en escala de laboratorio.
+
+\section{Materiales, equipos y adquisición}
+
+La opción recomendada es un tubo e/m didáctico con bobinas de Helmholtz integradas o compatibles. Si no se dispone de ese equipo, puede adaptarse un tubo de haz fino o un tubo tipo CRT didáctico con bobinas externas, siempre que se pueda medir el radio de curvatura y controlar el campo magnético de forma reproducible.
+
+\begin{table}[h]
+  \centering
+  \caption{Materiales y equipos propuestos.}
+  \begin{tabular}{p{0.28\linewidth}p{0.40\linewidth}p{0.22\linewidth}}
+    \toprule
+    Equipo o material & Función en el experimento & Costo estimado a confirmar con proveedor/laboratorio \\
+    \midrule
+    Tubo e/m o tubo de haz fino & Generar y visualizar el haz electrónico curvado & Rango aproximado según disponibilidad institucional \\
+    Bobinas de Helmholtz & Producir campo magnético aproximadamente uniforme & Rango aproximado según proveedor \\
+    Fuente DC para bobinas & Controlar la corriente $I$ del campo magnético & Rango aproximado según especificación \\
+    Fuente regulada de alto voltaje & Aplicar el voltaje de aceleración $V$ & Rango aproximado según tensión y protección \\
+    Multímetro digital & Medir corriente y verificar voltajes & Rango aproximado según precisión \\
+    Regla, escala interna o cámara calibrada & Medir el radio de la trayectoria & Rango aproximado o disponible en laboratorio \\
+    Soportes y banco óptico & Alinear tubo, bobinas y sistema de medición & A confirmar con inventario \\
+    Elementos de seguridad & Protección ante alta tensión, vidrio y calentamiento & A confirmar con laboratorio \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+\section{Descripción del montaje}
+
+El montaje ubica el tubo e/m en el centro geométrico de las bobinas de Helmholtz. El cañón electrónico acelera los electrones mediante el voltaje $V$ y el campo magnético producido por la corriente $I$ curva el haz visible. Una escala o cámara calibrada permite estimar el radio $r$ de la trayectoria circular.
+
+\begin{figure}[h]
+  \centering
+  \begin{tikzpicture}[scale=0.95,>=Stealth]
+    \draw[thick] (-4.4,-2.2) rectangle (4.4,2.2);
+    \node at (0,2.45) {Tubo e/m};
+
+    \draw[thick] (-3.3,-2.8) ellipse (0.55 and 2.2);
+    \draw[thick] (3.3,-2.8) ellipse (0.55 and 2.2);
+    \node[align=center] at (-3.3,-5.25) {Bobina de\\Helmholtz};
+    \node[align=center] at (3.3,-5.25) {Bobina de\\Helmholtz};
+    \draw[->,thick] (-3.3,-4.85) -- (-3.3,-3.35) node[midway,left] {$I$};
+    \draw[->,thick] (3.3,-4.85) -- (3.3,-3.35) node[midway,right] {$I$};
+
+    \draw[fill=gray!20,thick] (-3.7,-0.35) rectangle (-2.75,0.35);
+    \node[align=center] at (-3.25,0.75) {Cañón\\electrónico};
+    \draw[->,thick] (-4.9,0) -- (-3.75,0) node[midway,above] {$V$};
+    \node[align=center] at (-5.25,-0.35) {Fuente\\HV};
+
+    \draw[blue,very thick,->] (-2.65,0) .. controls (-1.2,1.35) and (1.3,1.15) .. (1.85,-0.25);
+    \draw[blue,very thick] (1.85,-0.25) .. controls (1.05,-1.55) and (-1.1,-1.5) .. (-1.85,-0.25);
+    \node[blue] at (0,-1.95) {trayectoria circular del haz};
+
+    \draw[dashed] (0,0) circle (1.6);
+    \draw[->] (0,0) -- (1.13,1.13) node[midway,above left] {$r$};
+    \fill (0,0) circle (1.5pt);
+
+    \draw[->,thick] (0,2.85) -- (0,3.75) node[above] {$\vec{B}$ aproximadamente uniforme};
+    \draw[thick] (4.85,-1.7) -- (4.85,1.7);
+    \foreach \y in {-1.5,-1.0,...,1.5} {\draw (4.75,\y) -- (4.95,\y);}
+    \node[align=center] at (5.65,0) {Regla o\\cámara};
+  \end{tikzpicture}
+  \caption{Esquema del montaje: tubo e/m, bobinas de Helmholtz, trayectoria circular, radio medido y variables de control $V$ e $I$.}
+  \label{fig:montaje}
+\end{figure}
+
+\section{Procedimiento experimental}
+
+\begin{enumerate}
+  \item Verificar que todas las fuentes estén apagadas, descargadas y con controles de voltaje y corriente en mínimo.
+  \item Revisar conexiones del tubo, bobinas, multímetros y protecciones siguiendo el manual del equipo y bajo supervisión docente.
+  \item Encender el filamento o sistema de emisión según el procedimiento del fabricante y esperar la estabilización térmica indicada.
+  \item Aplicar un voltaje de aceleración inicial seguro y dentro del rango recomendado del tubo.
+  \item Incrementar lentamente la corriente de las bobinas hasta observar una trayectoria circular estable.
+  \item Registrar $V$, $I$ y el radio $r$ de la trayectoria usando la escala interna, regla externa o imagen calibrada.
+  \item Para un voltaje fijo, repetir la medición de $r$ para varios valores de corriente $I$.
+  \item Repetir la serie anterior para al menos tres voltajes de aceleración diferentes.
+  \item Registrar condiciones relevantes: orientación del montaje, temperatura aproximada de bobinas, estabilidad del haz y observaciones de alineación.
+  \item Reducir la corriente de bobinas y el voltaje de aceleración a cero antes de apagar las fuentes.
+  \item Apagar el equipo, esperar la descarga de fuentes/capacitores y dejar enfriar bobinas y tubo antes de manipular el montaje.
+\end{enumerate}
+
+\section{Toma de datos y resultados esperados}
+
+La tabla siguiente resume el formato mínimo de registro. Cada fila corresponde a una combinación de voltaje de aceleración y corriente de bobina.
+
+\begin{table}[h]
+  \centering
+  \caption{Plantilla para toma de datos y cálculo de $e/m$.}
+  \begin{tabular}{ccccccccc}
+    \toprule
+    $V$ & $\sigma_V$ & $I$ & $\sigma_I$ & $B$ & $\sigma_B$ & $r$ & $\sigma_r$ & $e/m$ \\
+    (V) & (V) & (A) & (A) & (T) & (T) & (m) & (m) & (C/kg) \\
+    \midrule
+    & & & & & & & & \\
+    & & & & & & & & \\
+    & & & & & & & & \\
+    \bottomrule
+  \end{tabular}
+\end{table}
+
+Los resultados esperados incluyen una calibración lineal $B$ vs. $I$, una relación aproximadamente lineal entre $1/r^2$ e $I^2$ para $V$ fijo, y una relación lineal entre $V$ y $B^2r^2$ cuando se reorganiza la ecuación~\eqref{eq:em_final}. El valor de referencia para comparar es
+\begin{equation}
+  \left(\frac{e}{m}\right)_\text{aceptado}=\SI{1.758820e11}{\coulomb\per\kilogram}.
+\end{equation}
+
+\section{Análisis de datos e incertidumbres}
+
+Para cada medición se calcula el campo magnético con la ecuación~\eqref{eq:helmholtz} o con la curva de calibración experimental. Luego se obtiene $e/m$ mediante la ecuación~\eqref{eq:em_final}. El valor final puede reportarse como promedio ponderado de mediciones compatibles o como pendiente de un ajuste lineal.
+
+Una forma robusta de linealizar el análisis es escribir
+\begin{equation}
+  V = \frac{1}{2}\left(\frac{e}{m}\right) B^2 r^2.
+\end{equation}
+Si se grafica $V$ contra $B^2r^2$, la pendiente ideal es $(e/m)/2$. También puede analizarse, para un $V$ fijo, que
+\begin{equation}
+  \frac{1}{r^2}=\frac{e}{2mV}B^2,
+\end{equation}
+lo cual permite verificar la dependencia cuadrática con la corriente de bobinas.
+
+La incertidumbre relativa propagada para una medición individual es
+\begin{equation}
+  \frac{\sigma_{e/m}}{e/m}=\sqrt{\left(\frac{\sigma_V}{V}\right)^2+\left(2\frac{\sigma_B}{B}\right)^2+\left(2\frac{\sigma_r}{r}\right)^2}.
+  \label{eq:incertidumbre}
+\end{equation}
+La contribución $\sigma_B/B$ debe incluir la incertidumbre de corriente y, si se calcula el campo desde la geometría de las bobinas, las incertidumbres de $R_H$ y $N$ cuando sean relevantes. Si $N$ se toma del fabricante, se debe tratar como una fuente sistemática asociada a la especificación del equipo.
+
+\section{Análisis de errores}
+
+Los errores aleatorios principales provienen de la lectura del radio, el espesor del haz luminoso, fluctuaciones de corriente, estabilidad del voltaje y repetibilidad al seleccionar el punto de la trayectoria circular. Estas fuentes se estiman mediante repeticiones y dispersión estadística.
+
+Los errores sistemáticos incluyen el campo magnético terrestre, desalineación entre el haz y el campo, no uniformidad del campo fuera de la región central de las bobinas, paralaje al leer la escala, calibración de la regla o cámara, incertidumbre en el número efectivo de espiras y correcciones relativistas ignoradas. El campo terrestre puede sesgar el valor efectivo de $B$; por ello conviene orientar el montaje de modo consistente y, si es posible, invertir la corriente de bobina para estimar el sesgo.
+
+Los errores instrumentales dependen de la resolución y exactitud del multímetro, de la fuente de alto voltaje, de la fuente de corriente y del sistema de medición de longitud. Deben incorporarse usando las especificaciones de los instrumentos o, si no están disponibles, la resolución mínima de lectura como estimación conservadora.
+
+\section{Discusión de resultados}
+
+Un valor experimental de $e/m$ mayor que el aceptado puede indicar una sobreestimación de $V$, una subestimación de $B$ o una subestimación del radio $r$. Un valor menor puede indicar una sobreestimación del campo o del radio, o pérdidas energéticas no consideradas. Dado que $B$ y $r$ aparecen al cuadrado en el denominador, pequeños sesgos en estas variables tienen efecto amplificado.
+
+La comparación entre métodos de análisis ayuda a diagnosticar errores. Si $B$ vs. $I$ no es lineal, puede existir calentamiento de bobinas, error de medición de corriente o uso del equipo fuera del rango nominal. Si $1/r^2$ vs. $I^2$ para $V$ fijo no es lineal, pueden estar presentes problemas de alineación, campo no uniforme o lectura inconsistente del radio. El modelo de campo uniforme funciona aproximadamente porque las bobinas de Helmholtz maximizan la uniformidad cerca del centro, pero se degrada si el haz ocupa regiones alejadas de esa zona.
+
+\section{Conclusiones}
+
+Se espera determinar la relación carga-masa del electrón mediante una medición directa de la curvatura de un haz electrónico bajo campo magnético. El experimento permite verificar la transformación de energía eléctrica en energía cinética, la acción de la fuerza de Lorentz y la condición de movimiento circular uniforme.
+
+El cumplimiento de los objetivos se evaluará mediante la calibración $B(I)$, la medición de radios para diferentes voltajes y corrientes, el ajuste al modelo $e/m=2V/(B^2r^2)$, la estimación explícita de incertidumbres y la comparación con $\SI{1.758820e11}{\coulomb\per\kilogram}$. Una discrepancia razonable dentro de incertidumbres validaría el modelo experimental; una discrepancia significativa serviría para identificar errores sistemáticos dominantes y mejorar el montaje.
+
+\section{Seguridad y buenas prácticas}
+
+El experimento utiliza alta tensión y un tubo de vidrio al vacío o baja presión, por lo que debe realizarse bajo supervisión docente. No se deben manipular conexiones energizadas. Antes de cambiar cables o mover el montaje, las fuentes deben apagarse, llevarse a cero y descargarse según el procedimiento del laboratorio.
+
+Debe evitarse golpear o forzar el tubo, y se recomienda usar protección ocular si el protocolo institucional lo exige. Las bobinas pueden calentarse durante mediciones prolongadas; por ello se deben respetar los límites de corriente y permitir enfriamiento entre series. Los objetos ferromagnéticos deben mantenerse alejados del montaje porque modifican el campo y pueden moverse bruscamente. Las mediciones deben registrarse en una bitácora con fecha, configuración, instrumentos usados y observaciones de estabilidad.
+
+\section{Bibliografía}
+
+\nocite{*}
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\end{document}
