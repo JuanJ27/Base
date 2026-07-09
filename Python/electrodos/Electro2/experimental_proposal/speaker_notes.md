@@ -1,43 +1,43 @@
-# Notas de exposición: propuesta experimental e/m
+# Notas de exposición: propuesta conceptual de metasuperficie
 
-Duración objetivo: 7 a 10 minutos. Mantener el foco en la lógica experimental: acelerar electrones, curvar el haz, medir el radio y deducir `e/m`. No presentar el montaje como una medición de radiación sincrotrón.
+Duración objetivo: 7 a 10 minutos. Abrir dejando claro el alcance: esta es una propuesta experimental conceptual, no destinada a ejecutarse durante el curso. No se reportan datos medidos; se reportan metodología, datos esperados, incertidumbres y valor físico de la propuesta.
 
 ## Diapositiva 1: Título y pregunta experimental
 
-Presentar la pregunta central: si se conocen el voltaje de aceleración, el campo magnético y el radio de la trayectoria, se puede determinar la relación carga-masa del electrón. Aclarar que el experimento es de deflexión magnética en un tubo e/m.
+Presentar la pregunta central: cómo se diseñaría una caracterización de una metasuperficie electromagnética reconfigurable usando parámetros `S`. Aclarar que las magnitudes buscadas serían `S11`, `S21`, `R`, `T`, `A`, `f0` y `Q`, no resultados experimentales ya obtenidos.
 
-## Diapositiva 2: Motivación
+## Diapositiva 2: Alcance de la propuesta
 
-Explicar que un haz cargado funciona como una sonda dinámica: su trayectoria cambia de forma medible ante un campo magnético. La motivación no es observar radiación, sino usar la curvatura del haz como evidencia cuantitativa de la fuerza de Lorentz.
+Decir explícitamente: “NO se ejecutará durante el curso”. Explicar que el objetivo es construir una propuesta físicamente consistente: montaje, procedimiento, teoría, datos esperados, incertidumbres y aplicaciones. Este punto evita que la audiencia interprete las curvas esperadas como mediciones reales.
 
-## Diapositiva 3: Objetivos
+## Diapositiva 3: Motivación y aplicaciones
 
-Resumir los objetivos sin entrar todavía en el desarrollo matemático. Enfatizar tres controles experimentales: calibrar el campo, medir radios y comparar el resultado final con el valor aceptado de `e/m`.
+Explicar que una metasuperficie permite reemplazar dispositivos volumétricos por una superficie delgada capaz de controlar amplitud, fase, polarización, dirección o absorción. Mencionar aplicaciones: absorbedores, shielding, telecomunicaciones, sensores, radar, THz, control de polarización y reducción de reflexiones no deseadas.
 
-## Diapositiva 4: Fundamento físico
+## Diapositiva 4: Objetivos
 
-Desarrollar verbalmente las dos piezas del modelo: el voltaje entrega energía cinética y el campo magnético produce una fuerza perpendicular a la velocidad. Señalar que, al no hacer trabajo, el campo magnético cambia la dirección del movimiento pero no la rapidez.
+Resumir el objetivo general: proponer y diseñar el experimento de caracterización. Los objetivos específicos son definir observables, proponer el montaje, plantear un procedimiento reproducible aunque no ejecutado, derivar magnitudes físicas y discutir incertidumbres y aplicaciones.
 
-## Diapositiva 5: Resultado clave
+## Diapositiva 5: Parámetros S, R, T y A
 
-Mostrar la ecuación operacional como centro del experimento. Explicar que no se necesita medir la rapidez directamente porque se elimina combinando energía cinética y movimiento circular.
+Explicar que en microondas se trabaja con ondas incidentes y salientes. `S11` describe reflexión y `S21` transmisión. Desde sus módulos se proponen `R = |S11|^2`, `T = |S21|^2` y `A = 1 - R - T`, siempre recordando que el balance requiere controlar difracción, reflexiones del entorno y pérdidas no medidas.
 
-## Diapositiva 6: Campo de Helmholtz y montaje
+## Diapositiva 6: Impedancia efectiva y absorción
 
-Describir el montaje: tubo en el centro de las bobinas, fuente de alto voltaje para acelerar electrones, corriente en bobinas para generar `B` y escala o cámara para medir `r`. La condición importante es que el haz permanezca en la región de campo aproximadamente uniforme.
+Explicar la idea física: para absorber, primero hay que evitar que la onda “rebote”. Eso ocurre cuando la impedancia efectiva se aproxima a la impedancia del espacio libre. Si además la estructura tiene pérdidas internas, la energía entra y se disipa. La absorción esperada no es magia: es adaptación de impedancia más pérdidas controladas.
 
-## Diapositiva 7: Procedimiento resumido
+## Diapositiva 7: Resonancia LC y modelo dispersivo
 
-Presentar el flujo experimental como una rutina repetible. Destacar que se toman varias mediciones para distintos voltajes y corrientes, no una única medición aislada.
+Presentar cada celda como un resonador sublongitud de onda. La geometría aporta inductancia y capacitancia efectivas; pérdidas conductivas o dieléctricas limitan el factor de calidad. Si la metasuperficie es reconfigurable, un cambio de capacitancia desplazaría la frecuencia de resonancia.
 
-## Diapositiva 8: Datos esperados y gráficas
+## Diapositiva 8: Montaje propuesto
 
-Explicar qué se registra en cada fila de datos y qué gráficas validan el modelo. La linealidad de `B(I)` valida la calibración de bobinas; la gráfica de `V` contra `B^2 r^2` permite obtener `e/m` desde la pendiente.
+Describir el montaje propuesto: VNA, dos antenas, muestra PCB y absorbentes. El VNA barrería frecuencia y registraría `S11` y `S21`. En un nivel moderado se usaría banco con absorbentes; en un nivel avanzado, cámara anecoica, posicionadores angulares y simulación de onda completa.
 
-## Diapositiva 9: Incertidumbres, errores y seguridad
+## Diapositiva 9: Datos esperados, incertidumbres y errores
 
-Enfatizar que `B` y `r` entran al cuadrado, por lo que pequeños errores allí pesan mucho. Mencionar campo terrestre, paralaje, alineación y calentamiento de bobinas como sesgos probables. Cerrar con las precauciones de alta tensión y tubo de vidrio.
+Reforzar que son datos esperados o planificados, no datos medidos. Las curvas esperadas mostrarían mínimos de reflexión, reducción de transmisión y picos de absorción cerca de la resonancia. Las incertidumbres principales vendrían de calibración del VNA, cables, alineación, polarización, distancia, reflexiones múltiples y difracción de bordes.
 
-## Diapositiva 10: Conclusión
+## Diapositiva 10: Seguridad y conclusiones
 
-Cerrar con el mensaje principal: se mide `e/m` mediante deflexión magnética y se valida por consistencia interna, ajuste lineal y comparación con el valor aceptado. Repetir explícitamente que no se mide radiación sincrotrón real.
+Cerrar con buenas prácticas de baja potencia, manipulación de conectores RF sin señal aplicada y límites de sesgo en elementos reconfigurables. La conclusión conceptual es que el valor de la propuesta está en aplicar electrodinámica clásica al diseño de materiales artificiales: condiciones de frontera, impedancia, resonancia, pérdidas y scattering convertidos en magnitudes medibles.

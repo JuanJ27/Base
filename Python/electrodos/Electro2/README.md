@@ -32,8 +32,8 @@ python -m pip install -r Python/electrodos/Electro2/requirements.txt
 También puede validarse desde la raíz del repositorio:
 
 ```bash
-python -m json.tool Python/electrodos/Electro2/electro2.ipynb >/dev/null
-jupyter nbconvert --to notebook --execute Python/electrodos/Electro2/electro2.ipynb --output /tmp/electro2-diagnostic.ipynb
+python -m json.tool Python/electrodos/Electro2/Problema_computacional.ipynb >/dev/null
+jupyter nbconvert --to notebook --execute Python/electrodos/Electro2/Problema_computacional.ipynb --output /tmp/electro2-diagnostic.ipynb
 ```
 
 ## Dependencias

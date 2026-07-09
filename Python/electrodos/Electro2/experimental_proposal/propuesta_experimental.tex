@@ -10,14 +10,14 @@
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage[numbers,sort&compress]{natbib}
-\usetikzlibrary{arrows.meta,babel}
+\usetikzlibrary{arrows.meta,babel,positioning}
 
 \geometry{margin=2.5cm}
 \sisetup{per-mode=symbol,detect-all,separate-uncertainty=true}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
 
-\title{Medición de la relación carga-masa del electrón mediante deflexión magnética en un tubo e/m}
-\author{Propuesta experimental de laboratorio}
+\title{Caracterización de una metasuperficie electromagnética reconfigurable en microondas mediante parámetros $S$}
+\author{Propuesta experimental conceptual de laboratorio}
 \date{\today}
 
 \begin{document}
@@ -25,255 +25,218 @@
 \maketitle
 
 \begin{abstract}
-Se propone una práctica de laboratorio para determinar la relación carga-masa del electrón, $e/m$, mediante la observación de la trayectoria circular de un haz electrónico en un tubo e/m sometido al campo magnético producido por bobinas de Helmholtz. La propuesta se conecta conceptualmente con la dinámica de partículas cargadas bajo fuerza de Lorentz, pero no plantea medir radiación sincrotrón real. El resultado esperado es un valor experimental compatible, dentro de incertidumbres, con el valor aceptado $e/m=\SI{1.758820e11}{\coulomb\per\kilogram}$.
+Se presenta una propuesta experimental conceptual, no destinada a ser ejecutada durante el curso, para caracterizar una metasuperficie electromagnética reconfigurable en el rango de microondas mediante la medición de parámetros $S$. Se propone medir los coeficientes complejos de reflexión $S_{11}$ y transmisión $S_{21}$ con un analizador vectorial de redes, y a partir de ellos derivar reflectancia $R$, transmitancia $T$, absorción $A$, frecuencia de resonancia $f_0$ y factor de calidad $Q$. La propuesta organiza el diseño del montaje, el fundamento físico, los datos esperados, la estimación de incertidumbres y la utilidad tecnológica de este tipo de superficies artificiales.
 \end{abstract}
 
-\section{Título específico y técnico}
+\section{Título específico y pregunta experimental}
 
-\textbf{Medición de la relación carga-masa del electrón mediante deflexión magnética en un tubo e/m.}
+\textbf{Caracterización de una metasuperficie electromagnética reconfigurable en microondas mediante parámetros $S$: control de reflexión, transmisión y absorción resonante.}
 
-El experimento estudia la deflexión magnética de electrones acelerados por una diferencia de potencial conocida. Al imponer un campo magnético aproximadamente uniforme y perpendicular a la velocidad inicial del haz, la fuerza de Lorentz actúa como fuerza centrípeta y permite inferir $e/m$ a partir de cantidades medibles en un laboratorio docente: voltaje de aceleración, corriente en bobinas y radio de curvatura del haz.
+La pregunta experimental propuesta es: ¿cómo cambiarían la reflexión, la transmisión y la absorción de una onda de microondas al iluminar una metasuperficie reconfigurable y variar su condición de resonancia? En lugar de reportar datos medidos, este documento formula un experimento físicamente consistente para obtener $S_{11}(f)$ y $S_{21}(f)$, transformar esas magnitudes en observables energéticos y discutir qué comportamiento se esperaría observar cerca de una resonancia electromagnética.
+
+\section{Alcance y carácter propositivo de la propuesta}
+
+Esta es una propuesta experimental conceptual, no destinada a ser ejecutada durante el curso. Su alcance no es construir, calibrar ni operar materialmente el sistema, sino formular un experimento posible, coherente con la electrodinámica clásica y evaluable por sus variables, procedimientos y criterios de análisis.
+
+El objetivo académico es diseñar un montaje propuesto, una base teórica, una estructura de datos esperados, un análisis de incertidumbres y una discusión de aplicaciones. La propuesta se organiza en dos niveles de recursos:
+
+\begin{enumerate}
+  \item \textbf{Recursos moderados:} analizador vectorial de redes (VNA), dos antenas de microondas, soportes, cables coaxiales, calibración básica y una metasuperficie fabricada como placa de circuito impreso (PCB) con elementos resonantes y, si se desea reconfigurabilidad, diodos varactores o interruptores RF.
+  \item \textbf{Recursos avanzados:} cámara anecoica, posicionadores angulares, fabricación de precisión, control de polarización, simulación electromagnética de onda completa y procedimientos de calibración de espacio libre más rigurosos.
+\end{enumerate}
+
+El diseño conecta con contenidos centrales del curso: condiciones de frontera, propagación en medios, impedancia, reflexión, transmisión, dispersión, resonancia, pérdidas y scattering. Así, el énfasis está en traducir conceptos de electrodinámica en magnitudes observables y no en afirmar una ejecución que no forma parte del alcance.
+
+\section{Utilidad tecnológica y aplicaciones}
+
+Una metasuperficie es una estructura artificial delgada capaz de modificar la respuesta de una onda electromagnética mediante subunidades resonantes menores que la longitud de onda. Su utilidad tecnológica radica en que permite controlar amplitud, fase, polarización, dirección o absorción de ondas sin recurrir necesariamente a dispositivos volumétricos. En ese sentido, conecta la electrodinámica clásica con tecnologías modernas de control de ondas.
+
+Las aplicaciones relevantes incluyen:
+
+\begin{itemize}
+  \item absorbedores electromagnéticos de banda estrecha o ajustable;
+  \item cámaras anecoicas y terminaciones de baja reflexión;
+  \item blindaje y compatibilidad electromagnética;
+  \item telecomunicaciones y superficies inteligentes reconfigurables;
+  \item control de haz y redirección de frentes de onda;
+  \item sensores basados en desplazamiento de resonancia;
+  \item radar y control de sección eficaz;
+  \item formación de imágenes en microondas;
+  \item dispositivos de terahercios;
+  \item control de polarización;
+  \item reducción de reflexiones no deseadas en interfaces.
+\end{itemize}
+
+Aunque la propuesta no se ejecute durante el curso, su valor está en traducir conceptos de electrodinámica en magnitudes medibles: $S_{11}$, $S_{21}$, $R$, $T$, $A$, $f_0$, $Q$ e impedancia efectiva.
 
 \section{Objetivos generales y específicos}
 
 \subsection{Objetivo general}
 
-Determinar experimentalmente la relación e/m del electrón a partir de la trayectoria circular de un haz electrónico sometido a un campo magnético uniforme.
+Proponer y diseñar un experimento de caracterización electromagnética de una metasuperficie reconfigurable en microondas mediante parámetros $S$, para analizar reflexión, transmisión, absorción resonante, frecuencia de resonancia, factor de calidad e impedancia efectiva.
 
 \subsection{Objetivos específicos}
 
 \begin{itemize}
-  \item Calibrar el campo magnético generado por bobinas de Helmholtz en función de la corriente eléctrica aplicada.
-  \item Medir el radio de curvatura del haz electrónico para diferentes voltajes de aceleración y corrientes de bobina.
-  \item Ajustar los datos experimentales al modelo $e/m = 2V/(B^2 r^2)$.
-  \item Estimar incertidumbres instrumentales, aleatorias y sistemáticas asociadas a $V$, $B$ y $r$.
-  \item Comparar el valor obtenido con el valor aceptado de la relación carga-masa del electrón.
+  \item Formular el diseño conceptual de una metasuperficie resonante reconfigurable en el rango de microondas.
+  \item Proponer un montaje de medición con VNA, antenas y control de geometría de incidencia.
+  \item Definir los observables complejos $S_{11}$ y $S_{21}$ como base para estimar $R$, $T$ y $A$.
+  \item Establecer un procedimiento reproducible aunque el montaje propuesto no se ejecute durante el curso.
+  \item Proponer un análisis de incertidumbres asociado a calibración, alineación, distancia, polarización, ruido y repetibilidad.
+  \item Discutir aplicaciones tecnológicas vinculadas con absorción, blindaje, telecomunicaciones, sensores, radar y control de polarización.
 \end{itemize}
 
-\section{Fundamento teórico detallado}
+\section{Fundamento teórico}
 
-\subsection{Aceleración no relativista de electrones}
+\subsection{Parámetros $S$ en microondas}
 
-En un tubo e/m, los electrones son emitidos por un cañón electrónico y acelerados mediante una diferencia de potencial $V$. Si se desprecia la energía térmica inicial y las pérdidas dentro del tubo, el trabajo realizado por el campo eléctrico se transforma en energía cinética traslacional:
+En microondas es más natural caracterizar un dispositivo por ondas incidentes y salientes que por voltajes y corrientes locales. Para una muestra iluminada desde el puerto 1, $S_{11}$ representa el coeficiente complejo de reflexión y $S_{21}$ representa el coeficiente complejo de transmisión hacia el puerto 2. Ambos dependen de la frecuencia y contienen módulo y fase:
 \begin{equation}
-  eV = \frac{1}{2} m v^2,
-  \label{eq:energia}
+  S_{ij}(f)=|S_{ij}(f)|e^{i\phi_{ij}(f)}.
 \end{equation}
-donde $e$ es la magnitud de la carga del electrón, $m$ su masa y $v$ la rapidez adquirida. Aunque la carga real del electrón es negativa, se usa $e>0$ para representar su magnitud. Para voltajes típicos de laboratorio, del orden de cientos de voltios, la rapidez resultante sigue siendo suficientemente menor que $c$ como para justificar una primera aproximación no relativista.
 
-\subsection{Fuerza de Lorentz y deflexión magnética}
-
-La fuerza magnética sobre una partícula cargada está dada por la fuerza de Lorentz:
+Si las antenas, líneas y puertos están normalizados a la misma impedancia característica, las fracciones de potencia reflejada y transmitida pueden aproximarse como
 \begin{equation}
-  \vec{F} = q\,\vec{v}\times\vec{B}.
+  R(f)=|S_{11}(f)|^2,
+  \qquad
+  T(f)=|S_{21}(f)|^2.
 \end{equation}
-Para el electrón, $q=-e$, por lo que
+La absorción esperada se infiere por balance energético:
 \begin{equation}
-  \vec{F} = -e\,\vec{v}\times\vec{B}.
+  A(f)=1-R(f)-T(f).
+  \label{eq:absorcion}
 \end{equation}
-Si la velocidad del haz es perpendicular al campo magnético, la magnitud de la fuerza es
+Esta relación es válida como modelo operativo cuando las pérdidas laterales, la difracción fuera del cono de medición y las reflexiones del entorno están controladas o incorporadas como incertidumbres sistemáticas.
+
+\subsection{Impedancia efectiva y condición de absorción}
+
+Una metasuperficie absorbente puede interpretarse como una frontera efectiva con impedancia superficial ajustable. Para incidencia normal, la reflexión se minimiza cuando la impedancia efectiva de la superficie se aproxima a la impedancia del espacio libre $Z_0\approx\SI{377}{\ohm}$. Si además existen pérdidas internas, la energía que no se refleja ni se transmite se disipa en la estructura.
+
+Una forma usual de estimar la impedancia efectiva normalizada $z_\mathrm{eff}=Z_\mathrm{eff}/Z_0$ a partir de parámetros $S$ en una celda equivalente es
 \begin{equation}
-  F = e v B.
-  \label{eq:lorentz_magnitud}
+  z_\mathrm{eff}=\pm\sqrt{\frac{(1+S_{11})^2-S_{21}^2}{(1-S_{11})^2-S_{21}^2}},
+  \label{eq:impedancia}
 \end{equation}
-Esta fuerza no realiza trabajo porque siempre es perpendicular a la velocidad instantánea. Por lo tanto, modifica la dirección del movimiento, pero no la rapidez. Bajo un campo uniforme y perpendicular a la velocidad, el resultado ideal es una trayectoria circular.
+donde el signo se selecciona imponiendo pasividad. En esta propuesta, la ecuación~\eqref{eq:impedancia} sirve como referencia conceptual: el análisis principal se centraría en $S_{11}$, $S_{21}$, $R$, $T$ y $A$.
 
-\subsection{Movimiento circular del haz}
+\subsection{Resonancia, modelo LC y scattering}
 
-Para una trayectoria circular de radio $r$, la fuerza centrípeta requerida es
+Las unidades de una metasuperficie pueden diseñarse como resonadores sublongitud de onda. La geometría metálica aporta una inductancia efectiva $L$, las brechas o separaciones aportan una capacitancia efectiva $C$ y las pérdidas conductivas o dieléctricas se representan mediante una resistencia efectiva. En primera aproximación, la frecuencia de resonancia esperada cumple
 \begin{equation}
-  F_c = \frac{m v^2}{r}.
+  f_0=\frac{1}{2\pi\sqrt{LC}}.
 \end{equation}
-Al identificar la fuerza magnética con la fuerza centrípeta se obtiene
+
+Si la metasuperficie es reconfigurable, por ejemplo mediante diodos varactores, un cambio de capacitancia desplazaría $f_0$. Cerca de la resonancia se esperaría una variación rápida de fase, un mínimo de $|S_{11}|$ si hay adaptación de impedancia, una caída de $|S_{21}|$ si la superficie bloquea la propagación y un máximo de $A$ si las pérdidas están ajustadas para disipar energía. El factor de calidad se definiría como
 \begin{equation}
-  e v B = \frac{m v^2}{r}.
-  \label{eq:centripeta}
+  Q=\frac{f_0}{\Delta f},
 \end{equation}
-Si $v \neq 0$, la ecuación anterior conduce a
-\begin{equation}
-  \frac{e}{m} = \frac{v}{B r}.
-  \label{eq:em_vbr}
-\end{equation}
-La rapidez $v$ no se mide directamente; se elimina usando la relación energética de la ecuación~\eqref{eq:energia}. De allí,
-\begin{equation}
-  v^2 = \frac{2eV}{m}.
-\end{equation}
-Al combinar esta expresión con la ecuación~\eqref{eq:centripeta}, se obtiene la relación operacional del experimento:
-\begin{equation}
-  \boxed{\frac{e}{m}=\frac{2V}{B^2 r^2}}.
-  \label{eq:em_final}
-\end{equation}
-Esta ecuación muestra que $e/m$ puede determinarse si se conocen el voltaje de aceleración $V$, el campo magnético $B$ y el radio $r$ de la trayectoria del haz.
+donde $\Delta f$ es el ancho de banda asociado al criterio elegido, por ejemplo el ancho a mitad de altura del pico de absorción esperado.
 
-\subsection{Campo magnético de bobinas de Helmholtz}
+\section{Materiales y recursos propuestos}
 
-El campo magnético se genera con dos bobinas coaxiales idénticas separadas por una distancia igual a su radio $R_H$. Cerca del punto medio entre ambas bobinas, el campo es aproximadamente uniforme. Para $N$ espiras por bobina y corriente $I$, el campo central ideal es
-\begin{equation}
-  B = \left(\frac{4}{5}\right)^{3/2}\frac{\mu_0 N I}{R_H},
-  \label{eq:helmholtz}
-\end{equation}
-donde $\mu_0$ es la permeabilidad del vacío. En la práctica, esta relación puede utilizarse como calibración primaria o contrastarse con una sonda Hall si el laboratorio dispone de una. La linealidad esperada $B \propto I$ es un control experimental importante.
+La propuesta distingue entre un montaje de recursos moderados y una versión avanzada. Ambos niveles persiguen la misma lógica física: iluminar la muestra, registrar $S_{11}$ y $S_{21}$, y transformar esos datos esperados en magnitudes energéticas.
 
-\subsection{Corrección relativista y alcance del modelo}
-
-Para mayor precisión, puede considerarse la corrección relativista mediante
-\begin{equation}
-  \gamma = 1 + \frac{eV}{m_e c^2}.
-\end{equation}
-Como $m_e c^2 \approx \SI{511}{\kilo\electronvolt}$, los voltajes de un tubo e/m docente, típicamente menores que algunos kilovoltios, producen correcciones pequeñas respecto de las incertidumbres dominantes de lectura del radio, alineación y calibración del campo. Por ello, el análisis principal se mantiene en el régimen no relativista y se reporta la corrección relativista como posible fuente sistemática.
-
-\subsection{Relación conceptual con dinámica de haces}
-
-El experimento comparte con la física de haces cargados el principio central de que un campo magnético transversal curva la trayectoria de partículas cargadas. Sin embargo, esta propuesta no mide radiación sincrotrón ni requiere un acelerador real. La medición se limita a la dinámica de deflexión del haz en un tubo didáctico, donde la fuerza de Lorentz y el movimiento circular son observables de manera directa y segura en escala de laboratorio.
-
-\section{Materiales, equipos y adquisición}
-
-La opción recomendada es un tubo e/m didáctico con bobinas de Helmholtz integradas o compatibles. Si no se dispone de ese equipo, puede adaptarse un tubo de haz fino o un tubo tipo CRT didáctico con bobinas externas, siempre que se pueda medir el radio de curvatura y controlar el campo magnético de forma reproducible.
-
-\begin{table}[h]
+\begin{table}[htbp]
   \centering
-  \caption{Materiales y equipos propuestos.}
-  \begin{tabular}{p{0.28\linewidth}p{0.40\linewidth}p{0.22\linewidth}}
+  \caption{Recursos propuestos para dos niveles de implementación.}
+  \begin{tabular}{p{0.23\linewidth}p{0.34\linewidth}p{0.34\linewidth}}
     \toprule
-    Equipo o material & Función en el experimento & Costo estimado a confirmar con proveedor/laboratorio \\
+    Elemento & Recursos moderados & Recursos avanzados \\
     \midrule
-    Tubo e/m o tubo de haz fino & Generar y visualizar el haz electrónico curvado & Rango aproximado según disponibilidad institucional \\
-    Bobinas de Helmholtz & Producir campo magnético aproximadamente uniforme & Rango aproximado según proveedor \\
-    Fuente DC para bobinas & Controlar la corriente $I$ del campo magnético & Rango aproximado según especificación \\
-    Fuente regulada de alto voltaje & Aplicar el voltaje de aceleración $V$ & Rango aproximado según tensión y protección \\
-    Multímetro digital & Medir corriente y verificar voltajes & Rango aproximado según precisión \\
-    Regla, escala interna o cámara calibrada & Medir el radio de la trayectoria & Rango aproximado o disponible en laboratorio \\
-    Soportes y banco óptico & Alinear tubo, bobinas y sistema de medición & A confirmar con inventario \\
-    Elementos de seguridad & Protección ante alta tensión, vidrio y calentamiento & A confirmar con laboratorio \\
+    Instrumentación & VNA de dos puertos, cables coaxiales y kit de calibración. & VNA de mayor rango dinámico, calibración de espacio libre y verificación trazable. \\
+    Iluminación & Dos antenas de bocina o antenas de banda ancha alineadas. & Antenas calibradas, control de polarización y posicionadores angulares. \\
+    Muestra & PCB con patrones metálicos resonantes y carga reconfigurable simple. & Fabricación de precisión, sustratos caracterizados y red de polarización RF optimizada. \\
+    Entorno & Banco con absorbentes alrededor de la trayectoria principal. & Cámara anecoica y control de reflexiones múltiples. \\
+    Modelado & Modelo LC y simulación simplificada. & Simulación de onda completa con barridos paramétricos. \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-\section{Descripción del montaje}
+\section{Montaje propuesto y procedimiento de medición}
 
-El montaje ubica el tubo e/m en el centro geométrico de las bobinas de Helmholtz. El cañón electrónico acelera los electrones mediante el voltaje $V$ y el campo magnético producido por la corriente $I$ curva el haz visible. Una escala o cámara calibrada permite estimar el radio $r$ de la trayectoria circular.
+El montaje propuesto ubicaría la metasuperficie entre dos antenas conectadas al VNA. La antena emisora definiría la onda incidente y la antena receptora registraría la onda transmitida. La reflexión se mediría desde el puerto de entrada, idealmente con calibración que desplace el plano de referencia hasta la posición de la muestra o con una medición de referencia que permita sustraer efectos del espacio libre.
 
-\begin{figure}[h]
+\begin{figure}[htbp]
   \centering
-  \begin{tikzpicture}[scale=0.95,>=Stealth]
-    \draw[thick] (-4.4,-2.2) rectangle (4.4,2.2);
-    \node at (0,2.45) {Tubo e/m};
-
-    \draw[thick] (-3.3,-2.8) ellipse (0.55 and 2.2);
-    \draw[thick] (3.3,-2.8) ellipse (0.55 and 2.2);
-    \node[align=center] at (-3.3,-5.25) {Bobina de\\Helmholtz};
-    \node[align=center] at (3.3,-5.25) {Bobina de\\Helmholtz};
-    \draw[->,thick] (-3.3,-4.85) -- (-3.3,-3.35) node[midway,left] {$I$};
-    \draw[->,thick] (3.3,-4.85) -- (3.3,-3.35) node[midway,right] {$I$};
-
-    \draw[fill=gray!20,thick] (-3.7,-0.35) rectangle (-2.75,0.35);
-    \node[align=center] at (-3.25,0.75) {Cañón\\electrónico};
-    \draw[->,thick] (-4.9,0) -- (-3.75,0) node[midway,above] {$V$};
-    \node[align=center] at (-5.25,-0.35) {Fuente\\HV};
-
-    \draw[blue,very thick,->] (-2.65,0) .. controls (-1.2,1.35) and (1.3,1.15) .. (1.85,-0.25);
-    \draw[blue,very thick] (1.85,-0.25) .. controls (1.05,-1.55) and (-1.1,-1.5) .. (-1.85,-0.25);
-    \node[blue] at (0,-1.95) {trayectoria circular del haz};
-
-    \draw[dashed] (0,0) circle (1.6);
-    \draw[->] (0,0) -- (1.13,1.13) node[midway,above left] {$r$};
-    \fill (0,0) circle (1.5pt);
-
-    \draw[->,thick] (0,2.85) -- (0,3.75) node[above] {$\vec{B}$ aproximadamente uniforme};
-    \draw[thick] (4.85,-1.7) -- (4.85,1.7);
-    \foreach \y in {-1.5,-1.0,...,1.5} {\draw (4.75,\y) -- (4.95,\y);}
-    \node[align=center] at (5.65,0) {Regla o\\cámara};
+  \begin{tikzpicture}[>=Stealth,scale=0.92]
+    \node[draw,rounded corners,minimum width=2.4cm,minimum height=1.1cm] (vna) at (0,0) {VNA};
+    \node[draw,minimum width=1.3cm,minimum height=1.0cm,right=2.0cm of vna] (tx) {Antena 1};
+    \node[draw,minimum width=0.25cm,minimum height=2.8cm,right=2.0cm of tx,fill=blue!12] (ms) {};
+    \node[above=0.1cm of ms] {metasuperficie};
+    \node[draw,minimum width=1.3cm,minimum height=1.0cm,right=2.0cm of ms] (rx) {Antena 2};
+    \draw[->,thick] (vna.east) -- node[above] {puerto 1} (tx.west);
+    \draw[->,thick] (rx.west) -- node[above] {$S_{21}$} (ms.east);
+    \draw[->,thick] (tx.east) -- node[above] {onda incidente} (ms.west);
+    \draw[->,thick] (ms.east) -- node[above] {transmisión} (rx.west);
+    \draw[<-,thick,red!70!black] (tx.east) -- ++(0.7,-0.8) node[right] {$S_{11}$};
+    \draw[->,thick] (vna.south) .. controls (4.5,-2.0) and (7.2,-1.9) .. node[below] {puerto 2} (rx.south);
   \end{tikzpicture}
-  \caption{Esquema del montaje: tubo e/m, bobinas de Helmholtz, trayectoria circular, radio medido y variables de control $V$ e $I$.}
+  \caption{Esquema del montaje propuesto para caracterización en espacio libre de una metasuperficie con VNA y dos antenas.}
   \label{fig:montaje}
 \end{figure}
 
-\section{Procedimiento experimental}
+El procedimiento reproducible propuesto sería:
 
 \begin{enumerate}
-  \item Verificar que todas las fuentes estén apagadas, descargadas y con controles de voltaje y corriente en mínimo.
-  \item Revisar conexiones del tubo, bobinas, multímetros y protecciones siguiendo el manual del equipo y bajo supervisión docente.
-  \item Encender el filamento o sistema de emisión según el procedimiento del fabricante y esperar la estabilización térmica indicada.
-  \item Aplicar un voltaje de aceleración inicial seguro y dentro del rango recomendado del tubo.
-  \item Incrementar lentamente la corriente de las bobinas hasta observar una trayectoria circular estable.
-  \item Registrar $V$, $I$ y el radio $r$ de la trayectoria usando la escala interna, regla externa o imagen calibrada.
-  \item Para un voltaje fijo, repetir la medición de $r$ para varios valores de corriente $I$.
-  \item Repetir la serie anterior para al menos tres voltajes de aceleración diferentes.
-  \item Registrar condiciones relevantes: orientación del montaje, temperatura aproximada de bobinas, estabilidad del haz y observaciones de alineación.
-  \item Reducir la corriente de bobinas y el voltaje de aceleración a cero antes de apagar las fuentes.
-  \item Apagar el equipo, esperar la descarga de fuentes/capacitores y dejar enfriar bobinas y tubo antes de manipular el montaje.
+  \item Definir el rango de frecuencias de interés, por ejemplo una banda de microondas alrededor de la resonancia diseñada.
+  \item Calibrar el VNA y registrar una medición de referencia sin muestra para estimar pérdidas de trayecto y reflexiones residuales.
+  \item Alinear antenas y muestra para incidencia normal, con polarización compatible con la geometría resonante.
+  \item Ubicar absorbentes alrededor del trayecto directo para reducir reflexiones espurias.
+  \item Registrar $S_{11}(f)$ y $S_{21}(f)$ para cada estado de reconfiguración propuesto.
+  \item Repetir barridos para estimar repetibilidad y variabilidad por recolocación de la muestra.
+  \item Calcular $R(f)$, $T(f)$ y $A(f)$ mediante la ecuación~\eqref{eq:absorcion}.
+  \item Identificar $f_0$, $\Delta f$, $Q$ y el desplazamiento de resonancia entre estados.
 \end{enumerate}
 
-\section{Toma de datos y resultados esperados}
+\section{Datos esperados y visualizaciones previstas}
 
-La tabla siguiente resume el formato mínimo de registro. Cada fila corresponde a una combinación de voltaje de aceleración y corriente de bobina.
+No se reportan datos medidos. Los datos esperados serían curvas complejas de $S_{11}$ y $S_{21}$ en función de la frecuencia y, si la muestra es reconfigurable, para varios estados de polarización eléctrica, capacitancia o conmutación.
 
-\begin{table}[h]
+\begin{table}[htbp]
   \centering
-  \caption{Plantilla para toma de datos y cálculo de $e/m$.}
-  \begin{tabular}{ccccccccc}
+  \caption{Estructura esperada del registro de datos propuesto.}
+  \begin{tabular}{p{0.18\linewidth}p{0.23\linewidth}p{0.23\linewidth}p{0.25\linewidth}}
     \toprule
-    $V$ & $\sigma_V$ & $I$ & $\sigma_I$ & $B$ & $\sigma_B$ & $r$ & $\sigma_r$ & $e/m$ \\
-    (V) & (V) & (A) & (A) & (T) & (T) & (m) & (m) & (C/kg) \\
+    Variable & Magnitud registrada & Magnitud derivada & Comportamiento esperado \\
     \midrule
-    & & & & & & & & \\
-    & & & & & & & & \\
-    & & & & & & & & \\
+    Frecuencia $f$ & Barrido del VNA & Eje común de análisis & Resolución suficiente alrededor de $f_0$. \\
+    $S_{11}$ & Módulo y fase & $R=|S_{11}|^2$ & Mínimo cerca de adaptación de impedancia. \\
+    $S_{21}$ & Módulo y fase & $T=|S_{21}|^2$ & Reducción cerca de una banda resonante. \\
+    Estado de control & Sesgo, conmutación o configuración & Desplazamiento de $f_0$ & Sintonización de la respuesta espectral. \\
+    $A$ & Derivada de balance energético & $A=1-R-T$ & Pico de absorción si las pérdidas están ajustadas. \\
     \bottomrule
   \end{tabular}
 \end{table}
 
-Los resultados esperados incluyen una calibración lineal $B$ vs. $I$, una relación aproximadamente lineal entre $1/r^2$ e $I^2$ para $V$ fijo, y una relación lineal entre $V$ y $B^2r^2$ cuando se reorganiza la ecuación~\eqref{eq:em_final}. El valor de referencia para comparar es
+Las gráficas previstas incluirían $|S_{11}|$ y $|S_{21}|$ en escala lineal o dB, fase de $S_{11}$ y $S_{21}$, curvas $R(f)$, $T(f)$ y $A(f)$, comparación de estados reconfigurables, extracción de $f_0$ y estimación de $Q$. Se esperaría observar que la absorción máxima ocurre cuando se combinan baja reflexión, baja transmisión y pérdidas internas no despreciables.
+
+\section{Análisis de incertidumbres y errores}
+
+La incertidumbre dominante esperada provendría de la calibración del VNA, las pérdidas de cables, la alineación angular, la distancia entre antenas y muestra, la polarización incidente, reflexiones múltiples, difracción en los bordes de la muestra y repetibilidad al reposicionar el arreglo. En un entorno moderado, estas fuentes pueden ser comparables al cambio de respuesta que se intenta observar, por lo que el diseño debe incluir mediciones de referencia y repeticiones.
+
+Para las magnitudes derivadas se propagarían incertidumbres desde los módulos de $S_{11}$ y $S_{21}$. En forma diferencial,
 \begin{equation}
-  \left(\frac{e}{m}\right)_\text{aceptado}=\SI{1.758820e11}{\coulomb\per\kilogram}.
+  \sigma_R\approx 2|S_{11}|\sigma_{|S_{11}|},
+  \qquad
+  \sigma_T\approx 2|S_{21}|\sigma_{|S_{21}|},
 \end{equation}
-
-\section{Análisis de datos e incertidumbres}
-
-Para cada medición se calcula el campo magnético con la ecuación~\eqref{eq:helmholtz} o con la curva de calibración experimental. Luego se obtiene $e/m$ mediante la ecuación~\eqref{eq:em_final}. El valor final puede reportarse como promedio ponderado de mediciones compatibles o como pendiente de un ajuste lineal.
-
-Una forma robusta de linealizar el análisis es escribir
+y, si $R$ y $T$ se tratan como independientes en primera aproximación,
 \begin{equation}
-  V = \frac{1}{2}\left(\frac{e}{m}\right) B^2 r^2.
+  \sigma_A\approx\sqrt{\sigma_R^2+\sigma_T^2}.
 \end{equation}
-Si se grafica $V$ contra $B^2r^2$, la pendiente ideal es $(e/m)/2$. También puede analizarse, para un $V$ fijo, que
-\begin{equation}
-  \frac{1}{r^2}=\frac{e}{2mV}B^2,
-\end{equation}
-lo cual permite verificar la dependencia cuadrática con la corriente de bobinas.
-
-La incertidumbre relativa propagada para una medición individual es
-\begin{equation}
-  \frac{\sigma_{e/m}}{e/m}=\sqrt{\left(\frac{\sigma_V}{V}\right)^2+\left(2\frac{\sigma_B}{B}\right)^2+\left(2\frac{\sigma_r}{r}\right)^2}.
-  \label{eq:incertidumbre}
-\end{equation}
-La contribución $\sigma_B/B$ debe incluir la incertidumbre de corriente y, si se calcula el campo desde la geometría de las bobinas, las incertidumbres de $R_H$ y $N$ cuando sean relevantes. Si $N$ se toma del fabricante, se debe tratar como una fuente sistemática asociada a la especificación del equipo.
-
-\section{Análisis de errores}
-
-Los errores aleatorios principales provienen de la lectura del radio, el espesor del haz luminoso, fluctuaciones de corriente, estabilidad del voltaje y repetibilidad al seleccionar el punto de la trayectoria circular. Estas fuentes se estiman mediante repeticiones y dispersión estadística.
-
-Los errores sistemáticos incluyen el campo magnético terrestre, desalineación entre el haz y el campo, no uniformidad del campo fuera de la región central de las bobinas, paralaje al leer la escala, calibración de la regla o cámara, incertidumbre en el número efectivo de espiras y correcciones relativistas ignoradas. El campo terrestre puede sesgar el valor efectivo de $B$; por ello conviene orientar el montaje de modo consistente y, si es posible, invertir la corriente de bobina para estimar el sesgo.
-
-Los errores instrumentales dependen de la resolución y exactitud del multímetro, de la fuente de alto voltaje, de la fuente de corriente y del sistema de medición de longitud. Deben incorporarse usando las especificaciones de los instrumentos o, si no están disponibles, la resolución mínima de lectura como estimación conservadora.
-
-\section{Discusión de resultados}
-
-Un valor experimental de $e/m$ mayor que el aceptado puede indicar una sobreestimación de $V$, una subestimación de $B$ o una subestimación del radio $r$. Un valor menor puede indicar una sobreestimación del campo o del radio, o pérdidas energéticas no consideradas. Dado que $B$ y $r$ aparecen al cuadrado en el denominador, pequeños sesgos en estas variables tienen efecto amplificado.
-
-La comparación entre métodos de análisis ayuda a diagnosticar errores. Si $B$ vs. $I$ no es lineal, puede existir calentamiento de bobinas, error de medición de corriente o uso del equipo fuera del rango nominal. Si $1/r^2$ vs. $I^2$ para $V$ fijo no es lineal, pueden estar presentes problemas de alineación, campo no uniforme o lectura inconsistente del radio. El modelo de campo uniforme funciona aproximadamente porque las bobinas de Helmholtz maximizan la uniformidad cerca del centro, pero se degrada si el haz ocupa regiones alejadas de esa zona.
-
-\section{Conclusiones}
-
-Se espera determinar la relación carga-masa del electrón mediante una medición directa de la curvatura de un haz electrónico bajo campo magnético. El experimento permite verificar la transformación de energía eléctrica en energía cinética, la acción de la fuerza de Lorentz y la condición de movimiento circular uniforme.
-
-El cumplimiento de los objetivos se evaluará mediante la calibración $B(I)$, la medición de radios para diferentes voltajes y corrientes, el ajuste al modelo $e/m=2V/(B^2r^2)$, la estimación explícita de incertidumbres y la comparación con $\SI{1.758820e11}{\coulomb\per\kilogram}$. Una discrepancia razonable dentro de incertidumbres validaría el modelo experimental; una discrepancia significativa serviría para identificar errores sistemáticos dominantes y mejorar el montaje.
+También se estimaría una incertidumbre en $f_0$ asociada a la resolución de frecuencia, al ruido en la curva y al criterio usado para localizar el máximo o mínimo resonante. La incertidumbre de $Q$ dependería de la extracción de $\Delta f$ y del suavizado aplicado a los datos esperados.
 
 \section{Seguridad y buenas prácticas}
 
-El experimento utiliza alta tensión y un tubo de vidrio al vacío o baja presión, por lo que debe realizarse bajo supervisión docente. No se deben manipular conexiones energizadas. Antes de cambiar cables o mover el montaje, las fuentes deben apagarse, llevarse a cero y descargarse según el procedimiento del laboratorio.
+El montaje propuesto evita altas potencias; aun así, un sistema de microondas requiere buenas prácticas. La potencia de salida del VNA debe mantenerse en niveles seguros para los equipos y para las personas, las antenas no deben apuntarse innecesariamente hacia operadores, los conectores RF deben manipularse sin tensión aplicada y se deben respetar los límites de polarización de cualquier elemento reconfigurable.
 
-Debe evitarse golpear o forzar el tubo, y se recomienda usar protección ocular si el protocolo institucional lo exige. Las bobinas pueden calentarse durante mediciones prolongadas; por ello se deben respetar los límites de corriente y permitir enfriamiento entre series. Los objetos ferromagnéticos deben mantenerse alejados del montaje porque modifican el campo y pueden moverse bruscamente. Las mediciones deben registrarse en una bitácora con fecha, configuración, instrumentos usados y observaciones de estabilidad.
+Si se emplean diodos, fuentes de sesgo o conmutadores, el circuito de polarización debe aislar la señal RF y limitar corrientes. En una versión avanzada, la cámara anecoica y los posicionadores deben operarse siguiendo protocolos institucionales. Toda documentación de montaje debería registrar configuración, geometría, potencia, rango de frecuencias y estado de control de la muestra.
+
+\section{Conclusiones esperadas}
+
+La propuesta permitiría mostrar cómo una metasuperficie resonante puede analizarse mediante parámetros $S$ y cómo esos parámetros se traducen en magnitudes energéticas: reflexión, transmisión y absorción. Conceptualmente, el máximo de absorción se esperaría cerca de una condición de adaptación de impedancia combinada con pérdidas internas, mientras que la reconfigurabilidad desplazaría la frecuencia de resonancia o modificaría la profundidad de la respuesta.
+
+El valor principal del trabajo no está en afirmar una implementación, sino en construir un puente entre condiciones de frontera, propagación, impedancia, dispersión y scattering. Como propuesta experimental conceptual, el resultado esperado es un diseño claro, reproducible en principio y conectado con aplicaciones actuales de control electromagnético mediante superficies artificiales.
 
 \section{Bibliografía}
 

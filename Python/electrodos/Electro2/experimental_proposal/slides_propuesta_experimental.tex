@@ -14,43 +14,59 @@
 \setbeamertemplate{footline}[frame number]
 \sisetup{per-mode=symbol,detect-all}
 
-\title{Medición de la relación carga-masa del electrón}
-\subtitle{Deflexión magnética en un tubo e/m}
-\author{Propuesta experimental de laboratorio}
+\title{Metasuperficie electromagnética reconfigurable}
+\subtitle{Caracterización conceptual en microondas mediante parámetros $S$}
+\author{Propuesta experimental conceptual de laboratorio}
 \date{\today}
 
 \begin{document}
 
 \begin{frame}
   \titlepage
-  \vspace{-0.5cm}
+  \vspace{-0.45cm}
   \begin{block}{Pregunta experimental}
-    ¿Cómo determinar $e/m$ midiendo $V$, $B$ y el radio $r$ de un haz electrónico curvado?
+    ¿Cómo se diseñaría la medición de $S_{11}$ y $S_{21}$ para estimar reflexión, transmisión y absorción resonante de una metasuperficie reconfigurable?
   \end{block}
 \end{frame}
 
-\begin{frame}{Motivación}
+\begin{frame}{Alcance de la propuesta}
   \Large
-  Un campo magnético transversal permite convertir la trayectoria de un haz cargado en una medición cuantitativa.
+  Esta es una \textbf{propuesta experimental conceptual}.
+
+  \vfill
+  \begin{block}{Alcance}
+    \centering
+    \textbf{NO se ejecutará durante el curso.}
+  \end{block}
+
+  \vfill
+  \begin{itemize}
+    \item No se reportan datos medidos.
+    \item Se presenta metodología, teoría, datos esperados e incertidumbres.
+    \item El valor está en traducir electrodinámica clásica a observables medibles.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Motivación y aplicaciones}
+  \Large
+  Una metasuperficie delgada puede controlar amplitud, fase, polarización, dirección o absorción de ondas.
 
   \vfill
   \begin{columns}[T]
-    \begin{column}{0.48\textwidth}
-      \centering
-      \begin{tikzpicture}[>=Stealth,scale=0.9]
-        \draw[->,very thick] (-2,0) -- (2,0) node[right] {$\vec v$};
-        \foreach \x in {-1.5,-0.75,0,0.75,1.5} {
-          \draw[->,blue!70!black,thick] (\x,-1.1) -- (\x,1.1);
-        }
-        \node[blue!70!black] at (1.75,1.35) {$\vec B$};
-        \draw[->,red!70!black,very thick] (0,0) -- (0,-1.4) node[below] {$\vec F_B$};
-      \end{tikzpicture}
+    \begin{column}{0.5\textwidth}
+      \begin{itemize}
+        \item absorbedores electromagnéticos;
+        \item shielding y compatibilidad electromagnética;
+        \item telecomunicaciones y superficies inteligentes;
+        \item control de haz.
+      \end{itemize}
     \end{column}
     \begin{column}{0.48\textwidth}
       \begin{itemize}
-        \item Observable directo: curvatura del haz.
-        \item Modelo verificable: fuerza de Lorentz.
-        \item Resultado: propiedad fundamental del electrón.
+        \item sensores por corrimiento de resonancia;
+        \item radar;
+        \item dispositivos THz;
+        \item control de polarización.
       \end{itemize}
     \end{column}
   \end{columns}
@@ -58,181 +74,130 @@
 
 \begin{frame}{Objetivos}
   \Large
-  \begin{enumerate}
-    \item Determinar experimentalmente $e/m$.
-    \item Calibrar $B(I)$ para bobinas de Helmholtz.
-    \item Medir $r$ para varios pares $(V,I)$.
-    \item Comparar con
-      \[
-        \left(\frac{e}{m}\right)_\text{aceptado}
-        =\SI{1.758820e11}{\coulomb\per\kilogram}.
-      \]
-  \end{enumerate}
+  \begin{itemize}
+    \item Proponer y diseñar un experimento de caracterización electromagnética.
+    \item Definir $S_{11}$ y $S_{21}$ como observables principales.
+    \item Derivar $R$, $T$, $A$, $f_0$ y $Q$ desde datos esperados.
+    \item Formular un procedimiento reproducible, aunque no ejecutado.
+    \item Proponer incertidumbres y discutir aplicaciones tecnológicas.
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Fundamento físico}
+\begin{frame}{Fundamento: parámetros $S$, $R$, $T$ y $A$}
   \Large
-  Aceleración eléctrica:
-  \[
-    eV=\frac{1}{2}mv^2
-  \]
+  \begin{align*}
+    S_{11}(f)&=\text{coeficiente complejo de reflexión},\\
+    S_{21}(f)&=\text{coeficiente complejo de transmisión}.
+  \end{align*}
 
   \vfill
-  Fuerza magnética:
   \[
-    \vec F=q\,\vec v\times\vec B,
-    \qquad |\vec v\perp\vec B|:\quad F=e v B
-  \]
-
-  \vfill
-  Movimiento circular:
-  \[
-    e v B=\frac{mv^2}{r}
-  \]
-\end{frame}
-
-\begin{frame}{Resultado clave}
-  \centering
-  \Huge
-  \[
-    \boxed{\frac{e}{m}=\frac{2V}{B^2r^2}}
-  \]
-
-  \vfill
-  \Large
-  Tres mediciones controlan el experimento:
-  \[
-    V \quad B(I) \quad r
+    R(f)=|S_{11}|^2,
+    \qquad
+    T(f)=|S_{21}|^2,
+    \qquad
+    A(f)=1-R(f)-T(f).
   \]
 
   \vfill
   \normalsize
-  El signo de la carga no entra en la magnitud $e/m$; la curvatura fija la dinámica.
+  El balance energético permite estimar absorción cuando difracción, pérdidas laterales y reflexiones del entorno están controladas.
 \end{frame}
 
-\begin{frame}{Campo de Helmholtz y montaje}
+\begin{frame}{Impedancia efectiva y condición de absorción}
+  \Large
+  Para incidencia normal, la reflexión se minimiza cuando
+  \[
+    Z_\mathrm{eff}\approx Z_0\approx\SI{377}{\ohm}.
+  \]
+
+  \vfill
+  Con pérdidas internas, la energía no reflejada ni transmitida se disipa:
+  \[
+    A\ \text{máxima}\quad \Longleftrightarrow \quad R\ \text{baja},\ T\ \text{baja}.
+  \]
+
+  \vfill
+  \begin{center}
+    Adaptación de impedancia + pérdidas controladas = absorción resonante.
+  \end{center}
+\end{frame}
+
+\begin{frame}{Resonancia LC y modelo dispersivo}
+  \Large
+  Las celdas de la metasuperficie se modelarían como resonadores sublongitud de onda:
+  \[
+    f_0=\frac{1}{2\pi\sqrt{LC}},
+    \qquad
+    Q=\frac{f_0}{\Delta f}.
+  \]
+
+  \vfill
+  \begin{itemize}
+    \item La geometría aporta $L$ y $C$ efectivos.
+    \item Las pérdidas conductivas y dieléctricas limitan $Q$.
+    \item La reconfiguración modificaría $C$, $f_0$ o la profundidad de absorción.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Montaje propuesto}
   \begin{columns}[T]
-    \begin{column}{0.46\textwidth}
+    \begin{column}{0.45\textwidth}
       \Large
-      \[
-        B=\left(\frac{4}{5}\right)^{3/2}\frac{\mu_0NI}{R_H}
-      \]
-      \vspace{0.3cm}
       \begin{itemize}
-        \item Centro: campo casi uniforme.
-        \item Control principal: corriente $I$.
-        \item Verificación: linealidad $B\propto I$.
+        \item VNA de dos puertos.
+        \item Dos antenas de microondas.
+        \item Metasuperficie PCB.
+        \item Absorbentes y control de alineación.
       \end{itemize}
     \end{column}
-    \begin{column}{0.52\textwidth}
+    \begin{column}{0.53\textwidth}
       \centering
-      \begin{tikzpicture}[>=Stealth,scale=0.65]
-        \draw[thick] (-3.6,-1.7) rectangle (3.6,1.7);
-        \node at (0,1.95) {tubo e/m};
-        \draw[thick] (-2.9,-2.05) ellipse (0.38 and 1.8);
-        \draw[thick] (2.9,-2.05) ellipse (0.38 and 1.8);
-        \node[align=center] at (-2.9,-4.15) {bobina};
-        \node[align=center] at (2.9,-4.15) {bobina};
-        \draw[->,thick] (-4.4,0) -- (-3.55,0) node[midway,above] {$V$};
-        \draw[fill=gray!20,thick] (-3.45,-0.25) rectangle (-2.7,0.25);
-        \node[align=center] at (-4.55,-0.45) {fuente\ HV};
-        \draw[blue!75!black,very thick,->] (-2.55,0)
-          arc[start angle=180,end angle=-120,radius=1.25];
-        \draw[blue!75!black,very thick] (-1.92,-1.08)
-          arc[start angle=240,end angle=38,radius=1.25];
-        \draw[dashed] (0,0) circle (1.25);
-        \draw[->] (0,0) -- (0.88,0.88) node[midway,above left] {$r$};
-        \fill (0,0) circle (1.3pt);
-        \foreach \x in {-1.8,-0.9,0,0.9,1.8} {
-          \draw[->,red!70!black,thick] (\x,-1.25) -- (\x,1.25);
-        }
-        \node[red!70!black] at (2.1,1.25) {$\vec B$};
-        \draw[thick] (3.95,-1.35) -- (3.95,1.35);
-        \foreach \y in {-1.2,-0.8,...,1.2} {\draw (3.85,\y) -- (4.05,\y);}
-        \node[align=center] at (4.65,0) {escala};
+      \begin{tikzpicture}[>=Stealth,scale=0.75]
+        \node[draw,rounded corners,minimum width=1.6cm,minimum height=0.8cm] (vna) at (0,0) {VNA};
+        \node[draw,minimum width=1.0cm,minimum height=0.8cm,right=1.1cm of vna] (tx) {Ant. 1};
+        \node[draw,minimum width=0.2cm,minimum height=2.1cm,right=1.35cm of tx,fill=blue!12] (ms) {};
+        \node[above=0.05cm of ms] {MS};
+        \node[draw,minimum width=1.0cm,minimum height=0.8cm,right=1.35cm of ms] (rx) {Ant. 2};
+        \draw[->,thick] (vna.east) -- (tx.west);
+        \draw[->,thick] (tx.east) -- node[above] {incidente} (ms.west);
+        \draw[->,thick] (ms.east) -- node[above] {$S_{21}$} (rx.west);
+        \draw[<-,thick,red!70!black] (tx.east) -- ++(0.5,-0.7) node[right] {$S_{11}$};
+        \draw[->,thick] (vna.south) .. controls (2.5,-1.5) and (4.9,-1.5) .. (rx.south);
       \end{tikzpicture}
     \end{column}
   \end{columns}
 \end{frame}
 
-\begin{frame}{Procedimiento resumido}
+\begin{frame}{Datos esperados, incertidumbres y errores}
   \Large
-  \begin{enumerate}
-    \item Verificar conexiones, seguridad y rango de operación.
-    \item Estabilizar emisión del haz.
-    \item Fijar $V$ y variar $I$.
-    \item Medir $r$ para cada trayectoria circular estable.
-    \item Repetir para varios voltajes.
-    \item Calcular $B(I)$, $e/m$ e incertidumbres.
-  \end{enumerate}
-\end{frame}
-
-\begin{frame}{Datos esperados y gráficas}
-  \Large
-  Registro mínimo:
+  Datos esperados:
   \[
-    V,\ \sigma_V,\ I,\ \sigma_I,\ B,\ \sigma_B,\ r,\ \sigma_r
-  \]
-
-  \vfill
-  \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
-      \centering
-      \begin{tikzpicture}[>=Stealth,scale=0.9]
-        \draw[->] (0,0) -- (4,0) node[right] {$I$};
-        \draw[->] (0,0) -- (0,2.8) node[above] {$B$};
-        \draw[blue,very thick] (0.25,0.25) -- (3.6,2.35);
-        \node at (2,2.75) {$B(I)$};
-      \end{tikzpicture}
-    \end{column}
-    \begin{column}{0.5\textwidth}
-      \centering
-      \begin{tikzpicture}[>=Stealth,scale=0.9]
-        \draw[->] (0,0) -- (4,0) node[right] {$B^2r^2$};
-        \draw[->] (0,0) -- (0,2.8) node[above] {$V$};
-        \draw[blue,very thick] (0.25,0.2) -- (3.6,2.35);
-        \node at (2,2.75) {pendiente $=(e/m)/2$};
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Incertidumbres, errores y seguridad}
-  \Large
-  \[
-    \frac{\sigma_{e/m}}{e/m}=\sqrt{
-    \left(\frac{\sigma_V}{V}\right)^2+
-    \left(2\frac{\sigma_B}{B}\right)^2+
-    \left(2\frac{\sigma_r}{r}\right)^2}
+    S_{11}(f),\ S_{21}(f),\ R(f),\ T(f),\ A(f),\ f_0,\ Q.
   \]
 
   \vfill
   \begin{itemize}
-    \item Dominantes: lectura de $r$, calibración de $B$, alineación.
-    \item Sistemáticos: campo terrestre, paralaje, no uniformidad.
-    \item Seguridad: alta tensión, vidrio, calentamiento de bobinas.
+    \item Gráficas previstas: módulos, fases, absorción y corrimiento de resonancia.
+    \item Incertidumbres: calibración del VNA, cables, alineación, polarización y distancia.
+    \item Errores sistemáticos: reflexiones múltiples, difracción de bordes y entorno no anecoico.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Conclusión}
+\begin{frame}{Seguridad y conclusiones}
   \Large
-  Se mide:
-  \[
-    \frac{e}{m}\quad \text{a partir de}\quad V,\ B(I),\ r
-  \]
-
-  \vfill
-  Se valida con:
+  Seguridad propuesta:
   \begin{itemize}
-    \item consistencia lineal de $B$ con $I$;
-    \item ajuste de $V$ contra $B^2r^2$;
-    \item comparación con el valor aceptado dentro de incertidumbres.
+    \item baja potencia de microondas;
+    \item conectores RF sin señal aplicada al manipular;
+    \item límites de sesgo para elementos reconfigurables;
+    \item registro de geometría, potencia y frecuencia.
   \end{itemize}
 
   \vfill
-  \centering
-  \normalsize
-  Alcance: deflexión magnética de electrones en tubo e/m; no medición de radiación sincrotrón real.
+  \begin{block}{Conclusión conceptual}
+    La propuesta muestra cómo condiciones de frontera, impedancia, resonancia, pérdidas y scattering se convierten en magnitudes medibles: $S_{11}$, $S_{21}$, $R$, $T$, $A$, $f_0$ y $Q$.
+  \end{block}
 \end{frame}
 
 \end{document}
