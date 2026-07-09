@@ -4,19 +4,25 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
+\usepackage{amssymb}
 \usepackage{siunitx}
 \usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{graphicx}
 \usepackage{geometry}
 \usepackage{tikz}
 \usepackage{hyperref}
 \usepackage[numbers,sort&compress]{natbib}
-\usetikzlibrary{arrows.meta,babel,positioning}
+\usetikzlibrary{arrows.meta,babel,positioning,patterns}
 
 \geometry{margin=2.5cm}
 \sisetup{per-mode=symbol,detect-all,separate-uncertainty=true}
 \hypersetup{colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue}
 
-\title{Caracterización de una metasuperficie electromagnética reconfigurable en microondas mediante parámetros $S$}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+
+\title{Caracterización de una metasuperficie electromagnética reconfigurable en microondas mediante parámetros \(S\): control de reflexión, transmisión y absorción resonante}
 \author{Propuesta experimental conceptual de laboratorio}
 \date{\today}
 
@@ -25,223 +31,289 @@
 \maketitle
 
 \begin{abstract}
-Se presenta una propuesta experimental conceptual, no destinada a ser ejecutada durante el curso, para caracterizar una metasuperficie electromagnética reconfigurable en el rango de microondas mediante la medición de parámetros $S$. Se propone medir los coeficientes complejos de reflexión $S_{11}$ y transmisión $S_{21}$ con un analizador vectorial de redes, y a partir de ellos derivar reflectancia $R$, transmitancia $T$, absorción $A$, frecuencia de resonancia $f_0$ y factor de calidad $Q$. La propuesta organiza el diseño del montaje, el fundamento físico, los datos esperados, la estimación de incertidumbres y la utilidad tecnológica de este tipo de superficies artificiales.
+Se presenta una propuesta experimental conceptual para caracterizar una metasuperficie electromagnética reconfigurable en microondas mediante parámetros \(S\). El documento no reporta datos medidos ni describe una ejecución material; propone el montaje, la teoría, el procedimiento, los datos esperados, el análisis de incertidumbres, el análisis de errores y aplicaciones tecnológicas. Se propone medir \(S_{11}(f)\) y \(S_{21}(f)\) con un analizador vectorial de redes y, a partir de esos observables complejos, calcular reflexión \(R\), transmisión \(T\), absorción resonante \(A\), frecuencia de resonancia \(f_0\), ancho de banda \(\Delta f\), factor de calidad \(Q\) e impedancia efectiva.
 \end{abstract}
 
-\section{Título específico y pregunta experimental}
+\section*{Nota de alcance}
 
-\textbf{Caracterización de una metasuperficie electromagnética reconfigurable en microondas mediante parámetros $S$: control de reflexión, transmisión y absorción resonante.}
+Esta es una propuesta experimental conceptual, no destinada a ser ejecutada durante el curso. No se reportan datos medidos ni resultados obtenidos experimentalmente; el documento diseña un experimento posible desde la electrodinámica clásica y especifica el montaje propuesto, el fundamento teórico, el procedimiento reproducible en principio, los datos esperados, el análisis de incertidumbres y errores, y las aplicaciones tecnológicas asociadas.
 
-La pregunta experimental propuesta es: ¿cómo cambiarían la reflexión, la transmisión y la absorción de una onda de microondas al iluminar una metasuperficie reconfigurable y variar su condición de resonancia? En lugar de reportar datos medidos, este documento formula un experimento físicamente consistente para obtener $S_{11}(f)$ y $S_{21}(f)$, transformar esas magnitudes en observables energéticos y discutir qué comportamiento se esperaría observar cerca de una resonancia electromagnética.
+Por ese motivo, el lenguaje del reporte es deliberadamente condicional: se propone un montaje, se diseñaría una metasuperficie, se medirían parámetros \(S\), se esperaría observar una respuesta resonante y se analizarían incertidumbres si el montaje propuesto se implementara en un laboratorio con los recursos adecuados.
 
-\section{Alcance y carácter propositivo de la propuesta}
+\section{Título del experimento}
 
-Esta es una propuesta experimental conceptual, no destinada a ser ejecutada durante el curso. Su alcance no es construir, calibrar ni operar materialmente el sistema, sino formular un experimento posible, coherente con la electrodinámica clásica y evaluable por sus variables, procedimientos y criterios de análisis.
+\textbf{Caracterización de una metasuperficie electromagnética reconfigurable en microondas mediante parámetros \(S\): control de reflexión, transmisión y absorción resonante.}
 
-El objetivo académico es diseñar un montaje propuesto, una base teórica, una estructura de datos esperados, un análisis de incertidumbres y una discusión de aplicaciones. La propuesta se organiza en dos niveles de recursos:
-
-\begin{enumerate}
-  \item \textbf{Recursos moderados:} analizador vectorial de redes (VNA), dos antenas de microondas, soportes, cables coaxiales, calibración básica y una metasuperficie fabricada como placa de circuito impreso (PCB) con elementos resonantes y, si se desea reconfigurabilidad, diodos varactores o interruptores RF.
-  \item \textbf{Recursos avanzados:} cámara anecoica, posicionadores angulares, fabricación de precisión, control de polarización, simulación electromagnética de onda completa y procedimientos de calibración de espacio libre más rigurosos.
-\end{enumerate}
-
-El diseño conecta con contenidos centrales del curso: condiciones de frontera, propagación en medios, impedancia, reflexión, transmisión, dispersión, resonancia, pérdidas y scattering. Así, el énfasis está en traducir conceptos de electrodinámica en magnitudes observables y no en afirmar una ejecución que no forma parte del alcance.
-
-\section{Utilidad tecnológica y aplicaciones}
-
-Una metasuperficie es una estructura artificial delgada capaz de modificar la respuesta de una onda electromagnética mediante subunidades resonantes menores que la longitud de onda. Su utilidad tecnológica radica en que permite controlar amplitud, fase, polarización, dirección o absorción de ondas sin recurrir necesariamente a dispositivos volumétricos. En ese sentido, conecta la electrodinámica clásica con tecnologías modernas de control de ondas.
-
-Las aplicaciones relevantes incluyen:
-
-\begin{itemize}
-  \item absorbedores electromagnéticos de banda estrecha o ajustable;
-  \item cámaras anecoicas y terminaciones de baja reflexión;
-  \item blindaje y compatibilidad electromagnética;
-  \item telecomunicaciones y superficies inteligentes reconfigurables;
-  \item control de haz y redirección de frentes de onda;
-  \item sensores basados en desplazamiento de resonancia;
-  \item radar y control de sección eficaz;
-  \item formación de imágenes en microondas;
-  \item dispositivos de terahercios;
-  \item control de polarización;
-  \item reducción de reflexiones no deseadas en interfaces.
-\end{itemize}
-
-Aunque la propuesta no se ejecute durante el curso, su valor está en traducir conceptos de electrodinámica en magnitudes medibles: $S_{11}$, $S_{21}$, $R$, $T$, $A$, $f_0$, $Q$ e impedancia efectiva.
+La pregunta experimental propuesta es: ¿cómo cambiarían la reflexión, la transmisión y la absorción de una onda de microondas al iluminar una metasuperficie reconfigurable y variar su condición resonante? El alcance no consiste en producir datos reales durante el curso, sino en formular cómo se medirían \(S_{11}\) y \(S_{21}\), cómo se calcularían \(R\), \(T\) y \(A\), y qué comportamiento se esperaría observar cerca de una resonancia electromagnética.
 
 \section{Objetivos generales y específicos}
 
-\subsection{Objetivo general}
+\subsection*{Objetivo general}
 
-Proponer y diseñar un experimento de caracterización electromagnética de una metasuperficie reconfigurable en microondas mediante parámetros $S$, para analizar reflexión, transmisión, absorción resonante, frecuencia de resonancia, factor de calidad e impedancia efectiva.
+Proponer y diseñar un experimento conceptual de caracterización electromagnética de una metasuperficie reconfigurable en microondas mediante parámetros \(S\), para analizar reflexión, transmisión, absorción resonante, frecuencia de resonancia, factor de calidad e impedancia efectiva.
 
-\subsection{Objetivos específicos}
+\subsection*{Objetivos específicos}
 
 \begin{itemize}
-  \item Formular el diseño conceptual de una metasuperficie resonante reconfigurable en el rango de microondas.
-  \item Proponer un montaje de medición con VNA, antenas y control de geometría de incidencia.
-  \item Definir los observables complejos $S_{11}$ y $S_{21}$ como base para estimar $R$, $T$ y $A$.
-  \item Establecer un procedimiento reproducible aunque el montaje propuesto no se ejecute durante el curso.
-  \item Proponer un análisis de incertidumbres asociado a calibración, alineación, distancia, polarización, ruido y repetibilidad.
-  \item Discutir aplicaciones tecnológicas vinculadas con absorción, blindaje, telecomunicaciones, sensores, radar y control de polarización.
+  \item Formular el diseño conceptual de una metasuperficie resonante sublongitud de onda.
+  \item Proponer un montaje de medición con VNA, antenas y control de geometría.
+  \item Definir \(S_{11}\) y \(S_{21}\) como observables principales.
+  \item Calcular \(R\), \(T\) y \(A\) a partir de los módulos de los parámetros \(S\).
+  \item Estimar \(f_0\), \(\Delta f\) y \(Q\) desde las curvas espectrales esperadas.
+  \item Plantear análisis de incertidumbres y errores para el montaje propuesto.
+  \item Discutir aplicaciones tecnológicas de metasuperficies reconfigurables.
+  \item Aclarar que el procedimiento es reproducible en principio aunque no se ejecute durante el curso.
 \end{itemize}
 
-\section{Fundamento teórico}
+\section{Fundamento teórico detallado}
 
-\subsection{Parámetros $S$ en microondas}
+\subsection{Metasuperficie sublongitud de onda y scattering colectivo}
 
-En microondas es más natural caracterizar un dispositivo por ondas incidentes y salientes que por voltajes y corrientes locales. Para una muestra iluminada desde el puerto 1, $S_{11}$ representa el coeficiente complejo de reflexión y $S_{21}$ representa el coeficiente complejo de transmisión hacia el puerto 2. Ambos dependen de la frecuencia y contienen módulo y fase:
+Una metasuperficie electromagnética puede modelarse como un arreglo bidimensional de dispersores sublongitud de onda. Si \(p\) es el periodo de la celda unitaria y \(\lambda\) la longitud de onda incidente, el régimen efectivo requiere
+\begin{equation}
+  p \ll \lambda.
+\end{equation}
+En ese límite, la onda no resolvería cada celda como un objeto independiente y la estructura podría tratarse como una frontera efectiva con una respuesta superficial promedio. Esta idea conecta condiciones de frontera, polarización inducida, corrientes superficiales y dispersión colectiva \citep{schwinger1998classical,jackson1999classical,griffiths2017introduction,holloway2012overview}.
+
+La metasuperficie propuesta se interpretaría como un arreglo de scatterers resonantes. Cada celda dispersaría la onda incidente, pero la respuesta observada sería colectiva: la periodicidad, el acoplamiento entre celdas, la geometría metálica y las pérdidas del sustrato determinarían la amplitud y fase de las ondas reflejada y transmitida. Este tratamiento es la base física de metamateriales y metadevices capaces de controlar ondas con estructuras artificiales delgadas \citep{engheta2006metamaterials,zheludev2012metamaterials}.
+
+\subsection{Parámetros \(S\), reflexión, transmisión y absorción}
+
+En microondas se caracterizaría el sistema mediante ondas incidentes y salientes, no mediante voltajes y corrientes locales. Para una muestra iluminada desde el puerto 1, \(S_{11}\) representa el coeficiente complejo de reflexión y \(S_{21}\) el coeficiente complejo de transmisión hacia el puerto 2 \citep{pozar2011microwave}. Ambos dependen de la frecuencia y contienen módulo y fase:
 \begin{equation}
   S_{ij}(f)=|S_{ij}(f)|e^{i\phi_{ij}(f)}.
 \end{equation}
 
-Si las antenas, líneas y puertos están normalizados a la misma impedancia característica, las fracciones de potencia reflejada y transmitida pueden aproximarse como
+Si los puertos están referidos a la misma impedancia característica y las pérdidas externas se controlan, las fracciones de potencia reflejada y transmitida se calcularían como
 \begin{equation}
-  R(f)=|S_{11}(f)|^2,
-  \qquad
-  T(f)=|S_{21}(f)|^2.
-\end{equation}
-La absorción esperada se infiere por balance energético:
-\begin{equation}
-  A(f)=1-R(f)-T(f).
-  \label{eq:absorcion}
-\end{equation}
-Esta relación es válida como modelo operativo cuando las pérdidas laterales, la difracción fuera del cono de medición y las reflexiones del entorno están controladas o incorporadas como incertidumbres sistemáticas.
-
-\subsection{Impedancia efectiva y condición de absorción}
-
-Una metasuperficie absorbente puede interpretarse como una frontera efectiva con impedancia superficial ajustable. Para incidencia normal, la reflexión se minimiza cuando la impedancia efectiva de la superficie se aproxima a la impedancia del espacio libre $Z_0\approx\SI{377}{\ohm}$. Si además existen pérdidas internas, la energía que no se refleja ni se transmite se disipa en la estructura.
-
-Una forma usual de estimar la impedancia efectiva normalizada $z_\mathrm{eff}=Z_\mathrm{eff}/Z_0$ a partir de parámetros $S$ en una celda equivalente es
-\begin{equation}
-  z_\mathrm{eff}=\pm\sqrt{\frac{(1+S_{11})^2-S_{21}^2}{(1-S_{11})^2-S_{21}^2}},
-  \label{eq:impedancia}
-\end{equation}
-donde el signo se selecciona imponiendo pasividad. En esta propuesta, la ecuación~\eqref{eq:impedancia} sirve como referencia conceptual: el análisis principal se centraría en $S_{11}$, $S_{21}$, $R$, $T$ y $A$.
-
-\subsection{Resonancia, modelo LC y scattering}
-
-Las unidades de una metasuperficie pueden diseñarse como resonadores sublongitud de onda. La geometría metálica aporta una inductancia efectiva $L$, las brechas o separaciones aportan una capacitancia efectiva $C$ y las pérdidas conductivas o dieléctricas se representan mediante una resistencia efectiva. En primera aproximación, la frecuencia de resonancia esperada cumple
-\begin{equation}
-  f_0=\frac{1}{2\pi\sqrt{LC}}.
+  R=|S_{11}|^2,\quad T=|S_{21}|^2,\quad A=1-R-T.
+  \label{eq:rta}
 \end{equation}
 
-Si la metasuperficie es reconfigurable, por ejemplo mediante diodos varactores, un cambio de capacitancia desplazaría $f_0$. Cerca de la resonancia se esperaría una variación rápida de fase, un mínimo de $|S_{11}|$ si hay adaptación de impedancia, una caída de $|S_{21}|$ si la superficie bloquea la propagación y un máximo de $A$ si las pérdidas están ajustadas para disipar energía. El factor de calidad se definiría como
+La ecuación~\eqref{eq:rta} debe interpretarse con cuidado. En espacio libre, \(A=1-R-T\) representa absorción solo si la reflexión, la transmisión y las pérdidas por scattering lateral quedan capturadas por el sistema de medición o incorporadas al presupuesto de incertidumbre. Si hay difracción de borde, lóbulos fuera de eje, acoplamiento directo entre antenas o reflexiones del entorno, el valor calculado de \(A\) podría sobreestimar la absorción real.
+
+\subsection{Configuración robusta con plano metálico posterior}
+
+Una alternativa más robusta para estudiar absorción sería colocar un plano metálico detrás de la metasuperficie. En esa configuración, la transmisión hacia el puerto 2 quedaría aproximadamente suprimida:
 \begin{equation}
-  Q=\frac{f_0}{\Delta f},
+  S_{21}\approx0,\qquad A\simeq1-|S_{11}|^2.
 \end{equation}
-donde $\Delta f$ es el ancho de banda asociado al criterio elegido, por ejemplo el ancho a mitad de altura del pico de absorción esperado.
+Esta versión reduce la ambigüedad asociada a transmisión no capturada y permite centrar el análisis en la adaptación de impedancia y las pérdidas internas. Muchos absorbentes metamateriales se diseñan siguiendo esta lógica: una capa resonante, un dieléctrico con pérdidas y un respaldo conductor que impide transmisión \citep{landy2008perfect,watts2012metamaterial}.
 
-\section{Materiales y recursos propuestos}
+\subsection{Impedancia efectiva, resonancia LC y dispersión de Lorentz}
 
-La propuesta distingue entre un montaje de recursos moderados y una versión avanzada. Ambos niveles persiguen la misma lógica física: iluminar la muestra, registrar $S_{11}$ y $S_{21}$, y transformar esos datos esperados en magnitudes energéticas.
+Para incidencia normal, la reflexión de una frontera efectiva puede relacionarse con la impedancia efectiva de la superficie:
+\begin{equation}
+  \Gamma=\frac{Z_{\mathrm{eff}}-Z_0}{Z_{\mathrm{eff}}+Z_0}.
+\end{equation}
+La reflexión se minimizaría cuando
+\begin{equation}
+  Z_{\mathrm{eff}}\approx Z_0,
+\end{equation}
+donde \(Z_0\approx\SI{377}{\ohm}\) es la impedancia del espacio libre. Si además la estructura posee pérdidas conductivas, dieléctricas o por elementos activos, la energía que entra en la metasuperficie podría disiparse y producir un máximo de absorción.
+
+Cada celda resonante puede aproximarse mediante un circuito \(LC\): la geometría metálica aportaría una inductancia efectiva \(L\) y las brechas, varactores o separaciones aportarían una capacitancia efectiva \(C\). La frecuencia de resonancia y el factor de calidad se definirían como
+\begin{equation}
+  f_0=\frac{1}{2\pi\sqrt{LC}},\qquad Q=\frac{f_0}{\Delta f}.
+\end{equation}
+En una metasuperficie reconfigurable, variar la capacitancia efectiva desplazaría \(f_0\); variar las pérdidas modificaría \(Q\) y la profundidad de absorción.
+
+La respuesta macroscópica también puede describirse mediante un modelo dispersivo tipo Lorentz:
+\begin{equation}
+  \varepsilon_{\mathrm{eff}}(\omega)=\varepsilon_\infty+
+  \frac{F\omega_0^2}{\omega_0^2-\omega^2-i\gamma\omega}.
+\end{equation}
+Este modelo expresa que la susceptibilidad compleja cambia rápidamente cerca de \(\omega_0\). La parte real gobierna la dispersión y la fase de la respuesta; la parte imaginaria representa pérdidas asociadas a \(\gamma\). Por eso, cerca de la resonancia se esperaría una variación de fase, reducción de transmisión y un máximo de absorción si la impedancia efectiva está adaptada \citep{engheta2006metamaterials,smith2004metamaterials,yu2014flat}.
+
+\subsection{Condición de campo lejano}
+
+En una medición de espacio libre, la distancia entre antenas, muestra y aperturas debe ser suficiente para aproximar ondas planas en la región de la metasuperficie. Como criterio orientativo de campo lejano se usaría
+\begin{equation}
+  d_{\mathrm{FF}}\gtrsim \frac{2D^2}{\lambda},
+\end{equation}
+donde \(D\) es la dimensión característica de la antena o apertura relevante. Esta relación orientaría la distancia mínima de medición en espacio libre y ayudaría a decidir si el montaje moderado requiere correcciones adicionales por campo cercano \citep{balanis2016antenna,keysight2017dielectric}.
+
+\section{Materiales, equipos y adquisición}
+
+La siguiente tabla resume recursos moderados y avanzados. Los costos se expresan como rangos cualitativos porque dependerían de disponibilidad institucional, préstamo, compra, frecuencia de operación y precisión requerida; todo valor quedaría a confirmar antes de una implementación real.
 
 \begin{table}[htbp]
   \centering
-  \caption{Recursos propuestos para dos niveles de implementación.}
-  \begin{tabular}{p{0.23\linewidth}p{0.34\linewidth}p{0.34\linewidth}}
+  \scriptsize
+  \setlength{\tabcolsep}{3pt}
+  \caption{Materiales, equipos y alternativas de adquisición para el montaje propuesto.}
+  \begin{tabularx}{\textwidth}{p{0.13\linewidth}p{0.15\linewidth}p{0.15\linewidth}p{0.16\linewidth}p{0.20\linewidth}p{0.13\linewidth}}
     \toprule
-    Elemento & Recursos moderados & Recursos avanzados \\
+    Elemento & Función & Recursos moderados & Recursos avanzados & Adquisición/disponibilidad & Costo estimado \\
     \midrule
-    Instrumentación & VNA de dos puertos, cables coaxiales y kit de calibración. & VNA de mayor rango dinámico, calibración de espacio libre y verificación trazable. \\
-    Iluminación & Dos antenas de bocina o antenas de banda ancha alineadas. & Antenas calibradas, control de polarización y posicionadores angulares. \\
-    Muestra & PCB con patrones metálicos resonantes y carga reconfigurable simple. & Fabricación de precisión, sustratos caracterizados y red de polarización RF optimizada. \\
-    Entorno & Banco con absorbentes alrededor de la trayectoria principal. & Cámara anecoica y control de reflexiones múltiples. \\
-    Modelado & Modelo LC y simulación simplificada. & Simulación de onda completa con barridos paramétricos. \\
+    VNA & Medir \(S_{11}\) y \(S_{21}\). & VNA de dos puertos disponible en laboratorio. & VNA de mayor rango dinámico y calibración trazable. & Préstamo institucional, laboratorio de RF o alquiler. & Medio--alto; a confirmar. \\
+    Antenas de bocina & Emitir y recibir microondas en espacio libre. & Bocinas o antenas banda ancha compatibles con la banda. & Antenas calibradas y control de polarización. & Laboratorio de antenas, préstamo o compra. & Medio; a confirmar. \\
+    PCB metasuperficie & Muestra resonante sublongitud de onda. & PCB FR4 o sustrato RF simple con patrón metálico. & Sustrato caracterizado y fabricación de precisión. & Fabricación PCB externa o taller institucional. & Bajo--medio; a confirmar. \\
+    Varactores o diodos PIN & Reconfigurar capacitancia o estado de celda. & Componentes comerciales y red de sesgo simple. & Componentes RF caracterizados y bias tees. & Distribuidores electrónicos o inventario docente. & Bajo--medio; a confirmar. \\
+    Absorbentes RF & Reducir reflexiones parásitas. & Paneles absorbentes alrededor del trayecto. & Revestimiento anecoico optimizado. & Laboratorio de RF, cámara anecoica o compra. & Medio--alto; a confirmar. \\
+    Cables y conectores coaxiales & Conectar VNA, antenas y referencias. & Cables coaxiales estables y conectores SMA/N. & Cables de fase estable y kits de calibración completos. & Inventario de laboratorio o compra. & Bajo--medio; a confirmar. \\
+    Cámara anecoica & Controlar reflexiones y scattering externo. & Banco abierto con absorbentes parciales. & Cámara anecoica con posicionadores. & Instalación institucional o convenio externo. & Alto; a confirmar. \\
+    HFSS/CST/COMSOL o alternativa abierta & Simular respuesta electromagnética. & openEMS, Meep u otro software abierto. & HFSS, CST Studio Suite o COMSOL Multiphysics. & Licencia institucional o software libre. & Variable; a confirmar. \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \end{table}
 
-\section{Montaje propuesto y procedimiento de medición}
+\section{Descripción del montaje experimental}
 
-El montaje propuesto ubicaría la metasuperficie entre dos antenas conectadas al VNA. La antena emisora definiría la onda incidente y la antena receptora registraría la onda transmitida. La reflexión se mediría desde el puerto de entrada, idealmente con calibración que desplace el plano de referencia hasta la posición de la muestra o con una medición de referencia que permita sustraer efectos del espacio libre.
+El montaje propuesto ubicaría una metasuperficie entre dos antenas conectadas a un VNA de dos puertos. La antena transmisora generaría la onda incidente, la metasuperficie produciría ondas reflejadas y transmitidas, y la antena receptora registraría la transmisión asociada a \(S_{21}\). La reflexión \(S_{11}\) se evaluaría hacia la antena transmisora. Se colocarían absorbentes alrededor del trayecto principal para reducir reflexiones del entorno.
+
+La distancia \(d\) entre cada antena y la muestra se elegiría con el criterio de campo lejano \(d\gtrsim d_{\mathrm{FF}}\), siempre que el espacio disponible lo permita. Si el objetivo principal fuera absorción, se consideraría una configuración alternativa con plano metálico posterior para imponer \(S_{21}\approx0\).
 
 \begin{figure}[htbp]
   \centering
   \begin{tikzpicture}[>=Stealth,scale=0.92]
-    \node[draw,rounded corners,minimum width=2.4cm,minimum height=1.1cm] (vna) at (0,0) {VNA};
-    \node[draw,minimum width=1.3cm,minimum height=1.0cm,right=2.0cm of vna] (tx) {Antena 1};
-    \node[draw,minimum width=0.25cm,minimum height=2.8cm,right=2.0cm of tx,fill=blue!12] (ms) {};
+    \node[draw,rounded corners,minimum width=2.0cm,minimum height=0.9cm] (vna) at (3.9,-2.0) {VNA};
+    \node[draw,minimum width=1.25cm,minimum height=0.9cm] (tx) at (0,0) {Antena 1};
+    \node[draw,minimum width=0.25cm,minimum height=2.7cm,fill=blue!12] (ms) at (3.6,0) {};
     \node[above=0.1cm of ms] {metasuperficie};
-    \node[draw,minimum width=1.3cm,minimum height=1.0cm,right=2.0cm of ms] (rx) {Antena 2};
-    \draw[->,thick] (vna.east) -- node[above] {puerto 1} (tx.west);
-    \draw[->,thick] (rx.west) -- node[above] {$S_{21}$} (ms.east);
-    \draw[->,thick] (tx.east) -- node[above] {onda incidente} (ms.west);
-    \draw[->,thick] (ms.east) -- node[above] {transmisión} (rx.west);
-    \draw[<-,thick,red!70!black] (tx.east) -- ++(0.7,-0.8) node[right] {$S_{11}$};
-    \draw[->,thick] (vna.south) .. controls (4.5,-2.0) and (7.2,-1.9) .. node[below] {puerto 2} (rx.south);
+    \node[draw,dashed,minimum width=0.15cm,minimum height=2.7cm,fill=gray!20] (back) at (4.05,0) {};
+    \node[above=0.1cm of back,text width=2.0cm,align=center] {plano metálico opcional};
+    \node[draw,minimum width=1.25cm,minimum height=0.9cm] (rx) at (7.2,0) {Antena 2};
+
+    \node[draw,pattern=north east lines,pattern color=orange!70!black,minimum width=8.4cm,minimum height=0.35cm] at (3.6,1.9) {absorbentes};
+    \node[draw,pattern=north east lines,pattern color=orange!70!black,minimum width=8.4cm,minimum height=0.35cm] at (3.6,-1.15) {absorbentes};
+
+    \draw[->,thick] (vna.west) .. controls (1.4,-2.1) and (0.0,-1.2) .. node[left] {puerto 1} (tx.south);
+    \draw[->,thick] (vna.east) .. controls (6.0,-2.1) and (7.2,-1.2) .. node[right] {puerto 2} (rx.south);
+    \draw[->,very thick] (tx.east) -- node[above] {onda incidente} (ms.west);
+    \draw[->,very thick] (ms.east) -- node[above] {transmisión \(S_{21}\)} (rx.west);
+    \draw[->,very thick,red!70!black] (ms.west) -- ++(-1.35,-0.65) node[left] {reflexión \(S_{11}\)};
+    \draw[<->] (tx.north east) -- node[above] {\(d\)} (ms.north west);
+    \draw[<->] (ms.north east) -- node[above] {\(d\)} (rx.north west);
   \end{tikzpicture}
-  \caption{Esquema del montaje propuesto para caracterización en espacio libre de una metasuperficie con VNA y dos antenas.}
+  \caption{Esquema del montaje propuesto en espacio libre. Las flechas indican onda incidente, transmisión hacia la antena 2 y reflexión hacia la antena 1. El plano metálico posterior sería opcional para estudiar absorción con transmisión suprimida.}
   \label{fig:montaje}
 \end{figure}
 
-El procedimiento reproducible propuesto sería:
+\section{Procedimiento experimental}
+
+El procedimiento se formularía de manera reproducible, aunque no se ejecutaría durante el curso:
 
 \begin{enumerate}
-  \item Definir el rango de frecuencias de interés, por ejemplo una banda de microondas alrededor de la resonancia diseñada.
-  \item Calibrar el VNA y registrar una medición de referencia sin muestra para estimar pérdidas de trayecto y reflexiones residuales.
-  \item Alinear antenas y muestra para incidencia normal, con polarización compatible con la geometría resonante.
-  \item Ubicar absorbentes alrededor del trayecto directo para reducir reflexiones espurias.
-  \item Registrar $S_{11}(f)$ y $S_{21}(f)$ para cada estado de reconfiguración propuesto.
-  \item Repetir barridos para estimar repetibilidad y variabilidad por recolocación de la muestra.
-  \item Calcular $R(f)$, $T(f)$ y $A(f)$ mediante la ecuación~\eqref{eq:absorcion}.
-  \item Identificar $f_0$, $\Delta f$, $Q$ y el desplazamiento de resonancia entre estados.
+  \item Se definiría la banda de frecuencia alrededor de la resonancia de diseño de la metasuperficie.
+  \item Se calibraría el VNA con el kit apropiado y se documentaría el plano de referencia.
+  \item Se mediría una referencia sin muestra para estimar pérdidas de trayecto y acoplamiento directo.
+  \item Se mediría una referencia con placa metálica si se analizara la reflexión absoluta.
+  \item Se alinearían antenas, muestra y polarización según la geometría resonante.
+  \item Se colocarían absorbentes alrededor del montaje propuesto para reducir reflexiones parásitas.
+  \item Se medirían \(S_{11}(f)\) y \(S_{21}(f)\) para cada configuración propuesta.
+  \item Se repetiría el barrido por configuración, polarización, ángulo de incidencia o voltaje de sesgo.
+  \item Se guardarían los datos complejos en archivos CSV con frecuencia, módulo, fase, configuración e incertidumbre asociada.
+  \item Se calcularían \(R\), \(T\), \(A\), \(f_0\), \(\Delta f\) y \(Q\).
+  \item Se repetirían mediciones equivalentes para estimar repetibilidad y sensibilidad a reposicionamiento.
 \end{enumerate}
 
-\section{Datos esperados y visualizaciones previstas}
+\section{Toma de datos y resultados esperados}
 
-No se reportan datos medidos. Los datos esperados serían curvas complejas de $S_{11}$ y $S_{21}$ en función de la frecuencia y, si la muestra es reconfigurable, para varios estados de polarización eléctrica, capacitancia o conmutación.
+No se reportan datos medidos. La toma de datos se describe como formato esperado para una ejecución futura del montaje propuesto.
 
 \begin{table}[htbp]
   \centering
-  \caption{Estructura esperada del registro de datos propuesto.}
-  \begin{tabular}{p{0.18\linewidth}p{0.23\linewidth}p{0.23\linewidth}p{0.25\linewidth}}
+  \caption{Magnitudes previstas y comportamiento esperado.}
+  \begin{tabularx}{\textwidth}{p{0.18\linewidth}Y Y}
     \toprule
-    Variable & Magnitud registrada & Magnitud derivada & Comportamiento esperado \\
+    Magnitud & Cómo se obtendría & Resultado esperado \\
     \midrule
-    Frecuencia $f$ & Barrido del VNA & Eje común de análisis & Resolución suficiente alrededor de $f_0$. \\
-    $S_{11}$ & Módulo y fase & $R=|S_{11}|^2$ & Mínimo cerca de adaptación de impedancia. \\
-    $S_{21}$ & Módulo y fase & $T=|S_{21}|^2$ & Reducción cerca de una banda resonante. \\
-    Estado de control & Sesgo, conmutación o configuración & Desplazamiento de $f_0$ & Sintonización de la respuesta espectral. \\
-    $A$ & Derivada de balance energético & $A=1-R-T$ & Pico de absorción si las pérdidas están ajustadas. \\
+    \(S_{11}(f)\) & Lectura compleja del puerto 1 del VNA. & Mínimo de \(|S_{11}|\) cerca de adaptación de impedancia. \\
+    \(S_{21}(f)\) & Lectura compleja entre puertos 1 y 2. & Reducción de \(|S_{21}|\) cerca de la resonancia. \\
+    \(A(f)\) & Balance \(1-R-T\). & Pico de absorción si scattering lateral y transmisión se controlan. \\
+    \(f_0\) & Frecuencia del máximo de absorción o rasgo resonante. & Desplazamiento si cambia la capacitancia efectiva. \\
+    \(Q\) & Relación \(f_0/\Delta f\). & Aumentaría con menor pérdida y disminuiría con pérdidas mayores. \\
     \bottomrule
-  \end{tabular}
+  \end{tabularx}
 \end{table}
 
-Las gráficas previstas incluirían $|S_{11}|$ y $|S_{21}|$ en escala lineal o dB, fase de $S_{11}$ y $S_{21}$, curvas $R(f)$, $T(f)$ y $A(f)$, comparación de estados reconfigurables, extracción de $f_0$ y estimación de $Q$. Se esperaría observar que la absorción máxima ocurre cuando se combinan baja reflexión, baja transmisión y pérdidas internas no despreciables.
+\begin{table}[htbp]
+  \centering
+  \scriptsize
+  \caption{Estructura esperada del archivo de datos; son datos esperados, no datos medidos.}
+  \resizebox{\textwidth}{!}{%
+  \begin{tabular}{cccccccccc}
+    \toprule
+    frecuencia & \(|S_{11}|\) & fase \(S_{11}\) & \(|S_{21}|\) & fase \(S_{21}\) & \(R\) & \(T\) & \(A\) & estado de sesgo/configuración & incertidumbre asociada \\
+    \midrule
+    \(f_i\) & esperado & esperada & esperado & esperada & \(|S_{11}|^2\) & \(|S_{21}|^2\) & \(1-R-T\) & \(V_b\) o estado geométrico & \(\sigma_S,\sigma_R,\sigma_T,\sigma_A\) \\
+    \(f_{i+1}\) & esperado & esperada & esperado & esperada & \(|S_{11}|^2\) & \(|S_{21}|^2\) & \(1-R-T\) & \(V_b\) o estado geométrico & \(\sigma_S,\sigma_R,\sigma_T,\sigma_A\) \\
+    \bottomrule
+  \end{tabular}}
+\end{table}
 
-\section{Análisis de incertidumbres y errores}
+Se esperaría observar un mínimo de \(|S_{11}|\) cerca de la condición \(Z_{\mathrm{eff}}\approx Z_0\), una reducción de \(|S_{21}|\) cerca de la resonancia, un pico en \(A(f)\), un desplazamiento de \(f_0\) si cambia la capacitancia efectiva y variaciones de \(Q\) según las pérdidas conductivas, dieléctricas o de los elementos reconfigurables.
 
-La incertidumbre dominante esperada provendría de la calibración del VNA, las pérdidas de cables, la alineación angular, la distancia entre antenas y muestra, la polarización incidente, reflexiones múltiples, difracción en los bordes de la muestra y repetibilidad al reposicionar el arreglo. En un entorno moderado, estas fuentes pueden ser comparables al cambio de respuesta que se intenta observar, por lo que el diseño debe incluir mediciones de referencia y repeticiones.
+\section{Análisis de datos e incertidumbres}
 
-Para las magnitudes derivadas se propagarían incertidumbres desde los módulos de $S_{11}$ y $S_{21}$. En forma diferencial,
+El análisis propuesto partiría de los datos complejos \(S_{11}(f)\) y \(S_{21}(f)\). Primero se transformarían los módulos en magnitudes energéticas mediante \(R=|S_{11}|^2\), \(T=|S_{21}|^2\) y \(A=1-R-T\). Luego se localizaría \(f_0\) como frecuencia del rasgo resonante dominante y se estimaría \(\Delta f\) con un criterio explícito, por ejemplo el ancho a mitad de altura del pico esperado de absorción.
+
+Para las magnitudes derivadas se propagarían incertidumbres desde los módulos de los parámetros \(S\):
 \begin{equation}
-  \sigma_R\approx 2|S_{11}|\sigma_{|S_{11}|},
-  \qquad
-  \sigma_T\approx 2|S_{21}|\sigma_{|S_{21}|},
+  \sigma_R\approx 2|S_{11}|\sigma_{|S_{11}|}
 \end{equation}
-y, si $R$ y $T$ se tratan como independientes en primera aproximación,
 \begin{equation}
-  \sigma_A\approx\sqrt{\sigma_R^2+\sigma_T^2}.
+  \sigma_T\approx 2|S_{21}|\sigma_{|S_{21}|}
 \end{equation}
-También se estimaría una incertidumbre en $f_0$ asociada a la resolución de frecuencia, al ruido en la curva y al criterio usado para localizar el máximo o mínimo resonante. La incertidumbre de $Q$ dependería de la extracción de $\Delta f$ y del suavizado aplicado a los datos esperados.
+\begin{equation}
+  \sigma_A\approx\sqrt{\sigma_R^2+\sigma_T^2}
+\end{equation}
+si \(R\) y \(T\) se trataran como independientes en primera aproximación. Para el factor de calidad se usaría
+\begin{equation}
+  \frac{\sigma_Q}{Q}=\sqrt{\left(\frac{\sigma_{f_0}}{f_0}\right)^2+\left(\frac{\sigma_{\Delta f}}{\Delta f}\right)^2}.
+\end{equation}
+
+Las incertidumbres de fase se registrarían para evaluar cambios rápidos cerca de resonancia y para detectar inconsistencias de alineación o calibración. En una implementación futura, cada archivo CSV debería conservar datos complejos antes de cualquier suavizado.
+
+\section{Análisis de errores}
+
+El análisis de errores separaría fuentes aleatorias, sistemáticas e instrumentales:
+
+\begin{itemize}
+  \item \textbf{Errores aleatorios:} ruido del VNA, repetibilidad de barridos, reposicionamiento de la muestra, fluctuaciones de lectura y variaciones pequeñas de alineación.
+  \item \textbf{Errores sistemáticos:} calibración imperfecta, reflexiones múltiples, acoplamiento directo entre antenas, difracción de borde, tamaño finito de la muestra, desalineación de polarización, distancia de campo lejano insuficiente y pérdidas dieléctricas desconocidas.
+  \item \textbf{Errores instrumentales:} resolución de frecuencia, estabilidad de cables, conectores, deriva térmica, límites de rango dinámico y respuesta no ideal de antenas o adaptadores.
+\end{itemize}
+
+Esta clasificación permitiría distinguir si una reducción aparente de \(S_{21}\) provendría de absorción física, scattering fuera de eje, mala alineación o limitaciones del montaje.
+
+\section{Discusión de resultados}
+
+La discusión propuesta interpretaría los resultados esperados sin afirmar ejecución experimental. Si \(A\) no alcanzara 1, podría deberse a reflexión residual, transmisión no nula, pérdidas laterales no capturadas, pérdidas insuficientes dentro de la metasuperficie o desadaptación de impedancia. Si \(f_0\) apareciera desplazada respecto del diseño, se consideraría variación de capacitancia efectiva, tolerancias de fabricación, permitividad real del sustrato, acoplamiento entre celdas o carga introducida por elementos reconfigurables.
+
+Un \(S_{21}\) no despreciable indicaría que la metasuperficie no bloquea completamente la propagación, que el plano metálico posterior sería conveniente para una medición de absorción más robusta o que existe transmisión por bordes. Una reflexión alta sugeriría desadaptación \(Z_{\mathrm{eff}}\not\approx Z_0\), pérdidas internas insuficientes o geometría resonante no optimizada.
+
+Con recursos moderados, la propuesta permitiría observar tendencias cualitativas y estimar incertidumbres dominadas por entorno, alineación y calibración. Con recursos avanzados, una cámara anecoica, antenas calibradas, posicionadores y simulación de onda completa permitirían separar con mayor claridad absorción real, scattering lateral, efectos angulares y errores sistemáticos.
+
+\subsection{Utilidad tecnológica y aplicaciones}
+
+Las metasuperficies reconfigurables son útiles porque permiten controlar ondas electromagnéticas con estructuras delgadas y diseñables. Entre sus aplicaciones se incluyen absorbentes electromagnéticos ajustables, cámaras anecoicas, blindaje y compatibilidad electromagnética, telecomunicaciones, superficies inteligentes reconfigurables, sensores por desplazamiento de resonancia, radar, dispositivos de terahercios y control de polarización. Esta propuesta conecta esas aplicaciones con magnitudes verificables: \(S_{11}\), \(S_{21}\), \(R\), \(T\), \(A\), \(f_0\), \(\Delta f\), \(Q\) e impedancia efectiva.
+
+\section{Conclusiones}
+
+La propuesta permitiría responder los objetivos al mostrar cómo se diseñaría una caracterización conceptual de una metasuperficie reconfigurable mediante parámetros \(S\). El diseño conceptual muestra que \(S_{11}\) y \(S_{21}\) serían observables suficientes para estimar reflexión, transmisión y absorción esperada, siempre que se controlen scattering lateral, difracción y reflexiones del entorno.
+
+Se esperaría que la absorción resonante aumentara cuando la impedancia efectiva se aproximara a \(Z_0\) y las pérdidas internas fueran adecuadas. También se esperaría que una variación de capacitancia efectiva desplazara \(f_0\), mientras que cambios en pérdidas modificarían \(Q\). La propuesta no demuestra esos resultados con datos reales; establece una ruta reproducible en principio para medirlos y analizarlos.
+
+En síntesis, el diseño conceptual muestra cómo contenidos de electrodinámica clásica como condiciones de frontera, impedancia, dispersión, scattering, resonancia y pérdidas pueden organizarse en una propuesta experimental moderna y tecnológicamente relevante.
 
 \section{Seguridad y buenas prácticas}
 
-El montaje propuesto evita altas potencias; aun así, un sistema de microondas requiere buenas prácticas. La potencia de salida del VNA debe mantenerse en niveles seguros para los equipos y para las personas, las antenas no deben apuntarse innecesariamente hacia operadores, los conectores RF deben manipularse sin tensión aplicada y se deben respetar los límites de polarización de cualquier elemento reconfigurable.
+El montaje propuesto trabajaría con baja potencia de microondas, pero aun así requeriría buenas prácticas. Las antenas activas no deberían apuntarse innecesariamente hacia operadores, los conectores RF no deberían manipularse con señal aplicada y se deberían respetar los límites de potencia, frecuencia y ciclo de trabajo del VNA y de las antenas.
 
-Si se emplean diodos, fuentes de sesgo o conmutadores, el circuito de polarización debe aislar la señal RF y limitar corrientes. En una versión avanzada, la cámara anecoica y los posicionadores deben operarse siguiendo protocolos institucionales. Toda documentación de montaje debería registrar configuración, geometría, potencia, rango de frecuencias y estado de control de la muestra.
+Si se usaran varactores, diodos PIN o redes de polarización, se definirían límites de voltaje y corriente de sesgo, protección contra cortocircuitos y aislamiento entre RF y DC. También se vigilaría calentamiento de componentes, estabilidad térmica y polaridad de fuentes. La soldadura de la PCB requeriría ventilación, cuidado con temperatura de punta, protección ocular y verificación de continuidad antes de conectar equipo RF.
 
-\section{Conclusiones esperadas}
-
-La propuesta permitiría mostrar cómo una metasuperficie resonante puede analizarse mediante parámetros $S$ y cómo esos parámetros se traducen en magnitudes energéticas: reflexión, transmisión y absorción. Conceptualmente, el máximo de absorción se esperaría cerca de una condición de adaptación de impedancia combinada con pérdidas internas, mientras que la reconfigurabilidad desplazaría la frecuencia de resonancia o modificaría la profundidad de la respuesta.
-
-El valor principal del trabajo no está en afirmar una implementación, sino en construir un puente entre condiciones de frontera, propagación, impedancia, dispersión y scattering. Como propuesta experimental conceptual, el resultado esperado es un diseño claro, reproducible en principio y conectado con aplicaciones actuales de control electromagnético mediante superficies artificiales.
+En una cámara anecoica se seguirían protocolos institucionales: control de acceso, cuidado de absorbentes, operación segura de posicionadores y registro de configuración. Toda sesión futura debería documentar geometría, distancia \(d\), polarización, potencia, banda de frecuencia, estado de sesgo y referencias usadas.
 
 \section{Bibliografía}
 
-\nocite{*}
+Las referencias seleccionadas cubren electrodinámica clásica, microondas, antenas, metamateriales, metasuperficies, absorbentes y medición de materiales mediante VNA en espacio libre.
+
+\begingroup
+\renewcommand{\section}[2]{}
 \bibliographystyle{plainnat}
 \bibliography{references}
+\endgroup
 
 \end{document}

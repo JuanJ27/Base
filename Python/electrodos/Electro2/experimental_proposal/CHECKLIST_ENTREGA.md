@@ -1,37 +1,30 @@
-# Checklist de entrega
+# Checklist de entrega: propuesta experimental conceptual
 
-Este documento resume los criterios de verificación para el componente computacional y para la propuesta experimental conceptual. Está diseñado para revisar la entrega sin reconstruir toda la estructura del proyecto.
+Este checklist verifica que la propuesta sea inequívocamente conceptual: no se ejecutará durante el curso, no reporta datos medidos y organiza el reporte según los 13 criterios de la rúbrica del profesor.
 
-## Checklist computacional
+| # | Criterio de rúbrica | Cobertura en reporte | Diapositiva asociada | Criterio de aceptación |
+|---:|---|---|---:|---|
+| 1 | Título del experimento | `\section{Título del experimento}` | 1 | Usa el título técnico sobre metasuperficie reconfigurable, microondas, parámetros `S`, reflexión, transmisión y absorción resonante. |
+| 2 | Objetivos generales y específicos | `\section{Objetivos generales y específicos}` | 4 | El objetivo general empieza con proponer y diseñar un experimento conceptual; los objetivos incluyen `S11`, `S21`, `R`, `T`, `A`, `f0`, `Delta f`, `Q`, incertidumbres, errores, aplicaciones y reproducibilidad en principio. |
+| 3 | Fundamento teórico detallado | `\section{Fundamento teórico detallado}` | 5, 6, 7 | Incluye régimen sublongitud de onda, parámetros `S`, absorción, advertencia por scattering lateral, plano metálico, impedancia efectiva, modelo LC, modelo de Lorentz, scattering colectivo y campo lejano. |
+| 4 | Materiales, equipos y adquisición | `\section{Materiales, equipos y adquisición}` | 8 | Tabla con elemento, función, recursos moderados, recursos avanzados, adquisición/disponibilidad y costo estimado a confirmar. |
+| 5 | Descripción del montaje experimental | `\section{Descripción del montaje experimental}` | 8 | El esquema muestra Tx -> metasuperficie, metasuperficie -> Rx como transmisión `S21`, reflexión `S11` hacia Tx, absorbentes, distancia `d` y plano metálico opcional. |
+| 6 | Procedimiento experimental | `\section{Procedimiento experimental}` | 8 | Procedimiento numerado con lenguaje condicional: banda, calibración, referencias, alineación, absorbentes, medición propuesta, CSV, cálculo y repetibilidad. |
+| 7 | Toma de datos y resultados esperados | `\section{Toma de datos y resultados esperados}` | 9 | Declara datos esperados, no datos medidos; incluye tabla con frecuencia, módulos, fases, `R`, `T`, `A`, configuración e incertidumbre. |
+| 8 | Análisis de datos e incertidumbres | `\section{Análisis de datos e incertidumbres}` | 9 | Propaga incertidumbres para `R`, `T`, `A` y `Q`; conserva datos complejos antes de suavizado. |
+| 9 | Análisis de errores | `\section{Análisis de errores}` | 9 | Clasifica errores aleatorios, sistemáticos e instrumentales, incluyendo calibración, acoplamiento directo, bordes, polarización, campo lejano y rango dinámico. |
+| 10 | Discusión de resultados | `\section{Discusión de resultados}` | 3, 9, 10 | Interpreta `A < 1`, desplazamiento de `f0`, `S21` no despreciable, reflexión alta y compara recursos moderados versus avanzados. Incluye aplicaciones tecnológicas. |
+| 11 | Conclusiones | `\section{Conclusiones}` | 10 | Responde a los objetivos con lenguaje de propuesta: se esperaría, la propuesta permitiría, el diseño conceptual muestra. |
+| 12 | Seguridad y buenas prácticas | `\section{Seguridad y buenas prácticas}` | 10 | Incluye baja potencia, cuidado con antenas activas, conectores sin señal, límites DC, calentamiento, soldadura y cámara anecoica. |
+| 13 | Bibliografía | `\section{Bibliografía}` | No aplica | Hay citas reales con `\citep{}` en el texto y BibTeX compila sin depender solo de `\nocite{*}`. |
 
-| Criterio | Peso | Cobertura en notebook/README | Criterio de aceptación |
-|---|---:|---|---|
-| Enunciado | 15% | `Python/electrodos/Electro2/Problema_computacional.ipynb`, celda 1; `README.md`, secciones “Pregunta central” y “Qué calcula”. | El problema directo e inverso está formulado como diagnóstico de haces a partir de patrón angular y escala espectral. |
-| Teoría | 25% | Celdas 4, 8, 10, 14, 16 y 24; `README.md`, “Advertencias físicas”. | El notebook explica modelo angular, potencia absoluta, escala espectral y límites físicos del enfoque. |
-| Solución | 40% | Celdas 6 a 24; figuras listadas en `README.md`, “Figuras actuales”. | El notebook ejecuta completo; existen problema directo e inverso; la reconstrucción de energía incluye tabla; la sección de divergencia angular existe. |
-| Análisis/aplicaciones | 10% | Celdas 22, 24, 26 y 28; `README.md`, filas “Problema inverso”, “Divergencia del haz” y “CRT”. | La FFT se trata como cualitativa; el CRT aparece como aplicación/apéndice conceptual, no como fuente práctica de radiación sincrotrón. |
-| Referencias | 10% | `README.md`, sección “Referencias”; citas y contexto del notebook. | Las referencias cubren electrodinámica clásica, radiación de cargas aceleradas y diagnóstico conceptual de haces. |
-| Validación técnica | No aplica | `README.md`, sección “Uso”. | El notebook ejecuta completo con `jupyter nbconvert --to notebook --execute Python/electrodos/Electro2/Problema_computacional.ipynb --output /tmp/electro2-diagnostic.ipynb`. |
-| Calibración FWHM | No aplica | Celda 10; `README.md`, fila “Calibración angular”. | El FWHM usa ajuste `A_fit/gamma`, no la predicción falsa `2/gamma`. |
-| Escala espectral y FFT | No aplica | Celdas 16, 18 y 20; `README.md`, filas “Escala espectral” y “FFT cualitativa”. | La FFT se presenta solo como visualización fenomenológica/cualitativa. |
-| Reconstrucción y divergencia | No aplica | Celdas 22 y 24; `README.md`, filas “Problema inverso” y “Divergencia del haz”. | Existe tabla de reconstrucción de energía y sección de divergencia angular del haz. |
+## Verificaciones críticas
 
-## Checklist experimental conceptual
-
-| Punto de rúbrica | Cobertura en reporte | Diapositiva asociada | Criterio de aceptación |
-|---|---|---:|---|
-| Título y pregunta | `propuesta_experimental.tex`, “Título específico y pregunta experimental”. | 1 | El título identifica metasuperficie reconfigurable, microondas, parámetros `S` y control de reflexión, transmisión y absorción. |
-| Alcance | Sección “Alcance y carácter propositivo de la propuesta”. | 2 | Declara que es una propuesta experimental conceptual y que no está destinada a ejecutarse durante el curso. |
-| Motivación y aplicaciones | Sección “Utilidad tecnológica y aplicaciones”. | 3 | Incluye absorbedores, cámaras anecoicas, shielding, telecomunicaciones, sensores, radar, THz, control de polarización y reducción de reflexiones. |
-| Objetivos | Sección “Objetivos generales y específicos”. | 4 | El objetivo general comienza con “Proponer y diseñar un experimento de caracterización electromagnética” e incluye diseño, observables, procedimiento, incertidumbres y aplicaciones. |
-| Teoría detallada | Sección “Fundamento teórico”. | 5, 6, 7 | Explica parámetros `S`, `R`, `T`, `A`, impedancia efectiva, condición de absorción, resonancia LC, dispersión y scattering. |
-| Materiales/adquisición | Sección “Materiales y recursos propuestos”. | 8 | Lista recursos moderados y avanzados: VNA, antenas, PCB, absorbentes, cámara anecoica, posicionadores, fabricación de precisión y simulación. |
-| Montaje | Sección “Montaje propuesto y procedimiento de medición”. | 8 | Describe el montaje propuesto con VNA, dos antenas, metasuperficie y geometría de incidencia. |
-| Procedimiento | Sección “Montaje propuesto y procedimiento de medición”. | 8 | El procedimiento es secuencial y reproducible aunque no se ejecute materialmente. |
-| Toma de datos | Sección “Datos esperados y visualizaciones previstas”. | 9 | La toma de datos se entiende como datos esperados, simulados o planificados, no como datos reales medidos. |
-| Incertidumbres | Sección “Análisis de incertidumbres y errores”. | 9 | Propone incertidumbres de calibración, cables, alineación, polarización, distancia, reflexiones y difracción. |
-| Discusión | Secciones “Datos esperados y visualizaciones previstas” y “Conclusiones esperadas”. | 9, 10 | La discusión interpreta comportamiento esperado y aplicaciones, no resultados ejecutados. |
-| Conclusiones | Sección “Conclusiones esperadas”. | 10 | Presenta conclusiones esperadas de la propuesta: relación entre parámetros `S`, absorción, impedancia, resonancia y aplicaciones. |
-| Seguridad | Sección “Seguridad y buenas prácticas”. | 10 | Advierte sobre potencia de microondas, conectores RF, límites de sesgo y registro de configuración. |
-| Bibliografía | Sección “Bibliografía”; `references.bib`. | No aplica | Incluye referencias formales sobre microondas, antenas, metasuperficies, metamateriales y absorbedores. |
-| Validación de compilación | `propuesta_experimental.tex`, `slides_propuesta_experimental.tex`. | Todas | Ambos documentos compilan con `latexmk`; el texto mantiene alcance conceptual y no afirma ejecución material. |
+- El reporte incluye `\section*{Nota de alcance}` antes de las secciones numeradas.
+- La nota de alcance dice: `Esta es una propuesta experimental conceptual, no destinada a ser ejecutada durante el curso.`
+- La toma de datos se presenta como datos esperados, no datos medidos.
+- La discusión incluye `\subsection{Utilidad tecnológica y aplicaciones}`.
+- No se usa el tema experimental anterior.
+- No se afirma ejecución experimental material.
+- Las diapositivas conservan 10 slides.
+- La diapositiva 2 dice `NO se ejecutará durante el curso.`

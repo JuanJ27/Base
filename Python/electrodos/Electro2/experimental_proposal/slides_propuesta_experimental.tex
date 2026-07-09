@@ -6,7 +6,7 @@
 \usepackage{amsmath}
 \usepackage{siunitx}
 \usepackage{tikz}
-\usetikzlibrary{arrows.meta,babel,positioning}
+\usetikzlibrary{arrows.meta,babel,positioning,patterns}
 
 \usetheme{Madrid}
 \usecolortheme{seahorse}
@@ -15,7 +15,7 @@
 \sisetup{per-mode=symbol,detect-all}
 
 \title{Metasuperficie electromagnética reconfigurable}
-\subtitle{Caracterización conceptual en microondas mediante parámetros $S$}
+\subtitle{Caracterización conceptual en microondas mediante parámetros \(S\)}
 \author{Propuesta experimental conceptual de laboratorio}
 \date{\today}
 
@@ -24,8 +24,8 @@
 \begin{frame}
   \titlepage
   \vspace{-0.45cm}
-  \begin{block}{Pregunta experimental}
-    ¿Cómo se diseñaría la medición de $S_{11}$ y $S_{21}$ para estimar reflexión, transmisión y absorción resonante de una metasuperficie reconfigurable?
+  \begin{block}{Tema}
+    Caracterización de reflexión, transmisión y absorción resonante mediante \(S_{11}\) y \(S_{21}\).
   \end{block}
 \end{frame}
 
@@ -34,7 +34,7 @@
   Esta es una \textbf{propuesta experimental conceptual}.
 
   \vfill
-  \begin{block}{Alcance}
+  \begin{block}{Alcance crítico}
     \centering
     \textbf{NO se ejecutará durante el curso.}
   \end{block}
@@ -42,8 +42,8 @@
   \vfill
   \begin{itemize}
     \item No se reportan datos medidos.
-    \item Se presenta metodología, teoría, datos esperados e incertidumbres.
-    \item El valor está en traducir electrodinámica clásica a observables medibles.
+    \item Se propone montaje, teoría, procedimiento y análisis.
+    \item Los resultados presentados serían datos esperados.
   \end{itemize}
 \end{frame}
 
@@ -55,8 +55,8 @@
   \begin{columns}[T]
     \begin{column}{0.5\textwidth}
       \begin{itemize}
-        \item absorbedores electromagnéticos;
-        \item shielding y compatibilidad electromagnética;
+        \item absorbentes electromagnéticos;
+        \item blindaje y compatibilidad electromagnética;
         \item telecomunicaciones y superficies inteligentes;
         \item control de haz.
       \end{itemize}
@@ -75,57 +75,57 @@
 \begin{frame}{Objetivos}
   \Large
   \begin{itemize}
-    \item Proponer y diseñar un experimento de caracterización electromagnética.
-    \item Definir $S_{11}$ y $S_{21}$ como observables principales.
-    \item Derivar $R$, $T$, $A$, $f_0$ y $Q$ desde datos esperados.
-    \item Formular un procedimiento reproducible, aunque no ejecutado.
-    \item Proponer incertidumbres y discutir aplicaciones tecnológicas.
+    \item Proponer y diseñar un experimento conceptual de caracterización electromagnética.
+    \item Definir \(S_{11}\) y \(S_{21}\) como observables principales.
+    \item Calcular \(R\), \(T\), \(A\), \(f_0\), \(\Delta f\) y \(Q\).
+    \item Plantear incertidumbres, errores y procedimiento reproducible en principio.
+    \item Discutir aplicaciones tecnológicas sin afirmar ejecución material.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Fundamento: parámetros $S$, $R$, $T$ y $A$}
+\begin{frame}{Fundamento: parámetros \(S\), \(R\), \(T\) y \(A\)}
   \Large
-  \begin{align*}
-    S_{11}(f)&=\text{coeficiente complejo de reflexión},\\
-    S_{21}(f)&=\text{coeficiente complejo de transmisión}.
-  \end{align*}
-
-  \vfill
   \[
-    R(f)=|S_{11}|^2,
+    S_{ij}(f)=|S_{ij}(f)|e^{i\phi_{ij}(f)}
+  \]
+  \[
+    R=|S_{11}|^2,
     \qquad
-    T(f)=|S_{21}|^2,
+    T=|S_{21}|^2,
     \qquad
-    A(f)=1-R(f)-T(f).
+    A=1-R-T.
   \]
 
   \vfill
   \normalsize
-  El balance energético permite estimar absorción cuando difracción, pérdidas laterales y reflexiones del entorno están controladas.
+  \(A=1-R-T\) representa absorción solo si reflexión, transmisión y scattering lateral quedan controlados o incorporados a incertidumbre.
 \end{frame}
 
-\begin{frame}{Impedancia efectiva y condición de absorción}
+\begin{frame}{Impedancia efectiva y absorción robusta}
   \Large
-  Para incidencia normal, la reflexión se minimiza cuando
   \[
-    Z_\mathrm{eff}\approx Z_0\approx\SI{377}{\ohm}.
+    \Gamma=\frac{Z_{\mathrm{eff}}-Z_0}{Z_{\mathrm{eff}}+Z_0},
+    \qquad
+    Z_{\mathrm{eff}}\approx Z_0.
   \]
 
   \vfill
-  Con pérdidas internas, la energía no reflejada ni transmitida se disipa:
+  Con plano metálico posterior:
   \[
-    A\ \text{máxima}\quad \Longleftrightarrow \quad R\ \text{baja},\ T\ \text{baja}.
+    S_{21}\approx0,
+    \qquad
+    A\simeq1-|S_{11}|^2.
   \]
 
   \vfill
   \begin{center}
-    Adaptación de impedancia + pérdidas controladas = absorción resonante.
+    Adaptación de impedancia + pérdidas internas = absorción resonante esperada.
   \end{center}
 \end{frame}
 
 \begin{frame}{Resonancia LC y modelo dispersivo}
-  \Large
-  Las celdas de la metasuperficie se modelarían como resonadores sublongitud de onda:
+  \large
+  Celdas sublongitud de onda: \(p\ll\lambda\).
   \[
     f_0=\frac{1}{2\pi\sqrt{LC}},
     \qquad
@@ -133,37 +133,46 @@
   \]
 
   \vfill
-  \begin{itemize}
-    \item La geometría aporta $L$ y $C$ efectivos.
-    \item Las pérdidas conductivas y dieléctricas limitan $Q$.
-    \item La reconfiguración modificaría $C$, $f_0$ o la profundidad de absorción.
-  \end{itemize}
+  \scriptsize
+  \[
+    \varepsilon_{\mathrm{eff}}(\omega)=\varepsilon_\infty+
+    \frac{F\omega_0^2}{\omega_0^2-\omega^2-i\gamma\omega}.
+  \]
+
+  \normalsize
+  Dispersión, fase y pérdidas cambiarían cerca de \(\omega_0\); la reconfiguración desplazaría \(f_0\) o modificaría \(Q\).
 \end{frame}
 
 \begin{frame}{Montaje propuesto}
   \begin{columns}[T]
-    \begin{column}{0.45\textwidth}
-      \Large
+    \begin{column}{0.38\textwidth}
+      \large
       \begin{itemize}
         \item VNA de dos puertos.
-        \item Dos antenas de microondas.
+        \item Antenas Tx/Rx.
         \item Metasuperficie PCB.
-        \item Absorbentes y control de alineación.
+        \item Absorbentes alrededor.
+        \item Plano metálico opcional.
       \end{itemize}
     \end{column}
-    \begin{column}{0.53\textwidth}
+    \begin{column}{0.60\textwidth}
       \centering
-      \begin{tikzpicture}[>=Stealth,scale=0.75]
-        \node[draw,rounded corners,minimum width=1.6cm,minimum height=0.8cm] (vna) at (0,0) {VNA};
-        \node[draw,minimum width=1.0cm,minimum height=0.8cm,right=1.1cm of vna] (tx) {Ant. 1};
-        \node[draw,minimum width=0.2cm,minimum height=2.1cm,right=1.35cm of tx,fill=blue!12] (ms) {};
-        \node[above=0.05cm of ms] {MS};
-        \node[draw,minimum width=1.0cm,minimum height=0.8cm,right=1.35cm of ms] (rx) {Ant. 2};
-        \draw[->,thick] (vna.east) -- (tx.west);
-        \draw[->,thick] (tx.east) -- node[above] {incidente} (ms.west);
-        \draw[->,thick] (ms.east) -- node[above] {$S_{21}$} (rx.west);
-        \draw[<-,thick,red!70!black] (tx.east) -- ++(0.5,-0.7) node[right] {$S_{11}$};
-        \draw[->,thick] (vna.south) .. controls (2.5,-1.5) and (4.9,-1.5) .. (rx.south);
+      \begin{tikzpicture}[>=Stealth,scale=0.68]
+        \node[draw,rounded corners,minimum width=1.5cm,minimum height=0.7cm] (vna) at (3.3,-1.7) {VNA};
+        \node[draw,minimum width=0.9cm,minimum height=0.7cm] (tx) at (0,0) {Tx};
+        \node[draw,minimum width=0.18cm,minimum height=2.0cm,fill=blue!12] (ms) at (3.0,0) {};
+        \node[above=0.04cm of ms] {metasuperficie};
+        \node[draw,dashed,minimum width=0.12cm,minimum height=2.0cm,fill=gray!20] (back) at (3.35,0) {};
+        \node[above=0.04cm of back,text width=1.6cm,align=center] {plano opcional};
+        \node[draw,minimum width=0.9cm,minimum height=0.7cm] (rx) at (6.0,0) {Rx};
+        \node[draw,pattern=north east lines,pattern color=orange!70!black,minimum width=6.9cm,minimum height=0.25cm] at (3.0,1.45) {absorbentes};
+        \node[draw,pattern=north east lines,pattern color=orange!70!black,minimum width=6.9cm,minimum height=0.25cm] at (3.0,-1.0) {absorbentes};
+        \draw[->,thick] (vna.west) .. controls (1.2,-1.8) and (0,-1.0) .. (tx.south);
+        \draw[->,thick] (vna.east) .. controls (5.0,-1.8) and (6,-1.0) .. (rx.south);
+        \draw[->,very thick] (tx.east) -- node[above] {incidente} (ms.west);
+        \draw[->,very thick] (ms.east) -- node[above] {\(S_{21}\)} (rx.west);
+        \draw[->,very thick,red!70!black] (ms.west) -- ++(-1.0,-0.55) node[left] {\(S_{11}\)};
+        \draw[<->] (tx.north east) -- node[above] {\(d\)} (ms.north west);
       \end{tikzpicture}
     \end{column}
   \end{columns}
@@ -171,16 +180,17 @@
 
 \begin{frame}{Datos esperados, incertidumbres y errores}
   \Large
-  Datos esperados:
+  \textbf{datos esperados, no datos medidos:}
   \[
-    S_{11}(f),\ S_{21}(f),\ R(f),\ T(f),\ A(f),\ f_0,\ Q.
+    S_{11}(f),\ S_{21}(f),\ R(f),\ T(f),\ A(f),\ f_0,\ \Delta f,\ Q.
   \]
 
   \vfill
   \begin{itemize}
-    \item Gráficas previstas: módulos, fases, absorción y corrimiento de resonancia.
-    \item Incertidumbres: calibración del VNA, cables, alineación, polarización y distancia.
-    \item Errores sistemáticos: reflexiones múltiples, difracción de bordes y entorno no anecoico.
+    \item \(|S_{11}|\) mínimo cerca de adaptación de impedancia.
+    \item \(|S_{21}|\) reducido cerca de resonancia.
+    \item Pico esperado en \(A(f)\), con cuidado por scattering lateral.
+    \item Errores: calibración, acoplamiento directo, bordes, polarización y distancia.
   \end{itemize}
 \end{frame}
 
@@ -189,14 +199,15 @@
   Seguridad propuesta:
   \begin{itemize}
     \item baja potencia de microondas;
+    \item cuidado con antenas activas;
     \item conectores RF sin señal aplicada al manipular;
-    \item límites de sesgo para elementos reconfigurables;
-    \item registro de geometría, potencia y frecuencia.
+    \item límites de sesgo DC y calentamiento de componentes;
+    \item cuidado de soldadura y cámara anecoica si aplica.
   \end{itemize}
 
   \vfill
   \begin{block}{Conclusión conceptual}
-    La propuesta muestra cómo condiciones de frontera, impedancia, resonancia, pérdidas y scattering se convierten en magnitudes medibles: $S_{11}$, $S_{21}$, $R$, $T$, $A$, $f_0$ y $Q$.
+    La propuesta permitiría conectar impedancia, resonancia, pérdidas y scattering con \(S_{11}\), \(S_{21}\), \(R\), \(T\), \(A\), \(f_0\) y \(Q\).
   \end{block}
 \end{frame}
 
