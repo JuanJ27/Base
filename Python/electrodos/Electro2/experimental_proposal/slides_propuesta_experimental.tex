@@ -5,14 +5,24 @@
 \usepackage[T1]{fontenc}
 \usepackage{amsmath}
 \usepackage{siunitx}
-\usepackage{tikz}
-\usetikzlibrary{arrows.meta,babel,positioning,patterns}
+\usepackage{booktabs}
+\usepackage{graphicx}
 
 \usetheme{Madrid}
 \usecolortheme{seahorse}
 \setbeamertemplate{navigation symbols}{}
 \setbeamertemplate{footline}[frame number]
 \sisetup{per-mode=symbol,detect-all}
+
+\definecolor{deepblue}{RGB}{22,62,128}
+\definecolor{softgreen}{RGB}{27,135,92}
+\definecolor{warmorange}{RGB}{217,116,43}
+\setbeamercolor{title}{fg=deepblue}
+\setbeamercolor{frametitle}{fg=deepblue}
+\setbeamercolor{block title}{fg=white,bg=deepblue}
+\setbeamercolor{block body}{fg=black,bg=blue!4}
+
+\newcommand{\rubrica}[2]{\vspace{0.1cm}{\scriptsize\textcolor{deepblue}{Rúbrica #1 · #2}}}
 
 \title{Metasuperficie electromagnética reconfigurable}
 \subtitle{Caracterización conceptual en microondas mediante parámetros \(S\)}
@@ -21,194 +31,311 @@
 
 \begin{document}
 
-\begin{frame}
-  \titlepage
-  \vspace{-0.45cm}
-  \begin{block}{Tema}
-    Caracterización de reflexión, transmisión y absorción resonante mediante \(S_{11}\) y \(S_{21}\).
-  \end{block}
-\end{frame}
-
-\begin{frame}{Alcance de la propuesta}
-  \Large
-  Esta es una \textbf{propuesta experimental conceptual}.
+\begin{frame}{1. Título técnico y pregunta experimental}
+  \centering
+  {\Large\bfseries Caracterización de una metasuperficie electromagnética reconfigurable}\\[0.25cm]
+  {\large Microondas · parámetros \(S\) · reflexión · transmisión · absorción resonante}
 
   \vfill
-  \begin{block}{Alcance crítico}
+  \begin{block}{Pregunta}
     \centering
-    \textbf{NO se ejecutará durante el curso.}
+    ¿Cómo cambiarían \(S_{11}\), \(S_{21}\) y \(A(f)\) al variar la condición resonante?
   \end{block}
-
-  \vfill
-  \begin{itemize}
-    \item No se reportan datos medidos.
-    \item Se propone montaje, teoría, procedimiento y análisis.
-    \item Los resultados presentados serían datos esperados.
-  \end{itemize}
+  \rubrica{1}{Título del experimento}
 \end{frame}
 
-\begin{frame}{Motivación y aplicaciones}
-  \Large
-  Una metasuperficie delgada puede controlar amplitud, fase, polarización, dirección o absorción de ondas.
+\begin{frame}{2. Alcance: propuesta conceptual}
+  \centering
+  {\Huge\textbf{Propuesta conceptual}}\\[0.35cm]
+  {\Large no destinada a ser ejecutada durante el curso}
 
   \vfill
   \begin{columns}[T]
-    \begin{column}{0.5\textwidth}
+    \begin{column}{0.32\textwidth}
+      \centering\Large Se propone
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering\Large Se esperaría
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering\Large Datos esperados
+    \end{column}
+  \end{columns}
+  \rubrica{7}{Resultados esperados, no datos reales}
+\end{frame}
+
+\begin{frame}{3. Motivación: control artificial de ondas EM}
+  \centering
+  {\Huge Onda incidente \(\rightarrow\) superficie diseñada \(\rightarrow\) respuesta controlada}
+
+  \vfill
+  \begin{columns}[T]
+    \begin{column}{0.32\textwidth}
+      \centering\Large amplitud
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering\Large fase
+    \end{column}
+    \begin{column}{0.32\textwidth}
+      \centering\Large absorción
+    \end{column}
+  \end{columns}
+  \rubrica{3}{Fundamento teórico}
+\end{frame}
+
+\begin{frame}{4. Utilidad y aplicaciones tecnológicas}
+  \Large
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
       \begin{itemize}
-        \item absorbentes electromagnéticos;
-        \item blindaje y compatibilidad electromagnética;
-        \item telecomunicaciones y superficies inteligentes;
-        \item control de haz.
+        \item Absorbentes y cámaras anecoicas
+        \item Blindaje y compatibilidad EM
+        \item Telecomunicaciones
+        \item Superficies inteligentes
       \end{itemize}
     \end{column}
     \begin{column}{0.48\textwidth}
       \begin{itemize}
-        \item sensores por corrimiento de resonancia;
-        \item radar;
-        \item dispositivos THz;
-        \item control de polarización.
+        \item Sensores resonantes
+        \item Radar
+        \item THz
+        \item Control de polarización
       \end{itemize}
     \end{column}
   \end{columns}
+  \vfill
+  \centering\Large Magnitudes verificables: \(S_{11}\), \(S_{21}\), \(R\), \(T\), \(A\), \(f_0\), \(Q\)
+  \rubrica{10}{Discusión de resultados}
 \end{frame}
 
-\begin{frame}{Objetivos}
+\begin{frame}{5. Objetivo general}
+  \centering
+  \begin{block}{Objetivo}
+    \Large
+    Proponer un experimento conceptual para caracterizar una metasuperficie reconfigurable en microondas mediante parámetros \(S\).
+  \end{block}
+
+  \vfill
+  {\Huge\(S_{11},\ S_{21}\ \Longrightarrow\ R,\ T,\ A,\ f_0,\ \Delta f,\ Q\)}
+  \rubrica{2}{Objetivos generales y específicos}
+\end{frame}
+
+\begin{frame}{6. Objetivos específicos}
+  \Large
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item Definir observables complejos
+        \item Proponer montaje VNA-antenas
+        \item Calcular balance de potencia
+      \end{itemize}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \begin{itemize}
+        \item Extraer \(f_0\), \(\Delta f\), \(Q\)
+        \item Ajustar modelo resonante
+        \item Evaluar errores y seguridad
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \rubrica{2}{15\% de la evaluación}
+\end{frame}
+
+\begin{frame}{7. Fundamento I: parámetros \(S\) y magnitudes medibles}
+  \centering
+  {\Huge\(S_{ij}(f)=|S_{ij}(f)|e^{i\phi_{ij}(f)}\)}
+
+  \vfill
+  \begin{columns}[T]
+    \begin{column}{0.45\textwidth}
+      \centering\Large \(S_{11}\): reflexión
+    \end{column}
+    \begin{column}{0.45\textwidth}
+      \centering\Large \(S_{21}\): transmisión
+    \end{column}
+  \end{columns}
+  \rubrica{3}{Fundamento teórico detallado}
+\end{frame}
+
+\begin{frame}{8. Fundamento II: reflexión, transmisión y absorción}
+  \centering
+  {\Huge\(R=|S_{11}|^2\)}\\[0.25cm]
+  {\Huge\(T=|S_{21}|^2\)}\\[0.25cm]
+  {\Huge\(A=1-R-T\)}
+
+  \vfill
+  \begin{block}{Advertencia}
+    \centering
+    Solo representa absorción si el scattering lateral y la potencia relevante están controlados.
+  \end{block}
+  \rubrica{3}{Balance de potencia}
+\end{frame}
+
+\begin{frame}{9. Fundamento III: impedancia efectiva}
+  \centering
+  {\Large Impedancia del vacío}\\[0.1cm]
+  {\Huge\(Z_0=\sqrt{\mu_0/\varepsilon_0}\approx\SI{377}{\ohm}\)}
+
+  \vfill
+  {\Huge\(\Gamma=\dfrac{Z_{\mathrm{eff}}-Z_0}{Z_{\mathrm{eff}}+Z_0}\)}
+
+  \vfill
+  {\Large Absorción esperada: \(Z_{\mathrm{eff}}\approx Z_0\) + pérdidas internas}
+  \rubrica{3}{Condición física de absorción}
+\end{frame}
+
+\begin{frame}{10. Fundamento IV: modelo LC y resonancia}
+  \centering
+  {\Huge\(p\ll\lambda\)}\\[0.35cm]
+  {\Huge\(f_0=\dfrac{1}{2\pi\sqrt{LC}}\)}\\[0.35cm]
+  {\Huge\(Q=\dfrac{f_0}{\Delta f}\)}
+
+  \vfill
+  {\Large Varactores o diodos modificarían \(C\), pérdidas o estado conductor.}
+  \rubrica{3}{Resonancia sublongitud de onda}
+\end{frame}
+
+\begin{frame}{11. Fundamento V: Lorentz y supuestos}
+  \centering
+  {\Large\(
+  \varepsilon_{\mathrm{eff}}(\omega)=\varepsilon_\infty+
+  \dfrac{F\omega_0^2}{\omega_0^2-\omega^2-i\gamma\omega}
+  \)}
+
+  \vfill
+  \begin{columns}[T]
+    \begin{column}{0.48\textwidth}
+      \centering\Large \(d_{\mathrm{FF}}\ge 2D^2/\lambda\)
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering\Large Régimen lineal y calibración válida
+    \end{column}
+  \end{columns}
+  \rubrica{3}{30\% de la evaluación}
+\end{frame}
+
+\begin{frame}{12. Materiales, equipos y adquisición}
+  \small
+  \begin{tabular}{p{0.30\textwidth}p{0.28\textwidth}p{0.28\textwidth}}
+    \toprule
+    Medición & Muestra/control & Entorno/análisis \\
+    \midrule
+    VNA 8--12 GHz & PCB metasuperficie & Absorbentes RF \\
+    Antenas de bocina & FR4/Rogers & Cámara o caja absorbente \\
+    Cables + conectores & Varactores/PIN & Python \\
+    Kit calibración & Fuente DC & Simulación EM \\
+    \bottomrule
+  \end{tabular}
+
+  \vfill
+  \centering\Large Costos por rango: bajo, medio, alto, muy alto; a confirmar con laboratorio/proveedor.
+  \rubrica{4}{Materiales, equipos y adquisición}
+\end{frame}
+
+\begin{frame}{13. Montaje experimental propuesto}
+  \centering
+  \includegraphics[width=0.92\textwidth,height=0.66\textheight,keepaspectratio]{figures/montaje_metasuperficie.png}
+
+  \vfill
+  \large \(S_{11}\): reflexión hacia TX \qquad \(S_{21}\): transmisión hacia RX
+  \rubrica{5}{Descripción del montaje}
+\end{frame}
+
+\begin{frame}{14. Procedimiento experimental numerado}
+  \Large
+  \begin{enumerate}
+    \item Calibrar VNA y plano de referencia.
+    \item Alinear antenas, muestra y polarización.
+    \item Registrar referencia y configuración.
+    \item Barrer \(S_{11}(f)\), \(S_{21}(f)\).
+    \item Repetir por \(V_{bias}\) y estimar incertidumbres.
+  \end{enumerate}
+  \rubrica{6}{Procedimiento experimental}
+\end{frame}
+
+\begin{frame}{15. Toma de datos: tabla y unidades}
+  \scriptsize
+  \begin{tabular}{cccccc}
+    \toprule
+    Columna & Unidad & Uso & Columna & Unidad & Uso \\
+    \midrule
+    \(f\) & GHz & eje espectral & \(\phi_{11}\) & rad/deg & fase \\
+    \(|S_{11}|\) & lineal/dB & \(R\) & \(\phi_{21}\) & rad/deg & fase \\
+    \(|S_{21}|\) & lineal/dB & \(T\) & \(V_{bias}\) & V & reconfiguración \\
+    \(A\) & adim. & absorción & \(\sigma_A\) & adim. & incertidumbre \\
+    \bottomrule
+  \end{tabular}
+
+  \vfill
+  \centering\Large Datos esperados: formato, unidades, configuración y repetición.
+  \rubrica{7}{Toma de datos y resultados}
+\end{frame}
+
+\begin{frame}{16. Resultados esperados: \(|S_{11}|\), \(|S_{21}|\) y \(A(f)\)}
+  \centering
+  \includegraphics[width=0.88\textwidth,height=0.72\textheight,keepaspectratio]{figures/expected_sparameters_absorption.png}
+
+  \vfill
+  \Large Datos sintéticos esperados, no mediciones reales.
+  \rubrica{7}{Resultados esperados}
+\end{frame}
+
+\begin{frame}{17. Reconfiguración: \(f_0\) vs \(V_{bias}\)}
+  \centering
+  \includegraphics[width=0.78\textwidth,height=0.70\textheight,keepaspectratio]{figures/resonance_shift_bias.png}
+
+  \vfill
+  \Large Cambiar \(C(V)\) desplazaría la resonancia.
+  \rubrica{8}{Análisis de datos}
+\end{frame}
+
+\begin{frame}{18. Análisis: ajuste y residuales}
+  \begin{columns}[T]
+    \begin{column}{0.50\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.62\textheight,keepaspectratio]{figures/theory_vs_expected_experiment.png}
+    \end{column}
+    \begin{column}{0.48\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.62\textheight,keepaspectratio]{figures/residuals_expected_fit.png}
+    \end{column}
+  \end{columns}
+
+  \vfill
+  \centering\Large \(\mathrm{residual}_i=A_i^{obs}-A_i^{fit}\), \quad \(\chi^2_{red}\)
+  \rubrica{8}{Comparación esperada teoría vs experimento}
+\end{frame}
+
+\begin{frame}{19. Errores, incertidumbres y seguridad}
+  \begin{columns}[T]
+    \begin{column}{0.54\textwidth}
+      \centering
+      \includegraphics[width=\textwidth,height=0.62\textheight,keepaspectratio]{figures/error_budget.png}
+    \end{column}
+    \begin{column}{0.42\textwidth}
+      \large
+      \begin{itemize}
+        \item calibración, alineación, repetibilidad;
+        \item scattering lateral y resolución;
+        \item baja potencia, RF/DC y conectores seguros.
+      \end{itemize}
+    \end{column}
+  \end{columns}
+  \rubrica{9 y 12}{Errores y seguridad}
+\end{frame}
+
+\begin{frame}{20. Discusión, conclusiones y bibliografía mínima}
   \Large
   \begin{itemize}
-    \item Proponer y diseñar un experimento conceptual de caracterización electromagnética.
-    \item Definir \(S_{11}\) y \(S_{21}\) como observables principales.
-    \item Calcular \(R\), \(T\), \(A\), \(f_0\), \(\Delta f\) y \(Q\).
-    \item Plantear incertidumbres, errores y procedimiento reproducible en principio.
-    \item Discutir aplicaciones tecnológicas sin afirmar ejecución material.
+    \item Pico de \(A\): adaptación \(Z_{\mathrm{eff}}\approx Z_0\) + pérdidas.
+    \item \(A<1\): reflexión, transmisión, bordes o pérdidas insuficientes.
+    \item \(f_0\) desplazado: tolerancias, sustrato o reconfiguración.
   \end{itemize}
-\end{frame}
-
-\begin{frame}{Fundamento: parámetros \(S\), \(R\), \(T\) y \(A\)}
-  \Large
-  \[
-    S_{ij}(f)=|S_{ij}(f)|e^{i\phi_{ij}(f)}
-  \]
-  \[
-    R=|S_{11}|^2,
-    \qquad
-    T=|S_{21}|^2,
-    \qquad
-    A=1-R-T.
-  \]
-
-  \vfill
-  \normalsize
-  \(A=1-R-T\) representa absorción solo si reflexión, transmisión y scattering lateral quedan controlados o incorporados a incertidumbre.
-\end{frame}
-
-\begin{frame}{Impedancia efectiva y absorción robusta}
-  \Large
-  \[
-    \Gamma=\frac{Z_{\mathrm{eff}}-Z_0}{Z_{\mathrm{eff}}+Z_0},
-    \qquad
-    Z_{\mathrm{eff}}\approx Z_0.
-  \]
-
-  \vfill
-  Con plano metálico posterior:
-  \[
-    S_{21}\approx0,
-    \qquad
-    A\simeq1-|S_{11}|^2.
-  \]
-
-  \vfill
-  \begin{center}
-    Adaptación de impedancia + pérdidas internas = absorción resonante esperada.
-  \end{center}
-\end{frame}
-
-\begin{frame}{Resonancia LC y modelo dispersivo}
-  \large
-  Celdas sublongitud de onda: \(p\ll\lambda\).
-  \[
-    f_0=\frac{1}{2\pi\sqrt{LC}},
-    \qquad
-    Q=\frac{f_0}{\Delta f}.
-  \]
 
   \vfill
   \scriptsize
-  \[
-    \varepsilon_{\mathrm{eff}}(\omega)=\varepsilon_\infty+
-    \frac{F\omega_0^2}{\omega_0^2-\omega^2-i\gamma\omega}.
-  \]
-
-  \normalsize
-  Dispersión, fase y pérdidas cambiarían cerca de \(\omega_0\); la reconfiguración desplazaría \(f_0\) o modificaría \(Q\).
-\end{frame}
-
-\begin{frame}{Montaje propuesto}
-  \begin{columns}[T]
-    \begin{column}{0.38\textwidth}
-      \large
-      \begin{itemize}
-        \item VNA de dos puertos.
-        \item Antenas Tx/Rx.
-        \item Metasuperficie PCB.
-        \item Absorbentes alrededor.
-        \item Plano metálico opcional.
-      \end{itemize}
-    \end{column}
-    \begin{column}{0.60\textwidth}
-      \centering
-      \begin{tikzpicture}[>=Stealth,scale=0.68]
-        \node[draw,rounded corners,minimum width=1.5cm,minimum height=0.7cm] (vna) at (3.3,-1.7) {VNA};
-        \node[draw,minimum width=0.9cm,minimum height=0.7cm] (tx) at (0,0) {Tx};
-        \node[draw,minimum width=0.18cm,minimum height=2.0cm,fill=blue!12] (ms) at (3.0,0) {};
-        \node[above=0.04cm of ms] {metasuperficie};
-        \node[draw,dashed,minimum width=0.12cm,minimum height=2.0cm,fill=gray!20] (back) at (3.35,0) {};
-        \node[above=0.04cm of back,text width=1.6cm,align=center] {plano opcional};
-        \node[draw,minimum width=0.9cm,minimum height=0.7cm] (rx) at (6.0,0) {Rx};
-        \node[draw,pattern=north east lines,pattern color=orange!70!black,minimum width=6.9cm,minimum height=0.25cm] at (3.0,1.45) {absorbentes};
-        \node[draw,pattern=north east lines,pattern color=orange!70!black,minimum width=6.9cm,minimum height=0.25cm] at (3.0,-1.0) {absorbentes};
-        \draw[->,thick] (vna.west) .. controls (1.2,-1.8) and (0,-1.0) .. (tx.south);
-        \draw[->,thick] (vna.east) .. controls (5.0,-1.8) and (6,-1.0) .. (rx.south);
-        \draw[->,very thick] (tx.east) -- node[above] {incidente} (ms.west);
-        \draw[->,very thick] (ms.east) -- node[above] {\(S_{21}\)} (rx.west);
-        \draw[->,very thick,red!70!black] (ms.west) -- ++(-1.0,-0.55) node[left] {\(S_{11}\)};
-        \draw[<->] (tx.north east) -- node[above] {\(d\)} (ms.north west);
-      \end{tikzpicture}
-    \end{column}
-  \end{columns}
-\end{frame}
-
-\begin{frame}{Datos esperados, incertidumbres y errores}
-  \Large
-  \textbf{datos esperados, no datos medidos:}
-  \[
-    S_{11}(f),\ S_{21}(f),\ R(f),\ T(f),\ A(f),\ f_0,\ \Delta f,\ Q.
-  \]
-
-  \vfill
-  \begin{itemize}
-    \item \(|S_{11}|\) mínimo cerca de adaptación de impedancia.
-    \item \(|S_{21}|\) reducido cerca de resonancia.
-    \item Pico esperado en \(A(f)\), con cuidado por scattering lateral.
-    \item Errores: calibración, acoplamiento directo, bordes, polarización y distancia.
-  \end{itemize}
-\end{frame}
-
-\begin{frame}{Seguridad y conclusiones}
-  \Large
-  Seguridad propuesta:
-  \begin{itemize}
-    \item baja potencia de microondas;
-    \item cuidado con antenas activas;
-    \item conectores RF sin señal aplicada al manipular;
-    \item límites de sesgo DC y calentamiento de componentes;
-    \item cuidado de soldadura y cámara anecoica si aplica.
-  \end{itemize}
-
-  \vfill
-  \begin{block}{Conclusión conceptual}
-    La propuesta permitiría conectar impedancia, resonancia, pérdidas y scattering con \(S_{11}\), \(S_{21}\), \(R\), \(T\), \(A\), \(f_0\) y \(Q\).
-  \end{block}
+  Pozar, \emph{Microwave Engineering}; Balanis, \emph{Antenna Theory}; Holloway et al., IEEE AP Magazine; Landy et al., PRL; Watts et al., Advanced Materials.
+  \rubrica{10, 11 y 13}{Discusión, conclusiones y bibliografía}
 \end{frame}
 
 \end{document}
