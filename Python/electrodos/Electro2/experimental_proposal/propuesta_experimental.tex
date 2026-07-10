@@ -42,7 +42,7 @@ El documento no reporta una ejecución material ni presenta mediciones reales. S
 
 \textbf{Caracterización de una metasuperficie electromagnética reconfigurable en microondas mediante parámetros \(S\): control de reflexión, transmisión y absorción resonante.}
 
-La pregunta experimental propuesta es: ¿cómo cambiarían la reflexión, la transmisión y la absorción de una onda de microondas al iluminar una metasuperficie reconfigurable y variar su condición resonante? La propuesta no busca demostrar una respuesta ya observada, sino definir cómo se mediría \(S_{11}\), cómo se mediría \(S_{21}\), qué datos esperados deberían registrarse y cómo se interpretaría una comparación esperada teoría vs experimento.
+La pregunta experimental propuesta es: ¿cómo cambiarían la reflexión, la transmisión y la absorción de una onda de microondas al iluminar una metasuperficie reconfigurable y variar su condición resonante? La propuesta no presupone una respuesta ya observada, sino que define cómo se mediría \(S_{11}\), cómo se mediría \(S_{21}\), qué datos esperados deberían registrarse y cómo se interpretaría una comparación esperada teoría vs datos esperados.
 
 \section{Objetivos generales y específicos}
 
@@ -72,7 +72,7 @@ En una región suficientemente alejada de la antena transmisora, la onda inciden
   Z_0=\sqrt{\frac{\mu_0}{\varepsilon_0}}\approx \SI{377}{\ohm}.
   \label{eq:z0}
 \end{equation}
-Esta magnitud es central porque una superficie que presente una impedancia efectiva muy distinta de \(Z_0\) reflejaría una fracción importante de la potencia incidente. En cambio, si la superficie se adapta a \(Z_0\) y posee pérdidas internas, la energía podría ingresar a la estructura y disiparse en forma de calor, generando absorción resonante esperada \citep{schwinger1998classical,jackson1999classical,griffiths2017introduction}.
+Esta magnitud es central porque una superficie que presente una impedancia efectiva muy distinta de \(Z_0\) reflejaría una fracción importante de la potencia incidente. En cambio, si la superficie se adapta a \(Z_0\) y posee pérdidas internas, la energía podría ingresar a la estructura y disiparse en forma de calor, generando absorción resonante esperada. El mismo marco teórico ordena propagación, reflexión, transmisión, modos guiados, scattering y medios dispersivos en el lenguaje de electrodinámica clásica del curso \citep{milton2024classical,jackson1999classical,griffiths2017introduction}.
 
 \subsection{Metasuperficie sublongitud de onda}
 
@@ -81,9 +81,9 @@ Una metasuperficie electromagnética puede modelarse como un arreglo bidimension
   p \ll \lambda.
   \label{eq:subwavelength}
 \end{equation}
-En ese régimen, la onda no resolvería cada elemento como un dispersor aislado; la respuesta macroscópica se describiría mediante susceptibilidades, impedancia o parámetros efectivos. Esta hipótesis permite conectar geometría de celda, corrientes superficiales, polarización inducida y ondas reflejadas/transmitidas \citep{engheta2006metamaterials,holloway2012overview,zheludev2012metamaterials}.
+En ese régimen, la onda no resolvería cada elemento como un dispersor aislado; la respuesta macroscópica se describiría mediante susceptibilidades, impedancia o parámetros efectivos. Esta hipótesis permite conectar geometría de celda, corrientes superficiales, polarización inducida y ondas reflejadas/transmitidas, tratando la metasuperficie como un arreglo plano de dispersores sublongitud de onda capaz de modificar amplitud, fase y polarización \citep{holloway2012overview,yu2014flat}.
 
-La reconfiguración se obtendría al modificar la capacitancia, la conductividad efectiva o el estado de cada celda mediante varactores, diodos PIN, MEMS o materiales sintonizables. En la propuesta se privilegiaría una metasuperficie PCB con elementos capacitivos, porque permite explicar la resonancia mediante electrodinámica clásica y circuitos equivalentes.
+Una función importante de estas superficies es imponer discontinuidades o gradientes de fase para controlar reflexión y refracción de manera diseñada \citep{yu2011phase,kildishev2013planar}. La reconfiguración se obtendría al modificar la capacitancia, la conductividad efectiva o el estado de cada celda mediante varactores, diodos PIN, MEMS o materiales sintonizables \citep{cui2014coding,zheludev2012metamaterials}. En la propuesta se privilegiaría una metasuperficie PCB con elementos capacitivos, porque permite explicar la resonancia mediante electrodinámica clásica y circuitos equivalentes.
 
 \subsection{Parámetros \texorpdfstring{\(S\)}{S} como observables complejos}
 
@@ -101,7 +101,7 @@ Si la calibración del VNA es válida y los puertos comparten la misma impedanci
   A &= 1-R-T.
   \label{eq:rta}
 \end{align}
-La ecuación \eqref{eq:rta} es una herramienta de balance de potencia, no una garantía automática de absorción material. \textbf{El valor \(A=1-R-T\) solo representa absorción si el scattering lateral está controlado y la medición captura la potencia relevante}. Si existen difracción de borde, lóbulos fuera de eje, acoplamiento directo entre antenas, reflexiones del entorno o transmisión por caminos alternativos, el \(A\) calculado podría incluir pérdidas no absorbidas por la metasuperficie.
+La ecuación \eqref{eq:rta} es una herramienta de balance de potencia, no una garantía automática de absorción material. \textbf{El valor \(A=1-R-T\) solo representa absorción si el scattering lateral está controlado y la medición captura la potencia relevante}. Si existen difracción de borde, lóbulos fuera de eje, acoplamiento directo entre antenas, reflexiones del entorno o transmisión por caminos alternativos, el \(A\) calculado podría incluir pérdidas no absorbidas por la metasuperficie. Esta lectura es la habitual en absorbentes de microondas caracterizados mediante parámetros \(S\), siempre declarando sus condiciones de validez \citep{landy2008perfect,watts2012metamaterial}.
 
 \subsection{Caso con plano metálico posterior}
 
@@ -126,7 +126,7 @@ La absorción resonante esperada requiere dos condiciones simultáneas. Primero,
   Z_{\mathrm{eff}}\approx Z_0.
   \label{eq:impedance_match}
 \end{equation}
-Segundo, pérdidas internas suficientes: pérdidas óhmicas en metal, pérdidas dieléctricas del sustrato o disipación en elementos reconfigurables. Si \(Z_{\mathrm{eff}}\approx Z_0\) pero no hay pérdidas, la energía tendería a transmitirse. Si hay pérdidas pero \(Z_{\mathrm{eff}}\not\approx Z_0\), la onda se reflejaría antes de entrar eficientemente en la estructura.
+Segundo, pérdidas internas suficientes: pérdidas óhmicas en metal, pérdidas dieléctricas del sustrato o disipación en elementos reconfigurables. Si \(Z_{\mathrm{eff}}\approx Z_0\) pero no hay pérdidas, la energía tendería a transmitirse. Si hay pérdidas pero \(Z_{\mathrm{eff}}\not\approx Z_0\), la onda se reflejaría antes de entrar eficientemente en la estructura. La relación entre impedancia, reflexión, transmisión y conservación de energía en interfaces efectivas se apoya en el tratamiento estándar de fronteras electromagnéticas \citep{milton2024classical,jackson1999classical}.
 
 \subsection{Modelo resonante \texorpdfstring{\(LC\)}{LC} y factor de calidad}
 
@@ -140,7 +140,7 @@ El ancho de banda resonante \(\Delta f\) permite definir el factor de calidad:
   Q=\frac{f_0}{\Delta f}.
   \label{eq:q_factor}
 \end{equation}
-Si la capacitancia efectiva aumentara, \(f_0\) se desplazaría hacia frecuencias menores; si disminuyera, \(f_0\) subiría. Si las pérdidas aumentaran, \(Q\) disminuiría y la resonancia se ensancharía. Por eso una metasuperficie reconfigurable puede estudiarse mediante curvas \(f_0(V_{bias})\), \(A(f,V_{bias})\) y \(Q(V_{bias})\).
+Si la capacitancia efectiva aumentara, \(f_0\) se desplazaría hacia frecuencias menores; si disminuyera, \(f_0\) subiría. Si las pérdidas aumentaran, \(Q\) disminuiría y la resonancia se ensancharía. Por eso una metasuperficie reconfigurable puede estudiarse mediante curvas \(f_0(V_{bias})\), \(A(f,V_{bias})\) y \(Q(V_{bias})\), conectando el modelo de celda resonante con el tratamiento efectivo de metamateriales y metasuperficies \citep{engheta2006metamaterials,holloway2012overview}.
 
 \subsection{Modelo dispersivo tipo Lorentz}
 
@@ -150,7 +150,7 @@ Una descripción macroscópica complementaria es el modelo dispersivo tipo Loren
   \frac{F\omega_0^2}{\omega_0^2-\omega^2-i\gamma\omega}.
   \label{eq:lorentz}
 \end{equation}
-Aquí \(\omega_0\) representa la frecuencia angular resonante, \(F\) la intensidad del oscilador y \(\gamma\) el amortiguamiento. La parte real de \(\varepsilon_{\mathrm{eff}}\) gobierna dispersión y fase; la parte imaginaria representa pérdidas. Cerca de \(\omega_0\), el modelo esperaría cambios rápidos en fase, reducción de transmisión y un máximo de absorción si la impedancia efectiva se aproxima a \(Z_0\) \citep{smith2004metamaterials,yu2014flat}.
+Aquí \(\omega_0\) representa la frecuencia angular resonante, \(F\) la intensidad del oscilador y \(\gamma\) el amortiguamiento. La parte real de \(\varepsilon_{\mathrm{eff}}\) gobierna dispersión y fase; la parte imaginaria representa pérdidas. Cerca de \(\omega_0\), el modelo esperaría cambios rápidos en fase, reducción de transmisión y un máximo de absorción si la impedancia efectiva se aproxima a \(Z_0\) \citep{milton2024classical,jackson1999classical}.
 
 \subsection{Campo lejano y geometría de medición}
 
@@ -159,7 +159,7 @@ Para que la onda incidente sea aproximadamente plana en la muestra, la distancia
   d_{\mathrm{FF}}\geq \frac{2D^2}{\lambda},
   \label{eq:farfield}
 \end{equation}
-donde \(D\) es la dimensión característica de la antena o apertura relevante \citep{balanis2016antenna,keysight2017dielectric}. Si el espacio disponible no permitiera satisfacer \eqref{eq:farfield}, el análisis debería declarar una limitación por campo cercano y tratarla como error sistemático o como corrección geométrica.
+donde \(D\) es la dimensión característica de la antena o apertura relevante \citep{balanis2016antenna,pozar2011microwave}. Si el espacio disponible no permitiera satisfacer \eqref{eq:farfield}, el análisis debería declarar una limitación por campo cercano y tratarla como error sistemático o como corrección geométrica.
 
 \subsection{Supuestos del modelo}
 
@@ -172,7 +172,7 @@ El diseño conceptual se sostiene sobre supuestos que deberían verificarse ante
   \item acoplamiento lateral, difracción de borde y reflexiones parásitas controladas;
   \item respuesta efectiva aproximadamente homogénea en la zona iluminada.
 \end{itemize}
-Estos supuestos delimitan cuándo los parámetros \(S\) podrían interpretarse como respuesta efectiva de la metasuperficie y no como artefactos del banco de medición.
+Estos supuestos delimitan cuándo los parámetros \(S\) podrían interpretarse como respuesta efectiva de la metasuperficie y no como artefactos del banco de medición. La extracción de parámetros efectivos desde coeficientes de reflexión y transmisión debe tratarse como interpretación condicionada por geometría, homogeneización y calibración, no como propiedad intrínseca automática \citep{smith2002retrieval,holloway2012overview}.
 
 \section{Materiales, equipos y adquisición}
 
@@ -255,11 +255,11 @@ No se reportan datos de laboratorio. La toma de datos se presenta como formato e
   \end{tabular}}
 \end{table}
 
-\subsection*{Resultados esperados con datos sintéticos}
+\subsection*{Resultados con datos esperados sintéticos}
 
-Las gráficas son datos sintéticos esperados, usados para ilustrar el método de análisis; no corresponden a mediciones reales.
+Las gráficas son datos esperados sintéticos, usados para ilustrar el método de análisis; no corresponden a mediciones reales.
 
-La Figura~\ref{fig:sparams_absorption} muestra el comportamiento esperado: cerca de \(f_0\) aparecería un mínimo de \(|S_{11}|\), una reducción de \(|S_{21}|\) y un máximo de \(A(f)\). La Figura~\ref{fig:shift_bias} ilustra cómo una capacitancia reconfigurable desplazaría la resonancia con \(V_{bias}\). Las Figuras~\ref{fig:theory_expected} y \ref{fig:residuals} muestran cómo se haría la comparación esperada teoría vs experimento usando datos simulados y residuales.
+La Figura~\ref{fig:sparams_absorption} muestra el comportamiento esperado: cerca de \(f_0\) aparecería un mínimo de \(|S_{11}|\), una reducción de \(|S_{21}|\) y un máximo de \(A(f)\). La Figura~\ref{fig:shift_bias} ilustra cómo una capacitancia reconfigurable desplazaría la resonancia con \(V_{bias}\). Las Figuras~\ref{fig:theory_expected} y \ref{fig:residuals} muestran cómo se haría la comparación esperada teoría vs datos esperados usando datos esperados sintéticos y residuales.
 
 \begin{figure}[htbp]
   \centering
@@ -278,14 +278,14 @@ La Figura~\ref{fig:sparams_absorption} muestra el comportamiento esperado: cerca
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.86\textwidth]{figures/theory_vs_expected_experiment.png}
-  \caption{Comparación esperada teoría vs experimento: curva de ajuste resonante y datos esperados simulados con barras de incertidumbre.}
+  \caption{Comparación esperada teoría vs datos esperados: curva de ajuste resonante y datos esperados sintéticos con barras de incertidumbre.}
   \label{fig:theory_expected}
 \end{figure}
 
 \begin{figure}[htbp]
   \centering
   \includegraphics[width=0.86\textwidth]{figures/residuals_expected_fit.png}
-  \caption{Residuales esperados entre datos sintéticos y ajuste resonante.}
+  \caption{Residuales esperados entre datos esperados sintéticos y ajuste resonante.}
   \label{fig:residuals}
 \end{figure}
 
@@ -305,7 +305,7 @@ Un ajuste no lineal razonable para la absorción esperada es
 \end{equation}
 Los residuales y el estadístico reducido se definirían como
 \begin{align}
-  \mathrm{residual}_i &= A_i^{\mathrm{obs}}-A_i^{\mathrm{fit}}, \\
+  \mathrm{residual}_i &= A_i^{\mathrm{esp}}-A_i^{\mathrm{fit}}, \\
   \chi^2_{\mathrm{red}} &= \frac{1}{N-p}\sum_i\left(\frac{\mathrm{residual}_i}{\sigma_i}\right)^2,
 \end{align}
 donde \(N\) es el número de puntos, \(p\) el número de parámetros ajustados y \(\sigma_i\) la incertidumbre asignada a cada valor de absorción.
@@ -370,7 +370,7 @@ Una estimación conservadora combinaría contribuciones independientes en cuadra
 \end{figure}
 
 \subsection*{Comparación con teoría}
-La comparación esperada teoría vs experimento se evaluaría con residuales, \(\chi^2_{\mathrm{red}}\), consistencia de \(f_0\), ancho \(\Delta f\), profundidad de absorción y fase de \(S_{11}\) o \(S_{21}\). Un patrón estructurado en los residuales indicaría física faltante o error sistemático; residuales compatibles con cero dentro de \(\sigma_i\) apoyarían la suficiencia del modelo.
+La comparación esperada teoría vs datos esperados se evaluaría con residuales, \(\chi^2_{\mathrm{red}}\), consistencia de \(f_0\), ancho \(\Delta f\), profundidad de absorción y fase de \(S_{11}\) o \(S_{21}\). Un patrón estructurado en los residuales indicaría física faltante o error sistemático; residuales compatibles con cero dentro de \(\sigma_i\) apoyarían la suficiencia del modelo.
 
 \section{Discusión de resultados}
 
@@ -382,7 +382,7 @@ Si \(S_{21}\) no fuera despreciable cerca de resonancia, la metasuperficie estar
 
 La propuesta sería útil con recursos moderados para observar tendencias cualitativas y practicar análisis de parámetros \(S\). Con recursos avanzados, una cámara anecoica, antenas calibradas, posicionadores y simulación de onda completa permitirían separar mejor absorción real, scattering lateral, efectos angulares y errores sistemáticos.
 
-Las aplicaciones tecnológicas incluyen absorbentes electromagnéticos ajustables, cámaras anecoicas, blindaje y compatibilidad electromagnética, telecomunicaciones, superficies inteligentes reconfigurables, sensores por desplazamiento de resonancia, radar, dispositivos de terahercios y control de polarización. En todos los casos, el valor de la propuesta es conectar aplicaciones modernas con magnitudes verificables: \(S_{11}\), \(S_{21}\), \(R\), \(T\), \(A\), \(f_0\), \(\Delta f\), \(Q\) e impedancia efectiva.
+Las aplicaciones tecnológicas incluyen absorbentes electromagnéticos ajustables, cámaras anecoicas, blindaje y compatibilidad electromagnética, telecomunicaciones, superficies inteligentes reconfigurables, sensores por desplazamiento de resonancia, radar, dispositivos de terahercios y control de polarización \citep{yu2014flat,watts2012metamaterial,cui2014coding}. En todos los casos, el valor de la propuesta es conectar aplicaciones modernas con magnitudes verificables: \(S_{11}\), \(S_{21}\), \(R\), \(T\), \(A\), \(f_0\), \(\Delta f\), \(Q\) e impedancia efectiva.
 
 \section{Conclusiones}
 
@@ -402,7 +402,7 @@ En cámara anecoica o caja con absorbentes se seguirían protocolos instituciona
 
 \section{Bibliografía}
 
-Las referencias seleccionadas cubren electrodinámica clásica, microondas, antenas, metamateriales, metasuperficies, absorbentes y mediciones de materiales mediante VNA.
+La bibliografía se organizó en cuatro grupos: textos base de electrodinámica clásica, teoría de microondas y antenas, fundamentos de metamateriales/metasuperficies, y trabajos experimentales sobre absorbentes y caracterización mediante parámetros \(S\).
 
 \begingroup
 \renewcommand{\section}[2]{}

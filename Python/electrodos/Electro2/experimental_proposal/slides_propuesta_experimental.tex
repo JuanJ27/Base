@@ -23,6 +23,7 @@
 \setbeamercolor{block body}{fg=black,bg=blue!4}
 
 \newcommand{\rubrica}[2]{\vspace{0.1cm}{\scriptsize\textcolor{deepblue}{Rúbrica #1 · #2}}}
+\newcommand{\fuente}[1]{\vfill{\tiny\textcolor{gray}{Fuente: #1}}}
 
 \title{Metasuperficie electromagnética reconfigurable}
 \subtitle{Caracterización conceptual en microondas mediante parámetros \(S\)}
@@ -80,6 +81,7 @@
       \centering\Large absorción
     \end{column}
   \end{columns}
+  \fuente{Yu \& Capasso, Nature Materials 2014; Holloway et al., IEEE APM 2012}
   \rubrica{3}{Fundamento teórico}
 \end{frame}
 
@@ -105,6 +107,7 @@
   \end{columns}
   \vfill
   \centering\Large Magnitudes verificables: \(S_{11}\), \(S_{21}\), \(R\), \(T\), \(A\), \(f_0\), \(Q\)
+  \fuente{Watts et al., Advanced Materials 2012; Cui et al., Light Sci. Appl. 2014}
   \rubrica{10}{Discusión de resultados}
 \end{frame}
 
@@ -154,6 +157,7 @@
       \centering\Large \(S_{21}\): transmisión
     \end{column}
   \end{columns}
+  \fuente{Pozar, Microwave Engineering; Landy et al., PRL 2008}
   \rubrica{3}{Fundamento teórico detallado}
 \end{frame}
 
@@ -168,6 +172,7 @@
     \centering
     Solo representa absorción si el scattering lateral y la potencia relevante están controlados.
   \end{block}
+  \fuente{Landy et al., PRL 2008; Watts et al., Advanced Materials 2012}
   \rubrica{3}{Balance de potencia}
 \end{frame}
 
@@ -181,6 +186,7 @@
 
   \vfill
   {\Large Absorción esperada: \(Z_{\mathrm{eff}}\approx Z_0\) + pérdidas internas}
+  \fuente{Milton \& Schwinger, Classical Electrodynamics; Landy et al., PRL 2008}
   \rubrica{3}{Condición física de absorción}
 \end{frame}
 
@@ -192,6 +198,7 @@
 
   \vfill
   {\Large Varactores o diodos modificarían \(C\), pérdidas o estado conductor.}
+  \fuente{Engheta \& Ziolkowski, Metamaterials; Holloway et al., IEEE APM 2012}
   \rubrica{3}{Resonancia sublongitud de onda}
 \end{frame}
 
@@ -211,6 +218,7 @@
       \centering\Large Régimen lineal y calibración válida
     \end{column}
   \end{columns}
+  \fuente{Milton \& Schwinger, Classical Electrodynamics; Jackson, Classical Electrodynamics}
   \rubrica{3}{30\% de la evaluación}
 \end{frame}
 
@@ -238,6 +246,7 @@
 
   \vfill
   \large \(S_{11}\): reflexión hacia TX \qquad \(S_{21}\): transmisión hacia RX
+  \fuente{Landy et al., PRL 2008: medición 8--12 GHz con VNA y antenas horn}
   \rubrica{5}{Descripción del montaje}
 \end{frame}
 
@@ -276,7 +285,7 @@
   \includegraphics[width=0.88\textwidth,height=0.72\textheight,keepaspectratio]{figures/expected_sparameters_absorption.png}
 
   \vfill
-  \Large Datos sintéticos esperados, no mediciones reales.
+  \Large Datos esperados sintéticos, no mediciones reales.
   \rubrica{7}{Resultados esperados}
 \end{frame}
 
@@ -302,8 +311,9 @@
   \end{columns}
 
   \vfill
-  \centering\Large \(\mathrm{residual}_i=A_i^{obs}-A_i^{fit}\), \quad \(\chi^2_{red}\)
-  \rubrica{8}{Comparación esperada teoría vs experimento}
+  \centering\Large \(\mathrm{residual}_i=A_i^{esp}-A_i^{fit}\), \quad \(\chi^2_{red}\)
+  \fuente{Smith et al., PRB 2002; Pozar, Microwave Engineering}
+  \rubrica{8}{Comparación esperada teoría vs datos esperados}
 \end{frame}
 
 \begin{frame}{19. Errores, incertidumbres y seguridad}
@@ -325,17 +335,23 @@
 \end{frame}
 
 \begin{frame}{20. Discusión, conclusiones y bibliografía mínima}
-  \Large
-  \begin{itemize}
-    \item Pico de \(A\): adaptación \(Z_{\mathrm{eff}}\approx Z_0\) + pérdidas.
-    \item \(A<1\): reflexión, transmisión, bordes o pérdidas insuficientes.
-    \item \(f_0\) desplazado: tolerancias, sustrato o reconfiguración.
-  \end{itemize}
+\small
+\begin{block}{Conclusión}
+La propuesta conecta electrodinámica clásica, microondas y materiales artificiales mediante observables medibles: \(S_{11}\), \(S_{21}\), \(A(f)\), \(f_0\) y \(Q\).
+\end{block}
 
-  \vfill
-  \scriptsize
-  Pozar, \emph{Microwave Engineering}; Balanis, \emph{Antenna Theory}; Holloway et al., IEEE AP Magazine; Landy et al., PRL; Watts et al., Advanced Materials.
-  \rubrica{10, 11 y 13}{Discusión, conclusiones y bibliografía}
+\vspace{0.2cm}
+{\scriptsize
+\textbf{Bibliografía mínima:}
+\begin{itemize}
+  \item Milton \& Schwinger, \textit{Classical Electrodynamics}, 2nd ed.
+  \item Pozar, \textit{Microwave Engineering}.
+  \item Holloway et al., IEEE Antennas Propag. Mag. 54, 10--35 (2012).
+  \item Landy et al., Phys. Rev. Lett. 100, 207402 (2008).
+  \item Yu \& Capasso, Nature Materials 13, 139--150 (2014).
+  \item Watts et al., Advanced Materials 24, OP98--OP120 (2012).
+\end{itemize}
+}
 \end{frame}
 
 \end{document}
